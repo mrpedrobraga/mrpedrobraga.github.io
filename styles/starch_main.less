@@ -10,8 +10,8 @@
 @color_bg_highlight: #7773;
 @color_fg: #333333;
 @color_shadow: #77777733;
-@color_primary: #ff6f7f;
-@color_secondary: #76bbff;
+@color_primary: #ff6f80;
+@color_secondary: #60b6ff;
 
 .dark {
 	background-color: #000;
@@ -25,12 +25,20 @@
 a {
 	color: @color_primary;
 	font-weight: bold;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 a:hover {
 	color: @color_secondary;
-	text-decoration: underline;
+	text-decoration: none;
+}
+
+a::before {
+	content: "[";
+}
+
+a::after {
+	content: "]";
 }
 
 .quote {
@@ -52,7 +60,11 @@ body {
 	color: @color_fg;
 	font-family: @font_main;
 
-	font-size: 1.5vw;
+	font-size: 1.5em;
+
+	@media only screen and (max-width: 1000px) {
+		font-size: 3.0em;
+	}
 }
 
 .vertical-center {
@@ -86,11 +98,12 @@ body {
 .post {
 	display: block;
 	padding-top: 100px; padding-bottom: 100px;
+	overflow-wrap: break-word;
 
 	.content {
 		margin: auto;
 		display: block;
-		max-width: 1000px;
+		max-width: 1200px;
 
 		.flex {
 			display: flex;
@@ -102,12 +115,22 @@ body {
 			flex-direction: row-reverse;
 		}
 
-		@media only screen and (max-width: 900px) {
+		@media only screen and (max-width: 1000px) {
 			.responsive {
 				flex-direction: column;
 				display: flex;
 				gap: 64px;
 				padding-left: 50px; padding-right: 50px;
+
+				h1 {
+					text-align: center;
+				}
+				h2 {
+					text-align: center;
+				}
+				h3 {
+					text-align: center;
+				}
 			}
 		}
 	}
@@ -143,8 +166,13 @@ iframe.special {
 	.shadow();
 	display: block;
 	margin:auto;
-	max-width: 480px;
-	max-height: 270px;
+	width: 30vw;
+	height: 20vw;
+
+	@media only screen and (max-width: 1000px) {
+		width: 90vw;
+		height: 60vw;
+	}
 }
 
 .circle {
