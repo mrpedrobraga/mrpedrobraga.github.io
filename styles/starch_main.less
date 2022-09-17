@@ -1,0 +1,185 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap');
+@font_code: 'Cascadia Code', sans-serif;
+@font_main: 'Poppins';
+
+// Colors
+
+@color_bg: #fafafa;
+@color_bg_highlight: #7773;
+@color_fg: #333333;
+@color_shadow: #77777733;
+@color_primary: #ff6f7f;
+@color_secondary: #76bbff;
+
+.dark {
+	background-color: #000;
+	color: #fdfdfd;
+}
+
+.shadow {
+	box-shadow: 4px 4px 100px -6px @color_shadow;
+}
+
+a {
+	color: @color_primary;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	color: @color_secondary;
+	text-decoration: underline;
+}
+
+.quote {
+	background-color: @color_bg_highlight;
+	padding: 20px;
+}
+
+// Basic Spacing Components
+
+html {
+	box-sizing: border-box;
+  }
+  *, *:before, *:after {
+	box-sizing: inherit;
+  }
+
+body {
+	background-color: @color_bg;
+	color: @color_fg;
+	font-family: @font_main;
+
+	font-size: 1.5vw;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  translate: -50%;
+}
+
+.horizontal-center {
+	margin: 0;
+	position: absolute;
+	left: 50%;
+	translate: -50%;
+  }
+
+
+.header {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+
+	.content {
+		position: absolute;
+		top: 40%; left: 50%;
+		translate: -50% -40%;
+	}
+}
+
+.post {
+	display: block;
+	padding-top: 100px; padding-bottom: 100px;
+
+	.content {
+		margin: auto;
+		display: block;
+		max-width: 1000px;
+
+		.flex {
+			display: flex;
+			gap: 64px;
+			padding-left: 50px; padding-right: 50px;
+		}
+
+		.reverse {
+			flex-direction: row-reverse;
+		}
+
+		@media only screen and (max-width: 900px) {
+			.responsive {
+				flex-direction: column;
+				display: flex;
+				gap: 64px;
+				padding-left: 50px; padding-right: 50px;
+			}
+		}
+	}
+}
+
+.skinny {
+	padding-top: 32px; padding-bottom: 32px;
+}
+
+.footer {
+	display: block;
+}
+
+.text-center {
+	text-align: center;
+}
+
+// Site-building classes
+
+pre {
+	display: block;
+	font-family: @font_code;
+}
+
+iframe {
+	border: none;
+	outline: none;
+	border: none;
+}
+
+iframe.special {
+	border-radius: 20px;
+	.shadow();
+	display: block;
+	margin:auto;
+	max-width: 480px;
+	max-height: 270px;
+}
+
+.circle {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 10px 10px 200px -6px @color_shadow;
+	outline: red 1px solid;
+}
+
+.navlist {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 32px;
+}
+
+// Extra Normalizations
+
+h1 {
+	margin: 0px;
+}
+
+h2 {
+	margin: 0px;
+}
+
+h3 {
+	margin: 0px;
+}
+
+ul {
+	text-decoration: none;
+	list-style-type: none;
+}
