@@ -193,6 +193,32 @@ iframe.special {
 	gap: 32px;
 }
 
+.gallery {
+	display: flexbox;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: center;
+	font-size: 0;
+}
+
+.gallery-item {
+	display: inline-block;
+	flex: 1 1 fit-content;
+	width: fit-content;
+	height: fit-content;
+
+	img {
+		height: 15vw;
+		width: auto;
+		margin: auto;
+		user-select: none;
+	}
+}
+
+.gallery-item:hover {
+	z-index: 9 !important;
+}
+
 // Extra Normalizations
 
 h1 {
