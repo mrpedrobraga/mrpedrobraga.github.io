@@ -10,8 +10,8 @@
 @color_bg_highlight: #7773;
 @color_fg: #333333;
 @color_shadow: #77777733;
-@color_primary: #ff6f80;
-@color_secondary: #60b6ff;
+@color_primary: #eb4e60;
+@color_secondary: #48aeed;
 
 .dark {
 	background-color: #000;
@@ -19,26 +19,39 @@
 }
 
 .shadow {
-	box-shadow: 4px 4px 100px -6px @color_shadow;
+	box-shadow: 0px 0px 100px @color_shadow;
 }
 
 a {
-	color: @color_primary;
+	color: @color_bg;
+	background-color: @color_primary;
+	outline-color: @color_primary;
+	outline-style: solid;
+	outline-width: 1px;
 	font-weight: bold;
 	text-decoration: underline;
+	padding: 8px;
+
+	cursor: pointer;
 }
 
 a:hover {
+	background-color: @color_bg;
 	color: @color_secondary;
+	outline-color: @color_secondary;
 	text-decoration: none;
 }
 
-a::before {
-	content: "[";
+a.special {
+	color: @color_fg;
+	background-color: transparent;
+	padding: initial;
+	outline: initial;
+	text-decoration: none;
 }
 
-a::after {
-	content: "]";
+a.special:hover {
+	text-decoration: underline;
 }
 
 .quote {
@@ -50,10 +63,11 @@ a::after {
 
 html {
 	box-sizing: border-box;
-  }
-  *, *:before, *:after {
+	cursor: default;
+}
+*, *:before, *:after {
 	box-sizing: inherit;
-  }
+}
 
 body {
 	background-color: @color_bg;
@@ -186,8 +200,15 @@ iframe.special {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	box-shadow: 10px 10px 200px -6px @color_shadow;
-	outline: red 1px solid;
+	box-shadow: 0px 0px 25px #4446;
+	cursor: pointer;
+
+	transition-duration: 0.1s;
+	transition-timing-function: ease-in-out;
+}
+
+.circle:hover {
+	scale: 1.2;
 }
 
 .navlist {
