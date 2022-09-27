@@ -15,15 +15,15 @@
 		<meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
 
 		<!--CSS Normalization-->
-		<link rel="stylesheet" type="text/less" href="Astyles/normalize.css"/>
+		<link rel="stylesheet" type="text/less" href="./_styles/normalize.css"/>
 
 		<!--Styling-->
 		<link href="http://fonts.cdnfonts.com/css/cascadia-code" rel="stylesheet">
-		<link rel="stylesheet/less" type="text/css" href="Astyles/starch_main.less"/>
+		<link rel="stylesheet/less" type="text/css" href="./_styles/starch_main.less"/>
 	</head>
 	<body>
 		<!--Extension: LESS; for better styling!!!-->
-		<script src="Aextensions/less.js" ></script>
+		<script src="./extensions/less.js" ></script>
 
 		<div class="header">
 			<div class="content">
@@ -240,5 +240,66 @@
 			'floating-chat.donateButton.text-color': '@color_fg'
 		});
 		</script>
+
+		<style>
+			/* Cool bouncing arrow! */
+			.downArrow{
+				display:inline-block;
+				margin: auto;
+			}
+			.bounce {
+				-moz-animation: bounce 3s infinite;
+				-webkit-animation: bounce 3s infinite;
+				animation: bounce 3s infinite;
+			}
+			@-moz-keyframes bounce {
+			0%, 20%, 50%, 80%, 100% {
+				-moz-transform: translateY(0);
+				transform: translateY(0);
+			}
+			40% {
+				-moz-transform: translateY(-30px);
+				transform: translateY(-30px);
+			}
+			60% {
+				-moz-transform: translateY(-15px);
+				transform: translateY(-15px);
+			}
+			}
+			@-webkit-keyframes bounce {
+			0%, 20%, 50%, 80%, 100% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			40% {
+				-webkit-transform: translateY(-30px);
+				transform: translateY(-30px);
+			}
+			60% {
+				-webkit-transform: translateY(-15px);
+				transform: translateY(-15px);
+			}
+			}
+			@keyframes bounce {
+			0%, 20%, 50%, 80%, 100% {
+				-moz-transform: translateY(0);
+				-ms-transform: translateY(0);
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			40% {
+				-moz-transform: translateY(-30px);
+				-ms-transform: translateY(-30px);
+				-webkit-transform: translateY(-30px);
+				transform: translateY(-30px);
+			}
+			60% {
+				-moz-transform: translateY(-15px);
+				-ms-transform: translateY(-15px);
+				-webkit-transform: translateY(-15px);
+				transform: translateY(-15px);
+			}
+			}
+		</style>
 	</body>
 </html>
