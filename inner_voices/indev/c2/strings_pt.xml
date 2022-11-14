@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entries>
+	<strings>
+	   <string id="play">Jogar Temporada 0: Ep. X</string>
+	   <string id="list">Episodios e mais</string>
+	   <string id="languages">Idioma e Legendas</string>
+	   <string id="leave">Sair</string>
+	   
+	   <string id='synopsis'>A vida de Claire está ficando... complicada...</string>
+	   
+	</strings>
+	<dialogs>
+		<dialog id='moma'>
+			<speech character='' relative='yes' dx='+100' dy='-32' balloon='bottom' face='Amariss' expression='0'>Ethan.</speech>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom_right' face='Ethan' expression='11'>...oi...</speech>
+			<speech character='' relative='yes' dx='+64' dy='-32' balloon='bottom' face='Amariss' expression='0'>Não está esquecendo de algo?</speech>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom_right' face='Ethan' expression='11'>...</speech>
+			<speech character='' relative='yes' dx='+64' dy='-32' balloon='bottom' face='Amariss' expression='0'>Filho, filho...</speech>
+			<speech character='' relative='yes' dx='+64' dy='-32' balloon='bottom' face='Amariss' expression='0'>Eu já estou ficando sem paciência.</speech>
+			<speech character='' relative='yes' dx='+64' dy='-32' balloon='bottom' face='Amariss' expression='0'>Você tem que começar a cumprir suas obrigações.</speech>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom_right' face='Ethan' expression='11'>me desculpe...</speech>
+			<speech character='' relative='yes' dx='+64' dy='-32' balloon='bottom' face='Amariss' expression='0'>Pegue carne na geladeira... faça hambúrgueres.</speech>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom_right' face='Ethan' expression='11'>...certo...</speech>
+		</dialog>
+		<dialog id='momb'>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom' face='Ethan' expression='11'>(Parece que eu não vou poder sair tão cedo...)</speech>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom' face='Ethan' expression='11'>(...melhor fazer logo o que ela pediu...)</speech>
+		</dialog>
+		<dialog id='momc'>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom' face='Ethan' expression='11'>Mãe.</speech>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom' face='Ethan' expression='11'>Mããe.</speech>
+		</dialog>
+		<dialog id='momd'>
+		</dialog>
+		<dialog id='fridge'>
+			<speech character='' relative='yes' dx='+32' dy='-100' balloon='no_person' face='none' expression='0'>* Carnes de hamburguer estão congeladas</speech>
+			<speech character='' relative='yes' dx='+32' dy='-100' balloon='no_person' face='none' expression='0'>grudadas na parede do freezer.</speech>
+			<speech character='' relative='yes' dx='+32' dy='-100' balloon='no_person' face='none' expression='0'>* Mas, pelo visto não tem pães.</speech>
+			<speech character='' relative='yes' dx='+32' dy='-100' balloon='no_person' face='none' expression='0'>* Não dá pra fazer hamburguer sem pães....</speech>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom_right' face='Ethan' expression='11'>(Vou ter que falar com ela sobre isso...)</speech>
+		</dialog>
+		<dialog id='fridge2'>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom_right' face='Ethan' expression='11'>(Vou ter que sair pra comprar pão...)</speech>
+		</dialog>
+		<dialog id='ethanhousemisc'>
+			<speech character='' relative='yes' dx='+32' dy='-100' balloon='no_person' face='none' expression='0'>* É só uma planta.</speech>
+			<speech character='' relative='yes' dx='+32' dy='-100' balloon='no_person' face='none' expression='0'>* Seu único propósito é decorar cantos.</speech>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom' face='Ethan_naked' expression='7'>(Eu devia vestir algo antes de ir lá embaixo...)</speech>
+			<speech character='' relative='yes' dx='+32' dy='-150' balloon='no_person' face='none' expression='0'>* Está trancada.</speech>
+			<speech character='' relative='yes' dx='+32' dy='-150' balloon='no_person' face='none' expression='0'>* Ao invés de voltar a dormir, você deveria se vestir.</speech>
+			<speech character='' relative='yes' dx='+32' dy='-100' balloon='no_person' face='none' expression='0'>* Você já se vestiu, não dá pra dormir agora.</speech>
+			<speech character='' relative='yes' dx='+32' dy='-100' balloon='no_person' face='none' expression='0'>* É seu guarda-roupas.</speech>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom' face='Ethan_naked' expression='7'>...</speech>
+			<speech character='ethan' dx='0' dy='-64' balloon='bottom' face='Ethan_naked' expression='6'>(Acho que minhas roupas já estão no banheiro...)</speech>
+		</dialog>
+	</dialogs>
+</entries>

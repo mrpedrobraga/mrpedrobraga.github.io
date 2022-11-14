@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<stats>
+	<character id='claire'>
+		<stat id='MHP' value='10'/>
+		<stat id='AT' value='1'/>
+		<stat id='DF' value='1'/>
+		<stat id='QPT' value='6'/>
+		<stat id='HP' value='10'/>
+		<stat id='QP' value='10'/>
+		<stat id='SP' value='6'/>
+		<stat id='status_effects' value=''/>
+		<attacks content='hexagrams;bubble_wrap' icons='question;bubbles'/>
+		<spells content='bubble_wrap;memory_foam;memoria_clavem' icons='bubbles;bubbles;memocla'/>
+	</character>
+	<character id='eth0'>
+		<stat id='MHP' value='100'/>
+		<stat id='AT' value='1'/>
+		<stat id='DF' value='1'/>
+		<stat id='QPT' value='6'/>
+		<stat id='HP' value='10'/>
+		<stat id='QP' value='10'/>
+		<stat id='SP' value='6'/>
+		<stat id='status_effects' value=''/>
+	</character>
+	<character id='eth1'>
+		<stat id='MHP' value='100'/>
+		<stat id='AT' value='1'/>
+		<stat id='DF' value='1'/>
+		<stat id='QPT' value='6'/>
+		<stat id='HP' value='10'/>
+		<stat id='QP' value='10'/>
+		<stat id='SP' value='6'/>
+		<stat id='status_effects' value=''/>
+	</character>
+	<character id='fighter'>
+		<stat id='MHP' value='10'/>
+		<stat id='AT' value='1'/>
+		<stat id='DF' value='1'/>
+		<stat id='QPT' value='10'/>
+		<stat id='HP' value='10'/>
+		<stat id='QP' value='10'/>
+		<stat id='SP' value='10'/>
+		<stat id='status_effects' value=''/>
+		<attacks content='Bubble Wrap;Jumpscare' icons='question;action'/>
+	</character>
+	
+	<character id='chess1'>
+		<stat id='MHP' value='10'/>
+		<stat id='AT' value='1'/>
+		<stat id='DF' value='1'/>
+		<stat id='QPT' value='10'/>
+		<stat id='HP' value='10'/>
+		<stat id='QP' value='10'/>
+		<stat id='SP' value='10'/>
+		<stat id='status_effects' value=''/>
+	</character>
+	
+	<character id='chess2'>
+		<stat id='MHP' value='10'/>
+		<stat id='AT' value='1'/>
+		<stat id='DF' value='1'/>
+		<stat id='QPT' value='10'/>
+		<stat id='HP' value='10'/>
+		<stat id='QP' value='10'/>
+		<stat id='SP' value='10'/>
+		<stat id='status_effects' value=''/>
+	</character>
+	
+	<character id='chess3'>
+		<stat id='MHP' value='10'/>
+		<stat id='AT' value='1'/>
+		<stat id='DF' value='1'/>
+		<stat id='QPT' value='10'/>
+		<stat id='HP' value='10'/>
+		<stat id='QP' value='10'/>
+		<stat id='SP' value='10'/>
+		<stat id='status_effects' value=''/>
+	</character>
+	
+	<character id='goodboi'>
+		<stat id='MHP' value='5'/>
+		<stat id='AT' value='1'/>
+		<stat id='DF' value='1'/>
+		<stat id='QPT' value='10'/>
+		<stat id='HP' value='5'/>
+		<stat id='QP' value='10'/>
+		<stat id='SP' value='10'/>
+		<stat id='status_effects' value=''/>
+	</character>
+</stats>
