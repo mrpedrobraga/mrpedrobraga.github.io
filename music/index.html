@@ -20,12 +20,89 @@
     <!--Extension: LESS; for better styling!!!-->
     <script src="../_extensions/less.js" ></script>
 
+    <div class="bg back" onContextMenu="return false;"></div>
+
+    <div id="music_player" class="round">
+        <div class="cutc">
+            <div class="bg round" onContextMenu="return false;"></div>
+        </div>
+
+        <div class="container">
+            <div class="track_info">
+                <div class="track_info_text">
+                    <h2 id="album_name">
+                        <br>
+                        Album or Listing Title
+                    </h2>
+                    <h1 id="track_title">
+                        Song/Track Title
+                    </h1>
+                    <h3 id="track_author">
+                        Track Authors
+                    </h3>
+                </div>
+                <img
+                    id="track_image"
+                    src="media/cover-very-necessary-tension-img.png"
+                    alt=""
+                    onContextMenu="return false;"/>
+            </div>
+
+            <div class="track_controls">
+                <button id="media_play" onclick="audio_start()"></button>
+
+                <div class="track_progress_wrapper">
+                    <div class="track_bar">
+                        <div id="track_progress"></div>
+                        <div id="track_ball"></div>
+                    </div>
+                </div>
+
+                <div id="time">
+                    <span id="t_elapsed" class="elapsed">--:--</span>
+                    <span id="t_duration" class="song_duration"> / --:--</span>
+                </div>
+
+                <button id="media_order" onclick="audio_start()"></button>
+                <button id="media_volume" onclick="audio_start()"></button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        var audio = new Audio('mus/Ephemeral.mp3')
+
+String.prototype.toHHMMSS = function () {
+    var sec_num = parseInt(this, 10); // don't forget the second param
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return hours+':'+minutes+':'+seconds;
+}
+
+String.prototype.toMMSS = function () {
+    var sec_num = parseInt(this, 10); // don't forget the second param
+    var minutes = Math.floor((sec_num) / 60);
+    var seconds = sec_num - (minutes * 60);
+
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return minutes+':'+seconds;
+}
+
+        var audio = new Audio('mus/Samples Test.mp3')
+
+        var t_elapsed = document.getElementById("t_elapsed")
+        var t_duration = document.getElementById("t_duration")
 
         function audio_start() {
             audio.play()
             audio.loop = true
+
+            t_duration.innerHTML = " / " + audio.duration.toString().toMMSS()
         }
 
         var track = {
@@ -39,8 +116,12 @@
     </script>
 
     <style>
+        :root {
+            --media_bg:url('media/cover-very-necessary-tension-bg.png'); 
+        }
+
         #music_player {
-            background-image: url('media/cover-very-necessary-tension-bg.png');
+            background-image: var(--media_bg);
             background-position: center;
             background-size: cover;
 
@@ -64,7 +145,7 @@
         }
 
         .bg {
-            background-image: url('media/cover-harmony-hall-bg.png');
+            background-image: var(--media_bg);
             background-size: cover;
             image-rendering: optimizeQuality;
 
@@ -82,10 +163,12 @@
             -moz-user-select: none;
             -o-user-select: none;
             user-select: none;
+
+            filter: blur(20px);
         }
 
         .back {
-            filter: brightness(50%) grayscale(90%) blur(10px);
+            filter: brightness(50%) grayscale(50%) blur(10px);
         }
 
         .cutc {
@@ -102,7 +185,7 @@
             font-family: 'Courier New', Courier, monospace;
 
             display: flex;
-            column-gap: 10px;
+            column-gap: 15px;
             align-items: center;
             
             width: calc(100% - 200px);
@@ -115,11 +198,74 @@
             translate: -50% 0;
         }
 
+        .track_progress_wrapper {
+            width: 100%;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+        }
+
         .track_bar {
-            background-color: white;
-            
+            background-color: #ffffff33;
             width: 100%;
             height: 5px;
+            border-radius: 2.5px;
+            transition-duration: 32ms;
+        }
+
+        .track_progress_wrapper:hover .track_bar {
+            height: 20px;
+            border-radius: 10px;
+        }
+        .track_progress_wrapper:focus .track_bar {
+            height: 20px;
+            border-radius: 10px;
+        }
+
+        #track_progress {
+            background-color: white;
+            
+            width: 40%;
+            height: 100%;
+            border-radius: 2.5px;
+        }
+
+        .track_progress_wrapper:hover #track_progress {
+            border-radius: 10px;
+        }
+        .track_progress_wrapper:focus #track_progress {
+            border-radius: 10px;
+        }
+
+        #track_ball {
+            background-color: white;
+
+            width: 15px;
+            height: 15px;
+
+            border-radius: 50%;
+
+            position: relative;
+            left: 40%;
+            top:-50%;
+
+            translate: -50% -50%;
+
+            transition-duration: 32ms;
+        }
+
+        .track_progress_wrapper:hover #track_ball {
+            width: 40px;
+            height: 40px;
+
+            translate: -50% -50%;
+        }
+        .track_progress_wrapper:focus #track_ball {
+            width: 40px;
+            height: 40px;
+
+            translate: -50% -50%;
         }
 
         #time {
@@ -139,6 +285,8 @@
             left: 50%;
             top: 50%;
             translate: -50% -50%;
+
+            column-gap: 30px;
         }
 
         .track_info_text {
@@ -146,71 +294,66 @@
         }
 
         #album_name {
-            
             white-space: nowrap;
+            font-size: 2rem;
         }
 
         #track_title {
             white-space: nowrap;
+            font-size: 4rem;
         }
 
         #track_author {
             text-align: right;
             white-space: nowrap;
+            font-size: 1.5rem;
+        }
+
+        #track_image {
+            height: min(300px, 20vw);
+            image-rendering: pixelated;
+        }
+
+        button {
+            text-decoration: none;
+            outline: none;
+            border: none;
+            background: none;
+            width: 50px;
+            height: 50px;
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            filter: invert(100%);
+
+            transition-duration: 32ms;
+        }
+
+        button:hover {
+            scale: 1.2;
+        }
+
+        button#media_play {
+            background-image: url('icons/media_play.svg');
+        }
+
+        button#media_play:active {
+            background-image: url('icons/media_pause.svg');
+        }
+
+        button#media_order {
+            background-image: url('icons/media_shuffle.svg');
+        }
+
+        button#media_order:active {
+            background-image: url('icons/media_shuffle_on.svg');
+        }
+
+        button#media_volume {
+            background-image: url('icons/volume_full.svg');
         }
     </style>
-
-    <div class="bg back" onContextMenu="return false;"></div>
-
-    <div id="music_player" class="round">
-        <div class="cutc">
-            <div class="bg round" onContextMenu="return false;"></div>
-        </div>
-
-        <div class="container">
-            <div class="track_info">
-                <div class="track_info_text">
-                    <h2 id="album_name">
-                        Inner Voices: Fragmented
-                    </h2>
-                    <h1 id="track_title">
-                        Harmony Hall
-                    </h1>
-                    <h3 id="track_author">
-                        Pedro Braga
-                    </h3>
-                </div>
-                <img
-                    id="track_image"
-                    src="../gallery/img/gif_hat_shop.gif"
-                    alt=""
-                    onContextMenu="return false;"/>
-            </div>
-
-            <div class="track_controls">
-                <button id="play_pause" onclick="audio_start()">
-                    Play
-                </button>
-
-                <div class="track_bar">
-                    
-                </div>
-
-                <div id="time">
-                    <span class="elapsed">1:21</span>
-                    <span class="song_duration"> / 3:45</span>
-                </div>
-
-                <button id="play_pause" onclick="audio_start()">
-                    Shuffle
-                </button>
-
-                <button id="play_pause" onclick="audio_start()">
-                    Loop
-                </button>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>
