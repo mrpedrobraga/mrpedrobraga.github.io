@@ -17,19 +17,200 @@
 	<link rel="stylesheet/less" type="text/css" href="../_styles/starch_main.less"/>
 </head>
 <body class="dark">
-	<!--Extension: LESS; for better styling!!!-->
-	<script src="../_extensions/less.js" ></script>
+    <!--Extension: LESS; for better styling!!!-->
+    <script src="../_extensions/less.js" ></script>
 
-	<div class="post">
-		<div class="content text-center">
-			<h1>Discography</h1><br>
-			<p>Make sure you have your headphones ready.</p>
-			<br><br>
-		</div>
-	</div>
+    <script>
+        var audio = new Audio('mus/Ephemeral.mp3')
 
-	<div class="content text-center">
-		<iframe class="include" src="./mediaplayer.html" frameborder="0"></iframe>
-	</div>
+        function audio_start() {
+            audio.play()
+            audio.loop = true
+        }
+
+        var track = {
+            "album": "Inner Voices: Fragmented",
+            "author": "Pedro Braga",
+            "name": "Lapsed Doll",
+            "file": "mus_lapsed_doll_chiptune.mp3",
+            "img": "cover-very-necessary-tension.png",
+            "bg": "cover-very-necessary-tension-bg.png"
+        }
+    </script>
+
+    <style>
+        #music_player {
+            background-image: url('media/cover-very-necessary-tension-bg.png');
+            background-position: center;
+            background-size: cover;
+
+            position: fixed;
+            display: block;
+            width: calc(100% - 400px);
+            aspect-ratio: 21 / 9;
+
+            top:50%;
+            left:50%;
+
+            translate: -50% -50%;
+        }
+
+        .round {
+            border-radius: 100px;
+        }
+
+        #music_player .container {
+            padding: 100px;
+        }
+
+        .bg {
+            background-image: url('media/cover-harmony-hall-bg.png');
+            background-size: cover;
+            image-rendering: optimizeQuality;
+
+            position: fixed;
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            z-index: -1;
+            
+            user-select: none;
+
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+
+        .back {
+            filter: brightness(50%) grayscale(90%) blur(10px);
+        }
+
+        .cutc {
+            position: fixed;
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .track_controls {
+            font-family: 'Courier New', Courier, monospace;
+
+            display: flex;
+            column-gap: 10px;
+            align-items: center;
+            
+            width: calc(100% - 200px);
+            height: 40px;
+            
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+
+            translate: -50% 0;
+        }
+
+        .track_bar {
+            background-color: white;
+            
+            width: 100%;
+            height: 5px;
+        }
+
+        #time {
+            display: block;
+            white-space: nowrap;
+        }
+
+        #time .song_duration {
+            opacity: 60%;
+        }
+
+        .track_info {
+            text-align: right;
+            display: flex;
+
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            translate: -50% -50%;
+        }
+
+        .track_info_text {
+            text-align: right;
+        }
+
+        #album_name {
+            
+            white-space: nowrap;
+        }
+
+        #track_title {
+            white-space: nowrap;
+        }
+
+        #track_author {
+            text-align: right;
+            white-space: nowrap;
+        }
+    </style>
+
+    <div class="bg back" onContextMenu="return false;"></div>
+
+    <div id="music_player" class="round">
+        <div class="cutc">
+            <div class="bg round" onContextMenu="return false;"></div>
+        </div>
+
+        <div class="container">
+            <div class="track_info">
+                <div class="track_info_text">
+                    <h2 id="album_name">
+                        Inner Voices: Fragmented
+                    </h2>
+                    <h1 id="track_title">
+                        Harmony Hall
+                    </h1>
+                    <h3 id="track_author">
+                        Pedro Braga
+                    </h3>
+                </div>
+                <img
+                    id="track_image"
+                    src="../gallery/img/gif_hat_shop.gif"
+                    alt=""
+                    onContextMenu="return false;"/>
+            </div>
+
+            <div class="track_controls">
+                <button id="play_pause" onclick="audio_start()">
+                    Play
+                </button>
+
+                <div class="track_bar">
+                    
+                </div>
+
+                <div id="time">
+                    <span class="elapsed">1:21</span>
+                    <span class="song_duration"> / 3:45</span>
+                </div>
+
+                <button id="play_pause" onclick="audio_start()">
+                    Shuffle
+                </button>
+
+                <button id="play_pause" onclick="audio_start()">
+                    Loop
+                </button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

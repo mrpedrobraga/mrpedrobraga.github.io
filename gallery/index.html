@@ -26,21 +26,49 @@
 			<p>Some concept art I've done for different projects.</p>
 		</div>
 	</div>
-	<script>
-		function fill() {
-			var gcc = document.getElementById("gallery_container");
-
-			gcc.innerHTML = "";
-		}
-	</script>
-	<div class="gallery" id="gallery_container" onload="fill()">
-		<div class="gallery-item">
-			<img src="./img/invo_ollie_sunlight.png" alt=""/>
-		</div>
-		<div class="gallery-item">
-			<img src="./img/invo_trevor_world_concept_art.png" alt=""/>
-		</div>
-		
+	<div class="gallery" id="gallery_container">
 	</div>
+	<script>
+		var gc = document.getElementById("gallery_container")
+		document.galleryContainer = gc
+
+		var images = [
+			"invo_promo1.png",
+			"invo_everyone.png",
+			"invo_main_characters.png",
+			"invo_castle.png",
+			"invo_hank_world.png",
+			"invo_ollie_room.png",
+			"invo_ollie_sunlight.png",
+			"invo_twisted_school_0.png",
+			"invo_starfall_plaza.png",
+			"invo_starfall_buildings.png",
+			"invo_mystery_chat.png",
+			"invo_water_checkpoint.gif",
+			"invo_vs_magnum_opus_1.png",
+			"invo_hank_minecarts.jpg",
+			"invo_vs_lady_sucrose.png",
+			"invo_cold_forest.png",
+			"invo_lost_massie.png",
+			"invo_kandy_trade_offer.png",
+			"invo_trevor_world_concept_art.png",
+		]
+
+		function fill() {
+			images.forEach(element => {
+				var new_item = document.createElement("div")
+				new_item.classList.add("gallery-item")
+
+				var img = document.createElement("img")
+				img.src = "./img/" + element
+				
+				new_item.appendChild(img)
+
+				gc.appendChild(new_item)
+			})
+		}
+
+		fill()
+	</script>
 </body>
 </html>
