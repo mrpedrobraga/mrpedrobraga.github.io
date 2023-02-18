@@ -233,16 +233,19 @@ iframe.include {
 }
 
 .gallery-item {
-	display: inline-block;
-	flex: 1 1 fit-content;
-	width: fit-content;
-	height: fit-content;
+	// display: inline-block;
+	// flex: 1 1 fit-content;
+	// width: fit-content;
+	// height: fit-content;
+	display: block;
+	width: 100%;
 
 	img {
-		height: 15vw;
-		width: auto;
-		margin: auto;
+		width: 100%;
+		height: auto;
+		// margin: auto;
 		user-select: none;
+		image-rendering: pixelated;
 	}
 }
 
