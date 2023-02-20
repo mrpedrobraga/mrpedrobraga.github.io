@@ -54,6 +54,47 @@ a.special:hover {
 	text-decoration: underline;
 }
 
+a.contact-icon {
+	display: flex;
+	align-items: center;
+	row-gap: 10px;
+	background-color: @color_bg;
+	width: 64px; height: 64px;
+	outline: none;
+	border: none;
+	border-radius: 50%;
+	z-index: 5;
+
+	img {
+		position: relative;
+		width: 70%; height: 70%;
+		translate: 25%;
+	}
+
+	margin-top: 16px;
+	transition-duration: 250ms;
+}
+
+a.contact-icon:hover {
+	scale: 1.25;
+
+	&.twitter {
+		background-color: #00ACEE;
+	}
+
+	&.e-mail {
+		background-color: #ff2f4b;
+	}
+
+	&.return:hover {
+		background-color: #222;
+	}
+
+	img {
+		filter: invert(100%);
+	}
+}
+
 .quote {
 	background-color: @color_bg_highlight;
 	padding: 20px;
@@ -74,10 +115,10 @@ body {
 	color: @color_fg;
 	font-family: @font_main;
 
-	font-size: 1.5em;
+	font-size: 1.3em;
 
 	@media only screen and (max-width: 1000px) {
-		font-size: 2.5vmin;
+		font-size: 2.0vmax;
 	}
 
 	::-webkit-scrollbar-track {
@@ -106,10 +147,43 @@ body {
 	height: 100vh;
 	text-align: center;
 
+	color: white;
+
 	.content {
 		position: absolute;
 		top: 40%; left: 50%;
 		translate: -50% -40%;
+
+		h1 {
+			font-size: 4vmax;
+		}
+	}
+
+	.header_footer {
+		position: absolute;
+		float: right;
+		bottom: 0;
+		right: 0;
+		margin: 30px;
+	}
+
+	#header_bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: block;
+		background-image: url('../gallery/img/invo_ollie_room.png');
+		image-rendering: pixelated;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center;
+		filter: brightness(80%);
+		z-index: -1;
+	}
+
+	.profile {
+		width: 150px;
+		border-radius: 10%;
 	}
 }
 
@@ -122,6 +196,8 @@ body {
 		margin: auto;
 		display: block;
 		max-width: 1200px;
+
+		padding-left: 4rem; padding-right: 4rem;
 
 		.flex {
 			display: flex;
@@ -189,11 +265,10 @@ iframe.special {
 	display: block;
 	margin:auto;
 	width: 30vw;
-	height: 20vw;
+	aspect-ratio: 16/9;
 
 	@media only screen and (max-width: 1000px) {
-		width: 90vw;
-		height: 60vw;
+		width: 100%;
 	}
 }
 
@@ -244,6 +319,9 @@ iframe.include {
 	// height: fit-content;
 	display: block;
 	width: 100%;
+	clip-path: inset(0);
+	width: 100%;
+	height: 100%;
 
 	img {
 		width: 100%;

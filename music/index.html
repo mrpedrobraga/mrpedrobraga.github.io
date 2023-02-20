@@ -22,6 +22,10 @@
 
     <div class="bg back" onContextMenu="return false;"></div>
 
+    <a class="contact-icon return" style="position: fixed; top:8px; left:8px;" href="../">
+        <img src="../_assets/icons/back-arrow-icon.svg" alt="Go Back">
+    </a>
+
     <div id="music_player" class="round">
         <div class="cutc">
             <div class="bg round" onContextMenu="return false;"></div>
@@ -127,13 +131,14 @@ String.prototype.toMMSS = function () {
 
             position: fixed;
             display: block;
-            width: calc(100% - 400px);
+            width: 80%;
             aspect-ratio: 21 / 9;
 
-            top:50%;
+            bottom: 50%;
             left:50%;
 
-            translate: -50% -50%;
+            translate: -50% 50%;
+            
         }
 
         .round {
@@ -295,18 +300,18 @@ String.prototype.toMMSS = function () {
 
         #album_name {
             white-space: nowrap;
-            font-size: 2rem;
+            font-size: 2vw;
         }
 
         #track_title {
             white-space: nowrap;
-            font-size: 4rem;
+            font-size: 4vw;
         }
 
         #track_author {
             text-align: right;
             white-space: nowrap;
-            font-size: 1.5rem;
+            font-size: 1.5vw;
         }
 
         #track_image {
