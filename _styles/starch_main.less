@@ -178,12 +178,26 @@ body {
 		background-attachment: fixed;
 		background-position: center;
 		filter: brightness(80%);
-		z-index: -1;
+		z-index: -2;
 	}
 
 	.profile {
 		width: 150px;
 		border-radius: 10%;
+	}
+
+	@media only screen and (max-width: 1000px) {
+		height: 50vh;
+		#header_bg {
+			height: 50%;
+		}
+		.content {
+			top: 25%;
+		}
+		.header_footer {
+			bottom: 50vh;
+			margin: 20px;
+		}
 	}
 }
 
