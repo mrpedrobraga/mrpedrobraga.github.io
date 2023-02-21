@@ -50,6 +50,15 @@ a.special {
 	text-decoration: none;
 }
 
+a.none {
+	color: @color_fg;
+	background-color: transparent;
+	padding: initial;
+	outline: initial;
+	font-weight: initial;
+	text-decoration: none;
+}
+
 a.special:hover {
 	text-decoration: underline;
 }
@@ -199,6 +208,19 @@ body {
 			margin: 20px;
 		}
 	}
+}
+
+.bgimg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	background-image: url('../gallery/img/invo_ollie_room.png');
+	image-rendering: pixelated;
+	background-size: cover;
+	background-position: center;
+	filter: brightness(80%);
+	z-index: -1;
 }
 
 .post {

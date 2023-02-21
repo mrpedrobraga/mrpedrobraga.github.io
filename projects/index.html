@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--Information-->
+	<title>Projects | mrpedrobraga</title>
+
+	<!--Metadata-->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--CSS Normalization-->
+	<link rel="stylesheet" type="text/less" href="../_styles/normalize.css"/>
+
+	<!--Styling-->
+	<link href="http://fonts.cdnfonts.com/css/cascadia-code" rel="stylesheet">
+	<link rel="stylesheet/less" type="text/css" href="../_styles/starch_main.less"/>
+	<link rel="icon" type="image/x-icon" href="../_assets/img/profile_picture.jpg" />
+</head>
+<body>
+	<!--Extension: LESS; for better styling!!!-->
+	<script src="../_extensions/less.js" ></script>
+
+	<div style="min-height: 400px; clip-path: inset(0);">
+		<div class="bgimg" style="height: 400px; background-position:50% 60%; background-image: url('../gallery/img/invo_new_horizon_heroes.png');"></div>
+
+	</div>
+
+	<a class="contact-icon return" style="position: fixed; top:8px; left:8px;" href="../#main-nav">
+        <img src="../_assets/icons/back-arrow-icon.svg" alt="Go Back">
+    </a>
+
+
+	<div>
+		<div class="content text-center">
+			<br><br>
+			<h1>My Projects</h1>
+			<br><br>
+		</div>
+	</div>
+	<div class="projects" id="projects_container">
+		<a class="none" target="_blank" href="https://mr-henri.itch.io/inner-voices-bft">
+		<div class="proj">
+			<div class="projimg" style="background-image: url('../gallery/img/invo_everyone.png')">
+				<div class="vignette"></div>
+			</div>
+
+			<h3 class="projtitle">Inner Voices</h3>
+			<p class="projdesc">An RPG about the nature of the human mind.<br><br>Made in Godot Engine.</h1>
+		</div></a>
+
+		<a class="none" target="_blank" href="https://github.com/mrpedrobraga/star-engine-core">
+		<div class="proj">
+			<div class="projimg" style="background-image: url('covers/star.jpeg')">
+				<div class="vignette"></div>
+			</div>
+
+			<h3 class="projtitle">Star Engine</h3>
+			<p class="projdesc">A modular framework for creating (not only) RPGs in Godot Engine.</h1>
+		</div></a>
+
+		<a class="none" target="_blank" href="https://github.com/mrpedrobraga/elements">
+		<div class="proj">
+			<div class="projimg" style="background-image: url('covers/cover_elements.png')">
+				<div class="vignette"></div>
+			</div>
+
+			<h3 class="projtitle">Elements</h3>
+			<p class="projdesc">A free program for asset creation that marries hand-painting and procedural generation.</h1>
+		</div></a>
+
+		<a class="none" target="_blank" href="https://github.com/mrpedrobraga/starscript-vscode">
+		<div class="proj">
+			<div class="projimg" style="background-image: url('covers/cover_starscript.png')">
+				<div class="vignette"></div>
+			</div>
+
+			<h3 class="projtitle">StarScript</h3>
+			<p class="projdesc">A scripting language for Star, used to create dialogue and cutscene in one place.</h1>
+		</div></a>
+
+		<a class="none" target="_blank" href="https://github.com/mrpedrobraga/nano">
+		<div class="proj">
+			<div class="projimg" style="background-image: url('covers/cover_nano.png')">
+				<div class="vignette"></div>
+			</div>
+
+			<h3 class="projtitle">Nano</h3>
+			<p class="projdesc">A "fantasy" programming language designed to be pretty and serve as universal pseudo-code.</h1>
+		</div></a>
+
+		<a class="none" href="#">
+		<div class="proj">
+			<div class="projimg" style="background-image: url('covers/cover_overtone.jpg')">
+				<div class="vignette"></div>
+			</div>
+
+			<h3 class="projtitle">Overtone</h3>
+			<p class="projdesc">A music creation application geared towards composers.</h1>
+		</div></a>
+
+		<a class="none" href="#">
+		<div class="proj">
+			<div class="projimg" style="background-image: url('../gallery/img/invo_lily_danger_diner_mockup.jpeg')">
+				<div class="vignette"></div>
+			</div>
+
+			<h3 class="projtitle">WhisperSans.ttf</h3>
+			<p class="projdesc">A tiny but stylish pixelart font, based on Inner Voices' font.</h1>
+		</div></a>
+		
+	</div>
+
+	<div class="post footer dark">
+		<div class="content text-center">
+			powered by Me, Pedro Braga!
+		</div>
+	</div>
+
+	<script>
+	</script>
+	<style>
+		#projects_container {
+			display: flex;
+			padding-left: 200px;
+			padding-right: 200px;
+			gap: 30px;
+
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+
+			margin-bottom: 100px;
+		}
+
+		.proj {
+			display: block;
+			width: 300px;
+			height: 400px;
+			border-radius: 40px;
+			box-shadow: 0px 10px 20px #3333;
+			transition-duration: 100ms;
+			transition-timing-function: ease-in-out;
+		}
+
+		.projimg {
+			display: block;
+			width: 100%;
+			height: 65%;
+			transition-duration: inherit;
+			background-image: url('../gallery/img/invo_cold_forest.png');
+			border-top-left-radius: 40px; border-top-right-radius: 40px;
+
+			background-size: cover;
+			image-rendering: pixelated;
+			background-position: center;
+		}
+
+		.proj:hover .projimg {
+			height: 50%;
+		}
+
+		.vignette {
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			box-shadow: 0 0 50px rgba(0,0,0,0.1) inset;
+			border-top-left-radius: 40px; border-top-right-radius: 40px;
+		}
+
+		.projtitle {
+			margin-top: 10px;
+			width: 100%;
+			text-align: center;
+			font-family: 'Cascadia Code', 'Courier New', Courier, monospace;
+		}
+
+		.projdesc {
+			font-family: 'Courier New', Courier, monospace;
+			margin-left:20px; margin-right: 20px;
+			font-size: 0.8em;
+		}
+	</style>
+</body>
+</html>
