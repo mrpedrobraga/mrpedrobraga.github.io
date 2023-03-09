@@ -4,7 +4,7 @@ html {
 
 body.dark {
     background-color: #000;
-    color: #fff;
+    color: @normal;
 
     counter-reset: animin;
 }
@@ -48,6 +48,7 @@ body.dark {
     background-color: #fff6 !important;
 }
 
+@normal: rgb(238, 235, 231);
 @important: rgb(255, 230, 0);
 @evil: rgb(211, 24, 96);
 @zclaire: rgb(175, 107, 253);
@@ -58,7 +59,7 @@ important {
 
 important::selection {
     background-color: fadeout(@important, 50%);
-    color: #fff;
+    color: @normal;
 }
 
 evil {
