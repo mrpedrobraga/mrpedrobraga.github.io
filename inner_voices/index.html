@@ -14,10 +14,113 @@
 
 	<!--Styling-->
 	<link href="http://fonts.cdnfonts.com/css/cascadia-code" rel="stylesheet">
-	<link rel="stylesheet/less" type="text/css" href="./invo.less"/>
-	<link rel="icon" type="image/x-icon" href="../_assets/img/profile_picture.jpg" />
+	<link rel="stylesheet/less" type="text/css" href="invo.less"/>
+	<link rel="icon" type="image/x-icon" href="assets/favicon.png" />
 </head>
-<body class="">
+<body class="dark">
+	<!--Extension: LESS; for better styling!!!-->
+	<script src="../_extensions/less.js" ></script>
+
+	<nav>
+		<ul class="pixel">
+			<li><a href="#">Home</a></li>
+			<li><a href="#section_about">About</a></li>
+			<li><a href="#section_gallery">Gallery</a></li>
+			<li><a href="#section_resources">Resources</a></li>
+			<li><a href="#section_support">SUPPORT</a></li>
+		</ul>
+	</nav>
 	
+	<div class="title">
+		<div class="bg" style="background-image: url(../gallery/img/invo_starfall_plaza.png);"></div>
+		<div class="bg" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%);"></div>
+		
+		<div id="logo">
+			<img src="assets/logo/LOGO-en-0.png"/>
+			<img src="assets/logo/LOGO-en-1.png"/>
+			<img src="assets/logo/LOGO-en-2.png"/>
+			<img src="assets/logo/LOGO-en-3.png"/>
+			<img src="assets/logo/LOGO-en-4.png"/>
+			<img src="assets/logo/LOGO-en-5.png"/>
+			<img src="assets/logo/LOGO-en-6.png"/>
+			<img src="assets/logo/LOGO-en-7.png"/>
+			<img src="assets/logo/LOGO-en-8.png"/>
+			<img src="assets/logo/LOGO-en-9.png"/>
+			<img src="assets/logo/LOGO-en-10.png"/>
+		</div>
+	</div>
+	
+	<section class="stagger">
+		<article class="post animate-in" style="margin-bottom: 2rem;">
+			<p class="pixel text-center">
+				The beloved videogame about the difference<br>
+				amongst humans minds.
+			</p>
+		</article>
+	
+		<article class="post animate-in" style="">
+			<video controls src="assets/trailer.webm" style="position:relative;left:50%;transform:translateX(-50%);">Videos not supported on this platform.</video>
+		</article>
+	
+		<article class="post animate-in pixel text-center">
+			<h1 id="#section_about">About</h1>
+			<p>
+				Inner Voices is a lite <important>RPG</important>, serialized like a TV show, with the finest <zclaire>pixel&nbsp;art&nbsp;graphics</zclaire>.
+			</p>
+		</article>
+
+		<article class="post animate-in pixel text-center" style="margin-left: 0; margin-right: 0;">
+			<h1 id="#section_gallery">Gallery</h1>
+			<p>
+				Images will go here
+				<div class="side-gallery">
+
+					<img src="../gallery/img/invo_castle.png" alt=""/>
+					<img src="../gallery/img/invo_hank_donuthole.png" alt=""/>
+					<img src="../gallery/img/invo_everyone.png" alt=""/>
+					<img src="../gallery/img/invo_hank_minecart.png" alt=""/>
+					<img src="../gallery/img/invo_hank_world.png" alt=""/>
+					<img src="../gallery/img/invo_kandy_trade_offer.png" alt=""/>
+					<img src="../gallery/img/invo_vs_spiders.png" alt=""/>
+					<img src="../gallery/img/invo_lost_massie.png" alt=""/>
+					<img src="../gallery/img/invo_water_checkpoint.gif" alt=""/>
+					<img src="../gallery/img/invo_vs_magnum_opus.png" alt=""/>
+					<img src="../gallery/img/invo_vs_lady_sucrose.png" alt=""/>
+					<img src="../gallery/img/invo_vs_chaos_knight.png" alt=""/>
+					<img src="../gallery/img/invo_vs_andy.png" alt=""/>
+					<img src="../gallery/img/invo_twisted_school_0.png" alt=""/>
+
+				</div>
+			</p>
+		</article>
+
+		<article class="post animate-in pixel text-center">
+			<h1 id="#section_resources">Resources</h1>
+			<p>
+				Resources about neurodivergence and mental health will go here
+			</p>
+		</article>
+
+		<article class="post animate-in pixel text-center">
+			<h1 id="#section_support">Support</h1>
+			<p>
+				Images will go here
+			</p>
+		</article>
+	</section>
+
+	<section id="footer">
+		<p class="pixel text-center">
+			made with <evil>&lt;3</evil> by <important>Pedro Braga</important>.
+		</p>
+	</section>
+
+	<style>
+		.animate :nth-child(1) { animation-delay: .25s }
+		.animate :nth-child(2) { animation-delay: .50s }
+		.animate :nth-child(3) { animation-delay: .75s }
+		.animate :nth-child(4) { animation-delay: 1s }
+		.animate :nth-child(5) { animation-delay: 1.25s }
+	</style>
 </body>
 </html>

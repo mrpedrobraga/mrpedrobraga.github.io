@@ -1,0 +1,253 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body.dark {
+    background-color: #000;
+    color: #fff;
+
+    counter-reset: animin;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+@font-face {
+    font-family: 'Steelflight';
+    src: url('assets/Steelflight.ttf');
+}
+
+@font-face {
+    font-family: 'Awakening';
+    src: url('assets/Awakening.ttf');
+}
+
+@font-face {
+    font-family: 'Bold';
+    src: url('assets/PixeloidSans-Bold.ttf');
+}
+
+.pixel {
+    font-family: 'Steelflight', Courier, monospace;
+    font-size: 1.5rem;
+    image-rendering: pixelated;
+
+    @media only screen and (max-width: 1000px) {
+		font-size: 1.0rem;
+	}
+
+    & h1 {
+        font-family: 'Bold', Courier, monospace !important;
+        image-rendering: pixelated;
+    }
+}
+
+.pixel::selection {
+    background-color: #fff6 !important;
+}
+
+@important: rgb(255, 230, 0);
+@evil: rgb(211, 24, 96);
+@zclaire: rgb(175, 107, 253);
+
+important {
+    color: @important;
+}
+
+important::selection {
+    background-color: fadeout(@important, 50%);
+    color: #fff;
+}
+
+evil {
+    color: @evil;
+}
+
+zclaire {
+    color: @zclaire;
+}
+
+@header-img-size: 420px;
+
+div.title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: @header-img-size;
+
+}
+
+div.bg {
+    position: absolute;
+    opacity: 100%;
+    image-rendering: pixelated;
+    width: 100%;
+    height: @header-img-size;
+
+    background-size: cover;
+    background-position: center;
+
+    animation-name: appear;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.25, 1, 1, 1);
+
+    @media (prefers-reduced-motion) {
+        animation-duration: 0s;
+    }
+}
+
+div#logo {
+    height: min(10vw, 96px);
+    display: flex;
+    gap: 0px;
+    margin: auto;
+    position: relative;
+    overflow: visible;
+
+    animation-name: appear;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.25, 1, 1, 1);
+
+    @media (prefers-reduced-motion) {
+        animation-duration: 0s;
+    }
+
+    @keyframes appear {
+        from {
+            gap: 64px;
+            opacity: 0%;
+        }
+
+        to {
+            gap: 0px;
+            opacity: 100%;
+        }
+    }
+
+    img {
+        image-rendering: pixelated;
+        height: 100%;
+    }
+}
+
+
+.animate-in {
+    animation-name: appear_text;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.25, 1, 1, 1);
+    animation-fill-mode: both;
+
+    @media (prefers-reduced-motion) {
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
+    }
+
+    @keyframes appear_text {
+        0% {
+            transform: translateY(32px);
+            opacity: 1%;
+        }
+
+        100% {
+            transform: translateY(0px);
+            opacity: 100%;
+        }
+    }
+}
+
+article.post {
+    margin-left: 8rem;
+    margin-right: 8rem;
+    margin-bottom: 8rem;
+
+    @media only screen and (max-width: 1000px) {
+		margin-left: 2rem;
+        margin-right: 2rem;
+	}
+
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+    align-items: center;
+}
+
+video {
+    width: 640px;
+    max-width: 80vw;
+}
+
+nav {
+    ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        font-family: 'Bold', Courier, monospace !important;
+        font-size: 1.5rem;
+        image-rendering: pixelated;
+
+        animation-name: appear_nav;
+        animation-duration: 0.5s;
+        animation-timing-function: cubic-bezier(0.25, 1, 1, 1);
+        animation-fill-mode: both;
+
+        @media (prefers-reduced-motion) {
+            animation-duration: 0s !important;
+            animation-delay: 0s !important;
+        }
+
+        @keyframes appear_nav {
+            0% {
+                gap: 20px;
+                opacity: 1%;
+            }
+    
+            100% {
+                gap: 30px;
+                opacity: 100%;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+		display: none;
+	}
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+    color: @important;
+}
+
+a:active {
+    text-decoration: none;
+    color: @zclaire;
+}
+
+.side-gallery {
+    overflow-x: scroll;
+    overflow-y: auto;
+    position: relative;
+    display: flex;
+    height: 300px;
+
+    img {
+        height: 100%;
+
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+}
