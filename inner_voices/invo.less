@@ -70,7 +70,7 @@ zclaire {
     color: @zclaire;
 }
 
-@header-img-size: 420px;
+@header-img-size: min(420px, 80svh);
 
 div.title {
     display: flex;
@@ -173,12 +173,16 @@ div#logo {
 article.post {
     margin-left: 8rem;
     margin-right: 8rem;
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
 
     @media only screen and (max-width: 1000px) {
 		margin-left: 2rem;
         margin-right: 2rem;
 	}
+
+    h1 {
+        margin-top: 4rem;
+    }
 
     display: block;
 }
@@ -214,6 +218,20 @@ nav {
             animation-delay: 0s !important;
         }
 
+        @media only screen and (max-width: 1000px) {
+            //display: none;
+            flex-direction: column;
+            
+            background-color: #000;
+            padding: 20px;
+            margin-left:20px;
+            width: min-content;
+
+            &::before {
+                content: NAV;
+            }
+        }
+
         @keyframes appear_nav {
             0% {
                 gap: 20px;
@@ -228,8 +246,40 @@ nav {
     }
 
     @media only screen and (max-width: 1000px) {
-		display: none;
+        position: fixed;
+        z-index: 4;
+        height: 48px;
+        width: 100%;
+        background-color: #000;
+
+        ul {
+            display: none;
+
+            animation-name: none;
+            gap: 30px;
+
+            a {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+
+        #navbtn:checked ~ ul {
+            display: flex;
+        }
+
+        #navbtn {
+            display: inline !important;
+        }
 	}
+
+    #navbtn {
+        display: none;
+        //opacity: 50%;
+        height: 100%;
+        aspect-ratio: 1;
+    }
 }
 
 a {
@@ -263,4 +313,14 @@ a:active {
         -o-user-select: none;
         user-select: none;
     }
+}
+
+.post p {
+    width: min(800px, 90%);
+    margin: auto;
+}
+
+.bookish {
+    text-align: left;
+    text-indent: 2em;
 }

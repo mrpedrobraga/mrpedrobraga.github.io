@@ -13,7 +13,7 @@
 	<meta property="og:url" content="https://mrpedrobraga.github.io/inner_voices">
 	<meta property="og:description" content="The beloved videogame about the difference amongst humans minds, now in website form!">
 	<meta property="og:type" content="website">
-	<meta property="og:video" content="assets/trailer.webm">
+	<meta property="og:image" content="../gallery/img/invo_castle.png">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="https://mrpedrobraga.github.io/inner_voices">
 	<meta name="twitter:description" content="The beloved videogame about the difference amongst humans minds.">
@@ -29,10 +29,19 @@
 	<link rel="icon" type="image/x-icon" href="assets/favicon.png" />
 </head>
 <body class="dark">
+	<style>
+		/* Make page background black while loading... */
+		html, body {
+			background-color: black;
+		}
+	</style>
 	<!--Extension: LESS; for better styling!!!-->
 	<script src="../_extensions/less.js" ></script>
 
 	<nav>
+		<input id="navbtn" type="checkbox" clas="pixel" value="Navigation">
+			
+		</input>
 		<ul class="pixel">
 			<li><a href="#">Home</a></li>
 			<li><a href="#section_about">About</a></li>
@@ -64,8 +73,8 @@
 	<section class="stagger">
 		<article class="post animate-in" style="margin-bottom: 2rem;">
 			<p class="pixel text-center">
-				The beloved videogame about the difference<br>
-				amongst humans minds.
+				The beloved videogame about the <a href="section_resources">difference<br>
+				amongst humans minds.</a>
 			</p>
 		</article>
 	
@@ -74,14 +83,15 @@
 		</article>
 	
 		<article class="post animate-in pixel text-center">
-			<h1 id="#section_about">About</h1>
-			<p>
-				Inner Voices is a lite <important>RPG</important>, serialized like a TV show, with the finest <zclaire>pixel&nbsp;art&nbsp;graphics</zclaire>.
+			<h1 id="section_about">About</h1>
+			<p class="narrow">
+				Inner Voices is a psychological fantasy <important>RPG</important>, serialized like a TV show, with the finest <zclaire>pixel&nbsp;art&nbsp;graphics</zclaire>.<br><br>
+				The
 			</p>
 		</article>
 
 		<article class="post animate-in pixel text-center" style="margin-left: 0; margin-right: 0;">
-			<h1 id="#section_gallery">Gallery</h1>
+			<h1 id="section_gallery">Gallery</h1>
 			<p>
 				Images will go here
 				<div class="side-gallery">
@@ -106,14 +116,14 @@
 		</article>
 
 		<article class="post animate-in pixel text-center">
-			<h1 id="#section_resources">Resources</h1>
+			<h1 id="section_resources">Resources</h1>
 			<p>
 				Resources about neurodivergence and mental health will go here
 			</p>
 		</article>
 
 		<article class="post animate-in pixel text-center">
-			<h1 id="#section_support">Support</h1>
+			<h1 id="section_support">Support</h1>
 			<p>
 				Images will go here
 			</p>
