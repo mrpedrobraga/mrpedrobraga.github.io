@@ -70,11 +70,18 @@ zclaire {
     color: @zclaire;
 }
 
+.rainbow-text {
+    background-image: linear-gradient(to left, rgb(248, 91, 248), rgb(154, 48, 230), rgb(64, 99, 255), rgb(69, 236, 69), rgb(255, 255, 52), rgb(250, 180, 51), rgb(255, 45, 56));
+    background-clip: text;
+    color: transparent;
+  }
+
 @header-img-size: min(420px, 80svh);
 
 div.title {
     display: flex;
     align-items: center;
+    flex-direction: column;
     width: 100%;
     height: @header-img-size;
 
@@ -142,6 +149,12 @@ div#logo {
     img {
         image-rendering: pixelated;
         height: 100%;
+        transition-duration: .1s;
+        transition-timing-function: ease-in-out;
+    }
+    
+    img:hover {
+        scale:1.1;
     }
 }
 
@@ -181,7 +194,7 @@ article.post {
 	}
 
     h1 {
-        margin-top: 4rem;
+        margin-top: 8rem;
     }
 
     display: block;
@@ -280,11 +293,21 @@ nav {
         height: 100%;
         aspect-ratio: 1;
     }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+#footer {
+    padding-top: 8em;
+    padding-bottom: 4em;
 }
 
 a {
-    text-decoration: none;
-    color: #fff;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    color: @normal;
 }
 
 a:hover {
@@ -295,6 +318,79 @@ a:hover {
 a:active {
     text-decoration: none;
     color: @zclaire;
+}
+
+a.button {
+    z-index: 5;
+    background-color: @normal;
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transition-duration: .1s;
+    transition-timing-function: ease-in-out;
+}
+
+a.button:hover {
+    background-color: @evil;
+    color: @normal;
+    scale:1.1;
+}
+
+a.button:active {
+    background-color: @zclaire;
+    color: @normal;
+}
+
+.header_footer {
+    position: absolute;
+    float: right;
+    top: @header-img-size;
+    translate: 0px -100%;
+    right: 0;
+    margin: 30px;
+
+    a.contact-icon {
+        display: flex;
+        align-items: center;
+        row-gap: 10px;
+        background-color: @normal;
+        width: 64px; height: 64px;
+        outline: none;
+        border: none;
+        border-radius: 50%;
+        z-index: 5;
+
+        img {
+            position: relative;
+            width: 70%; height: 70%;
+            translate: 25%;
+        }
+
+        margin-top: 16px;
+        transition-duration: 250ms;
+    }
+
+    a.contact-icon:hover {
+        scale: 1.25;
+
+        &.twitter {
+            background-color: #00ACEE;
+        }
+
+        &.e-mail {
+            background-color: #ff566d;
+        }
+
+        &.return:hover {
+            background-color: #222;
+        }
+
+        img {
+            filter: invert(100%);
+        }
+    }
 }
 
 .side-gallery {

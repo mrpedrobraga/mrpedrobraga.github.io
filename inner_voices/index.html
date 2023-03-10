@@ -46,8 +46,8 @@
 			<li><a href="#">Home</a></li>
 			<li><a href="#section_about">About</a></li>
 			<li><a href="#section_gallery">Gallery</a></li>
-			<li><a href="#section_resources">Resources</a></li>
-			<li><a href="#section_support">SUPPORT</a></li>
+			<li><a href="#section_resources">Mental&nbsp;Health</a></li>
+			<li><a href="#section_support">Support&nbsp;Dev.</a></li>
 		</ul>
 	</nav>
 	
@@ -62,24 +62,78 @@
 			<img src="assets/logo/LOGO-en-3.png"/>
 			<img src="assets/logo/LOGO-en-4.png"/>
 			<img src="assets/logo/LOGO-en-5.png"/>
-			<img src="assets/logo/LOGO-en-6.png"/>
+			<img src="assets/logo/LOGO-en-6.png" id="secret-letter" onclick="location.href = 'https://en.wikipedia.org/wiki/O'"/>
 			<img src="assets/logo/LOGO-en-7.png"/>
 			<img src="assets/logo/LOGO-en-8.png"/>
 			<img src="assets/logo/LOGO-en-9.png"/>
 			<img src="assets/logo/LOGO-en-10.png"/>
+
+			<style>
+				#secret-letter {
+					cursor: pointer;
+				}
+			</style>
+		</div>
+
+		<!-- CALLOUT BUTTONS -->
+
+		<br>
+		<!--div style="display:flex; translate: 0px -80px; gap:30px; flex-wrap: wrap;">
+			<a class="button pixel animate-in" onclick="alert('Not yet available.')" target="_blank">Try Demo</a>
+			<a class="button pixel animate-in" onclick="alert('Not yet available.')" target="_blank">Buy the Game</a>
+			<a class="button pixel animate-in" onclick="alert('Not yet available.')" target="_blank">Gift Shop</a>
+		</div-->
+		<div style="display:flex; translate: 0px -80px; gap:30px; flex-wrap: wrap;">
+			<a class="button pixel animate-in" onclick="alert('I said it\'s coming soon!!!')" target="_blank">Demo coming soon™.</a>
+		</div>
+
+		<div class="header_footer">
+			<a class="contact-icon twitter" rel="me" href="https://twitter.com/mrpedrobraga" target="_blank">
+				<img src="../_assets/icons/twitter-icon.svg" alt="Twitter">
+			</a>
+			<a class="contact-icon e-mail" rel="me" href="mailto:mrhenribraga@gmail.com">
+				<img src="../_assets/icons/email-icon.svg" alt="Electronic Mail">
+			</a>
+			<a class="contact-icon e-mail" rel="me" href="https://mrpedrobraga.itch.io/inner-voices-bft" target="_blank">
+				<img src="../_assets/icons/itchio.svg" alt="Itch">
+			</a>
 		</div>
 	</div>
 	
 	<section class="stagger">
 		<article class="post animate-in" style="margin-bottom: 2rem;">
 			<p class="pixel text-center">
-				The beloved videogame about the <a href="section_resources">difference<br>
+				The beloved videogame about the <a href="#section_resources">difference<br>
 				amongst humans minds.</a>
 			</p>
 		</article>
 	
-		<article class="post animate-in" style="">
-			<video controls src="assets/trailer.webm" style="position:relative;left:50%;transform:translateX(-50%);">Videos not supported on this platform.</video>
+		<article class="post animate-in text-center">
+			<!--video controls src="assets/trailer.webm">Videos not supported on this platform.</video-->
+			<br>
+			<div id="trailer-placeholder" class="pixel" style="cursor: pointer;" onclick="alert('Have some god damn patience, will ya!')">
+				<span>Trailer also coming soon.</span>
+			</div>
+
+			<style>
+				#trailer-placeholder {
+					background-color: #181a1b;
+					width: 640px;
+					aspect-ratio: 16/9;
+					max-width: 80vw;
+
+					position: relative;
+					left: 50%; translate: -50%;
+				}
+
+				#trailer-placeholder span {
+					position: relative;
+					top: 40%;
+					opacity: 30%;
+
+					user-select: none;
+				}
+			</style>
 		</article>
 	
 		<article class="post animate-in pixel text-center">
@@ -93,7 +147,7 @@
 		<article class="post animate-in pixel text-center" style="margin-left: 0; margin-right: 0;">
 			<h1 id="section_gallery">Gallery</h1>
 			<p>
-				Images will go here
+				Babble and Dribble at these:<br><br>
 				<div class="side-gallery">
 
 					<img src="../gallery/img/invo_castle.png" alt=""/>
@@ -116,26 +170,41 @@
 		</article>
 
 		<article class="post animate-in pixel text-center">
-			<h1 id="section_resources">Resources</h1>
-			<p>
-				Resources about neurodivergence and mental health will go here
+			<h1 id="section_resources"><important>Mental&nbsp;Health Resources</important></h1>
+			<p class="narrow">
+				<important>[1].</important> <a href="http://actuallyautistic.wiki/wiki/Main_Page">The ActuallyAutistic Wiki</a>, a wiki made by autistics for autistics! (Non-auties are welcome, too.)
+			</p><br>
+			<p class="narrow">
+				<important>[2].</important>  <a href="https://www.thetrevorproject.org/">The Trevor Project</a>, an anonymous center for help, information and support for <span class="rainbow-text">LGBT youth</span>, available 24/7.
+			</p><br>
+			<p class="narrow">
+				<evil>[More coming soon.]</evil>
 			</p>
 		</article>
 
 		<article class="post animate-in pixel text-center">
 			<h1 id="section_support">Support</h1>
-			<p>
-				Images will go here
+			<p class="narrow">
+				Want to support the development of the game?<br><br>
+
+				I don't accept donations, but there are things you can do:<br><br>
+			</p><p>
+				<br><important>[1]. Send good vibes:</important> <a href="https://twitter.com/mrpedrobraga" target="_blank">@mrpedrobraga</a>.<br>
+				Keeping @mrpedrobraga motivated is the key to success.<br><br>
+				From incidental feedback, to fan art, let's build a wholesome community in the name of <a href="#" target="_blank">INNER&nbsp;VOICES</a>.<br><br>
+
+				Don't feel pressured to engage. I'm He's shy anyways.
+				<br><br>
+			</p><p>
+				<br><important>[2]. Buy the game when it comes out.</important>
+				Since the game will be released in episodes, each one will fund the next.<br><br>
+			</p><p>
+				<br><important>[3]. Acquire some trinkets at the gift shop.</important><br>
+				We have a gift shop (not yet) with wallpapers, poster designs, and more, so you can celebrate being an <a href="#" target="_blank">INNER&nbsp;VOICES</a> nerd (it's okay, I'm one, too).
 			</p>
 		</article>
 	</section>
-
-	<section id="footer">
-		<p class="pixel text-center">
-			made with <evil>&lt;3</evil> by <important>Pedro Braga</important>.
-		</p>
-	</section>
-
+	
 	<style>
 		.stagger :nth-child(1) { animation-delay: .25s }
 		.stagger :nth-child(2) { animation-delay: .50s }
@@ -143,5 +212,12 @@
 		.stagger :nth-child(4) { animation-delay: 1s }
 		.stagger :nth-child(5) { animation-delay: 1.25s }
 	</style>
+
+	<section id="footer">
+		<p class="pixel text-center">
+			made with <evil>pure evil and spite</evil> by <important><a href="../">Pedro Braga</a></important>.
+		</p>
+	</section>
+
 </body>
 </html>
