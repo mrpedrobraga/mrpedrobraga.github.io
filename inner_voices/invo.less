@@ -1,9 +1,14 @@
 html {
     scroll-behavior: smooth;
+    background-color: #000;
+
+    z-index: -999;
+    * {
+        z-index: initial;
+    }
 }
 
 body.dark {
-    background-color: #000;
     color: @normal;
 
     counter-reset: animin;
@@ -12,6 +17,28 @@ body.dark {
 * {
     box-sizing: border-box;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #77767b #000000;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 32px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #000000;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #77767b;
+    border-radius: 10px;
+    border: 3px none #000000;
+  }
 
 
 @font-face {
@@ -39,8 +66,9 @@ body.dark {
 	}
 
     & h1 {
-        font-family: 'Bold', Courier, monospace !important;
-        image-rendering: pixelated;
+        font-family: 'Fira Sans', Courier, monospace !important;
+        font-size: 4rem;
+        //image-rendering: pixelated;
     }
 }
 
@@ -336,6 +364,7 @@ nav {
 
 a {
     text-decoration: underline;
+    cursor: pointer;
     text-decoration-thickness: 2px;
     color: @normal;
 }
@@ -424,29 +453,202 @@ a.button:active {
 }
 
 .side-gallery {
-    overflow-x: scroll;
-    overflow-y: auto;
     position: relative;
     display: flex;
-    height: 300px;
+    align-self: center;
+    justify-content: center;
+    user-select: none;
 
-    img {
+    height: min(480px, 50vw);
+
+    .gallery-container {
+        display: flex;
+        aspect-ratio: 16/9;
+        scroll-behavior: smooth;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-snap-align: center;
+
+        clip-path: inset(0);
+        border-radius: 32px;
+
+        img {
+            scroll-snap-align: center;
+            height: 100%;
+            aspect-ratio: 16/9;
+            user-select: none;
+        }
+    }
+
+    .gallery-vignette {
+        display: block;
+        position: absolute;
         height: 100%;
+        aspect-ratio: 16/9;
+        //pointer-events: none;
+        background: transparent;
+    }
 
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -o-user-select: none;
-        user-select: none;
+    .gallery-btn {
+        align-self: center;
+        width: 64px; height: 64px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('assets/ui_left_gallery_arrow.png');
+
+        opacity: 50%;
+        transition: 0.05s ease-in-out;
+        cursor: pointer;
+
+        &.next {
+            transform: scaleX(-1);
+        }
+
+        &:hover {
+            scale: 1.2;
+            opacity: 100%;
+        }
     }
 }
 
 .post p {
     width: min(800px, 90%);
     margin: auto;
+    position: relative;
 }
 
 .bookish {
     text-align: left;
     text-indent: 2em;
+}
+
+
+.chara_card {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    &.row-reverse{
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+    
+    gap: 32px;
+    align-content:center;
+    justify-content: center;
+    column-count: 2;
+
+    margin-top: 100px; 
+
+    .chara {
+        display: inline-block;
+        width: min(320px, 50vw);
+        aspect-ratio: 48/40;
+        background-size: cover;
+        background-repeat: no-repeat;
+        pointer-events: visiblePainted;
+
+        transition: scale 0.1s ease-in-out;
+        &:hover {
+            scale: 1.02;
+        }
+    }
+    #claire {
+        background-image: url('assets/ch_claire.png');
+        &:hover {
+            background-image: url('assets/ch_claire_hover.png') !important;
+        }
+    }
+    #andy {
+        background-image: url('assets/ch_andy.png');
+        &:hover {
+            background-image: url('assets/ch_andy_hover.png') !important;
+        }
+    }
+    #bruno {
+        background-image: url('assets/ch_bruno.png');
+        &:hover {
+            background-image: url('assets/ch_bruno_hover.png') !important; 
+        }
+    }
+    #rodrick {
+        background-image: url('assets/ch_rodrick.png');
+        &:hover {
+            background-image: url('assets/ch_rodrick_hover.png') !important;
+        }
+    }
+    h1, h2, h3 {
+        display: inline;
+        position: relative;
+
+        
+    }
+    h2 + img {
+        height: 48px;
+        position: absolute;
+    }
+    hr {
+        visibility: hidden;
+    }
+    p {
+        display: inline;
+    }
+    .text {
+        display: block;
+        width: 480px;
+
+        .chara_desc {
+            opacity: 50%;
+            font-size: 1rem;
+        }
+    }
+}
+.soul {
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+    scale: 1.0;
+    &:hover {
+        scale: 1.2;
+    }
+}
+
+.deco {
+    position: absolute;
+    width: 256px;
+    image-rendering: pixelated;
+    z-index: -1;
+
+    &.left {
+        left: 8px;
+    }
+
+    &.right {
+        right: 8px;
+    }
+
+    &.mdown {
+        transform: translateY(206px);
+    }
+    &.mup {
+        transform: translateY(-206px);
+    }
+
+    img {
+        opacity: 0.5;
+        &:hover {
+            opacity: 0.7;
+        }
+
+        transition: opacity 0.1s ease-in-out;
+
+        cursor: pointer;
+    }
+}
+
+article {
+    position: relative;
+    pointer-events: none;
+
+    * {
+        pointer-events: initial;
+    }
 }

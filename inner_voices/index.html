@@ -27,8 +27,25 @@
 	<link href="http://fonts.cdnfonts.com/css/cascadia-code" rel="stylesheet">
 	<link rel="stylesheet/less" type="text/css" href="invo.less"/>
 	<link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+
+	<!-- Preloads -->
+	<link rel="preload" as="image" href="../gallery/img/invo_starfall_plaza.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-0.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-1.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-2.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-3.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-4.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-5.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-6.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-7.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-8.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-9.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-10.png">
+
+	<!-- Scripts -->
+	<script src="gallery.js" type="text/javascript" defer></script>
 </head>
-<body class="dark">
+<body class="dark" >
 	<style>
 		/* Make page background black while loading... */
 		html, body {
@@ -51,6 +68,7 @@
 		</ul>
 	</nav>
 	
+	<!-- PAGE HEADER -->
 	<div class="title">
 		<div class="bg" style="background-image: url(../gallery/img/invo_starfall_plaza.png);"></div>
 		<div class="bg" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%);"></div>
@@ -101,6 +119,7 @@
 	</div>
 	
 	<section class="stagger">
+		<!-- DESCRIPTION -->
 		<article class="post animate-in" style="margin-bottom: 2rem;">
 			<p class="pixel text-center">
 				The beloved videogame about the <a href="#section_resources">difference<br>
@@ -108,25 +127,39 @@
 			</p>
 		</article>
 	
+		<!-- TRAILER -->
 		<article class="post animate-in text-center">
-			<!--video controls src="assets/trailer.webm">Videos not supported on this platform.</video-->
+			<!--video controls src="assets/trailer.mp4" id="trailer">Videos not supported on this platform.</video><!--a-->
 			<br>
-			<div id="trailer-placeholder" class="pixel" style="cursor: pointer;" onclick="alert('Have some god damn patience, will ya!')">
+			<div id="trailer" class="pixel placeholder" style="cursor: pointer;" onclick="alert('Have some god damn patience, will ya!')">
 				<span>Trailer also coming soon.</span>
-			</div>
+			</div><!--a-->
 
 			<style>
-				#trailer-placeholder {
-					background-color: #181a1b;
+				#trailer {
+					background-color: #26282b;
 					width: 640px;
-					aspect-ratio: 16/9;
 					max-width: 80vw;
+					aspect-ratio: 16/9;
 
 					position: relative;
+					z-index: -1;
+
+					box-shadow: #101520 0px 0px 100px;
+				}
+				video {
+					margin-top: 32px;
+				}
+				#trailer.placeholder {
 					left: 50%; translate: -50%;
+					scale: 1.0;
+					transition: 0.2s ease-in-out;
+				}
+				#trailer.placeholder:hover {
+					scale: 1.02;
 				}
 
-				#trailer-placeholder span {
+				#trailer span {
 					position: relative;
 					top: 40%;
 					opacity: 30%;
@@ -136,6 +169,7 @@
 			</style>
 		</article>
 	
+		<!-- ABOUT -->
 		<article class="post animate-in pixel flex text-center">
 			<h1 id="section_about">About</h1>
 			<p class="narrow">
@@ -147,13 +181,17 @@
 					...and by that I mean diving into a new dimension, meeting strange characters, uncovering troubling memories and eating lots of greasy food!
 				</span>
 			</div>
+
 			<p>
 				The game will be released in <important>5</important> episodes<br>
 				tackling diverse themes of mental health and neurodivergence, with a commitment to faithfulness and respect,<br>but still being fun and silly.<br><br>
 			</p>
-		</article>
 
-		<article class="post animate-in pixel text-center">
+		</article>
+		<div class="deco left mdown" style="z-index:1;"><img src="assets/deco_box.gif" width="256px"></div>
+
+		<!-- ACCESSIBILITY -->
+		<article class="post animate-in pixel text-center" style="z-index: 2;">
 			<h1 id="section_accessibility">A Game For <important>Everyone.</important></h1>
 			<p class="narrow">
 				As a game so diverse, with a main theme of looking at the world
@@ -163,30 +201,110 @@
 				Sound controls, onomatopoeia, configurable battle system, optional progression cues & even play the whole game completely blind.<br>
 				There's no excuse not to check it out ;)
 			</p>
+			<p><br>
+				<evil>(The website is still in development regarding accessibility.)</evil>
+			</p>
+		</article>
+
+		<!-- CAST -->
+		<article class="post animate-in pixel">
+			<h1 id="section_cast" class="text-center">Meet the Cast!</h1>
+			<br><br>
+			
+			<div class="chara_card">
+				<div>
+					<div id="claire" class="chara"></div>
+				</div>
+				
+				<div class="text"><p>
+					<h2>Claire</h2>
+					<img class="soul" src="assets/spr_soul_claire.png" alt="Claire's SOUL."/><br>
+					<span class="chara_desc">awkward, but well meaning hero.</span>
+					<hr>
+					<p>
+						The one wielder of the <important>Memoria&nbsp;Clavem</important>,
+						the key to other people's minds,
+						and to save the world.
+					</p>
+				</p></div>
+				<div class="deco right mdown"><img src="assets/deco_star2.gif" width="256px"></div>
+				
+			</div>
+			<div class="chara_card row-reverse">
+				<div>
+					<div id="andy" alt="A ginger boy holding an umbrella on his shoulder. He's winking." class="chara"></div>
+				</div>
+				
+				<div class="text"><p>
+					<h2>Andy</h2>
+					<img class="soul" src="assets/spr_soul_andy.png" alt="Andy's SOUL."/>
+					<br>
+					<span class="chara_desc">supportive friend, loves hugs.</span>
+					<hr>
+					<p>
+						Kind and loyal friend,
+						heals with thoughtful prayers.<br>
+						Shares a single brain cell with Claire.
+					</p>
+				</p></div>
+				
+			</div>
+			<div class="chara_card">
+				<div>
+					<div id="bruno" class="chara"></div>
+				</div>
+				
+				<div class="text"><p>
+					<h2>Bruno</h2>
+					<img class="soul" src="assets/spr_soul_bruno.png" alt="Bruno's SOUL."/>
+					<br>
+					<span class="chara_desc">supportive friend, hates hugs.</span>
+					<hr>
+					<p>
+						Just wants to have a normal week,
+						but has to keep getting
+						Andy and Claire out of trouble.
+				</p></div>
+				<div class="deco left mdown"><img src="assets/deco_box.gif" width="256px"></div>
+				
+			</div>
+			<div class="chara_card row-reverse">
+				<div>
+					<div id="rodrick" class="chara"></div>
+				</div>
+				
+				
+				<div class="text"><p>
+					<h2>Rodrick</h2>
+					<img class="soul" src="assets/spr_soul_rodrick.png" alt="Rodrick's SOUL."/>
+					<br>
+					<span class="chara_desc">professional delinquent.</span>
+					<hr>
+					<p>
+						Leader of the punks, doesn't take
+						anyone's bullshit.<br>
+						He loves his friends
+						but hasn't learned to show it.
+					</p>
+				</p></div>
+				<div class="deco right mdown"><img src="assets/deco_star1.gif" width="256px"></div>
+				
+			</div>
 		</article>
 
 		<article class="post animate-in pixel text-center" style="margin-left: 0; margin-right: 0;">
 			<h1 id="section_gallery">Gallery</h1>
 			<p>
-				Babble and Dribble at these:<br><br>
 				<div class="side-gallery">
+					<div class="gallery-btn prev" id="previous" onclick="prev_gallery_item()"></div>
+					<div class="gallery-container">
+					</div>
+					<div class="gallery-btn next" id="next" onclick="next_gallery_item()"></div>
 
-					<img src="../gallery/img/invo_castle.png" alt=""/>
-					<img src="../gallery/img/invo_hank_donuthole.png" alt=""/>
-					<img src="../gallery/img/invo_everyone.png" alt=""/>
-					<img src="../gallery/img/invo_hank_minecart.png" alt=""/>
-					<img src="../gallery/img/invo_hank_world.png" alt=""/>
-					<img src="../gallery/img/invo_kandy_trade_offer.png" alt=""/>
-					<img src="../gallery/img/invo_vs_spiders.png" alt=""/>
-					<img src="../gallery/img/invo_lost_massie.png" alt=""/>
-					<img src="../gallery/img/invo_water_checkpoint.gif" alt=""/>
-					<img src="../gallery/img/invo_vs_magnum_opus.png" alt=""/>
-					<img src="../gallery/img/invo_vs_lady_sucrose.png" alt=""/>
-					<img src="../gallery/img/invo_vs_chaos_knight.png" alt=""/>
-					<img src="../gallery/img/invo_vs_andy.png" alt=""/>
-					<img src="../gallery/img/invo_twisted_school_0.png" alt=""/>
-
+					<div class="gallery-vignette"></div>
 				</div>
+				<div class="deco left mdown"><img src="assets/deco_star2.gif" width="256px"></div>
+				<div class="deco right mdown"><img src="assets/deco_star2.gif" width="256px"></div>
 			</p>
 		</article>
 
@@ -208,6 +326,7 @@
 			<p class="narrow">
 				<important>[0].</important> <a href="https://my.clevelandclinic.org/health/symptoms/23154-neurodivergent" target="_blank">"Neurodivergent?", what does that even mean?</a>
 			</p><br>
+			<div class="deco left mup"><img src="assets/deco_star1.gif" width="256px"></div>
 			<p class="narrow">
 				<important>[1].</important> <a href="http://actuallyautistic.wiki/wiki/Main_Page" target="_blank">The ActuallyAutistic Wiki</a>, a wiki made by autistics for autistics! (Non-auties are welcome, too.)
 			</p><br>
@@ -217,6 +336,7 @@
 			<p class="narrow">
 				<evil>[More coming soon.]</evil>
 			</p>
+			<div class="deco right mdown"><img src="assets/deco_box.gif" width="256px"></div>
 		</article>
 
 		<article class="post animate-in pixel text-center">
@@ -239,6 +359,7 @@
 				<br><important>[3]. Acquire some trinkets at the gift shop.</important><br>
 				We have a gift shop (not yet) with wallpapers, poster designs, and more, so you can celebrate being an <a href="#" target="_blank">INNER&nbsp;VOICES</a> nerd (it's okay, I'm one, too).
 			</p>
+
 		</article>
 	</section>
 	
