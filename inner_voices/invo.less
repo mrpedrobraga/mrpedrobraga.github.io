@@ -200,6 +200,36 @@ article.post {
     display: block;
 }
 
+div.quote::before {
+    content: open-quote;
+    //display: block;
+    position: relative;
+    float: left;
+    font-size: 4rem;
+    opacity: 30%;
+}
+
+div.quote {
+    display: block;
+    padding: 20px;
+    background-color: #111;
+    width: min(800px, 90%);
+    height: min-content;
+    margin-bottom: 3rem;
+
+    span {
+        display: block;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
+
+
+article.flex{
+    display: flex !important;
+    flex-direction: column;
+}
+
 .text-center {
     text-align: center;
     align-items: center;
