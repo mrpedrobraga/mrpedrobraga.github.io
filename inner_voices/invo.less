@@ -68,6 +68,10 @@ body.dark {
     & h1 {
         font-family: 'Fira Sans', Courier, monospace !important;
         font-size: 4rem;
+
+        @media only screen and (max-width: 1000px) {
+            font-size: 2rem;
+        }
         //image-rendering: pixelated;
     }
 }
@@ -235,6 +239,11 @@ div.quote::before {
     float: left;
     font-size: 4rem;
     opacity: 30%;
+
+    @media only screen and (max-width: 1000px) {
+        position: relative;
+        font-size: 2rem;
+    }
 }
 
 div.quote {
@@ -243,12 +252,20 @@ div.quote {
     background-color: #111;
     width: min(800px, 90%);
     height: min-content;
+    @media only screen and (max-width: 1000px) {
+		padding: 0px;
+        width: 100%;
+	}
     margin-bottom: 3rem;
 
     span {
         display: block;
         margin-left: 100px;
         margin-right: 100px;
+        @media only screen and (max-width: 1000px) {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
     }
 }
 
@@ -452,65 +469,6 @@ a.button:active {
     }
 }
 
-.side-gallery {
-    position: relative;
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    user-select: none;
-
-    height: min(480px, 50vw);
-
-    .gallery-container {
-        display: flex;
-        aspect-ratio: 16/9;
-        scroll-behavior: smooth;
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-        scroll-snap-align: center;
-
-        clip-path: inset(1px);
-        border-radius: 32px;
-
-        img {
-            scroll-snap-align: center;
-            height: 100%;
-            aspect-ratio: 16/9;
-            user-select: none;
-        }
-    }
-
-    .gallery-vignette {
-        display: block;
-        position: absolute;
-        height: 100%;
-        aspect-ratio: 16/9;
-        //pointer-events: none;
-        background: transparent;
-    }
-
-    .gallery-btn {
-        align-self: center;
-        width: 64px; height: 64px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url('assets/ui_left_gallery_arrow.png');
-
-        opacity: 50%;
-        transition: 0.05s ease-in-out;
-        cursor: pointer;
-
-        &.next {
-            transform: scaleX(-1);
-        }
-
-        &:hover {
-            scale: 1.2;
-            opacity: 100%;
-        }
-    }
-}
-
 .post p {
     width: min(800px, 90%);
     margin: auto;
@@ -542,6 +500,9 @@ a.button:active {
     .chara {
         display: inline-block;
         width: min(320px, 50vw);
+        @media only screen and (max-width: 1000px) {
+            width: min(160px, 50vw);
+        }
         aspect-ratio: 48/40;
         position: relative;
         background-size: cover;
@@ -609,6 +570,7 @@ a.button:active {
     &:hover {
         scale: 1.2;
     }
+    translate: 0 -25%;
 }
 
 .deco {
@@ -617,6 +579,7 @@ a.button:active {
     height: 256px;
     image-rendering: pixelated;
     z-index: -1;
+    user-select: none;
 
     &.left {
         left: 8px;
