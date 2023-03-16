@@ -543,44 +543,44 @@ a.button:active {
         display: inline-block;
         width: min(320px, 50vw);
         aspect-ratio: 48/40;
+        position: relative;
         background-size: cover;
         background-repeat: no-repeat;
         pointer-events: visiblePainted;
 
         transition: scale 0.1s ease-in-out;
+        
+        .a {
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+        }
+        
+        .b {
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            visibility: hidden;
+        }
+        
         &:hover {
             scale: 1.02;
+            
+            .a {
+                visibility: hidden;
+            }
+            
+            .b {
+                visibility: visible;
+            }
         }
     }
-    #claire {
-        background-image: url('assets/ch_claire.png');
-        &:hover {
-            background-image: url('assets/ch_claire_hover.png') !important;
-        }
-    }
-    #andy {
-        background-image: url('assets/ch_andy.png');
-        &:hover {
-            background-image: url('assets/ch_andy_hover.png') !important;
-        }
-    }
-    #bruno {
-        background-image: url('assets/ch_bruno.png');
-        &:hover {
-            background-image: url('assets/ch_bruno_hover.png') !important; 
-        }
-    }
-    #rodrick {
-        background-image: url('assets/ch_rodrick.png');
-        &:hover {
-            background-image: url('assets/ch_rodrick_hover.png') !important;
-        }
-    }
+
     h1, h2, h3 {
         display: inline;
-        position: relative;
-
-        
+        position: relative;    
     }
     h2 + img {
         height: 48px;
