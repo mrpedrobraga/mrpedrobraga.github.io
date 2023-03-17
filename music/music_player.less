@@ -1,0 +1,179 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background-color: #000;
+	z-index: -3;
+}
+
+body {
+	width: 100svw;
+	height: 100svh;
+	display: block;
+	background-color: transparent !important;
+	z-index: -2;
+}
+
+.flex {
+	display: flex !important;
+}
+
+.flex div {
+	//outline: red 1px solid;
+}
+
+.flex .vert {
+	flex-direction: column;
+}
+
+.flex .hor {
+	flex-direction: row;
+}
+
+.expand {
+	flex-grow: 1;
+	flex-shrink: 1;
+	width: 100%;
+	height: 100%;
+}
+
+/* SPECIFICS */
+
+#music-player-controls {
+	translate: 0 48px;
+
+	gap: 16px;
+}
+
+#music-player-track {
+	position: relative;
+}
+
+.music-player-track-line {
+	position: absolute;
+	top: 50%; translate: 0 -50%;
+	width: 100%;
+	height: 8px;
+	border-radius: 4px;
+	background-color: #fff6;
+	transition: 0.1s ease-out;
+
+	&:hover {
+		height: 16px;
+		border-radius: 8px;
+
+		#music-player-track-progress {
+			height: 16px;
+			border-radius: 8px;
+		}
+	}
+}
+
+#music-player-track-progress {
+	position: absolute;
+	top: 50%; translate: 0 -50%;
+	width: 100%;
+	height: 8px;
+	border-radius: 4px;
+	background-color: #ffff;
+	transition-duration: 0.1s;
+}
+
+.button {
+	outline: none;
+	border: none;
+	background-color: transparent;
+	filter: invert(100%);
+	background-position: center;
+	background-size: cover;
+	width: 48px; aspect-ratio: 1/1;
+	transition-duration: 0.1s;
+	image-rendering: crisp-edges;
+
+	&:hover {
+		scale: 1.2;
+	}
+}
+
+.button#play {
+	background-image: url('icons/media_play.svg');
+
+	&.playing {
+		background-image: url('icons/media_pause.svg');
+	}
+}
+
+.button#mute {
+	background-image: url('icons/volume_mute.svg');
+}
+
+.button#shuffle {
+	background-image: url('icons/media_shuffle.svg');
+}
+
+#track-time {
+	white-space: nowrap;
+	text-align: center;
+	line-height: 200%;
+	bottom: 0;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+@bg_image: url('media/cover-cursed-carnival.png');
+
+.bbg {
+	position: absolute;
+	inset: 0;
+	background-image: @bg_image;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	filter: blur(200px);
+	opacity: 40%;
+}
+
+.mplayer-container {
+	max-width: min(80%, 960px);
+	max-height: 80%;
+	aspect-ratio: 16/9;
+	position: absolute;
+	margin: auto;
+	inset: 0;
+
+	background-color: rgb(41, 41, 41);
+}
+
+#player-container {
+	image-rendering: pixelated;
+
+	background-image: @bg_image;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	border-radius: 1em;
+
+	&::before {
+		content: ' ';
+		position: absolute;
+		display: block;
+		inset: 0;
+		z-index: -1;
+		filter: blur(64px);
+		opacity: 0.4;
+		background-image: @bg_image;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		transition-duration: 0.1s;
+	}
+	
+
+	&:hover {
+		&::before {
+			opacity: 0.7;
+		}
+	}
+}
