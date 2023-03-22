@@ -14,7 +14,7 @@ var gallery_img_list = [
 	"../gallery/img/invo_new_horizon_heroes.png",
 	"../gallery/img/invo_ollie_room.png",
 	"../gallery/img/invo_vs_magnum_opus_1.png",
-	"../gallery/img/invo_lost_massie.png",
+	"screenshots/diner2.png",
 	"../gallery/img/invo_mystery_chat.png",
 	"../gallery/img/invo_hank_minecart.png",
 	"../gallery/img/invo_twisted_school_0.png",
