@@ -1,79 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!--Information-->
-	<title>Gallery | mrpedrobraga</title>
-
-	<!--Metadata-->
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="../_assets/img/profile_picture.jpg" />
+	<title>@mrpedrobraga | Gallery</title>
 
 	<!--CSS Normalization-->
 	<link rel="stylesheet" type="text/less" href="../_styles/normalize.css"/>
 
-	<!--Styling-->
-	<link href="http://fonts.cdnfonts.com/css/cascadia-code" rel="stylesheet">
-	<link rel="stylesheet/less" type="text/css" href="../_styles/starch_main.less"/>
-	<link rel="icon" type="image/x-icon" href="../_assets/img/profile_picture.jpg" />
+	<!--Styles-->
+	<link rel="stylesheet/less" type="text/css" href="../_styles/starch_main.less">
 </head>
-<body class="dark">
+<body>
 	<!--Extension: LESS; for better styling!!!-->
 	<script src="../_extensions/less.js" ></script>
 
-	<a class="contact-icon return" style="position: fixed; top:8px; left:8px;" href="../#main-nav">
-        <img src="../_assets/icons/back-arrow-icon.svg" alt="Go Back">
-    </a>
-
-	<div class="post">
-		<article class="content text-center">
-			<h1>Gallery</h1><br>
-			<p>Some concept art I've done for different projects.</p>
+	<header>
+		<div id="title">
+			<h1 id="my title">@mrpedrobraga</h1>'s personal bragging page.
 		</div>
-	</div>
-	<div class="gallery" id="gallery_container">
-	</div>
-	<script>
-		var gc = document.getElementById("gallery_container")
-		document.galleryContainer = gc
+	</header>
+	<main>
+		<nav>
+			<ul class="tabs" id="gallery_nav">
+				<li class="gallery_btn selected" id="videogames" onclick="set_gallery_visible('videogames')">Pixel Art</li>
+				<li class="gallery_btn selected" id="concept_art" onclick="set_gallery_visible('concept_art')">Concept Art</li>
+				<li class="gallery_btn selected" id="ui_ux" onclick="set_gallery_visible('ui_ux')">UI/UX Design</li>
+			</ul>
+		</nav>
+		<div class="gallery" id="videogames" style="image-rendering: pixelated;">
+			<img src="img/invo_ollie_sunlight.png" alt="A boy sitting in a cave bathed in sunlight.">
+			<img src="../inner_voices/screenshots/diner2.png" alt="Two kids standing in a diner floating amidst a weird pink background.">
+			<img src="img/invo_vs_andy.png" alt="Two kids fighting against a water-controlling kid on top of a pillar.">
+			<img src="img/gif_mystery_kid.gif" alt="Mystery Kid rotating.">
+			<img src="img/invo_vs_magnum_opus_1.png" alt="A giant, geometric humanoid character playing pong with a human's SOUL.">
+			<img src="img/Windswept-Duckie-Swim.gif" alt="A cute duck swimming.">
+			<img src="img/invo_mystery_chat.png" alt="Claire talking to Mystery Kid on a talk show stage.">
+			<img src="img/invo_promo1.png" alt="Hank and Claire out of the cave, looking at the horizon of a barren desert.">
+			<img src="img/invo_lost_massie.png" alt="A small clown kid lost in the woods. He says 'Oh no! It appears I have lost track of my location!'.">
+			<img src="img/Windswept-Duckie-Throw.gif" alt="A cute duck throwing a turtle shell.">
+			<img src="img/invo_yarn_knight.png" alt="An old grandma and her woven yarn golem.">
+			<img src="img/Windswept-Duckie-Win.gif" alt="A cute duck doin' a lil' dance.">
+			<img src="img/Windswept-Turt-Tumbled.gif" alt="A cute turtle tumbled over, unable to get up.">
+			<img src="img/invo_kandy_trade_offer.png" alt="A geometric being offering one dollar for Claire' SOUL, in the format of the popular 'Trade Offer' meme.">
+			<img src="img/invo_hank_minecart.png" alt="Hank and Claire sitting in a minecart, shooting an UFO.">
+			<img src="img/invo_hank_world.png" alt="Hank and Claire out of the cave, looking at the horizon of a barren desert.">
+			<img src="img/invo_main_characters.png" alt="The five main heroes of Inner Voices:
+			A kid with cylindrical hair and a red puff jacket,
+			another guy with a yellow sweater and suspenders,
+			A girl with long black hair, stripped shirt, and a golden key necklace,
+			A tough-looking guy with a football jacket,
+			And a blonde guy with vitiligo, heartbeat overcoat and a plaid skirt.">
+			<img src="img/invo_vs_chaos_knight.png" alt="The four heroes fighting a clockwork-like robot with floating hands that shoots lasers.">
+			<img src="img/invo_hank_donuthole.png" alt="Hank and Claire shooting a hole into a donut.">
+			<img src="img/invo_vs_lady_sucrose.png" alt="Claire fighting against a giant ghost lady that attacks with pastries.">
+			<img src="img/invo_ollie_room.png" alt="Claire fighting against a giant ghost lady that attacks with pastries.">
+			<img src="img/invo_everyone.png" alt="Every character i had ever drawn at a certain point in time.">
+		</div>
+		<div class="gallery" id="concept_art">
+			<img src="img/concept_ollie_cooking.png" alt="A boy cutting a tomato to make some food.">
+			<img src="img/concept_keichii.png" alt="A japanese young man learning he can control his yoyo.">
+			<img src="img/concept_ollie_many.png" alt="A lot of ollies doing many things.">
+			<img src="img/concept_invo_erica.png" alt="A girl with dreadlocks wearing pajamas and attacking with stars.">
+			<img src="img/concept_marecrit.png" alt="A small child goddess for a friend's book.">
+			<img src="img/concept_wonder_boy.png" alt="A small child in a superhero uniform.">
+			<img src="img/concept_invo_cover.png" style="height: initial; width: 90%;" alt="The cover of Inner Voices: two boys sleeping in a bed in a very messy bedroom full of toys.">
 
-		var images = [
-			"invo_promo1.png",
-			"invo_everyone.png",
-			"invo_main_characters.png",
-			"invo_castle.png",
-			"invo_hank_world.png",
-			"invo_ollie_room.png",
-			"invo_ollie_sunlight.png",
-			"invo_twisted_school_0.png",
-			"invo_starfall_plaza.png",
-			"invo_starfall_buildings.png",
-			"invo_mystery_chat.png",
-			"invo_water_checkpoint.gif",
-			"invo_vs_magnum_opus_1.png",
-			"invo_hank_minecarts.jpg",
-			"invo_vs_lady_sucrose.png",
-			"invo_cold_forest.png",
-			"invo_lost_massie.png",
-			"invo_kandy_trade_offer.png",
-			"invo_trevor_world_concept_art.png",
-		]
+		</div>
 
-		function fill() {
-			images.forEach(element => {
-				var new_item = document.createElement("div")
-				new_item.classList.add("gallery-item")
+		<script defer>
+			function set_gallery_visible(id) {
+				var items = document.getElementsByClassName("gallery")
+				for (let index = 0; index < items.length; index++) {
+					const element = items[index];
+					element.style.display = element.id == id ? "flex" : "none"
+				}
 
-				var img = document.createElement("img")
-				img.src = "./img/" + element
-				
-				new_item.appendChild(img)
+				var btns = document.getElementsByClassName("gallery_btn")
+				for (let index = 0; index < btns.length; index++) {
+					const element = btns[index];
+					
+					if (element.id == id) {
+						element.classList.add("selected")
+					} else {
+						element.classList.remove("selected")
+					}
+				}
+			}
 
-				gc.appendChild(new_item)
-			})
-		}
-
-		fill()
-	</script>
+			set_gallery_visible("videogames")
+		</script>
+	</main>
 </body>
 </html>
