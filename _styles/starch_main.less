@@ -76,8 +76,24 @@ nav {
 	justify-content: center;
 	width: 100%;
 
-	&#videogames img {
-		height: 300px;
+	&#videogames {
+		img {
+			height: 300px;
+			filter: grayscale(0%);
+			transition: scale 0.1s ease-in-out;
+			z-index: 9;
+
+			&:hover {
+				scale: 1.15;
+				z-index: 10;
+				filter: grayscale(0%) !important;
+			}
+		}
+
+		&:hover img{
+			filter: grayscale(100%);
+			transition-duration: 0.1s;
+		}
 	}
 
 	&#concept_art img {
