@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  image-rendering: pixelated;
+  image-rendering: optimizeQuality;
 }
 
 @bg: #209494;
@@ -87,16 +87,19 @@ body {
 }
 
 header {
+  display: flex;
+  flex-direction: column;
   h1 {
     text-align: center;
-    color: @white;
+    vertical-align: middle;
+    color: #0f50b1;
     font-size: 3em;
     font-family: "Cascadia Code";
     font-weight: normal;
     text-decoration: none;
+    margin-top: 100px;
+    margin-bottom: 100px;
   }
-
-  min-height: 200px;
 }
 
 .whiteblob {
