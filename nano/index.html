@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=640, initial-scale=1.0" />
+    <title>mrpedrobraga::nano</title>
+
+    <link rel="stylesheet" href="./wiki.css" />
+    <link rel="stylesheet" href="./code.css" />
+  </head>
+  <body>
+    <aside>
+      <h3>Index</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a>Low Level</a></li>
+        <li><a>High Level</a></li>
+      </ul>
+    </aside>
+    <main>
+      <h1>nano</h1>
+
+      <p>
+        nano is a strong-typed compiled language, with low level functionality
+        but modern, elegant, intuitive syntax. You can get a feel for how the
+        language is like to write in by looking at its keywords. Check 'em out:
+      </p>
+
+      <code>
+        <span class="m-keyword">
+          if unless then else loop while for in of do break continue match when
+          fn return let alias shared const struct class trait member await
+        </span>
+      </code>
+
+      <p>
+        Most importantly, <em>nano</em> is an art project, it was created to
+        have a syntax and a functioning that was appealing to me specifically
+        and is not intended to replace any programming languages out there.
+      </p>
+      <hr />
+      <h2>Design Goals</h2>
+
+      <p>
+        Given it's an art project, here's the design guidelines I used to
+        develop the language.
+      </p>
+
+      <ul>
+        <li>
+          <h3>Elegance</h3>
+
+          <p>
+            A language that is easy to parse is a language that's easy to write
+            code for (with some common sense implied). Which is why nano has a
+            few patterns that are repeated here and there.
+          </p>
+
+          <p>
+            For example, Nano's if statement doesn't require {}s, it operates on
+            a single expression for the condition and a single expression for
+            the consequence.
+          </p>
+          <code>
+            <span class="m-keyword">if</span> &lt;condition&gt;
+            <span class="m-keyword">then</span>
+            &lt;expression&gt;
+          </code>
+          <p>
+            The way you'd execute multiple expressions as a consequence is by
+            using an expression grouping:
+          </p>
+          <code>
+            (<br />
+            &emsp;<span class="m-keyword">print</span> &Tab;<span
+              class="m-string"
+              >'Hello!'</span
+            ><br />
+            &emsp;<span class="m-keyword">print</span> &Tab;<span
+              class="m-string"
+              >'Hello 2!'</span
+            ><br />
+            )
+          </code>
+          <p>
+            This "grouping" can be used anywhere an expression can, so you know
+            what you can do syntactically when you find this:
+          </p>
+          <code>
+            <span class="m-keyword">await</span>
+            &lt;expression&gt;
+          </code>
+        </li>
+        <div id="spacer" style="height: 20px"></div>
+        <li>
+          <h3>Expression</h3>
+
+          <p>
+            In nano, everything is an expression. This is makes it easy to write
+            sophisticated thoughts such as:
+          </p>
+          <code>
+            <span class="m-variable">my_variable</span>
+            <span class="m-symbol">:</span>
+            <span class="m-keyword">int</span>
+            <span class="m-symbol">=</span>
+            <span class="m-symbol">(</span><br />
+            &emsp;<span class="m-keyword">let</span>
+            a
+            <span class="m-symbol">=</span>
+            2<br />
+            &emsp;a
+            <span class="m-symbol">*</span>
+            <span class="m-number">4</span> <br />
+            <span class="m-symbol">)</span>
+          </code>
+          <p>or this monstrosity:</p>
+          <code>
+            <span class="m-keyword">if</span>
+            <span class="m-symbol">(</span><br />
+            &emsp;<span class="m-keyword">try</span><br />
+            &emsp;&emsp;<span class="m-variable-2">func</span
+            ><span class="m-symbol">()</span><br />
+            &emsp;<span class="m-keyword">catch</span><br />
+            &emsp;&emsp;<span class="m-keyword">print</span>
+            <span class="m-string">'An error occured!'</span><br />
+            <span class="m-symbol">)</span>
+            <span class="m-keyword">then</span>
+            <span class="m-keyword">print</span>
+            <span class="m-string">'Success!'</span><br />
+          </code>
+          <p>which leads us to the next point:</p>
+        </li>
+        <div id="spacer" style="height: 20px"></div>
+        <li>
+          <h3>Freedom</h3>
+
+          <p>
+            nano allows you to write it in many ways, allowing you to fully
+            express yourself through code
+          </p>
+
+          <p class="callout">
+            <strong>(!) Attention</strong><br /><br />
+            Please talk to your teammates about how you'd like to structure your
+            code.
+            <br />
+          </p>
+          <p>
+            There is a
+            <a href="./style-guide">[nano best-practices style guide]</a>.
+          </p>
+          <p>
+            Nano is also multi-paradigm, allowing you to program in a mixture of
+            functional, object-oriented, or modular.
+          </p>
+          <p>
+            It has powerful functions and useful simple data structures (such as
+            const array and struct), for organized functional code... and also a
+            great class and type system for your OOP needs.
+          </p>
+        </li>
+      </ul>
+
+      <hr />
+
+      <h2>Learn</h2>
+      <p>Check out other pages!</p>
+
+      <hr />
+
+      <h2>How to use</h2>
+      <p class="callout">(!) You can't as of now.</p>
+      <p>
+        Install the nano files somewhere within your PATH. Use the nano compiler
+        <em>nnc</em> to compile your nano file and its dependencies and it'll
+        generate your executable.
+      </p>
+      <code> nnc ./file.nn </code>
+      <p>
+        nano doesn't have a dedicated build system, instead allowing you to
+        customize your compilation with compiler directives inside your files.
+      </p>
+      <div id="spacer" style="height: 50vh"></div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+/* Based on Sublime Text's Monokai theme */
+
+code {
+  background: #232125;
+  color: #f8f8f2;
+}
+code div.m-selected {
+  background: #49483e !important;
+}
+code .m-gutters {
+  background: #272822;
+  border-right: 0px;
+}
+code .m-linenumber {
+  color: #d0d0d0;
+}
+code .m-cursor {
+  border-left: 1px solid #f8f8f0 !important;
+}
+
+code span.m-comment {
+  color: #75715e;
+}
+code span.m-atom {
+  color: #ae81ff;
+}
+code span.m-number {
+  color: #ae81ff;
+}
+code span.m-symbol {
+  color: rgba(255, 255, 255, 0.705);
+}
+
+code span.m-property,
+code span.m-attribute {
+  color: #a6e22e;
+}
+code span.m-keyword {
+  color: #ff536a;
+}
+code span.m-string {
+  color: #ffd769;
+}
+
+code span.m-variable {
+  color: #a6e22e;
+}
+code span.m-variable-2 {
+  color: #6bcefc;
+}
+code span.m-def {
+  color: #fd971f;
+}
+code span.m-bracket {
+  color: #f8f8f2;
+}
+code span.m-tag {
+  color: #f92672;
+}
+code span.m-link {
+  color: #ae81ff;
+}
+code span.m-error {
+  background: #f92672;
+  color: #f8f8f0;
+}
+
+code .active-line-bg {
+  background: #373831 !important;
+}
+code .matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}

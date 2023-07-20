@@ -1,0 +1,166 @@
+/* Normalize */
+:root {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  text-rendering: optimizeLegibility;
+  --color-bg: #0d1117;
+  --color-text: #eeeded;
+  --color-selection: #707070;
+}
+
+::selection {
+  background-color: var(--color-selection);
+}
+
+::selection a {
+  color: #91ce16 !important;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #3d3e3f #000000;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #3d3e3f;
+  border-radius: 10px;
+  border: 0px solid #ffffff;
+}
+
+@font-face {
+  font-family: Merriweather;
+  src: url("./_fonts/Merriweather-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Yuji Boku";
+  src: url("./_fonts/YujiBoku-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Cascadia Code";
+  src: url("./_fonts/CascadiaCode.ttf");
+}
+
+html {
+  background-color: var(--color-bg);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  font-family: Merriweather;
+
+  font-size: 1em;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+h2,
+h3,
+h4 {
+  letter-spacing: 1.5px;
+}
+
+main:hover h1,
+main:hover h2,
+main:hover h3,
+main:hover h4,
+main:hover p,
+main:hover code {
+  opacity: 40%;
+  transition-property: opacity;
+  transition-delay: 50ms;
+  transition-duration: 100ms;
+}
+
+main:hover h1:hover,
+main:hover h2:hover,
+main:hover h3:hover,
+main:hover h4:hover,
+main:hover p:hover,
+main:hover code:hover {
+  opacity: 100%;
+  transition-property: opacity;
+  transition-delay: 50ms;
+  transition-duration: 100ms;
+}
+
+code {
+  font-family: "Cascadia Code", "Courier New", Courier, monospace;
+  padding: 10px;
+  display: block;
+  background-color: #00000044;
+}
+
+hr {
+  margin-bottom: 60px;
+  opacity: 20%;
+  border: 1px solid white;
+  outline: none;
+}
+
+aside {
+  min-width: 200px;
+  position: sticky;
+  align-self: flex-start;
+  height: auto;
+  top: 50px;
+}
+
+main {
+  max-width: 800px;
+}
+
+ul {
+  list-style-position: outside;
+  padding-left: 10px;
+}
+
+main ul li {
+  border-left: 2px solid #ffffff33;
+  padding-left: 10px;
+}
+
+.callout {
+  --callout-color-bg: #99999933;
+  --callout-color-accent: #999999;
+  border-left: 2px solid var(--callout-color-accent);
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: var(--callout-color-bg);
+}
+
+a {
+  color: var(--color-text);
+  cursor: not-allowed;
+}
+
+a[href] {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #a6e22e;
+  text-decoration: none;
+}
+
+strong {
+  font-family: "Yuji Boku";
+  font-weight: normal;
+}
