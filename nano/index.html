@@ -48,51 +48,6 @@
 
       <ul>
         <li>
-          <h3>Elegance</h3>
-
-          <p>
-            A language that is easy to parse is a language that's easy to write
-            code for (with some common sense implied). Which is why nano has a
-            few patterns that are repeated here and there.
-          </p>
-
-          <p>
-            For example, Nano's if statement doesn't require {}s, it operates on
-            a single expression for the condition and a single expression for
-            the consequence.
-          </p>
-          <code>
-            <span class="m-keyword">if</span> &lt;condition&gt;
-            <span class="m-keyword">then</span>
-            &lt;expression&gt;
-          </code>
-          <p>
-            The way you'd execute multiple expressions as a consequence is by
-            using an expression grouping:
-          </p>
-          <code>
-            (<br />
-            &emsp;<span class="m-keyword">print</span> &Tab;<span
-              class="m-string"
-              >'Hello!'</span
-            ><br />
-            &emsp;<span class="m-keyword">print</span> &Tab;<span
-              class="m-string"
-              >'Hello 2!'</span
-            ><br />
-            )
-          </code>
-          <p>
-            This "grouping" can be used anywhere an expression can, so you know
-            what you can do syntactically when you find this:
-          </p>
-          <code>
-            <span class="m-keyword">await</span>
-            &lt;expression&gt;
-          </code>
-        </li>
-        <div id="spacer" style="height: 20px"></div>
-        <li>
           <h3>Expression</h3>
 
           <p>
@@ -100,15 +55,13 @@
             sophisticated thoughts such as:
           </p>
           <code>
-            <span class="m-variable">my_variable</span>
-            <span class="m-symbol">:</span>
-            <span class="m-keyword">int</span>
+            obj<span class="m-variable">.my_variable</span>
             <span class="m-symbol">=</span>
             <span class="m-symbol">(</span><br />
             &emsp;<span class="m-keyword">let</span>
             a
             <span class="m-symbol">=</span>
-            2<br />
+            <span class="m-number">2</span><br />
             &emsp;a
             <span class="m-symbol">*</span>
             <span class="m-number">4</span> <br />
@@ -160,6 +113,91 @@
             great class and type system for your OOP needs.
           </p>
         </li>
+        <div id="spacer" style="height: 20px"></div>
+        <li>
+          <h3>Elegance</h3>
+
+          <p>
+            A language that is easy to parse is a language that's easy to write
+            code for (with some common sense implied). Which is why nano has a
+            few patterns that are repeated here and there.
+          </p>
+
+          <p>
+            For example, Nano's if statement doesn't require {}s, it operates on
+            a single expression for the condition and a single expression for
+            the consequence.
+          </p>
+          <code>
+            <span class="m-keyword">if</span> &lt;condition&gt;
+            <span class="m-keyword">then</span>
+            &lt;expression&gt;
+          </code>
+          <p>
+            The way you'd execute multiple expressions as a consequence is by
+            using an expression grouping:
+          </p>
+          <code>
+            (<br />
+            &emsp;<span class="m-keyword">print</span> &Tab;<span
+              class="m-string"
+              >'Hello!'</span
+            ><br />
+            &emsp;<span class="m-keyword">print</span> &Tab;<span
+              class="m-string"
+              >'Hello 2!'</span
+            ><br />
+            )
+          </code>
+          <p>
+            This "grouping" can be used anywhere an expression can, so you know
+            what you can do syntactically when you find this:
+          </p>
+          <code>
+            <span class="m-keyword">await</span>
+            &lt;expression&gt;
+          </code>
+          <p>
+            Another example of nano's syntactic elegance is that symbols often
+            have abstract meanings they follow everywhere in the design.
+          </p>
+          <ul style="list-style-position: inside">
+            <li>
+              <code class="inline">()</code> mean grouping, and are used to
+              group expressions whenever. They never have any semantic
+              implications.
+            </li>
+            <li>
+              <code class="inline">[]</code> mean 'collection of unnamed items'
+              and are used for arrays, tuples, lists, sets.
+            </li>
+            <li>
+              <code class="inline">{}</code> mean 'collection of named items'
+              and are used for structs, classes, traits, etc.
+            </li>
+            <li>
+              <code class="inline"><></code> are related to 'template
+              parameters' and are used to define or instantiate generic types
+              and functions.
+            </li>
+            <li>
+              <code class="inline">...</code> are related to 'filling in' and
+              are used in ranges, collection spreading, arbitrary argument count
+              in functions, partial function call (argument binding)...
+
+              <code>
+                <span class="m-keyword">for</span>
+                i
+                <span class="m-keyword">in</span>
+                <span class="m-number">0</span><span class="m-symbol">...</span
+                ><span class="m-number">10</span>
+                <span class="m-keyword">do</span>
+                <span class="m-keyword">print</span>
+                <span class="m-string">'hi'</span>
+              </code>
+            </li>
+          </ul>
+        </li>
       </ul>
 
       <hr />
@@ -173,8 +211,8 @@
       <p class="callout">(!) You can't as of now.</p>
       <p>
         Install the nano files somewhere within your PATH. Use the nano compiler
-        <em>nnc</em> to compile your nano file and its dependencies and it'll
-        generate your executable.
+        <code class="inline">nnc</code> to compile your nano file and its
+        dependencies and it'll generate your executable.
       </p>
       <code> nnc ./file.nn </code>
       <p>

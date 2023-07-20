@@ -80,7 +80,8 @@ main:hover h2,
 main:hover h3,
 main:hover h4,
 main:hover p,
-main:hover code {
+main:hover li,
+main:hover code:not(.inline) {
   opacity: 40%;
   transition-property: opacity;
   transition-delay: 50ms;
@@ -92,6 +93,7 @@ main:hover h2:hover,
 main:hover h3:hover,
 main:hover h4:hover,
 main:hover p:hover,
+main:hover li:hover,
 main:hover code:hover {
   opacity: 100%;
   transition-property: opacity;
@@ -102,8 +104,19 @@ main:hover code:hover {
 code {
   font-family: "Cascadia Code", "Courier New", Courier, monospace;
   padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: block;
-  background-color: #00000044;
+}
+
+code.inline {
+  font-family: "Cascadia Code", "Courier New", Courier, monospace;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: inline;
+  background-clip: border-box;
 }
 
 hr {
