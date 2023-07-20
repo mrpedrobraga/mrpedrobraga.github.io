@@ -75,6 +75,11 @@ h4 {
   letter-spacing: 1.5px;
 }
 
+main {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 main:hover h1,
 main:hover h2,
 main:hover h3,
@@ -132,6 +137,13 @@ aside {
   align-self: flex-start;
   height: auto;
   top: 50px;
+  display: block;
+}
+
+@media only screen and (max-device-width: 600px) {
+  aside {
+    display: none !important;
+  }
 }
 
 main {
