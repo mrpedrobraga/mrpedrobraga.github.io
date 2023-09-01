@@ -24,12 +24,13 @@ a.marker:hover {
 }
 
 .progress {
+  z-index: 30;
   top: 0;
   left: 0;
   display: block;
   background-color: #fefefd;
   position: fixed;
-  width: 100vw;
+  width: 0vw;
   height: 0.5rem;
 
   animation-name: readprogress;
@@ -41,10 +42,12 @@ a.marker:hover {
 @keyframes readprogress {
   from {
     width: 0;
+    background-color: #fefefd;
   }
 
   to {
     width: 100vw;
+    background-color: #57a64a;
   }
 }
 
@@ -78,10 +81,89 @@ h1 {
   font-style: italic;
 }
 
+#aside-menu {
+  z-index: 1;
+  font-family: "Cascadia Code", "Courier New", Courier, monospace;
+  font-size: 10pt;
+  display: block;
+  position: fixed;
+  padding: 20px;
+  align-self: start;
+  top: 200px;
+  left: calc(50vw - 500px - 180px);
+
+  & a {
+    text-decoration: none;
+    color: #dcdcd0;
+  }
+
+  & a {
+    opacity: 40%;
+  }
+
+  & a:hover {
+    opacity: 100%;
+  }
+
+  & ul {
+    list-style-type: none;
+
+    & ul {
+      padding-inline-start: 16px;
+    }
+  }
+}
+
+.anchor-target {
+  top: -3em;
+  position: relative;
+  visibility: hidden;
+}
+
+.anchor-target:has(+ h2) {
+  top: 0;
+  color: blue;
+}
+
+h2 {
+  top: 0;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  background-color: #161516;
+  position: sticky;
+  z-index: 3;
+}
+
 body main {
   width: min(100%, 1000px);
   display: block;
   padding-inline: 1rem;
+  background-color: inherit;
+  line-height: 1rem;
+}
+
+p,
+pre,
+h3 {
+  transition-property: opacity;
+  transition-duration: 0.05s;
+  transition-timing-function: ease-in-out;
+}
+
+main:hover {
+  & p,
+  & pre,
+  & h3 {
+    opacity: 40%;
+  }
+}
+
+main:hover {
+  & p:hover,
+  & pre:hover,
+  & h3:hover {
+    opacity: 100%;
+  }
 }
 
 @font-face {
@@ -103,6 +185,7 @@ code {
   font-family: "Cascadia Code", "Courier New", Courier, monospace;
   margin: 0;
   padding: 0;
+  border-radius: 0.5rem;
 }
 
 pre {

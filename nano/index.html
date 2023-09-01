@@ -32,24 +32,46 @@
 
     <header id="header"><h1><code>nano</code></h1></header>
 
-    <main>
-      <p>
-        <code>nano</code> is a strong-typed compiled language with a modern
-        design that targets simplicity and strong semantical consistency.
-      </p>
-      <p>
-        Most importantly, <code>nano</code> is an art project made to be the
-        best language design ever for the tastes of me, specifically.</p>
-      <p>
-        If you're still interested, let's learn <code>nano</code> by example!
-      </p>
-      <p>
-        This is the hello world example.
-        <pre><code class="language-nano">print "Hello World"</code></pre>
-      </p>
-      <p>
-        Ok, now here's a simple calculator CLI app.
+    <aside id="aside-menu">
+      <ul>
+        <li><a href="#top">Beggining</a></li>
+        <li><a href="#design-goals">Design Goals</a>
+          <ul>
+            <li>
+              <a href="#nano-is-a-thin-wrapper">nano's thin</a>
+            </li>
+            <li>
+              <a href="#nano-is-semantic">nano's semantic</a>
+            </li>
+            <li>
+              <a href="#nano-is-expressive">nano's expressive</a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#features">Some Features</a></li>
+      </ul>
+    </aside>
 
+    <main>
+      <section>
+        <p>
+          <code>nano</code> is a strong-typed compiled language with a modern
+          design that targets simplicity and strong semantical consistency.
+        </p>
+        <p>
+          Most importantly, <code>nano</code> is an art project made to be the
+          best language design ever for the tastes of me, specifically.</p>
+        <p>
+          If you're still interested, let's learn <code>nano</code> by example!
+        </p>
+        <p>
+          This is the hello world example.
+<pre><code class="language-nano">print "Hello World"</code></pre>
+        </p>
+        <p>
+          Ok, now here's a simple calculator CLI app.
+        </p>
+        
 <pre><code class="language-nano">print 'CALCULATOR\n'
 
 loop (
@@ -65,10 +87,10 @@ loop (
   let b = prompt('Second parameter: ') as float
 
   let result = match op
-      when '+' then a + b
-      when '-' then a - b
-      when '*' then a * b
-      when '/' then a / b
+when '+' then a + b
+when '-' then a - b
+when '*' then a * b
+when '/' then a / b
 
   print '\n{a} {op} {b} = {result}!'
 )
@@ -78,41 +100,38 @@ ParseErrorHandler = err_handler (e: ParseError) -> (
   continue
 )
 </code></pre>
-
-        Pattern matching, returning error unions instead of throwing, conversions,
-        container operators, interpolation... that's a lot of concepts,
-        yet I bet you managed to understand all of it.
-      </p>
+        <p>
+          Pattern matching, returning error unions instead of throwing, conversions,
+          container operators, interpolation... that's a lot of concepts,
+          yet I bet you managed to understand all of it.
+        </p>
+      </section>
       
-      <hr/>
-      <h2 id="#design-goals"><a class="marker" href="#design-goals">#</a>Design Goals</h2>
+      <section>
+        <div id="design-goals" class="anchor-target"></div>
+        <h2><a class="marker" href="#design-goals">#</a>Design Goals</h2>
+        <p>The things I keep in mind while designing the language.</p>
+        <br>
+        <div id="nano-is-a-thin-wrapper" class="anchor-target"></div>
+        <h3><code>nano</code> is a thin wrapper.</h3>
+        <p>
+          Nano is compiled directly into machine code.
+          No dependencies, no hacks, no runtime. What you write is what gets compiled.
+        </p>
+        <p>The development environment you need is simply the nano compiler <code>nnc</code>.
+        When you use it, it'll create a (deletable) .nano subfolder for cache. After compilation
+        you'll have a single executable.</p>
+        <p>There's no package manager, no boilerplate, no enforced folder structure.</p>
+        <br>
 
-      <p>The things I keep in mind while designing the language.</p>
-
-      <br>
-      <h3><code>nano</code> is a thin wrapper.</h3>
-      <p>
-        Nano is compiled directly into machine code.
-        No dependencies, no hacks, no runtime. What you write is what gets compiled.
-      </p>
-
-      <p>The development environment you need is simply the nano compiler <code>nnc</code>.
-      When you use it, it'll create a (deletable) .nano subfolder for cache. After compilation
-      you'll have a single executable.</p>
-
-      <p>There's no package manager, no boilerplate, no enforced folder structure.</p>
-
-      <br>
-      <h3><code>nano</code> is semantic</h3>
-
-      <p>The biggest challenges developers face isn't speed nor fancy algorithms.
-        It's authoring codebases that can be understood by other people, like they themselves the next day.
-      </p>
-
-      <p><code>nano</code> renames concepts to make them less confusing, but still trusting
-      the inteligence of the developers to figure out how to use them. For example...</p>
-
-      <pre><code class="language-c">// What?
+        <div id="nano-is-semantic" class="anchor-target"></div>
+        <h3><code>nano</code> is semantic</h3>
+        <p>The biggest challenges developers face isn't speed nor fancy algorithms.
+          It's authoring codebases that can be understood by other people, like they themselves the next day.
+        </p>
+        <p><code>nano</code> renames concepts to make them less confusing, but still trusting
+        the inteligence of the developers to figure out how to use them. For example...</p>
+        <pre><code class="language-c">// What?
 int a = 0;
 int *b = &a;
 
@@ -120,104 +139,87 @@ a = 2
 std::cout &lt;&lt; *b  // prints 2?? WHAT?? WHY??
 // THE HECK IS A '*'?
 // Ok... pointers... does * create a pointer or dereference it?</code></pre>
-      <pre><code class="language-nano"># Let's see nano...
+<pre><code class="language-nano"># Let's see nano...
 let a = slot&lt;int&gt;(0) # A slot of int... so a place where you put an int...
 let b = a    # b refers to the same slot
 
 a = 2    # changing the value in a... should change it in b, too!
 print b  # 2!! Yeah!</code></pre>
+        <p>This should be the expected experience while learning nano.</p>
+        <br>
 
-      <p>This should be the expected experience while learning nano.</p>
 
-      <br>
-      <h3><code>nano</code> is expressive</h3>
-
-      <p><code>nano</code> started as a design for a pseudo-code language, something
-      that you can use to quickly throw together to explain your thought process around
-      solving some problem. Slowly I realized it could become a real language.</p>
-
-      <p><code>nano</code> values allowing the programmer to think fluidly, and tries
-      to offer type-safety and the like without compromising the creative flow.</p>
-
-      <p>It's also multi-paradigm, built on top of basic procedural programming,
-        but with great support for functional, object-oriented, data-oriented, composition over inheritance, etc.
-      </p>
-
-      <pre><code class="language-nano">let nums = [...(0..100)]
+        <div id="nano-is-expressive" class="anchor-target"></div>
+        <h3><code>nano</code> is expressive</h3>
+        <p><code>nano</code> started as a design for a pseudo-code language, something
+        that you can use to quickly throw together to explain your thought process around
+        solving some problem. Slowly I realized it could become a real language.</p>
+        <p><code>nano</code> values allowing the programmer to think fluidly, and tries
+        to offer type-safety and the like without compromising the creative flow.</p>
+        <p>It's also multi-paradigm, built on top of basic procedural programming,
+          but with great support for functional, object-oriented, data-oriented, composition over inheritance, etc.
+        </p>
+        <pre><code class="language-nano">let nums = [...(0..100)]
 fn is_even (x) -> x % 2 == 0
 let doubles_of_evens = select num * 2 for num in nums when is_even num
 let last_num = doubles_of_evens::pop()
 let half = fn x -> x // 2
 last_num |> half _ |> _ + 1 |> print _</code></pre>
+      </section>
 
-      <hr/>
-      <h2 id="#features"><a class="marker" href="#features">#</a>Very long yet non-exhaustive list of features</h2>
-
-      <p>You can declare symbols by using `let` and assigning to an identifier.</p>
-
-      <pre><code class="language-nano">let a = 3</code></pre>
-
-      <p>
-        You can manually add a type to the symbol.
-        The assigned value will attempt to be converted implicitly if possible.
-      </p>
-
-      <pre><code class="language-nano">let a : float = 3
+      <section>
+        <div id="features" class="anchor-target"></div>
+        <h2 ><a class="marker" href="#features">#</a>Very long yet non-exhaustive list of features</h2>
+        <p>You can declare symbols by using `let` and assigning to an identifier.</p>
+        <pre><code class="language-nano">let a = 3</code></pre>
+        <p>
+          You can manually add a type to the symbol.
+          The assigned value will be converted implicitly if possible.
+        </p>
+        <pre><code class="language-nano">let a : float = 3
 let b : string = "Hello there!"
 let c : slot&lt;bool&gt; = yes
-let d : array&lt;uint | string&gt; = [1, 2, "Three"]
-</code></pre>
-
-      <p>You can create your own types via `struct` or `array.`</p>
-
-      <pre><code class="language-nano">let User = struct {
+let d : array&lt;uint | string&gt; = [1, 2, "Three"]</code></pre>
+        <p>You can create your own types via `struct` or `array.`</p>
+<pre><code class="language-nano">let User = struct {
     name: string
     age: uint
     products: list&lt;Product&gt;
 
     construct (name: string, age: uint) -> (
-        # Notice I call it `self` and not `this`, like a maniac.
-        self.(name, age) = (name, age)
+  # Notice I call it `self` and not `this`, like a maniac.
+  self.(name, age) = (name, age)
     )
 }
 
 let victor = User("Victor", 22)
 </code></pre>
-
-      <p>The primitive types (and your structs) are passed by value, and by copy.</p>
-
-      <pre><code class="language-nano">let a = 3
+        <p>The primitive types (and your structs) are passed by value, and by copy.</p>
+<pre><code class="language-nano">let a = 3
 let b = a # a is copied into b
 b -= 1
 a += 2
 print b   # 2
 print a   # 5</code></pre>
-
-      <p>For your value sharing needs there are reference primitives. For example, <code>slot</code>.</p>
-
-      <pre><code class="language-nano">let a = slot(4)
+        <p>For your value sharing needs there are reference primitives. For example, <code>slot</code>.</p>
+<pre><code class="language-nano">let a = slot(4)
 let b = a
 
 b -= 1
 
 print a  # 3</code></pre>
-
-      <p>Get it? A <code>slot</code> is something you put things inside! The slot itself is
-        passed around by copy, but internally it points to the same place in memory.</p>
-
-      <p>Reference types happen to be proxies, which mean they can be treated just like their
-        T type in most cases... even fitting in functions with require T by automatically unwrapping their value.
-      </p>
-
-      <pre><code class="language-nano">let a = slot(4)
+        <p>Get it? A <code>slot</code> is something you put things inside! The slot itself is
+          passed around by copy, but internally it points to the same place in memory.</p>
+        <p>Reference types happen to be proxies, which mean they can be treated just like their
+          T type in most cases... even fitting in functions with require T by automatically unwrapping their value.
+        </p>
+<pre><code class="language-nano">let a = slot(4)
 fn f (x: int) -> print int
 
 f(a)   # Works, 4 gets passed by copy.
-      </code></pre>
-
-      <p>Anyways, here's a function in nano:</p>
-
-      <pre><code class="language-nano">
+</code></pre>
+        <p>Anyways, here's a function in nano:</p>
+<pre><code class="language-nano">
 let reverse_of = fn (a: string): string -> (
   a.as_reverse()
   # Functions are first-class citizens.
@@ -259,10 +261,8 @@ let some_list = [1, 2, 3, 4]
 
 fn (0, ...some_list, 5) # spread container into arguments
 </code></pre>
-
-      <p>You can create a function that acts on a central entity (what I call a 'method') like such:</p>
-
-      <pre><code class="language-nano">fn double (self: int) -> self = self * 2
+        <p>You can create a function that acts on a central entity (what I call a 'method') like such:</p>
+<pre><code class="language-nano">fn double (self: int) -> self = self * 2
 
 let b = 40
 b::double() # &lt;- an external method is called with `::` to differentiate it from a property.
@@ -270,10 +270,8 @@ b::double() # &lt;- an external method is called with `::` to differentiate it f
 let a = 30
 double(self: a)   # &lt;- It's the equivalent of this function call with a named parameter. 
 </code></pre>
-
-      <p>Signals are callables that have no body of their own, but can invoke other connected callables.</p>
-
-      <pre><code class="language-nano">let a = signal()
+        <p>Signals are callables that have no body of their own, but can invoke other connected callables.</p>
+<pre><code class="language-nano">let a = signal()
 
 a.connect( fn -> print 'Hi!\n' )
 a.connect( fn -> print 'Hello!\n' )
@@ -283,10 +281,8 @@ a()
 # Hi!
 # Hello!
 </code></pre>
-
-      <p>The child of a slot and a signal is a...</p>
-
-      <pre><code class="language-nano">let a = state(3)
+        <p>The child of a slot and a signal is a...</p>
+<pre><code class="language-nano">let a = state(3)
 a.changed.connect( fn x -> print 'Variable is now {x}.' )
 a.changed.connect( fn x -> print 'Redrawing frontend component or something...' )
 
@@ -294,10 +290,8 @@ a = 4
 
 # Variable is now 4
 # Redrawing frontend component or something...</code></pre>
-
-      <p>You can execute code asynchronously to get things done in parallel.</p>
-
-      <pre><code class="language-nano">let a = 3
+        <p>You can execute code asynchronously to get things done in parallel.</p>
+<pre><code class="language-nano">let a = 3
 print 'foo'
 func(a)
 print 'bar'
@@ -315,21 +309,17 @@ foobarbaz3
 
 maybe... it's hard to say when the `print x` will run.
 ###
-      </code></pre>
-
-      <p>
-        A reference type or collection that's declare inside a function has two counterparts: one in the heap, one in the stack.
-        The heap-allocated memory will be freed when the stack drops.
-      </p>
-
-      <pre><code class="language-nano">let a : slot&lt;int&gt; = 102</code></pre>
-
-      <p>
-        With values that are passed by copy, no bigger issues arise with this
-        but for reference types, an asynchronous function could have invalid references.
-      </p> 
-
-      <pre><code class="language-nano">fn caller_func -> (
+</code></pre>
+        <p>
+          A reference type or collection that's declare inside a function has two counterparts: one in the heap, one in the stack.
+          The heap-allocated memory will be freed when the stack drops.
+        </p>
+<pre><code class="language-nano">let a : slot&lt;int&gt; = 102</code></pre>
+        <p>
+          With values that are passed by copy, no bigger issues arise with this
+          but for reference types, an asynchronous function could have invalid references.
+        </p>
+<pre><code class="language-nano">fn caller_func -> (
   let a = slot&lt;int&gt;(3)
 
   some_async_func(a)
@@ -338,11 +328,9 @@ maybe... it's hard to say when the `print x` will run.
   # but `some_async_func` is possibly still running with 
   # an invalid reference, that's a no-no.
 )</code></pre>
-
-      <p>Introducing... ownership!</p>
-      <p>Wait! Calm down! This isn't Rust! Relax!</p>
-
-      <pre><code class="language-nano">let a = slot(3)
+        <p>Introducing... ownership!</p>
+        <p>Wait! Calm down! This isn't Rust! Relax!</p>
+<pre><code class="language-nano">let a = slot(3)
 
 # If you call `a` with an async function,
 # it will be given ownership of `a`, and it will
@@ -353,14 +341,12 @@ some_async_func(a)
 # have an invalid reference to `a` if `some_async_func` frees its memory?
 # Yes, and that's why you can't use `a` here.
 print a  # ERROR: `a` was given away and can not be used here.
-      </code></pre>
-
-      <p>In order to use the reference type again, you must make sure
-        the caller scope outlives the called function... You can do this by
-        awaiting it somewhere.
-      </p>
-
-      <pre><code class="language-nano">let a = slot(3)
+</code></pre>
+        <p>In order to use the reference type again, you must make sure
+          the caller scope outlives the called function... You can do this by
+          awaiting it somewhere.
+        </p>
+<pre><code class="language-nano">let a = slot(3)
 
 let e = some_async_func(a)
 
@@ -371,10 +357,8 @@ await e
 
 print (a) # You can read it fine now.
 a = 4     # You can set it now :-)</code></pre>
-
-      <p>There's no such thing as <code>null</code> or <code>undefined</code>.</p>
-
-      <pre><code class="language-nano"># A function may return an error union
+        <p>There's no such thing as <code>null</code> or <code>undefined</code>.</p>
+<pre><code class="language-nano"># A function may return an error union
 let a = float::from_string("0.5") # returns float!ParseError
 
 # or an option&lt;T&gt;
@@ -392,11 +376,9 @@ struct option&lt;T&gt {
 
   ...
 }</code></pre>
-
-      <p>Classes can inherit other classes to be natively accepted in places that
-        require the super type, but offer polymorphism.</p>
-
-      <pre><code class="language-nano">class Person {
+        <p>Classes can inherit other classes to be natively accepted in places that
+          require the super type, but offer polymorphism.</p>
+<pre><code class="language-nano">class Person {
   name: string
   age: int
 
@@ -413,11 +395,9 @@ class Programmer : Person {
 fn call_greet(a: Person) -> a.greet()
 
 call_greet( Programmer {"ThePrimagen", 400, 'typescript'} )</code></pre>
-
-      <p>If, for some reason, you hate polymorphism will all your heart, my
-        implementation of interfaces (traits) will put a smile on your face.</p>
-
-      <pre><code class="language-nano">trait Personhood {
+        <p>If, for some reason, you hate polymorphism will all your heart, my
+          implementation of interfaces (traits) will put a smile on your face.</p>
+<pre><code class="language-nano">trait Personhood {
   name: string
   age: int
 
@@ -456,16 +436,13 @@ trait Render {
 let a = entity [Velocity, Render]
 
 a.process(1 / 60)  # Calling a method on an entity will call it on all its traits.
-      </code></pre>
+</code></pre>
+        <p>You can import other files with <code>use</code>.</p>
+<pre><code class="language-nano">import "./my_file.nano"
+        </code></pre>
+      </section>
 
-      <p>You can import other files with <code>use</code>.</p>
-
-      <pre><code class="language-nano">import "./my_file.nano"
-
-
-      </code></pre>
-
-      <div class="spacer" style="height:50vh;display:flex;justify-content: center;align-items: center;">
+      <div class="spacer" style="height:min(100vh,500px);display:flex;justify-content: center;align-items: center;">
         <a href="#top"><h2>Back to the Top!</h2vb></a>
       </div>
     </main>
