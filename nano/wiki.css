@@ -60,13 +60,34 @@ html {
 }
 
 body {
-  display: flex;
-  justify-content: center;
   font-family: Merriweather;
 
   font-size: 1em;
   background-color: var(--color-bg);
   color: var(--color-text);
+  margin: 0;
+  overflow: hidden;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
+
+div.banner {
+  height: 30cqmin;
+  image-rendering: pixelated;
+  background-image: url("../inner_voices/screenshots/diner2.png");
+  background-size: cover;
+  background-position: 0% 40%;
+}
+
+h1.main {
+  text-align: center;
+  font-size: 4cqh;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 h2,
@@ -112,6 +133,16 @@ code {
   margin-top: 10px;
   margin-bottom: 10px;
   display: block;
+
+  counter-reset: line;
+  counter-increment: line -1;
+}
+
+line:before {
+  content: counter(line);
+  counter-increment: line;
+  color: #eeeded33;
+  margin-right: 10px;
 }
 
 code.inline {
@@ -136,11 +167,12 @@ aside {
   position: sticky;
   align-self: flex-start;
   height: auto;
-  top: 50px;
+  top: 100px;
   display: block;
+  margin-top: 150px;
 }
 
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-device-width: 1000px) {
   aside {
     display: none !important;
   }
@@ -153,9 +185,12 @@ main {
 ul {
   list-style-position: outside;
   padding-left: 10px;
+  list-style-type: none;
+  padding-left: 0;
 }
 
-main ul li {
+main ul li,
+main section.post {
   border-left: 2px solid #ffffff33;
   padding-left: 10px;
 }
