@@ -85,12 +85,13 @@ h1 {
   z-index: 1;
   font-family: "Cascadia Code", "Courier New", Courier, monospace;
   font-size: 10pt;
-  display: block;
   position: fixed;
   padding: 20px;
   align-self: start;
   top: 200px;
   left: calc(50vw - 500px - 180px);
+
+  display: none;
 
   & a {
     text-decoration: none;
@@ -111,6 +112,12 @@ h1 {
     & ul {
       padding-inline-start: 16px;
     }
+  }
+}
+
+@media only screen and (min-width: 1360px) {
+  #aside-menu {
+    display: block;
   }
 }
 
