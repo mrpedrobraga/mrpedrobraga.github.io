@@ -20,6 +20,7 @@
     </script>
   </head>
   <body>
+    <div class="progress"></div>
     <header><h1><code>nano</code></h1></header>
 
     <main>
@@ -143,21 +144,13 @@ last_num |> half _ |> _ + 1 |> print _</code></pre>
       <hr/>
       <h2>Very long yet non-exhaustive list of features</h2>
 
-      <p>You can declare symbols by just assigning to an identifier.</p>
-
-      <pre><code class="language-nano"># Type of a is inferred as `int`
-a = 3</code></pre>
-
-      <p>
-        Those symbols will be defined at the top of the lexical scope, with an initial value.
-        You can manually create a symbol that only exists inside a weaker scope with `let`.
-      </p>
+      <p>You can declare symbols by using `let` and assigning to an identifier.</p>
 
       <pre><code class="language-nano">let a = 3</code></pre>
 
       <p>
-        You can manually add a type of the symbol.
-        The assigned value will attempt to be converted immediately.
+        You can manually add a type to the symbol.
+        The assigned value will attempt to be converted implicitly if possible.
       </p>
 
       <pre><code class="language-nano">let a : float = 3
@@ -191,7 +184,7 @@ a += 2
 print b   # 2
 print a   # 5</code></pre>
 
-      <p>Say hello to the reference primitives!</p>
+      <p>For your value sharing needs there are reference primitives. For example, <code>slot</code>.</p>
 
       <pre><code class="language-nano">let a = slot(4)
 let b = a
@@ -204,13 +197,13 @@ print a  # 3</code></pre>
         passed around by copy, but internally it points to the same place in memory.</p>
 
       <p>Reference types happen to be proxies, which mean they can be treated just like their
-        T type in most cases... even fitting in functions with require T by automatically dereferencing.
+        T type in most cases... even fitting in functions with require T by automatically unwrapping their value.
       </p>
 
       <pre><code class="language-nano">let a = slot(4)
 fn f (x: int) -> print int
 
-f(a)   # Works, a gets converted to `int` by copy!
+f(a)   # Works, 4 gets passed by copy.
       </code></pre>
 
       <p>Anyways, here's a function in nano:</p>
@@ -316,6 +309,13 @@ maybe... it's hard to say when the `print x` will run.
       </code></pre>
 
       <p>
+        A reference type or collection that's declare inside a function has two counterparts: one in the heap, one in the stack.
+        The heap-allocated memory will be freed when the stack drops.
+      </p>
+
+      <pre><code class="language-nano">let a : slot&lt;int&gt; = 102</code></pre>
+
+      <p>
         With values that are passed by copy, no bigger issues arise with this
         but for reference types, an asynchronous function could have invalid references.
       </p> 
@@ -406,13 +406,13 @@ fn call_greet(a: Person) -> a.greet()
 call_greet( Programmer {"ThePrimagen", 400, 'typescript'} )</code></pre>
 
       <p>If, for some reason, you hate polymorphism will all your heart, my
-        implementation of interfaces (traits) will put a smile in your face.</p>
+        implementation of interfaces (traits) will put a smile on your face.</p>
 
       <pre><code class="language-nano">trait Personhood {
   name: string
   age: int
 
-  fn greet() -> print 'Hi, my name is {name}.'
++  fn greet() -> print 'Hi, my name is {name}.'
 }
 
 class Programmer {
@@ -527,6 +527,31 @@ a.process(1 / 60)  # Calling a method on an entity will call it on all its trait
 
     hr {
       margin-block: 2rem;
+    }
+
+    .progress {
+      top: 0;
+      left: 0;
+      display: block;
+      background-color: #569cd6;
+      position: fixed;
+      width: 100vw;
+      height: 0.5rem;
+
+      animation-name: readprogress;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-timeline: scroll();
+    }
+
+    @keyframes readprogress {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100vw;
+      }
     }
   </style>
 </html>

@@ -23,7 +23,7 @@ hljs.registerLanguage("nano", function () {
       operator: `+ - // / * >> << = == != | &`,
     },
     contains: [
-      { scope: "variable.constant", match: "\\b[A-Z_]+\\b" },
+      { scope: "variable.constant", match: "\\b[A-Z_][A-Z_]+\\b" },
       { scope: "number", match: "\\b[\\d_]+(\\.[\\d+_])?f?\\b" },
       {
         scope: "string",
