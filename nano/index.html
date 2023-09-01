@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>mrpedrobraga::nano</title>
+
+    <meta property="og:title" content=mrpedrobraga::nano>
+    <meta property="og:site_name" content=The nano languge!>
+    <meta property="og:url" content=http://mrpedrobraga.com/nano>
+    <meta property="og:description" content=Simple introductory website about the `nano` programming language.>
+    <meta property="og:type" content=website>
+    <meta property="og:image" content="">
 
     <link
       rel="stylesheet"
@@ -15,13 +22,15 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
 
     <link rel="stylesheet" href="./styles/code_blocks.css" />
+    <link rel="stylesheet" href="./styles/style.css">
     <script>
       hljs.highlightAll();
     </script>
   </head>
   <body>
     <div class="progress"></div>
-    <header><h1><code>nano</code></h1></header>
+
+    <header id="header"><h1><code>nano</code></h1></header>
 
     <main>
       <p>
@@ -76,7 +85,7 @@ ParseErrorHandler = err_handler (e: ParseError) -> (
       </p>
       
       <hr/>
-      <h2>Design Goals</h2>
+      <h2 id="#design-goals"><a class="marker" href="#design-goals">#</a>Design Goals</h2>
 
       <p>The things I keep in mind while designing the language.</p>
 
@@ -142,7 +151,7 @@ let half = fn x -> x // 2
 last_num |> half _ |> _ + 1 |> print _</code></pre>
 
       <hr/>
-      <h2>Very long yet non-exhaustive list of features</h2>
+      <h2 id="#features"><a class="marker" href="#features">#</a>Very long yet non-exhaustive list of features</h2>
 
       <p>You can declare symbols by using `let` and assigning to an identifier.</p>
 
@@ -449,109 +458,18 @@ let a = entity [Velocity, Render]
 a.process(1 / 60)  # Calling a method on an entity will call it on all its traits.
       </code></pre>
 
-      <div class="spacer" style="height:50vh;"></div>
+      <p>You can import other files with <code>use</code>.</p>
+
+      <pre><code class="language-nano">import "./my_file.nano"
+
+
+      </code></pre>
+
+      <div class="spacer" style="height:50vh;display:flex;justify-content: center;align-items: center;">
+        <a href="#top"><h2>Back to the Top!</h2vb></a>
+      </div>
     </main>
 
     <footer></footer>
   </body>
-  <style>
-    *,
-    :root,
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      flex-direction: column;
-      display: flex;
-      overflow-y: scroll;
-      overflow-x: hidden;
-      width: 100vw;
-      align-items: center;
-      font-family: 'Merriweather', 'Times New Roman', Times, serif;
-
-      color: #dcdcd0;
-      background-color: #161516;
-    }
-
-    body header {
-      display: flex;
-      flex-direction: column;
-      height: 200px;
-      justify-content: center;
-    }
-
-    h1 {
-      font-size: 3em;
-      font-family: "Cascadia Code Italic";
-      font-style: italic;
-    }
-
-    body main {
-      width: min(100%, 1000px);
-      display: block;
-      padding-inline: 1rem;
-    }
-
-    @font-face {
-      font-family: "Cascadia Code";
-      src: url("./_fonts/CascadiaCode.woff2");
-    }
-
-    @font-face {
-      font-family: "Cascadia Code Italic";
-      src: url("./_fonts/CascadiaCodeItalic.woff2");
-    }
-
-    @font-face {
-      font-family: "Merriweather";
-      src: url("./_fonts/Merriweather-Regular.ttf");
-    }
-
-    code {
-      font-family: "Cascadia Code", "Courier New", Courier, monospace;
-      margin: 0;
-      padding: 0;
-    }
-
-    pre {
-      margin-block-end: 1rem;
-    }
-
-    p {
-      margin-block: 1rem;
-    }
-
-    hr {
-      margin-block: 2rem;
-    }
-
-    .progress {
-      top: 0;
-      left: 0;
-      display: block;
-      background-color: #569cd6;
-      position: fixed;
-      width: 100vw;
-      height: 0.5rem;
-
-      animation-name: readprogress;
-      animation-duration: auto;
-      animation-timing-function: linear;
-      animation-timeline: scroll();
-    }
-
-    @keyframes readprogress {
-      from {
-        width: 0;
-      }
-
-      to {
-        width: 100vw;
-      }
-    }
-  </style>
 </html>

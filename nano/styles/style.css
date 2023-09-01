@@ -1,0 +1,118 @@
+*,
+:root,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: #cdd0f8;
+}
+
+a.marker {
+  position: absolute;
+  text-decoration: none;
+  color: #dcdcd0aa;
+  font-weight: bold;
+  transform: translateX(-1em);
+}
+
+a.marker:hover {
+  color: #dcdcd0;
+}
+
+.progress {
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #fefefd;
+  position: fixed;
+  width: 100vw;
+  height: 0.5rem;
+
+  animation-name: readprogress;
+  animation-duration: auto;
+  animation-timing-function: linear;
+  animation-timeline: scroll();
+}
+
+@keyframes readprogress {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100vw;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  flex-direction: column;
+  display: flex;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100vw;
+  align-items: center;
+  font-family: "Merriweather", "Times New Roman", Times, serif;
+
+  color: #dcdcd0;
+  background-color: #161516;
+}
+
+body header {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3em;
+  font-family: "Cascadia Code Italic";
+  font-style: italic;
+}
+
+body main {
+  width: min(100%, 1000px);
+  display: block;
+  padding-inline: 1rem;
+}
+
+@font-face {
+  font-family: "Cascadia Code";
+  src: url("./_fonts/CascadiaCode.woff2");
+}
+
+@font-face {
+  font-family: "Cascadia Code Italic";
+  src: url("./_fonts/CascadiaCodeItalic.woff2");
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: url("./_fonts/Merriweather-Regular.ttf");
+}
+
+code {
+  font-family: "Cascadia Code", "Courier New", Courier, monospace;
+  margin: 0;
+  padding: 0;
+}
+
+pre {
+  margin-block-end: 1rem;
+}
+
+p {
+  margin-block: 1rem;
+}
+
+hr {
+  margin-block: 2rem;
+}

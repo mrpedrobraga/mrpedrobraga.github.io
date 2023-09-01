@@ -9,7 +9,7 @@ hljs.registerLanguage("nano", function () {
       when match default 
       slot signal state struct class trait entity object
       print prompt exit err 
-      in of and or is 
+      in of xis is not and or xor 
       typeof as keyof 
       let with shared import use has await 
       fn err_handler get set construct 
