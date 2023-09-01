@@ -437,9 +437,69 @@ let a = entity [Velocity, Render]
 
 a.process(1 / 60)  # Calling a method on an entity will call it on all its traits.
 </code></pre>
-        <p>You can import other files with <code>use</code>.</p>
-<pre><code class="language-nano">import "./my_file.nano"
-        </code></pre>
+        <p>You can import other files with <code>import</code>.</p>
+<pre><code class="language-nano">import "./my_file.nano" as my_file
+# Dereferencing import
+import "./my_other.nano" as { Class1, Class2, SOME_CONSTANT }</code></pre>
+
+      <p>You can import other files that aren't nano source code...</p>
+
+      <pre><code class="language-nano">import "config.json" as settings</code></pre>
+
+      <p>That's by using your own, very custom ModuleImporter!</p>
+
+      <pre><code class="language-nano"># Import your own files
+import "./"
+
+# Or non-files... Let's import the google website, idk;
+import "http://www.google.com"
+
+# (That's how you organize dependencies without package managers)
+# Importing this should prompt a warning to cache the external module
+# in order to run/compile.
+import "https://github.com/mrpedrobraga/nano-boy.git" as NanoBoy
+      </code></pre>
+
+      <p>The accessible symbols and their types are before compile-time by the importer
+        So futurely, you might be able to do this:</p>
+
+      <pre><code class="language-c">#include &lt;stdio&gt;
+
+int print_things(int a, char* b) {
+  std::cout &lt;&lt; a &lt;&lt; std::endl;
+  std::cout &lt;&lt; b &lt;&lt; std::endl;
+}</code></pre>
+      <pre><code class="language-nano">import "cpp_lang"
+import "my_file.cpp" as { MyFile }
+
+# from nano, you'd see that method as
+# fn MyFile::print_things(int a, addr&lt;byte&gt; b)
+
+MyFile.print_things(3, "Hello there!")
+
+# The library would manage the implicit conversion
+# between `string` and `c_string`...
+#
+# get (self: string) as c_string -> (
+#   self::get_memory_location()
+# )
+</code></pre>
+
+      <p>Custom importers, and cacheing for remote modules
+        should work together... making this poosible:</p>
+
+      <pre><code class="language-nano"># API library
+import "my_api"
+
+# The schemas for the API
+import "@myapi/schemas" as { Users, Carts, Products }
+
+%%api_endpoint(GET, '/user/rename/{id}')
+fn rename_user (id: string) -> (
+  
+)
+      </code></pre>
+
       </section>
 
       <div class="spacer" style="height:min(100vh,500px);display:flex;justify-content: center;align-items: center;">
