@@ -8,19 +8,19 @@ body {
 }
 
 a {
-  color: #cdd0f8;
+  color: var(--link-col);
 }
 
 a.marker {
   position: absolute;
   text-decoration: none;
-  color: #dcdcd0aa;
+  color: var(--fg-col) aa;
   font-weight: bold;
   transform: translateX(-1em);
 }
 
 a.marker:hover {
-  color: #dcdcd0;
+  color: var(--fg-col);
 }
 
 .progress {
@@ -42,17 +42,45 @@ a.marker:hover {
 @keyframes readprogress {
   from {
     width: 0;
-    background-color: #fefefd;
+    background-color: var(--progress-col-a);
   }
 
   to {
     width: 100vw;
-    background-color: #57a64a;
+    background-color: var(--progress-col-b);
   }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+:root {
+  --link-col: cdd0f8;
+  --progress-col-a: #fefefd;
+  --progress-col-b: #57a64a;
+  --bg-col: #161516;
+  --fg-col: #dcdcd0;
+  --code-bg-col: #1e1e1e;
+  --code-fg-col: #dcdcdc;
+
+  /* --link-col: #4049c3;
+  --progress-col-a: #fefefd;
+  --progress-col-b: #57a64a;
+  --bg-col: #fcfcf0;
+  --fg-col: #3d3d30;
+  --code-bg-col: #efefda;
+  --code-fg-col: #1f1f1c; */
+}
+
+html {
+  background-color: var(--bg-col);
 }
 
 body {
@@ -64,8 +92,7 @@ body {
   align-items: center;
   font-family: "Merriweather", "Times New Roman", Times, serif;
 
-  color: #dcdcd0;
-  background-color: #161516;
+  color: var(--fg-col);
 }
 
 body header {
@@ -75,10 +102,16 @@ body header {
   justify-content: center;
 }
 
+body footer {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+
 h1 {
   font-size: 3em;
   font-family: "Cascadia Code Italic";
-  font-style: italic;
+  font-style: normal;
 }
 
 #aside-menu {
@@ -89,29 +122,25 @@ h1 {
   padding: 20px;
   align-self: start;
   top: 200px;
-  left: calc(50vw - 500px - 180px);
+  left: calc(50vw - 500px - 200px);
 
   display: none;
 
   & a {
     text-decoration: none;
-    color: #dcdcd0;
+    color: var(--fg-col);
   }
 
-  & a {
-    opacity: 40%;
+  & li {
+    opacity: 60%;
   }
 
-  & a:hover {
+  & li:hover {
     opacity: 100%;
   }
 
   & ul {
     list-style-type: none;
-
-    & ul {
-      padding-inline-start: 16px;
-    }
   }
 }
 
@@ -129,14 +158,13 @@ h1 {
 
 .anchor-target:has(+ h2) {
   top: 0;
-  color: blue;
 }
 
 h2 {
   top: 0;
   padding-top: 1rem;
   padding-bottom: 0.5rem;
-  background-color: #161516;
+  background-color: var(--bg-col);
   position: sticky;
   z-index: 3;
 }
@@ -146,7 +174,6 @@ body main {
   display: block;
   padding-inline: 1rem;
   background-color: inherit;
-  line-height: 1rem;
 }
 
 p,
@@ -197,6 +224,14 @@ code {
 
 pre {
   margin-block-end: 1rem;
+}
+
+pre code {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: var(--code-bg-col);
+  color: var(--code-fg-col);
 }
 
 p {

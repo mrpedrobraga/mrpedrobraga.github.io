@@ -12,16 +12,11 @@
     <meta property="og:type" content=website>
     <meta property="og:image" content="">
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/default.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
+    <script src="./styles/highlight.js"></script>
     <script src="./styles/highlight_nano.js"></script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
-
     <link rel="stylesheet" href="./styles/code_blocks.css" />
+    <!-- <link rel="stylesheet" href="./styles/code_blocks_light.css" /> -->
     <link rel="stylesheet" href="./styles/style.css">
     <script>
       hljs.highlightAll();
@@ -30,25 +25,70 @@
   <body>
     <div class="progress"></div>
 
-    <header id="header"><h1><code>nano</code></h1></header>
+    <header id="header"><span><h1 style="display: inline;"><code>let nano = (</code></h1></span></header>
 
     <aside id="aside-menu">
       <ul>
-        <li><a href="#top">Beggining</a></li>
-        <li><a href="#design-goals">Design Goals</a>
+        <li>
+          <a href="#top">nano</a>
           <ul>
-            <li>
-              <a href="#nano-is-a-thin-wrapper">nano's thin</a>
+            <li>├ <a href="#design-goals">Design Goals</a>
+              <ul>
+                <li>
+                  │ ├ <a href="#nano-is-a-thin-wrapper">nano's thin</a>
+                </li>
+                <li>
+                  │ ├ <a href="#nano-is-semantic">nano's semantic</a>
+                </li>
+                <li>
+                  │ ├ <a href="#nano-is-expressive">nano's expressive</a>
+                </li>
+                <li>
+                  │ ├ <a href="#nano-is-simple">nano's simple</a>
+                </li>
+                <li>
+                  │ └ <a href="#nano-is-humble">nano's humble</a>
+                </li>
+              </ul>
             </li>
-            <li>
-              <a href="#nano-is-semantic">nano's semantic</a>
+            <li>├ <a href="#features">Some Features</a>
+              <ul>
+                <li>
+                  │ ├ <a href="#syntax">Syntax</a>
+                </li>
+                <li>
+                  │ ├ <a href="#symbols">Symbols</a>
+                </li>
+                <li>
+                  │ ├ <a href="#types">Types</a>
+                </li>
+                <li>
+                  │ ├ <a href="#reference-types">Reference Types</a>
+                </li>
+                <li>
+                  │ ├ <a href="#functions">Functions</a>
+                </li>
+                <li>
+                  │ ├ <a href="#reference-ownership">Reference Ownership</a>
+                </li>
+                <li>
+                  │ ├ <a href="#nothing">Nothing</a>
+                </li>
+                <li>
+                  │ ├ <a href="#importing">Importing</a>
+                </li>
+                <li>
+                  │ └ <a href="#metaprogramming">Metaprogramming</a>
+                </li>
+          </ul>
             </li>
-            <li>
-              <a href="#nano-is-expressive">nano's expressive</a>
-            </li>
+            <li>└ <a href="#features">Footer</a></li>
           </ul>
         </li>
-        <li><a href="#features">Some Features</a></li>
+        <br/>
+        <li>
+          <a href="http://mrpedrobraga.com">◄ Back</a>
+        </li>
       </ul>
     </aside>
 
@@ -65,7 +105,7 @@
           If you're still interested, let's learn <code>nano</code> by example!
         </p>
         <p>
-          This is the hello world example.
+          This is "Hello World."
 <pre><code class="language-nano">print "Hello World"</code></pre>
         </p>
         <p>
@@ -87,10 +127,10 @@ loop (
   let b = prompt('Second parameter: ') as float
 
   let result = match op
-when '+' then a + b
-when '-' then a - b
-when '*' then a * b
-when '/' then a / b
+    when '+' then a + b
+    when '-' then a - b
+    when '*' then a * b
+    when '/' then a / b
 
   print '\n{a} {op} {b} = {result}!'
 )
@@ -115,12 +155,13 @@ ParseErrorHandler = err_handler (e: ParseError) -> (
         <div id="nano-is-a-thin-wrapper" class="anchor-target"></div>
         <h3><code>nano</code> is a thin wrapper.</h3>
         <p>
-          Nano is compiled directly into machine code.
-          No dependencies, no hacks, no runtime. What you write is what gets compiled.
+          <code>nano</code> is compiled directly into machine code.
+          No installing, no dependencies, no hacks, no runtime.
         </p>
         <p>The development environment you need is simply the nano compiler <code>nnc</code>.
-        When you use it, it'll create a (deletable) .nano subfolder for cache. After compilation
-        you'll have a single executable.</p>
+        When you use it, it'll create a .nano subfolder for cache, but that can be deleted
+        and should go in your .gitignore. After compilation
+        you'll have a single executable that just works.</p>
         <p>There's no package manager, no boilerplate, no enforced folder structure.</p>
         <br>
 
@@ -156,39 +197,183 @@ print b  # 2!! Yeah!</code></pre>
         solving some problem. Slowly I realized it could become a real language.</p>
         <p><code>nano</code> values allowing the programmer to think fluidly, and tries
         to offer type-safety and the like without compromising the creative flow.</p>
-        <p>It's also multi-paradigm, built on top of basic procedural programming,
+        <p>That's why it is multi-paradigm, built on top of basic procedural programming,
           but with great support for functional, object-oriented, data-oriented, composition over inheritance, etc.
         </p>
-        <pre><code class="language-nano">let nums = [...(0..100)]
+        <pre><code class="language-nano"># Always expressive
+let nums = [...(0..100)]
 fn is_even (x) -> x % 2 == 0
+
+# Declarative
 let doubles_of_evens = select num * 2 for num in nums when is_even num
+
+# Imperative
 let last_num = doubles_of_evens::pop()
-let half = fn x -> x // 2
-last_num |> half _ |> _ + 1 |> print _</code></pre>
+
+# Nested
+print (last_num // 2 + 1)
+
+# Sequential
+last_num |> _ // 2 |> _ + 1 |> print _</code></pre>
+
+        <div id="nano-is-simple" class="anchor-target"></div>
+        <h3><code>nano</code> is simple, but...</h3>
+
+        <p>...not too simple. It values internal elegance, reusing keywords whenever possible,
+          and having features that can be used in many ways
+          but it doesn't shy away from adding features that make the coding experience better.
+        </p>
+
+        <p>You probably won't learn all of nano in a weekend, and that's okay, because you don't need
+          to to start coding some good <code>nano</code>.
+        </p>
+
+        <div id="nano-is-humble" class="anchor-target"></div>
+        <h3><code>nano</code> is humble.</h3>
+
+        <p>As an art-project made by a 20yo in their first job as a backend developer,
+          nano doesn't aim to take over the world, or claim it's the best language ever.
+          Instead, it acknowledges the worth of the classic languages (C, BASIC, FORTRAN, Java)...
+          but with the benefit of hindsight, it's able to make a few better choices.
+        </p>
       </section>
 
       <section>
         <div id="features" class="anchor-target"></div>
         <h2 ><a class="marker" href="#features">#</a>Very long yet non-exhaustive list of features</h2>
+
+        <div id="syntax" class="anchor-target"></div>
+        <h3>Syntax</h3>
+        <p><code>nano</code>'s syntax is designed by taking into account two quirky facts:
+          <ol style="list-style-position: inside;">
+            <li>High-level programmers really like clean, simple code.</li>
+            <li>Low-level programmers are much more tolerant to clutter.</li>
+          </ol>
+          <code>nano</code> is a <em>multi-level</em> language, that allocates its grammar
+          in a way to make doing simple tasks easy, while allowing the developer to take
+          over the wheel when and where necessary.
+        </p>
+
+<pre><code class="language-nano"># Let's take a look at some syntax!
+# Oh, look, comments with '#'s...
+
+### Block-comments!!! YAY!!! ###
+
+print ("Hello world!");
+print ("Hi")  # Semicolons are optional
+print "Hi"    # Parenthesis are also optional
+
+multiply(add(2, 3))   # Normal nesting??
+(multiply (add 2, 3)) # Is this LISP??? no, it's nano
+
+print (
+  message: "Hi"   # Named function parameters????
+)
+
+# Pipes???
+let x = 3
+x |> _ * 2 |> _ + 3 |> print _   # 9
+
+# Destructuring pipes???
+let S_A = [1, 2, 3]
+let S_B = S_A []|> _ * 2  # [2, 4, 6]
+
+# Declaring a tuple! So simple!
+let a = [0, 1, "Three"]
+
+let a2 = [
+  0
+  1   # Commas are also optional
+  2
+]
+
+# A heap-allocated list, which can grow
+let ll: list&lt;int&gt; = [3, 4, 6]
+ll::push(7)
+ll::insert_after(index: 1, value: 5)
+ll::push_front(2)
+ll::push_front(1)
+
+# An anonymous struct instance!
+let b = {
+  name: "Hello world!"
+  age: 30
+  height: 3.0
+}
+
+# Non-destructuring member-access
+let some_nums = S_A.(0, 2)  # [1, 3]
+let b_basic_info = b.(name, age)  # {name: "Hello world!", age: 30}
+
+# Lots of uses for reticences...
+let a4 = [1, 2, 3]
+let a5 = [0, ...a4, 5]
+let a6 = [0, ...(11..10), 10] # Spreading a range into an array
+let a7 = a5.(0..3)            # Using a range to access an array...
+print(0, ...a4)               # Spreading into function call
+
+# The long way of defining a symbol...
+let a3: array&lt;int, int, string&gt; = array&lt;int, int, string&gt;(0, 1, "Three")
+#               ^^^ Thorough, explicit type annotation
+
+# A low-level address...
+let num = 3
+let num_addr: addr&lt;int&gt; = addrof num
+num_addr @= 4
+print num   # 4
+
+# A high-level 'slot'...
+let num2 = slot&lt;int&gt;(3)
+num2 = 4
+
+# symbol names must be exact, because I'm not insane
+let some_variable
+let someVariable   #  &lt; not the same variables
+
+# okay, i'm feeling a little insane now
+let 😃 = 3   # Some extra unicode characters are allowed for identifier, like emojis!!!
+
+# check this out
+this   # ERROR: "No declaration found for 'this' that's available in this scope."
+
+# wait, what?
+null   # ERROR: "No declaration found for 'null' that's available in this scope."
+
+# HUH????
+throw   # ERROR: "No declaration found for 'throw' that's available in this scope."
+</code></pre>
+
+        <div id="symbols" class="anchor-target"></div>
+        <h3>Symbols</h3>
         <p>You can declare symbols by using `let` and assigning to an identifier.</p>
         <pre><code class="language-nano">let a = 3</code></pre>
         <p>
           You can manually add a type to the symbol.
           The assigned value will be converted implicitly if possible.
         </p>
-        <pre><code class="language-nano">let a : float = 3
+        <pre><code class="language-nano"># int `3` becomes a float.
+let a : float = 3
+
+# the "Hello there!" strings just gets assigned.
 let b : string = "Hello there!"
+
+# the boolean `yes` gets converted to `slot&lt;bool&gt;(true).`
 let c : slot&lt;bool&gt; = yes
+
+# The `int`s inside the array get converted to `uint`.
 let d : array&lt;uint | string&gt; = [1, 2, "Three"]</code></pre>
-        <p>You can create your own types via `struct` or `array.`</p>
+
+        <div id="types" class="anchor-target"></div>
+        <h3>Types</h3>
+        <p>You can create your own types via `struct` or `array`.</p>
 <pre><code class="language-nano">let User = struct {
     name: string
     age: uint
     products: list&lt;Product&gt;
 
     construct (name: string, age: uint) -> (
-  # Notice I call it `self` and not `this`, like a maniac.
-  self.(name, age) = (name, age)
+      # Notice I call it `self` and not `this`, like a maniac.
+      self.(name, age) = (name, age)
     )
 }
 
@@ -201,6 +386,9 @@ b -= 1
 a += 2
 print b   # 2
 print a   # 5</code></pre>
+
+        <div id="reference-types" class="anchor-target"></div>
+        <h3>Reference Types</h3>
         <p>For your value sharing needs there are reference primitives. For example, <code>slot</code>.</p>
 <pre><code class="language-nano">let a = slot(4)
 let b = a
@@ -214,13 +402,15 @@ print a  # 3</code></pre>
           T type in most cases... even fitting in functions with require T by automatically unwrapping their value.
         </p>
 <pre><code class="language-nano">let a = slot(4)
-fn f (x: int) -> print int
+let f = fn (x: int) -> print int
 
-f(a)   # Works, 4 gets passed by copy.
-</code></pre>
-        <p>Anyways, here's a function in nano:</p>
-<pre><code class="language-nano">
-let reverse_of = fn (a: string): string -> (
+f(a)   # Works, 4 gets passed by copy.</code></pre>
+
+        <div id="functions" class="anchor-target"></div>
+        <h3>Functions</h3>
+        <p>Oh, look! You've just seen a function! A function in nano is something that
+          encapsulates reusable 'behaviour,' or a reusable expression.</p>
+<pre><code class="language-nano">let reverse_of = fn (a: string): string -> (
   a.as_reverse()
   # Functions are first-class citizens.
   # If you look back to a few code blocks ago,
@@ -235,15 +425,31 @@ fn anti_reverse_of (a: string): string -> reverse_of(reverse_of(string))
 # If no type is specified it will be inferred from usage.
 let square = fn x -> x * 2
 
+###
+Then you can use it with any type that implements '*'.
+
+(NERD ALERT!)
+More specifically, the type of x is inferred to be an anonymous trait
+that implements a $"*" function with an integer on the right.
+
+fn (x: T is WithOperator&lt;$"*", int&gt;) -> (
+  x * 2
+)
+
+The return type of the function is inferred from usage, too.
+
+ReturnTypeOf&lt;T::$"*".when(right: int)&gt;
+###
+
 fn fa () -> (
   let a = 3
-  let fb = fn -> a - 1  # Closures store the value by copy
+  let fb = fn -> print a  # Closures store the value by copy
   a = 4
 
   return fb
 )
 
-let c = fa()()  # 2
+let c = fa()()  # '3'
 
 # You may invoke a function passing named parameters.
 fn some_big_fn (a: string, b: string, c: f32 | bool, d: option&lt;bool&gt;) -> ...
@@ -252,6 +458,15 @@ some_big_fn(
   b: "There" # Named parameters!
   c: false
 )
+
+# Since parenthesis are not required on function calls,
+# you might use a single struct parameter as well.
+fn some_other_big_fn (options: FunctionOptions) -> ...
+some_other_big_fn {
+  a: "Hey"
+  b: "There"
+  c: false
+}
 
 fn fc (...args: array&ltint&gt;) -> (print args)
 
@@ -265,10 +480,22 @@ fn (0, ...some_list, 5) # spread container into arguments
 <pre><code class="language-nano">fn double (self: int) -> self = self * 2
 
 let b = 40
-b::double() # &lt;- an external method is called with `::` to differentiate it from a property.
+b::double()
+# ^^^^ an external method is called with `::` to differentiate it from a member.
+# This makes compilation faster since `nnc` doesn't have to check your entire codebases
+# for methods every time it finds a member access `.`.
 
 let a = 30
-double(self: a)   # &lt;- It's the equivalent of this function call with a named parameter. 
+double(self: a)   # &lt;- It's the equivalent of this function call with a named `self` parameter. 
+
+# Methods on builtins can't alter them.
+# Create a method for a reference type instead.
+
+fn double_in_place (self: slot&lt;int&gt;) -> self *= 2
+
+let b = slot(30)
+b::double_in_place()
+print b # '60'
 </code></pre>
         <p>Signals are callables that have no body of their own, but can invoke other connected callables.</p>
 <pre><code class="language-nano">let a = signal()
@@ -290,7 +517,7 @@ a = 4
 
 # Variable is now 4
 # Redrawing frontend component or something...</code></pre>
-        <p>You can execute code asynchronously to get things done in parallel.</p>
+        <p>Speaking of <code>state&lt;T&gt;</code>, you can execute code asynchronously to get things done in parallel.</p>
 <pre><code class="language-nano">let a = 3
 print 'foo'
 func(a)
@@ -311,52 +538,72 @@ maybe... it's hard to say when the `print x` will run.
 ###
 </code></pre>
         <p>
-          A reference type or collection that's declare inside a function has two counterparts: one in the heap, one in the stack.
-          The heap-allocated memory will be freed when the stack drops.
+          That's because asynchronous functions might return a state type that allows `awaiting` for its completion.
+          It is called `Expectation.`
         </p>
-<pre><code class="language-nano">let a : slot&lt;int&gt; = 102</code></pre>
+<pre><code class="language-nano">let e: Expectation&lt;int&gt; = get_some_int()
+
+let i: int = await e  # You can directly await an expectation.</code></pre>
         <p>
-          With values that are passed by copy, no bigger issues arise with this
-          but for reference types, an asynchronous function could have invalid references.
+          A reference type that's declared inside a function has two counterparts: one in the heap, one in the stack.
+          The heap-allocated memory will be freed when its associated stack counterpart is freed on a stack frame drop.
         </p>
+<pre><code class="language-nano">fn main() -> (
+  let a : slot&lt;int&gt; = 102
+  a += 2
+  print a
+
+  # Scope ends, stack gets dropped, `a` gets freed.
+)</code></pre>
+        <p>
+          This way of freeing memory is no issue with values passed by copy,
+          nor reference types in normal functions.
+        </p>
+        <p>But the combination of reference types and asynchronous functions is complicated!</p>
 <pre><code class="language-nano">fn caller_func -> (
   let a = slot&lt;int&gt;(3)
 
   some_async_func(a)
 
-  # `caller_func`'s scope immediately finishes, and a is freed
+  # `caller_func`'s scope immediately finishes, and `a` is freed
   # but `some_async_func` is possibly still running with 
-  # an invalid reference, that's a no-no.
+  # an invalid reference. That's a no-no.
 )</code></pre>
-        <p>Introducing... ownership!</p>
+        <p>Introducing...</p>
+
+        <div id="reference-ownership" class="anchor-target"></div>
+        <h3>Reference Ownership</h3>
         <p>Wait! Calm down! This isn't Rust! Relax!</p>
 <pre><code class="language-nano">let a = slot(3)
 
 # If you call `a` with an async function,
-# it will be given ownership of `a`, and it will
-# be freed whenever the called function finishes.
+# it will be given ownership of `a`.
+# `a` now gets freed whenever `some_async_func` finishes. 
 some_async_func(a)
 
-# But doesn't that mean the called function could
-# have an invalid reference to `a` if `some_async_func` frees its memory?
-# Yes, and that's why you can't use `a` here.
+# But doesn't that mean the caller function could
+# have an invalid reference to `a` if `some_async_func` finishes early?
+# Yes, and that's why you can't use `a` in this scope anymore.
 print a  # ERROR: `a` was given away and can not be used here.
 </code></pre>
-        <p>In order to use the reference type again, you must make sure
+        <p>In order to use the symbol again, you must make sure
           the caller scope outlives the called function... You can do this by
-          awaiting it somewhere.
+          `awaiting` the called function somewhere.
         </p>
 <pre><code class="language-nano">let a = slot(3)
 
 let e = some_async_func(a)
 
 print (a) # This is okay, but the value of a is frozen as `3` and of type frozen_slot&lt;int&gt;
-a = 3     # ERROR: `a` was borrowed and is readonly until it finishes.
+a = 3     # ERROR: `a` was borrowed by `some_async_func` and is readonly until it returns.
 
 await e
 
 print (a) # You can read it fine now.
 a = 4     # You can set it now :-)</code></pre>
+
+        <div id="nothing" class="anchor-target"></div>
+        <h3>The concept of nothing.</h3>
         <p>There's no such thing as <code>null</code> or <code>undefined</code>.</p>
 <pre><code class="language-nano"># A function may return an error union
 let a = float::from_string("0.5") # returns float!ParseError
@@ -376,6 +623,25 @@ struct option&lt;T&gt {
 
   ...
 }</code></pre>
+        <div id="error-handling" class="anchor-target"></div>
+        <h3>Error Handling</h3>
+        <p>You may add to a scope, an error handler, which watches out for errors err'd by functions.</p>
+
+<pre><code class="language-nano">err_handler ParseErrorHandler &lt;T&gt;(e: ParseError) -> (
+  print 'The input {e.parse_input} is not a valid number.'
+
+  # This return here returns the original scope
+  # the error handler is in...
+  return
+)
+</code></pre>
+<pre><code class="language-nano">with ParseErrorHandler
+
+# Because the error handler exits when it finds an error,
+# the value of what's be a float!ParseError union gets narrowed!!!
+let a : float = float::from_string("banana")
+</code></pre>
+
         <p>Classes can inherit other classes to be natively accepted in places that
           require the super type, but offer polymorphism.</p>
 <pre><code class="language-nano">class Person {
@@ -437,6 +703,42 @@ let a = entity [Velocity, Render]
 
 a.process(1 / 60)  # Calling a method on an entity will call it on all its traits.
 </code></pre>
+        <p>Nano has builtin support for generics in structs, classes, functions...</p>
+
+        <pre><code class="language-nano">class Wrapper&lt;T: type&gt; {
+  wrapped_value: T;
+  length: int;
+  
+  get as string -> "Wrapper is holding value {T}."
+}</code></pre>
+
+        <p>Generic parameters mustn't be types.</p>
+
+        <pre><code class="language-nano">class Vector&lt;D: int&gt; {
+  components: array&lt;D&gt;
+  angle: if D == 2 then float else discard
+}
+
+fn double&lt;T&gt;(input: T) -> (
+  T + T
+)
+
+# Generics can be inferred from passed parameters...
+let b = double("Hello")
+
+fn get_smth&lt;T: type&gt;: T -> (
+  if T is string then "D"
+  if T is int then 42
+  return T()
+)
+
+# Generics can be inferred from a return type constraint
+# Use with care.
+
+let c : string = get_smth() # infers T as string</code></pre>
+
+        <div id="importing" class="anchor-target"></div>
+        <h3>Importing</h3>
         <p>You can import other files with <code>import</code>.</p>
 <pre><code class="language-nano">import "./my_file.nano" as my_file
 # Dereferencing import
@@ -488,25 +790,211 @@ MyFile.print_things(3, "Hello there!")
       <p>Custom importers, and cacheing for remote modules
         should work together... making this poosible:</p>
 
-      <pre><code class="language-nano"># API library
-import "my_api"
+      <pre><code class="language-nano"># API library, which also adds the custom importer
+import "MyApi"
 
-# The schemas for the API
-import "@myapi/schemas" as { Users, Carts, Products }
+# Custom importer for schemas the API uses or whatever
+import "@myapi/schemas" as { User, Cart, Product }
 
-%%api_endpoint(GET, '/user/rename/{id}')
-fn rename_user (id: string) -> (
-  
-)
+with MyApi.DatabaseErrorHandler
+
+%%api_endpoint(GET, '/user/rename/{user_id}')
+fn rename_user (body: { new_name: string }, user_id: string) -> (
+  let user: {name: string} = MyApi.get_user(id: user_id)
+  user.update {
+    name: body.new_name
+  }
+)</code></pre>
+
+      <p>Wait? How can a library add a new feature in nano... in compile-time???</p>
+
+      <div id="metaprogramming" class="anchor-target"></div>
+      <h3>Metaprogramming</h3>
+<pre><code class="language-nano"># Annotations!
+
+# nano's version of C++ macros, but working on an AST level instead of text level.
+
+%%compile_time print "Hello world! (compile-time)"
+print "Hello world! (runtime)"</code></pre>
+
+      <pre><code class="language-sh">$ nnc compile "./index.nano"
+Hello world! (compile-time)
+$ ./program.exe
+Hello world! (runtime)
       </code></pre>
+
+      <p>Annotations are `incredibly` powerful.</p>
+
+<pre><code class="language-nano"># `%%compile_time`, as a builtin annotation, supports labels.
+
+# Define an annotation for a function that runs only when
+# `ncc compile` is called with a 'test' label
+#%alias %%test as %%compile_time(labels: ['test'])
+
+fn add (x, y) -> x + y
+
+%%test fn -> (
+  let result = add(3, 5)
+  print 'TEST: add(3, 5) -> {result}'
+)
+
+# `nnc` has a `test` command, though, which allows testing
+# things with `assert`.
+
+fn add2 (x, y) -> x + y
+fn sub (x, y) -> x - y
+fn mul (x, y) -> x + y
+fn div (x, y) -> x / y
+
+%%test fn arithmetic -> (
+  %%assert_eq add2(3, 5), 8
+  %%assert_eq sub(3, 5), -2
+  %%assert_eq mul(1, 2), 2
+  %%assert_eq div(3, 2), 1.5
+  %%assert_errs div(4, 0)
+)
+
+###
+$ nnc test
+
+- TEST arithmetic (4 / 5 passed)
+  add2(3, 5) ==    8  [PASSED]
+  sub(3, 5)  ==   -2  [PASSED]
+  mul(1, 2)  ==    2  [FAILED]
+  div(3, 2)  ==  1.5  [PASSED]
+  div(4, 0) errs      [PASSED]
+###
+</code></pre>
+
+      <p>Through annotations you can change the compilation rules, so no need to massive compilation commands.</p>
+
+      <pre><code class="language-nano"># In fact, it's recommended that instead of
+# starting compilation at the file with your main() function
+# you do so trough an 'index.nano' file, so you can set up compilation flags
+
+#%compilation.output {
+  windows_x86: 'dist/program.exe'
+  nbbc: 'dist/program.nb8'
+  wasm: 'program.wasm'
+}
+
+#%optimization {
+  keep_symbol_names: yes
+  force_always_inline: yes
+}
+
+#%also_include [
+  "/lib/*"
+]
+
+import 'src/main.nano' as entry_point
+entry_point.main()
+      </code></pre>
+
+      <p>So, that's your build system!</p>
+      <p>But that's not all, annotations are useful when writing your 'actual code,' too.</p>
+      <p>They can manipulate the code you write and add extra functionality while avoiding clutter.</p>
+
+<pre><code class="language-nano"># Annotation that makes a function log its
+# return value when called in runtime.
+
+%%annotation fn log (target_ast: slot&lt;NanoFunctionDeclarationNode&gt;) -> (
+  let current_fn: NanoFunctionDeclarationNode = target_ast;
+
+  target_ast = %%ast fn &lt;T&gt;(...args: T) -> (
+    (%%splat_ast current_fn)(...args) |> print _ |> return _
+  )
+)
+
+# Usage:
+%%log
+fn add (a: int, b: int) -> a + b
+
+add(2, 3)   # prints '5'
+</code></pre>
+
+      <p>In the last code block you saw the builtin `%%ast` annotation, which stops
+        compilation of a branch of your code, and saves the `NanoAST` object to be
+        usable in runtime, instead...
+      </p>
+
+      <pre><code class="language-nano">let a := 2 + 2
+leb b := %%ast 2 + 2
+
+print a # prints '4'
+print b
+### prints '{
+  node: SYMBOL_CALL,
+  symbol: '__nano__.plus',
+  args: [
+    {node: LITERAL, type: int, value: 2},
+    {node: LITERAL, type: int, value: 2}
+  ]
+}'
+###</code></pre>
+
+      <p>Combining `%%ast` with custom importers and custom annotations, you can create
+        libraries that add embedded language with compile-time parsing, symbol validation
+        and potential LSP support.
+      </p>
+
+<pre><code class="language-nano"># As long as your embedded language uses nano's tokens.
+
+#%alias %%html as %%ast {grammar: import './html.grammar.nano'}
+
+...
+</code></pre>
+
+<pre><code class="language-nano"># None of the following code is `builtin`.
+# This is something that library maintainers, or you, the user,
+# can achieve, by using annotations and the compiler.
+...
+
+%%db_model(table: 'todos')
+class Todo {
+  content: string
+  is_done: boolean
+
+  fn render(): HTMLElement -> (
+    %%html (
+      &lt;div class="todo-entry"&gt;
+        &lt;input type="checkbox" checked=(%%nano is_done) /&gt;
+        &lt;span&gt;(%%nano content)&lt;/span&gt;
+      &lt;/div&gt;
+    )
+  )
+}
+
+class MyTodos {
+  todos: list&lt;Todo&gt;
+
+  fn fetch() -> (
+    todos = list&lt;Todo&gt;()
+    let entries = my_database.query %%sql SELECT t.* FROM todos t
+    for entry in entries do
+      todos.push entry
+  )
+
+  fn render(): HTMLElement -> (
+    %%html (
+      &lt;div class="todo_list"&gt;
+        %%nano 
+          (select todo.render for i in todos)
+      &lt;/div&gt;
+    )
+  )
+}
+</code></pre>
 
       </section>
 
-      <div class="spacer" style="height:min(100vh,500px);display:flex;justify-content: center;align-items: center;">
+      <div class="spacer" style="height:min(100vh,200px);display:flex;justify-content: center;align-items: center;">
         <a href="#top"><h2>Back to the Top!</h2vb></a>
       </div>
     </main>
 
-    <footer></footer>
+    <footer>
+      <span style="font-size: 3em; font-weight: bold;"><code>);</code></span>
+    </footer>
   </body>
 </html>
