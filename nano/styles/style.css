@@ -223,7 +223,7 @@ code {
 }
 
 pre {
-  margin-block-end: 1rem;
+  padding-block-end: 1rem;
 }
 
 pre code {
@@ -235,9 +235,9 @@ pre code {
 }
 
 p {
-  margin-block: 1rem;
+  padding-block: 0.5rem;
 }
 
 hr {
-  margin-block: 2rem;
+  padding-block: 1rem;
 }
