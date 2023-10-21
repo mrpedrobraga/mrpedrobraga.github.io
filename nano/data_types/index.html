@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="inverted" style="--dark:#1a1e27;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mrpedrobraga ~/nano</title>
+
+    <link rel="stylesheet" type="text/css" href="../../lib/atom-one-dark.min.css">
+    <script src="../../lib/highlight.min.js"></script>
+    <script src="../highlight_nano.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+</head>
+<body>
+    <header class="small">
+        <h1>nano</h1>
+    </header>
+    <div class="flex h gap page_container">
+        <aside>
+            <h2>nano</h2>
+            <ul>
+                <li><a href="../">What is nano?</a></li>
+                <li><a href="../design_goals">Design Goals</a></li>
+                <br>
+                <h3>Learn!</h3>
+                <li><a href=".">Data Types</a></li>
+                <li><a href="../variables">Variables</a></li>
+                <li><a href="../functions">Functions</a></li>
+            </ul>
+        </aside>
+        <main>
+            <div class="content centred">
+                <p>nano is designed with a few things in mind.</p>
+
+                <br><br>
+                <h2>nano is clean</h2>
+                <p>
+                    nano looks easy on the eyes, with a mixture of keywords and symbols
+                    that doesn't look too verbose nor too abstract.
+                </p>
+
+                <br><br>
+                <h2>nano is freedom</h2>
+                <p>
+                    nano doesn't enforce coding paradigms, filesystem structure,
+                    nor how your code should look. It you (or your team's) responsibility
+                    to choose how to do things.
+                </p>
+
+                <br><br>
+                <h2>nano is elegant</h2>
+                <p>
+                    Only a few core concepts can go a long way. The name nano gives its
+                    building blocks are clear and power imagination.
+                </p>
+                <p>
+                    For example, the following code in C++:
+                </p>
+                <pre><code class="language-cpp">// In C++
+                    int* getInt () {
+                    &nbsp;auto a = 3;
+                    &nbsp;return &a;
+                    }
+                </code></pre>
+                <p>
+                    Looks mysterious (and is also unsafe). Like, really, what's "and a" supposed to mean?
+                </p>
+                <p>
+                    The nano equivalent looks shorter and clearer.
+                </p>
+                <pre><code class="language-nano"># In nano
+                    fn get_int() -> slot(3)
+                </code></pre>
+                <p>
+                    Instead of returning an int* it returns a slot&lt;int&gt;.
+                </p>
+                <p>
+                    A slot is something that can "have things inside it" and you can put something in it.
+                    If many sources share "the same slot" it makes sense they can all see the same value in it.
+                </p>
+            </div>
+        </main>
+        <aside></aside>
+    </div>
+    <footer>
+        <h3>Powered by evil and spite!</h3>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="inverted" style="--dark:#1a1e27;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mrpedrobraga ~/nano</title>
+
+    <link rel="stylesheet" type="text/css" href="../lib/atom-one-dark.min.css">
+    <script src="../lib/highlight.min.js"></script>
+    <script src="./highlight_nano.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+</head>
+<body>
+    <header class="small">
+        <h1>nano</h1>
+    </header>
+    <div class="flex h gap page_container">
+        <aside>
+            <h2>nano</h2>
+            <ul>
+                <li><a href=".">What is nano?</a></li>
+                <li><a href="./design_goals">Design Goals</a></li>
+                <br>
+                <h3>Learn!</h3>
+                <li><a href="./data_types/">Data & Types</a></li>
+                <li><a href="./variables">Variables</a></li>
+                <li><a href="./functions">Control Flow</a></li>
+                <li><a href="./functions">Functions</a></li>
+                <li><a href="./functions">Asynchronicity</a></li>
+                <li><a href="./functions">struct</a></li>
+                <li><a href="./functions">class</a></li>
+                <li><a href="./functions">interface</a></li>
+                <li><a href="./functions">traits</a></li>
+                <li><a href="./functions">Annotations</a></li>
+                <li><a href="./functions">Tests</a></li>
+                <li><a href="./functions">Importing</a></li>
+            </ul>
+        </aside>
+        <main>
+            <div class="content centred">
+                <p>
+                    nano is a compiled, strong-typed, multiparadigm programming language.
+                </p>
+                <p>
+                    It began as an art project, trying to design a language that was easy to use
+                    while not tearing away your sanity (I'm looking at you, Javascript).
+                </p>
+                <p>
+                    Check out this tiny hello world program!
+                </p>
+                <pre><code class="language-nano">fn main() -> (
+                &nbsp;&nbsp;print "Hello world!"
+                )
+
+                main()
+                </code></pre>
+                <p>
+                    To be honest, you don't need a main() function, but it's good for organization.
+                    Here's it without it:
+                </p>
+                <pre><code class="language-nano">print "Hello world!"</code></pre>
+                <p>
+                    Another code sample, an implementation of an ordered map in nano:
+                </p>
+                <pre><code class="language-nano">from collections import { KeyNotFoundError, keyof }
+                    
+                ## Simple struct that stores entries relating "keys" to values.
+                ## @generic_param K The type of the keys of this map.
+                ## @generic_param V The type of the values of this map.
+                struct OrderedMap&lt;K, V&gt; {
+                &nbsp;&nbsp;entries: list<[key: K, value: V]>
+
+                &nbsp;&nbsp;has (key: K |- keyof self): bool implies key |- keyof(self) -> (
+                &nbsp;&nbsp;&nbsp;&nbsp;some k == key for [k, _] in entries
+                &nbsp;&nbsp;)
+
+                &nbsp;&nbsp;get (key: K |- keyof self): V!KeyNotFoundError&lt;MyMap, K&lt; -> (
+                &nbsp;&nbsp;&nbsp;&nbsp;for [k, v] in entries do (
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if k == key then return v
+                &nbsp;&nbsp;&nbsp;&nbsp;)
+                &nbsp;&nbsp;&nbsp;&nbsp;err KeyNotFoundError(self, key)
+                &nbsp;&nbsp;)
+
+                &nbsp;&nbsp;set (key: K, value: V) -> (
+                &nbsp;&nbsp;&nbsp;&nbsp;for [k, v] in entries do (
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if k == key then v = value
+                &nbsp;&nbsp;&nbsp;&nbsp;)
+                &nbsp;&nbsp;&nbsp;&nbsp;entries.push [key, value]
+                &nbsp;&nbsp;)
+                }
+            
+                test "Map is Sane", (
+                &nbsp;&nbsp;let map = OrderedMap&lt;string, int|bool&gt;()
+
+                &nbsp;&nbsp;map["Key 1"] = 10
+                &nbsp;&nbsp;let randomkey = "Key {randi()}"
+    
+                &nbsp;&nbsp;let result: int|bool!KeyNotFoundError = map[randomkey]
+
+                &nbsp;&nbsp;assert (
+                &nbsp;&nbsp;&nbsp;&nbsp;if randomkey == "Key 1" then
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(result is int|bool)
+                &nbsp;&nbsp;&nbsp;&nbsp;else
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(result is KeyNotFoundError)
+                &nbsp;&nbsp;)
+                )
+            </code></pre>
+            <p>Maybe those examples inspire you to learn some nano?</p>    
+        </div>
+        </main>
+        <aside></aside>
+    </div>
+    <footer>
+        <h3>Powered by evil and spite!</h3>
+    </footer>
+</body>
+</html>
