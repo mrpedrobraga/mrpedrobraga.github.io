@@ -95,7 +95,7 @@ div.centred {
 }
 
 aside {
-  min-width: 8rem;
+  min-width: 10rem;
   top: 0px;
   position: sticky;
 }
@@ -176,13 +176,18 @@ p + p {
 }
 
 a {
+  color: var(--accent);
   text-decoration-thickness: 0.125rem;
   text-underline-offset: 0.125rem;
+
+  &:hover {
+    color: var(--light);
+    text-decoration: none;
+  }
 }
 
 pre,
 code {
-  white-space: pre-line;
   line-height: 1.2rem;
 }
 

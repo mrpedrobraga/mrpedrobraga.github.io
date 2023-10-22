@@ -44,7 +44,7 @@
                 <h2>nano is freedom</h2>
                 <p>
                     nano doesn't enforce coding paradigms, filesystem structure,
-                    nor how your code should look. It you (or your team's) responsibility
+                    nor how your code should look. It's your (or your team's) responsibility
                     to choose how to do things.
                 </p>
 
@@ -77,7 +77,12 @@
                 </p>
                 <p>
                     A slot is something that can "have things inside it" and you can put something in it.
-                    If many sources share "the same slot" it makes sense they can all see the same value in it.
+                    If many sources share "the same slot" it makes sense they can all see the same value in it!!!
+                </p>
+                <p>
+                    nano's version is also safe: you can't create a reference to "a variable" after the fact;
+                    You have to create the slot, supplying a value for it, and then you return it.
+                    Because the function returns a slot, nano knows to prealocate space for the slot's contents on the call-site.
                 </p>
             </div>
         </main>
