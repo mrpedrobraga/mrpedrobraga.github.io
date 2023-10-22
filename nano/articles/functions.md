@@ -6,7 +6,7 @@ section of code. Functions can be called to execute that code.
 The builtin function "exit" exits the program.
 
 ```nano
-exit
+exit()
 ```
 
 Functions can take parameters. Say, for example, print,
