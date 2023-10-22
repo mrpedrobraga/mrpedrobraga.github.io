@@ -37,7 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: top;
 
   font-size: 16px;
   line-height: 1.2;
@@ -51,7 +51,12 @@ h4,
 h5,
 h6 {
   font-size: 16px;
-  margin-bottom: 16px;
+  margin-top: 4em;
+  margin-bottom: 1em;
+
+  &::first_child {
+    margin-top: unset;
+  }
 }
 
 h1 {
@@ -87,6 +92,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 div.centred {
@@ -195,7 +201,7 @@ pre {
   max-width: 64rem;
 }
 
-code {
+code.hljs {
   margin-inline-start: 1rem;
   margin-block: 1rem;
   padding: 1rem;
