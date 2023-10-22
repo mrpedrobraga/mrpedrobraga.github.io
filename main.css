@@ -83,6 +83,35 @@ header.small {
   height: 12rem;
 }
 
+.reading-progress {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 0.5rem;
+  background-color: var(--dark);
+
+  & .reading-progress-indicator {
+    display: block;
+    height: 100%;
+    background-color: var(--accent);
+    animation-name: progress;
+    animation-duration: auto;
+    animation-timing-function: linear;
+    animation-timeline: scroll();
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 10%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 .page_container {
   width: calc(100% - 4rem);
 }
@@ -171,6 +200,23 @@ div.content:hover {
       opacity: 1;
     }
   }
+}
+
+.appear {
+  animation-name: appear;
+  animation-duration: 0.1s;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+div {
 }
 
 p {

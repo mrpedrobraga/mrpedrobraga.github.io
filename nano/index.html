@@ -14,6 +14,9 @@
     <link rel="stylesheet" type="text/css" href="../main.css">
 </head>
 <body>
+    <div class="reading-progress">
+        <div class="reading-progress-indicator"></div>
+    </div>
     <header class="small">
         <h1>nano</h1>
     </header>
@@ -22,32 +25,32 @@
             <h2>nano</h2>
             <ul>
                 <li><a href=".">What is nano?</a></li>
-                <li><a href="./design_goals">Design Goals</a></li>
-                <br>
+                <li><a href=".?article=design_goals">Design Goals</a></li>
                 <h3>Learn!</h3>
-                <li><a href="./introduction/">Introduction</a></li>
-                <li><a href="./primitives/">Primitives</a></li>
-                <li><a href="./custom_types/">Custom Types</a></li>
-                <li><a href="./control_flow">Variables</a></li>
-                <li><a href="./functions">Functions</a></li>
-                <li><a href="./asynchronicity">Asynchronicity</a></li>
-                <li><a href="./struct">struct</a></li>
-                <li><a href="./class">class</a></li>
-                <li><a href="./interface">interface</a></li>
-                <li><a href="./traits">traits</a></li>
-                <li><a href="./annotations">Annotations</a></li>
-                <li><a href="./tests">Tests</a></li>
-                <li><a href="./importing">Importing</a></li>
+                <li><a href=".?article=overview">Overview</a></li>
+                <li><a href=".?article=primitives">Primitives</a></li>
+                <li><a href=".?article=reference_types">Reference Types</a></li>
+                <li><a href=".?article=custom_types">Custom Types</a></li>
+                <li><a href=".?article=variables">Variables</a></li>
+                <li><a href=".?article=functions">Functions</a></li>
+                <!-- <li><a href=".?article=asynchronicity">Asynchronicity</a></li>
+                <li><a href=".?article=struct">struct</a></li>
+                <li><a href=".?article=class">class</a></li>
+                <li><a href=".?article=interface">interface</a></li>
+                <li><a href=".?article=traits">traits</a></li>
+                <li><a href=".?article=annotations">Annotations</a></li>
+                <li><a href=".?article=tests">Tests</a></li>
+                <li><a href=".?article=importing">Importing</a></li> -->
             </ul>
         </aside>
         <main>
-            <div class="content centred">
+            <div class="content centred appear">
                 
             </div>
         </main>
         <aside></aside>
     </div>
-    <footer>
+    <footer class="appear">
         <h3>Powered by evil and spite!</h3>
     </footer>
 
@@ -70,7 +73,16 @@
             )
         }
 
-        changeArticle("variables")
+        const queryParamsString = window.location.search.substr(1);
+        const queryParams = queryParamsString
+            .split('&')
+            .reduce((accumulator, singleQueryParam) => {
+                const [key, value] = singleQueryParam.split('=');
+                accumulator[key] = decodeURIComponent(value);
+                return accumulator;
+            }, {});
+
+        changeArticle(queryParams.article ?? "overview")
     </script>
 </body>
 </html>
