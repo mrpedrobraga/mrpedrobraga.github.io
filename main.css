@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 
 @font-face {
@@ -30,9 +30,13 @@ html {
   background-color: var(--light);
   color: var(--dark);
   border-color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 body {
+  width: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -88,7 +92,7 @@ header.small {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 0.5rem;
   background-color: var(--dark);
 
@@ -99,13 +103,13 @@ header.small {
     animation-name: progress;
     animation-duration: auto;
     animation-timing-function: linear;
-    animation-timeline: scroll();
+    animation-timeline: scroll(root);
   }
 }
 
 @keyframes progress {
   from {
-    width: 10%;
+    width: 0%;
   }
   to {
     width: 100%;
@@ -113,20 +117,24 @@ header.small {
 }
 
 .page_container {
-  width: calc(100% - 4rem);
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 100%;
+  padding-inline: 1rem;
 }
 
 main {
+  width: 0;
   flex-grow: 1;
+  max-width: 100%;
+  flex-shrink: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
 div.centred {
-  width: min(100%, 64rem);
-  max-width: 64rem;
+  flex-grow: 1;
 }
 
 aside {
@@ -136,8 +144,8 @@ aside {
 }
 
 footer {
-  height: 50vh;
-  line-height: 50vh;
+  height: 25vh;
+  line-height: 25vh;
 }
 
 li a {
@@ -149,7 +157,7 @@ li a {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   aside {
     display: none;
   }
@@ -187,8 +195,11 @@ li a {
   }
 }
 
-pre {
-  font-family: var(--font);
+div.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 64rem;
 }
 
 div.content:hover {
@@ -240,11 +251,12 @@ a {
 
 pre,
 code {
+  font-family: var(--font);
   line-height: 1.2rem;
 }
 
 pre {
-  max-width: 64rem;
+  max-width: calc(100% - 1rem);
 }
 
 code.hljs {

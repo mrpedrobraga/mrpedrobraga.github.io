@@ -2,27 +2,15 @@
 
 nano is a compiled, strong-typed, multiparadigm programming language.
 
-It began as an art project, trying to design a language that was easy to use
-while not tearing away your sanity (I'm looking at you, Javascript).
+It began as an art project, trying to design a language that is both fast and safe as well as clear and elegant-looking.
 
 Check out this tiny hello world program!
-
-```nano
-fn main() -> (
-		print "Hello world!"
-)
-
-main()
-```
-
-To be honest, you don't need a main() function, but it's good for organization.
-Here's it without it:
 
 ```nano
 print "Hello world!"
 ```
 
-Another code sample, an implementation of an ordered map in nano:
+Another code sample, a theoretical implementation of an ordered map in nano:
 
 ```nano
 from collections import { KeyNotFoundError, keyof }
@@ -31,41 +19,41 @@ from collections import { KeyNotFoundError, keyof }
 ## @generic_param K The type of the keys of this map.
 ## @generic_param V The type of the values of this map.
 struct OrderedMap&lt;K, V&gt; {
-		entries: list<[key: K, value: V]>
+	entries: list<[key: K, value: V]>
 
-		has (key: K |- keyof self): bool implies key |- keyof(self) -> (
-				some k == key for [k, _] in entries
-		)
+	has (key: K |- keyof self): bool implies key |- keyof(self) -> (
+		some k == key for [k, _] in entries
+	)
 
-		get (key: K |- keyof self): V!KeyNotFoundError&lt;MyMap, K&lt; -> (
-				for [k, v] in entries do (
-						if k == key then return v
-				)
-				err KeyNotFoundError(self, key)
+	get (key: K |- keyof self): V!KeyNotFoundError&lt;MyMap, K&lt; -> (
+		for [k, v] in entries do (
+				if k == key then return v
 		)
+		err KeyNotFoundError(self, key)
+	)
 
-		set (key: K, value: V) -> (
-				for [k, v] in entries do (
-						if k == key then v = value
-				)
-				entries.push [key, value]
+	set (key: K, value: V) -> (
+		for [k, v] in entries do (
+			if k == key then v = value
 		)
+		entries.push [key, value]
+	)
 }
 
 test "Map is Sane", (
-		let map = OrderedMap&lt;string, int|bool&gt;()
+	let map = OrderedMap&lt;string, int|bool&gt;()
 
-		map["Key 1"] = 10
-		let randomkey = "Key {randi()}"
+	map["Key 1"] = 10
+	let randomkey = "Key {randi()}"
 
-		let result: int|bool!KeyNotFoundError = map[randomkey]
+	let result: int|bool!KeyNotFoundError = map[randomkey]
 
-		assert (
-				if randomkey == "Key 1" then
-						(result is int|bool)
-				else
-						(result is KeyNotFoundError)
-		)
+	assert (
+		if randomkey == "Key 1" then
+			(result is int|bool)
+		else
+			(result is KeyNotFoundError)
+	)
 )
 ```
 
