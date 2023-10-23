@@ -109,7 +109,7 @@ c = a
 
 ### Custom data formats
 
-You can tag together two or more types to create (your first) a linear structure that stores several values side by side on memory.
+You can tag together two or more types to create (your first) a linear structure that stores several values side by side on memory. This kind of type is called an 'array'.
 
 ```nano
 type NamedInt = [ string, int ]
@@ -117,9 +117,25 @@ type NamedInt = [ string, int ]
 let a = ["john", 20]
 let b = a
 let c = a[0]
+#         ^ you can then access it by its offset
+#           this reads "skip 0 elements of a"
 ```
 
-If you come from another language, you might know these linear structures as "tuples."
+The values of an array are expressions separated by "," or a newline.
+
+```nano
+let a = [2 + 2, 4 + 4, 8 + 8]
+print a   # [ 4, 8, 16 ]
+
+let b = [
+	0
+	1	# No commas, so clean!
+	2
+	3
+]
+```
+
+(If you come from another language, you might know these arrays as "tuples.")
 
 You can optionally name each fragment of the linear structure.
 
@@ -130,16 +146,17 @@ let a = ["john", 20]
 let b = a
 let c = a[0]
 let d = a.name
+#          ^ you can then access it by name.
 ```
 
-Note that you do not have to create a new type to create a linear structure value.
+Note that you do not have to create a new type to create an array value.
 
 ```nano
 let a = ["john", 20]
 #   ^ type of 'a' gets inferred from the literal as [ string, int ]
 ```
 
-A named-property structure variant also exists.
+A non-linear structure variant also exists. That is, you can't access its properties by their position. Those are called 'structs'.
 
 ```nano
 let a = { name: "john", value: 20 }
@@ -148,7 +165,7 @@ a.name
 a[0]  # This doesn't work.
 ```
 
-And here's how it looks when you give it a name:
+And here's how it looks when you declare a struct type:
 
 ```nano
 type NamedValue = struct {
@@ -177,8 +194,113 @@ A struct doesn't store its properties' names either. They only exist during the 
 
 (\* Nerds: Reflection is still possible, as we'll see way later...)
 
-### Structs are awesome!
+### Accessing members is an art!
 
-Structs are the building block of your custom data formats, and, as I've been hinting for a while now, they get their own section all about them.
+Consider the following structure:
 
-Buckle up!
+```nano
+let names_and_numbers = [
+	["John", 3]
+	["Gabriela", 4]
+	["Patrick", 5]
+]
+
+# The type of names_and_numbers is
+# array<[string, int]>
+```
+
+Let's say you want the items 0 and 2:
+
+```nano
+names_and_numbers[0, 2]
+# [ ["John", 3], ["Patrick", 5] ]
+```
+
+Or a range of items:
+
+```nano
+names_and_numbers[0...1]
+# [ ["John", 3], ["Gabriela", 4] ]
+```
+
+Let's say you want to quickly grab all of the names and none of the numbers.
+
+```nano
+let names = names_and_numbers.*.[0]
+
+# This reads:
+# names_and_numbers
+# *   -  Get all items of that
+# [0] -  From those, get the first member
+
+# ["John", "Gabriela", "Patrick"]
+
+# Notice that the names are all on a single array,
+# and the original "nested array" structure was lost!
+
+# Let's try to get the numbers and preserve the original structure:
+
+let numbers = names_and_numbers.[*].[0]
+# [ [3], [4], [5] ]
+
+# The names are missing from there, but the resulting array has the same structure! Woohay!
+```
+
+You can also do some access on structs too, but they're more rigid.
+
+```nano
+let a = {
+	name: "Pedro"
+	cake: {
+		frosting: "white"
+		size: 11
+	}
+}
+
+a.(name, cake.frosting)
+# { name: "Pedro", cake: { frosting: "white" } }
+```
+
+You can "pattern-match" the content of a collection like this to local variables using this syntax called "destructuring assignment".
+
+```nano
+let a = ["john", 20]
+let [ ..., age ] = a
+#      ^ don't care about the name
+
+print age   # 20
+
+let b = { red: 10, green: 30, blue: 255 }
+let { red, green } = b
+
+print green   # 30
+```
+
+## Creating structures is also an art.
+
+You can spill the content of collections onto others.
+
+```nano
+let a = [1, 2, 3]
+let b = [0, ...a, 4, 5]
+print b   # [0, 1, 2, 3, 4, 5]
+
+let c = { name: "lilith" }
+let d = { ...c, age: 140 }
+print d   # { name: "lilith", age: 140 }
+```
+
+There's a shorthand for creating a property on a struct with the same name as a local variable:
+
+```nano
+let name = "Margareth"
+let person = {
+	&name
+	age: 50
+}
+
+print person   # { name: "Margareth", age: 50 }
+
+```
+
+Structures are awesome!!!
