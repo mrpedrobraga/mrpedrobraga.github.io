@@ -13,48 +13,33 @@ print "Hello world!"
 Another code sample, a theoretical implementation of an ordered map in nano:
 
 ```nano
-from collections import { KeyNotFoundError, keyof }
-
-## Simple struct that stores entries relating "keys" to values.
-## @generic_param K The type of the keys of this map.
-## @generic_param V The type of the values of this map.
-struct OrderedMap<K, V> {
-	entries: list<[key: K, value: V]>
-
-	has (key: K |- keyof self): bool implies key |- keyof(self) -> (
-		some k == key for [k, _] in entries
-	)
-
-	get (key: K |- keyof self): V!KeyNotFoundError<MyMap, K> -> (
-		for [k, v] in entries do (
-			if k == key then return v
-		)
-		err KeyNotFoundError(self, key)
-	)
-
-	set (key: K, value: V) -> (
-		for [k, v] in entries do (
-			if k == key then v = value
-		)
-		entries.push [key, value]
-	)
+## Map struct that stores the entries.
+struct Map {
+	entries: list<[string, string]>
 }
 
-test "Map is Sane", (
-	let map = OrderedMap<string, int|bool>()
+## Simple struct for failure case of finding a string.
+struct KeyNotFoundError : Error { map: Map, key: string }
 
-	map["Key 1"] = 10
-	let randomkey = "Key {randi()}"
-
-	let result: int|bool!KeyNotFoundError = map[randomkey]
-
-	assert (
-		if randomkey == "Key 1" then (
-			result is int|bool
-		) else (
-			result is KeyNotFoundError
+fn store (self: Map, key: string, value: string) -> (
+	for [k, v] in self.entries do (
+		if key == k then (
+			v = value
+			return
 		)
 	)
+
+	entries::push [key, value]
+)
+
+fn fetch (self: Map, key: string) -> (
+	for [k, v] in self.entries do (
+		if key == k then (
+			return v
+		)
+	)
+
+	err KeyNotFoundError(self, string)
 )
 ```
 
