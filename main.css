@@ -196,7 +196,9 @@ li a {
   }
 
   aside {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: calc(100dvh - 3rem);
     min-width: 0;
     width: 0;
     position: fixed;
