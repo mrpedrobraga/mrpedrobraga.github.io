@@ -60,7 +60,8 @@ h6 {
 }
 
 h1:first-child,
-h2:first-child {
+h2:first-child,
+h3:first-child {
   margin-top: 0;
 }
 
@@ -154,6 +155,16 @@ aside {
   position: sticky;
 }
 
+aside li,
+aside h2,
+aside h3 {
+  opacity: 40%;
+}
+
+aside li:hover {
+  opacity: 100%;
+}
+
 footer {
   height: 25vh;
   line-height: 25vh;
@@ -207,6 +218,7 @@ li a {
 }
 
 div.content {
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
   width: 100%;

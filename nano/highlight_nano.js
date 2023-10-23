@@ -55,20 +55,20 @@ const STRING_DQ_MODE = {
       keywords: {
         $pattern: /[\w_]+/,
         keyword: `
-        if unless then elif elun else loop for while meanwhile until do select count across 
+        if unless then elif elun else loop for while meanwhile until do select some every count across 
         when match default 
         type enum flags slot view signal state struct class trait entity object
         print prompt exit err 
-        in of xis is not and or xor
+        in of xis is not and but or xor implies 
         constraint implies
         typeof as keyof addrof 
-        let alias with shared import from use has await 
+        let alias with shared global import export from use has await 
         fn err_handler get set construct on
         return err continue break discard yield
         test assert 
       `,
         type: `byte bool bitfield uint int bvec2 bvec3 bvec4 uvec2 ivec2 uvec3 ivec3 uvec4 ivec4 float fvec2 fvec3 fvec4 obj 
-        string array list list_view list_state addr 
+        string array list list_view list_state addr nothing 
         i8 i16 i32 i64 f32 f64 u8 u16 u32 u64 option Expectation ErrorHandler ParseError 
         `,
         literal: `false true yes no PI TAU self selffn super superfn`,

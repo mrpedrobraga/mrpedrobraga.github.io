@@ -10,10 +10,10 @@ By the end of it, you'll completely understand this code:
 # sum.nn
 from core import { args }
 
-if args.size < 2 then err "Not enough arguments supplied!"
+if args.size < 2 then SimpleError("Not enough arguments supplied!")
 
 with err_handler (p: ParseError) -> (
-	err 'Parameter {p.string_content} is invalid.'
+	err 'Parameter {p.parse_input} is invalid.'
 )
 
 let result: float =
@@ -23,4 +23,4 @@ let result: float =
 
 But since nano IS pretty clear, you probably already make out a bit of it.
 
-Anyways, go check [Primitives](./primitives) already!
+Anyways, go check [Primitives](./?article=primitives) already!

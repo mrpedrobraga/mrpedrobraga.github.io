@@ -1,6 +1,6 @@
 ## Custom Types
 
-You can create your own types based off the base types.
+You can create your own types based off the primitive types.
 
 ```nano
 type MyInt = int
@@ -148,9 +148,24 @@ a.name
 a[0]  # This doesn't work.
 ```
 
-If you've seen a language like 'Javascript', it has an implementation for named-property structures that use a hash map (it calls that 'objects'.) nano's named structures are strict and don't allow setting to a property that doesn't already exists.
+And here's how it looks when you give it a name:
 
-Behind the curtains, it is not very different from a linear structure, storing all its values packed side by side in memory.
+```nano
+type NamedValue = struct {
+	name: string
+	value: string
+}
+
+# Or the shorthand:
+struct NamedValue {
+	name: string
+	value: string
+}
+```
+
+If you've seen a language like 'Javascript', it is basically built on an implementation of 'hash map', a named-property structure it calls 'object'.
+
+Unlike Javascript, most things in nano are NOT hash maps: behind the curtains, a struct not very different from a linear structure, storing all its values packed side by side in memory.
 
 ```nano
 let a = {foo: 3, bar: 7}
@@ -158,7 +173,7 @@ a.foo = 10
 a.baz = 30  # Won't work!
 ```
 
-A struct doesn't store its properties' names either. They only exist during the compilation stage\*.
+A struct doesn't store its properties' names either. They only exist during the compilation stage so you can refer to them\*.
 
 (\* Nerds: Reflection is still possible, as we'll see way later...)
 

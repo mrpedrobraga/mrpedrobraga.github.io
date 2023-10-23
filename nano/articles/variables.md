@@ -1,10 +1,12 @@
 ## Variables
 
-A variable is a lexical node in your code, where you can tell 'nano' to 'remember' a value for later usage.
+A variable is a lexical node in your code, where you can tell nano to 'remember' a value for later usage.
 
 You create a variable with the `let` keyword, possibly giving it a type and an initializer expression.
 
 ```nano
+# let <name> : <type> = <init_expression>
+
 let a: int = 3
 ```
 
