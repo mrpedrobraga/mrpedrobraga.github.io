@@ -179,9 +179,37 @@ li a {
   }
 }
 
+.sidebar-burger {
+  display: none;
+  position: sticky;
+  align-self: flex-start;
+  top: 0;
+  left: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--light);
+}
+
 @media only screen and (max-width: 1000px) {
-  aside:not(:first-child) {
-    display: none;
+  .sidebar-burger {
+    display: block;
+  }
+
+  aside {
+    overflow: hidden;
+    min-width: 0;
+    width: 0;
+    position: fixed;
+    top: 2rem;
+    left: 1rem;
+    background-color: var(--dark);
+  }
+
+  aside.expand {
+    min-width: unset;
+    width: unset;
+    padding: 2rem;
+    outline: 0.1rem solid var(--light);
   }
 }
 

@@ -17,12 +17,19 @@
     <div class="reading-progress">
         <div class="reading-progress-indicator"></div>
     </div>
+    <script>
+        function toggleNav() {
+            let n = document.querySelector("#nav-aside")
+            n.classList.toggle("expand")
+        }
+    </script>
+    <div class="sidebar-burger" onclick="toggleNav()"></div>
     <header class="small">
         <h1>nano</h1>
-        <p>(This documentation in very early development)</p>
+        <p style="opacity:0.2;">(This documentation in very early development)</p>
     </header>
     <div class="flex h gap page_container">
-        <aside>
+        <aside id="nav-aside">
             <h2>nano</h2>
             <ul>
                 <li><a href=".?article=overview">What is nano?</a></li>
