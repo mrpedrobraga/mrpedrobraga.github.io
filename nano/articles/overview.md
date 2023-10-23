@@ -44,3 +44,5 @@ fn fetch (self: Map, key: string) -> (
 ```
 
 Maybe those examples inspire you to learn some nano?
+
+You might wanna begin by the sidebar on the left!
