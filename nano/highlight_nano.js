@@ -1,3 +1,12 @@
+const ID_DQ_MODE = {
+  scope: "variable.name",
+  begin: '\\$"',
+  end: '"',
+  contains: [
+    { scope: "char.escape", match: "\\\\." },
+  ],
+};
+
 const STRING_DQ_MODE = {
     scope: "string",
     begin: '"',
@@ -18,7 +27,7 @@ const STRING_DQ_MODE = {
     ],
   };
   
-  const STRING_GROUP = [STRING_DQ_MODE, STRING_SQ_MODE];
+  const STRING_GROUP = [ID_DQ_MODE, STRING_DQ_MODE, STRING_SQ_MODE];
   
   const EXPRESSION_MODE = [
     { scope: "variable.constant", match: "\\b[A-Z_][A-Z_]+\\b" },
@@ -26,6 +35,7 @@ const STRING_DQ_MODE = {
     { scope: "number", match: "\\b0x[\\da-zA-Z_]+\\b" },
     { scope: "meta", match: "%%[\\w\\.]+" },
     { scope: "meta", match: "#%[\\w\\.]+" },
+    ID_DQ_MODE,
     STRING_DQ_MODE,
     STRING_SQ_MODE,
     {
@@ -63,7 +73,7 @@ const STRING_DQ_MODE = {
         constraint implies
         typeof as keyof addrof 
         let alias with shared global import export from use has await 
-        fn err_handler get set construct on
+        fn err_handler get set construct destruct on
         return err continue break discard yield
         test assert 
       `,

@@ -98,6 +98,37 @@ let a: slot<int>
 print a   # slot( 3 )
 ```
 
+You can natually create a view or a slot containing an array, which allows you to modify the array items in place.
+
+```nano
+let z = view ["z", "k", "m"]
+z[1] # Readonly access to the array...
+
+let a = slot ["a", "b"]
+
+a[0] = "c"
+
+print a # ["c", "b"]
+```
+
+But you can't grow the array. That's where 'list&lt;T&gt;' come to the rescue.
+
+```nano
+# list<T> manages to have a fixed size on the stack
+# by storing its items on the heap.
+
+let a = list ["a", "b"]
+a::push("c")
+
+print a   # ["a", "b", "c"]
+
+# There's also list_view<T>, which is similar to
+# view array<T>, but is aware the underlying list
+# can grow at any time :D
+```
+
+Reference types are a powerful building block of the language, and they're everywhere.
+
 ## Section for nerds
 
 Wait... what?

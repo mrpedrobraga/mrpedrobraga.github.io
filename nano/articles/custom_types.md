@@ -194,6 +194,22 @@ A struct doesn't store its properties' names either. They only exist during the 
 
 (\* Nerds: Reflection is still possible, as we'll see way later...)
 
+### Templates
+
+You can create generic (incomplete) types, which require filling before the type can be used.
+
+```nano
+# A pair of two values... the two values will have the same type, but which type it is, it's unknown.
+struct Pair<T> {
+	a: T
+	b: T
+}
+
+let m: Pair<int> = {a: 3, b: 7}
+```
+
+This is a very powerful concept that can be used to create reusable code without knowing how it'll be used.
+
 ### Accessing members is an art!
 
 Consider the following structure:
@@ -303,4 +319,5 @@ print person   # { name: "Margareth", age: 50 }
 
 ```
 
-Structures are awesome!!!
+Types are too awesome for only one part.
+Let's explore more on part II.

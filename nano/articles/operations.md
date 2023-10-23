@@ -1,15 +1,15 @@
 ## Operations
 
-I already sneaked in some "operations" into the previous section.
+A single value IS an expression... but more complex expressions require operations.
 
-They are simple to understand.
+I already sneaked in some "operations" into the previous section. They are simple to understand.
 
 ```nano
 2 + 2
 # ^ look at the "+" operator
 ```
 
-An operation can aggregate multiple values onto an 'expression'. That 'expression' will be computed when your program runs and generate a new value.
+An operation can aggregate multiple values onto an expression. That expression will be computed when your program runs and generate a new value.
 
 ```nano
   2
@@ -41,7 +41,7 @@ Nano has a few builtin operators.
 3.0 / 2.0
 ```
 
-But -- actually! -- what an operator does completely depends on the parameters you give it. So, really, there is no "addition operator," only a "+" operator. Later, we'll learn that operators are actually functions in disguise, but, for now, you can remember operators as handy symbols.
+But -- actually! -- what an operator does completely depends on the parameters you give it. So, really, there is no "addition operator," only a "+" operator. Later, we'll learn that operators are actually functions in disguise, but, for now, you can remember operators as handy magic symbols.
 
 Speaking of useful builtin operators...
 

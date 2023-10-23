@@ -10,7 +10,17 @@ You create a variable with the `let` keyword, possibly giving it a type and an i
 let a: int = 3
 ```
 
-This expression can be anything, as long as the result is of the correct type.
+The variable's name can be anything, as long as it doesn't begin with $, \_, numbers, whitespace, symbols, or is a registered keyword like the word "let", or is already taken by a variable that already exists.
+
+Well, that doesn't seem like "anything," right? Well, you can use Identifiers to name your variables off arbitrary strings.
+
+```nano
+# $"An Identifier"
+
+let $"Banana is good" = "Yes, banana is good!"
+```
+
+Anyways, the initialization expression can be anything, as long as the result is of the correct type.
 
 ```nano
 let a: int = 2 + 2

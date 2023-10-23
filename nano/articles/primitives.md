@@ -1,22 +1,23 @@
 ## Nano Data & Types
 
-Here is a non-exhaustive list of nano's basic data formats.
-You'll be using them as building blocks to create your software's
-data structures.
+Expressions can be made by arranging different "values" and operations on those values. Those values are data, which can be stored in many formats.
 
-The bottom data format is "byte".
+Here is a non-exhaustive list of nano's basic data formats.
+You'll be using them as building blocks to create your software's data structures.
+
+The bottom data format is "byte". Deep down, everything in your computer program uses bytes.
 
 ```nano
 byte 0xAA  # 8 bits of storage for whatever you want.
 ```
 
-For your convenience, the core and standard libraries define some
-types that are more useful out of the box.
+For your convenience, the core and standard libraries define some types that are more useful out of the box. Those types are "reinterpretation" of bytes -- the same binary data under the hood, but with different treatment.
 
 ```nano
 # A compact sized collection of bytes is a 'string'.
 # It's commonly used to represent text.
 string "Hello world!"
+string 'hi mom'
 
 # A group of bytes treated as digits on a number is called an integer.
 # nano has a few integer formats of different bit sizes:
