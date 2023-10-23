@@ -68,7 +68,7 @@ const STRING_DQ_MODE = {
         if unless then elif elun else loop for while meanwhile until do select some every count across 
         when match default 
         type enum flags slot view signal state struct class trait entity object
-        print prompt exit err 
+        print push_error warn write prompt exit err 
         in of xis is not and but or xor implies 
         constraint implies
         typeof as keyof addrof 
