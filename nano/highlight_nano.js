@@ -44,6 +44,16 @@ const STRING_DQ_MODE = {
       end: "/",
     },
     {
+      scope: "macro",
+      begin: "##%",
+      end: "\n",
+    },
+    {
+      scope: "macro",
+      begin: "###%",
+      end: "%###",
+    },
+    {
       scope: "regexp",
       begin: "o/",
       end: "/",
@@ -72,7 +82,7 @@ const STRING_DQ_MODE = {
         in of xis is not and but or xor implies 
         constraint implies
         typeof as keyof addrof 
-        let alias with shared global import export from use has await 
+        on buffer stack queue let alias with shared global import export from use has await 
         fn err_handler get set construct destruct on
         return err continue break discard yield
         test assert 
