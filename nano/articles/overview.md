@@ -18,14 +18,14 @@ from collections import { KeyNotFoundError, keyof }
 ## Simple struct that stores entries relating "keys" to values.
 ## @generic_param K The type of the keys of this map.
 ## @generic_param V The type of the values of this map.
-struct OrderedMap&lt;K, V&gt; {
+struct OrderedMap<K, V> {
 	entries: list<[key: K, value: V]>
 
 	has (key: K |- keyof self): bool implies key |- keyof(self) -> (
 		some k == key for [k, _] in entries
 	)
 
-	get (key: K |- keyof self): V!KeyNotFoundError&lt;MyMap, K&lt; -> (
+	get (key: K |- keyof self): V!KeyNotFoundError<MyMap, K> -> (
 		for [k, v] in entries do (
 				if k == key then return v
 		)
@@ -41,7 +41,7 @@ struct OrderedMap&lt;K, V&gt; {
 }
 
 test "Map is Sane", (
-	let map = OrderedMap&lt;string, int|bool&gt;()
+	let map = OrderedMap<string, int|bool>()
 
 	map["Key 1"] = 10
 	let randomkey = "Key {randi()}"
