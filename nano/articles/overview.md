@@ -27,7 +27,7 @@ struct OrderedMap<K, V> {
 
 	get (key: K |- keyof self): V!KeyNotFoundError<MyMap, K> -> (
 		for [k, v] in entries do (
-				if k == key then return v
+			if k == key then return v
 		)
 		err KeyNotFoundError(self, key)
 	)
@@ -49,10 +49,11 @@ test "Map is Sane", (
 	let result: int|bool!KeyNotFoundError = map[randomkey]
 
 	assert (
-		if randomkey == "Key 1" then
-			(result is int|bool)
-		else
-			(result is KeyNotFoundError)
+		if randomkey == "Key 1" then (
+			result is int|bool
+		) else (
+			result is KeyNotFoundError
+		)
 	)
 )
 ```
