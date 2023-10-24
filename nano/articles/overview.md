@@ -43,6 +43,6 @@ fn fetch (self: Map, key: string) -> (
 )
 ```
 
-Maybe those examples inspire you to learn some nano?
+## Dive even deeper
 
-You might wanna begin by the sidebar on the left!
+Continue [learning nano](./?article=introduction) or check some [code samples](./?article=code_samples).

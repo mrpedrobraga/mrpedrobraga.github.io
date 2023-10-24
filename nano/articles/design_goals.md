@@ -128,7 +128,7 @@ give_me_an_int_to_look_at(num::view)
 
 #### nano has a thin output
 
-nano is a compiled language, so, there's no such thing as a 'nano runtime'. It *can still be interpreted*, but even interpreted nano gets a benefit from nano being designed as a compiled language.
+nano is a compiled language, so, there's no such thing as a 'nano runtime'. It _can still be interpreted_, but even interpreted nano gets a benefit from nano being designed as a compiled language.
 
 You see, Javascript bases its values and structures around an implementation of hash maps it calls 'objects'. "Everything is an object."
 
@@ -143,7 +143,7 @@ A struct containing two i32 properties like this:
 }
 ```
 
-Occupies exactly 2 * sizeof(i32) bytes in memory.
+Occupies exactly 2 \* sizeof(i32) bytes in memory.
 
 There's also no garbage collector, memory is managed by the reference primitives, which impose rules to force you to use them in safe scenarios, and then free themselves accordingly.
 
@@ -186,7 +186,7 @@ There's also no garbage collector, memory is managed by the reference primitives
     # It is 'borrowed' instead.
 
     print a
-    
+
     # a gets freed here
 )
 ```
@@ -333,7 +333,7 @@ global import alias 'npm@datascript-nn' as 'datascript'
 
 ### nano is FOSS
 
-The silver lining of this projeect being created by some random guy on his free time is that this project isn't supported by mysterious corporation!
+The silver lining of this project being created by some random guy on his free time is that this project isn't supported by mysterious corporation!
 
 The code for the compiler (which is by the time of this writing incomplete and written in rust) is here.
 
