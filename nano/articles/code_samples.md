@@ -136,7 +136,7 @@ fn setup() -> (
 	let children = get_children() as array
 	let viewport = SubViewport.new()
 
-	viewport.canvas_item_default_texture_filter = DEFAULT_CANVAS_ITEM_TEXTURE_FILTER
+	viewport.canvas_item_default_texture_filter = DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST_WITH_MIPMAPS
 	viewport.transparent_bg = true
 	viewport.size = size
 	add_child(viewport, false, INTERNAL_MODE_BACK)
