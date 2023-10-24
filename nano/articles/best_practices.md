@@ -186,14 +186,14 @@ If you want to define how things should look and feel on your project, binding a
 ## formatting.nano
 
 ## Variables must be named in snake_case.
-test "Local Variables In Snake Case" -> (
+test $"Local Variables In Snake Case" -> (
 	assert ##% (every SYMBOL x where x is DECLARATION and x.kind == LET) |>
 		match _.name with r/[a-z_]+/
 )
 
 ## Types must be named in TitleCase.
-test "Local Variables In Snake Case" -> (
-	assert ##% (every SYMBOL x where x is DECLARATION and x.kind == TYPE) |>
+test $"Type In Title Case" -> (
+	assert ##% (every SYMBOL x where x is DECLARATION and x.kind == ANY_TYPE) |>
 		match _.name with r/[A-Z][a-zA-Z]*/
 )
 ```

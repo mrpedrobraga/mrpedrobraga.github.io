@@ -254,7 +254,7 @@ Tester? Test with nano!
 ```nano
 fn add (x, y) -> x + y
 
-test "Addition works" -> (
+test $"Addition works" -> (
     assert add(3, 4) == 7
     assert add(10, -1) == 9
 )

@@ -189,6 +189,12 @@ li a {
   height: 2rem;
 }
 
+@media only print {
+  aside {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 1000px) {
   .sidebar-burger {
     display: block;
@@ -204,6 +210,12 @@ li a {
     top: 2rem;
     left: 1rem;
     background-color: var(--dark);
+  }
+
+  pre,
+  code,
+  p {
+    page-break-inside: avoid;
   }
 
   aside.expand {
