@@ -88,7 +88,7 @@ There's two ways of achieving this in practice.
 let a = 3
 alias b = a
 
-# alias <name> = <lvalue>
+# alias <name> = <expression>
 
 b = 7
 print a  # '7'
