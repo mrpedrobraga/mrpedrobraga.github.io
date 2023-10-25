@@ -180,6 +180,48 @@ my_int.changed::connect fn x -> print 'State is now {x}.'
 let my_list = state_list ["a", "b", "c"]
 ```
 
+## Lazy evaluation
+
+Consider the following:
+
+After you use a reference type on an expression, the 'indirection' is lost, ie, changing the reference type won't change the value of what you computed.
+
+```nano
+let a = slot(10)
+let v1 = a + 2
+a = 4
+print v1   # 12, not 6
+```
+
+You may want to keep an 'ongoing transformed' reference to a certain value. Basically saying "that value, whatever it is currently, plus two"
+
+You can achieve that with a function ('function' is, itself, a reference type).
+
+```nano
+let a = slot(10)
+let v2 = fn -> a + 2
+#              ^ this function references the value on the outer scope
+#                and thus is a closure. Its lifetime is also linked to
+#                the reference type it requires.
+a = 4
+print v2()   # 6
+a = 8
+print v2()   # 10
+```
+
+Creating a closure around a reference value ties the closure's lifetime to that reference value.
+
+```nano
+let a = slot(10)
+let b = fn -> a  # The simplest possible closure.
+
+some_async_function(a)
+
+print b()
+#     ^ 'b' can not be used here, because it requires the unavailable symbol 'a'.
+#       'a' can not be used here, because it was given away to 'some_async_function'.
+```
+
 ### Template parameters
 
 Remember generic types? Well, you can make generic functions.

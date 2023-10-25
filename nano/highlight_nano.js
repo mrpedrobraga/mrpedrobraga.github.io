@@ -77,14 +77,14 @@ const STRING_DQ_MODE = {
         keyword: `
         if unless then elif elun else loop for while meanwhile until do select some every count across 
         when match default 
-        type enum flags slot view signal state struct class trait entity object
-        print push_error warn write prompt exit err 
+        type enum flags slot view signal state struct class trait entity object 
+        print push_error warn write prompt exit err sleep 
         in of xis is not and but or xor implies 
         constraint implies
         typeof as keyof addrof 
-        on buffer stack queue let alias with shared global import export from use has await 
-        fn err_handler get set construct destruct on
-        return err continue break discard yield
+        on buffer stack queue let alias with shared global import export from use has async await 
+        fn err_handler get set call construct destruct on
+        return err continue break discard yield 
         test assert 
       `,
         type: `byte bool bitfield uint int bvec2 bvec3 bvec4 uvec2 ivec2 uvec3 ivec3 uvec4 ivec4 float fvec2 fvec3 fvec4 obj 

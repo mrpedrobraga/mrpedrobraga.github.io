@@ -171,3 +171,26 @@ Whatever syntax an engine has that nano 100% doesn't allow for can be made up wi
 %%export var: float = 1.0
 %%onready var button = %%node("Control/Button")
 ```
+
+### A Shader!!
+
+```nano
+from gpu import { Shader, gpu_worker, uniform }
+import './image.png' as MyImage
+
+struct MyShader : Shader {
+	%%uniform tint: fvec4
+	frag_color: fvec4
+
+	call (args: []) -> (
+		frag_color = fvec4( (frag_color.r + frag_color.g + frag_color.g) / 3 )
+		frag_color *= tint
+	)
+}
+
+let image = MyImage::copy()
+let blue_image = MyShader {
+	frag_color: image.data
+	tint: fvec4(0.6, 0.6, 1.0, 0.0)
+}()
+```

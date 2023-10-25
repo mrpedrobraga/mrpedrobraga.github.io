@@ -131,7 +131,18 @@ Reference types are a powerful building block of the language, and they're every
 
 ## Section for nerds
 
-Wait... what?
+You can do this in nano.
+
+```nano
+let a: slot<int>
+
+(
+	let b = slot(10)
+	a = b
+)
+```
+
+"Wait... what?" -- you ask.
 
 Isn't 'b' going to be erased when the scope ends?
 How can you share its value with 'a'? Isn't 'a' going to have an invalid reference?
@@ -147,7 +158,9 @@ let mut a: *int;
 }
 ```
 
-But notice that in this rust code, you're explicitly creating a variable inside the scope, then returning its address. In nano, you create a 'slot' and the value the slot holds is implicitly placed... somewhere...
+But notice that in this rust code, you're explicitly creating a variable inside the scope, then taking its address.
+
+In nano, you never create that variable. You create a 'slot' and the value the slot holds is implicitly placed... somewhere...
 
 As nano can clearly see that you want to export a slot to the outer scope, it choses to preallocate space for that value on the outer scope!!!
 
@@ -156,10 +169,10 @@ That would be equivalent to this rust code:
 ```rust
 let mut a: *int;
 
-let _b;
+let b_content;
 {
-	_b = 3;
-	let b = &_b;
+	b_content = 3;
+	let b = &b_content;
 	a = b;
 }
 ```

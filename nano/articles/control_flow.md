@@ -82,7 +82,7 @@ if carrying is string then (
 if carrying is nothing then print "Was carrying nothing..."
 ```
 
-This is called "constraint narrowing," and will be explorer further when we learn more about constraints.
+This is called "constraint narrowing," and will be explored further when we learn more about constraints.
 
 'unless' works in the complementary manner.
 
