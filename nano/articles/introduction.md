@@ -17,8 +17,7 @@ with err_handler (p: ParseError) -> (
 )
 
 let result: float =
-	for acc=0, arg across args select
-		acc + float::from_string(arg)
+	for acc=0, arg across args select acc + float::from_string(arg)
 ```
 
 But since nano IS pretty clear, you probably already make out a bit of it.

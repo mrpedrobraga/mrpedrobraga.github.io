@@ -182,15 +182,16 @@ struct MyShader : Shader {
 	%%uniform tint: fvec4
 	frag_color: fvec4
 
-	call (args: []) -> (
+	work (args: []) -> (
 		frag_color = fvec4( (frag_color.r + frag_color.g + frag_color.g) / 3 )
 		frag_color *= tint
 	)
 }
 
 let image = MyImage::copy()
-let blue_image = MyShader {
+let image_make_blue = MyShader {
 	frag_color: image.data
 	tint: fvec4(0.6, 0.6, 1.0, 0.0)
-}()
+}
+let result = image_make_blue()
 ```
