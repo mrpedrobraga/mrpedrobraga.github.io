@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="../_assets/img/profile_picture.jpg" />
+	<title>@mrpedrobraga | Gallery</title>
+
+	<!--CSS Normalization-->
+	<link rel="stylesheet" type="text/less" href="../_styles/normalize.css"/>
+
+	<!--Styles-->
+	<link rel="stylesheet/less" type="text/css" href="../_styles/starch_main.less">
+</head>
+<body>
+	<!--Extension: LESS; for better styling!!!-->
+	<script src="../_extensions/less.js" ></script>
+
+	<header>
+		<div id="title">
+			<h1 id="my title">@mrpedrobraga</h1>'s personal bragging page.
+		</div>
+	</header>
+	<main>
+		<nav>
+			<ul class="tabs" id="gallery_nav">
+				<li class="gallery_btn selected" id="videogames" onclick="set_gallery_visible('videogames')">Pixel Art</li>
+				<li class="gallery_btn selected" id="concept_art" onclick="set_gallery_visible('concept_art')">Concept Art</li>
+				<li class="gallery_btn selected" id="ui_ux" onclick="set_gallery_visible('ui_ux')">UI/UX Design</li>
+			</ul>
+		</nav>
+		<div class="gallery" id="videogames" style="image-rendering: pixelated;">
+			<img src="img/invo_ollie_sunlight.png" alt="A boy sitting in a cave bathed in sunlight.">
+			<img src="../inner_voices/screenshots/diner2.png" alt="Two kids standing in a diner floating amidst a weird pink background.">
+			<img src="img/invo_vs_andy.png" alt="Two kids fighting against a water-controlling kid on top of a pillar.">
+			<img src="img/gif_mystery_kid.gif" alt="Mystery Kid rotating.">
+			<img src="img/invo_vs_magnum_opus_1.png" alt="A giant, geometric humanoid character playing pong with a human's SOUL.">
+			<img src="img/Windswept-Duckie-Swim.gif" alt="A cute duck swimming.">
+			<img src="img/invo_mystery_chat.png" alt="Claire talking to Mystery Kid on a talk show stage.">
+			<img src="img/invo_promo1.png" alt="Hank and Claire out of the cave, looking at the horizon of a barren desert.">
+			<img src="img/synergy_level_test.gif" alt="Level test gif of my pico-8 game synergy.">
+			<img src="img/Windswept-Duckie-Throw.gif" alt="A cute duck throwing a turtle shell.">
+			<img src="img/invo_yarn_knight.png" alt="An old grandma and her woven yarn golem.">
+			<img src="img/Windswept-Duckie-Win.gif" alt="A cute duck doin' a lil' dance.">
+			<img src="img/Windswept-Turt-Tumbled.gif" alt="A cute turtle tumbled over, unable to get up.">
+			<img src="img/invo_hank_minecart.png" alt="Hank and Claire sitting in a minecart, shooting an UFO.">
+			<img src="img/invo_kandy_trade_offer.png" alt="A geometric being offering one dollar for Claire' SOUL, in the format of the popular 'Trade Offer' meme.">
+			<img src="img/invo_hank_world.png" alt="Hank and Claire out of the cave, looking at the horizon of a barren desert.">
+			<img src="img/invo_hank_donuthole.png" alt="Hank and Claire shooting a hole into a donut.">
+			<img src="img/invo_vs_chaos_knight.png" alt="The four heroes fighting a clockwork-like robot with floating hands that shoots lasers.">
+			<img src="img/invo_main_characters.png" alt="The five main heroes of Inner Voices:
+			A kid with cylindrical hair and a red puff jacket,
+			another guy with a yellow sweater and suspenders,
+			A girl with long black hair, stripped shirt, and a golden key necklace,
+			A tough-looking guy with a football jacket,
+			And a blonde guy with vitiligo, heartbeat overcoat and a plaid skirt.">
+			<img src="img/invo_vs_lady_sucrose.png" alt="Claire fighting against a giant ghost lady that attacks with pastries.">
+			<img src="img/invo_ollie_room.png" alt="Claire fighting against a giant ghost lady that attacks with pastries.">
+			<img src="img/Coolors.png" alt="A set of materials I use for pixelart objects.">
+			<img src="img/invo_everyone.png" alt="Every character i had ever drawn at a certain point in time.">
+
+			<img src="img/invo_vs_mystery_kid.png" alt="Claire fighting Mystery Kid.">
+			<img src="img/invo_snow.jpeg" alt="Claire in a snowy cliffside.">
+			<img src="img/invo_inventory.jpeg" alt="Inner Voices inventory full of junkfood.">
+			<img src="img/invo_fireants.png" alt="MK stuck in an anthill.">
+			<img src="img/invo_lost_massie.png" alt="Massie on a cold forest. He says 'Oh no! It appears I have lost track of my location!'.">
+			<img src="img/invo_starfall_buildings.png" alt="Starfall Buildings.">
+			<img src="img/cover-very-necessary-tension.png" alt="The cover for the track 'Very Necessary Tension' from Inner Voices.
+			Has Claire and Andy hiding from a mysterious figure.">
+			<img src="img/invo_vs_cursed_knight.gif" alt="Claire sitting in a carrousel fighting against The Cursed Knight.">
+		</div>
+ 		<div class="gallery" id="concept_art">
+			<img src="img/concept_ollie_cooking.png" alt="A boy cutting a tomato to make some food.">
+			<img src="img/concept_keichii.png" alt="A japanese young man learning he can control his yoyo.">
+			<img src="img/concept_ollie_many.png" alt="A lot of ollies doing many things.">
+			<img src="img/concept_invo_erica.png" alt="A girl with dreadlocks wearing pajamas and attacking with stars.">
+			<img src="img/concept_marecrit.png" alt="A small child goddess for a friend's book.">
+			<img src="img/concept_wonder_boy.png" alt="A small child in a superhero uniform.">
+			<img src="img/concept_invo_cover.png" style="height: initial; width: 90%;" alt="The cover of Inner Voices: two boys sleeping in a bed in a very messy bedroom full of toys.">
+
+		</div>
+
+		<script defer>
+			function set_gallery_visible(id) {
+				var items = document.getElementsByClassName("gallery")
+				for (let index = 0; index < items.length; index++) {
+					const element = items[index];
+					element.style.display = element.id == id ? "flex" : "none"
+				}
+
+				var btns = document.getElementsByClassName("gallery_btn")
+				for (let index = 0; index < btns.length; index++) {
+					const element = btns[index];
+					
+					if (element.id == id) {
+						element.classList.add("selected")
+					} else {
+						element.classList.remove("selected")
+					}
+				}
+			}
+
+			set_gallery_visible("videogames")
+		</script>
+	</main>
+</body>
+</html>

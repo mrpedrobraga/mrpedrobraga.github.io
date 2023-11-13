@@ -74,6 +74,39 @@ let my_float = float::from_string(source_string) ||> nothing
 # to a 'nothing' or something else.
 ```
 
+### Error chaining
+
+Assume you have one fallible function that returns a window to an array. Then, we want to do another fallible action (retrieve an element from the window).
+
+```nano
+let myArray = get_array()
+#    ^ TYPE?   window( array<int> )!NotFoundError
+
+if myArray is Error then ... # Handle error
+
+let myContent = myArray::at(5)
+#   ^ TYPE?   int!WindowWasClosedError
+
+if myContent is Error then ... # Handle error
+```
+
+This looks annoying, as it's full of errors in the middle of our code. We may still want to treat those errors personally, so nano has syntax to defer the treatment of errors: the error chaining operator.
+
+```nano
+# Just get the value at once...
+let myContent = get_array()!::at(5)
+#    ^ TYPE?   int!NotFoundError|WindowWasClosedError
+
+# And handle the error here.
+match myContent with (
+	WindowWasClosedError => ...
+	NotFoundError => ...
+)
+
+# Both !. and !:: are the error chaining operator.
+```
+This operator will try to access the symbol before it, unless it's an error, in which case it'll just return the error and pass it along the chain.
+
 ### Error handlers
 
 Error handlers are similar to the 'try-catch' block you will find in other languages.

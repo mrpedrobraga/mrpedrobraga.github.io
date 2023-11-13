@@ -1,0 +1,90 @@
+
+.side-gallery {
+    position: relative;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    user-select: none;
+    height: min(640px, 50vw);
+
+    .gallery-container {
+        display: flex;
+        aspect-ratio: 16/9;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-snap-align: center;
+
+        clip-path: inset(1px);
+        border-radius: 32px;
+
+        img {
+            scroll-snap-align: center;
+            height: 100%;
+            //aspect-ratio: 16/9;
+            user-select: none;
+        }
+    }
+
+    .gallery-vignette {
+        display: block;
+        position: absolute;
+        height: 100%;
+        aspect-ratio: 16/9;
+        //pointer-events: none;
+        background: transparent;
+
+        .gallery-counter {
+            position: inherit;
+			// Makes it sit outside viewing area.
+            bottom: -40px;
+            left: 50%; translate: -50% 0;
+            width: max-content;
+            max-width: 90%;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            
+            .gallery-counter-item {
+                background-color: #EEE4;
+                flex-grow: 1;
+				flex-shrink: 1 1;
+                display: block;
+                width: 64px; height: 8px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: 0.1s ease-in-out;
+
+                &:hover {
+                    scale: 1.1;
+                    background-color: #FFFD;
+                }
+
+				&.current {
+					background-color: #FFFD;
+				}
+            }
+        }
+    }
+
+    .gallery-btn {
+        align-self: center;
+        width: 64px; height: 64px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('assets/ui_left_gallery_arrow.png');
+
+        opacity: 50%;
+        transition: 0.05s ease-in-out;
+        cursor: pointer;
+
+        &.next {
+            transform: scaleX(-1);
+        }
+
+        &:hover {
+            scale: 1.2;
+            opacity: 100%;
+        }
+    }
+}

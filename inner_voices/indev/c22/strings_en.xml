@@ -1,0 +1,1589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entries>
+
+	<!-- Hey... It's up to you if you want to have a great experience by not
+	looking at the games files. I won't hide anything from you. I just ask you to consider not doing that.
+	Consider being a part of your world and enjoying it as intended. Of course I can't stop you, you do you, player.-->
+	<!-- Oh, if you're a translator, I'm sorry, go ahead and make this game more accessible to other people! -->
+
+	<strings>
+	   <string id="party">Party</string>
+	   <string id="settings">Preferences</string>
+	   <string id="help">Help</string>
+	   <string id="exit">Leave</string>
+	   
+	   <string id="bgm">Volume (BGM)</string>
+	   <string id="sfx">Volume (SFX)</string>
+	   <string id="lang">Language</string>
+	   
+	   <string id="confirm">Confirm</string>
+	   <string id="unsaved">Unsaved progress will be lost!</string>
+	   
+	   <string id="error">Javascript error!ññUncaught TypeError: Cannot set property 'next_memory' of mainchar, line 1231 (col 32)ññThis is likely a bug in Construct2 or a third party plugin or behavior - something very wrong is happening in this world, huh.</string>
+	   
+	   <!-- Attacks and Spells -->
+	   
+	   <string id="hexagrams">Ollie's Full Blast</string>
+	   <string id="bubble_wrap">Bubble Wrap</string>
+	   <string id="memory_foam">Memory Foam</string>
+	   <string id="memoria_clavem">Memoria Clavem</string>
+	   
+	   <!-- ACTS -->
+	   <string id="check">Check</string>
+	   <string id="spare">Spare</string>
+	   <string id="talk">Talk</string>
+	   <string id="cry">Cry</string>
+	   <string id="do_nothing">Do Nothing</string>
+	</strings>
+	<choices>
+		<choice id='bruno' icons='question;question2;question3'>3;"what's... that";"who.. are... you..";"what 'things'..?"</choice>
+		<choice id='name' icons='talk_kindness;talk_reason;nothing'>6;* Say your name.;"I'm not sure.";"..."</choice>
+		<choice id='code' icons='yes;no'>2;Yes;No</choice>
+		<choice id='digit' icons='zero;one;two;three;four'>10;Enter the 4-digit code:;Enter the 4-digit code:;Enter the 4-digit code:;Enter the 4-digit code:;Enter the 4-digit code:</choice>
+		<choice id='nemo' icons='talk_kindness;talk_reason'>2;"You are worth saving.";"I can't not help you."</choice>
+	</choices>
+	<dialogs>
+		<dialog id='goodboi_battle'>
+			<speech voice='narrator' character='goodboi' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* Sc??t?ñ* 01 AT 02 DF^* He is gonna judge you!^* Do what he says by moving your SOUL accordingly!
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='Goodboi' expression='0'>
+				 bark, bark!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='ClaireSmile' expression='0'>
+				- (gasp)^- A little doggo!^- So cuuute!
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='Goodboi' expression='0'>
+				 b-bark?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='ClaireSmile' expression='0'>
+				- Come here!^- Who's the good boi, huh?
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='Goodboi' expression='0'>
+				- Well,% I AM a Good Boi, but...
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='ClaireWha' expression='0'>
+				- wait, you can¨
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='Goodboi' expression='0'>
+				- That's why I gotta guard the corridor!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='ClaireSmile' expression='0'>
+				- Oh... you really don't wanna plaaay...
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiCond' expression='0'>
+				- Hmmm...
+			</speech>
+			
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiCond' expression='0'>
+				- Okay, okay, just once!^- Alright, you see...
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiEyesClosed' expression='0'>
+				- It is already proven that I am a good boi.^- But...
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='+16' balloon='top' face='GoodboiAnime' expression='0'>
+				- Are YOU a good girl????
+			</speech>
+			
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='Goodboi' expression='0'>
+				- Stranger... %Sit!
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiEyesClosed' expression='0'>
+				- No, no, that's not how you sit!^- Let's try again.
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiSmile' expression='0'>
+				- Yes, that's it!
+			</speech>
+			
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='Goodboi' expression='0'>
+				- Stranger... %Roll!
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiEyesClosed' expression='0'>
+				- Just move in circles, it's easy!
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiSmile' expression='0'>
+				- YES, I am liking that already.
+			</speech>
+			
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='Goodboi' expression='0'>
+				- Stranger... %Play Dead!
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiEyesClosed' expression='0'>
+				- huh, you are very...% energetic.
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiSmile' expression='0'>
+				- yes.ñ- Yesñ- YESS!!^- One more and you're good to go!
+			</speech>
+			
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiSmile' expression='0'>
+				- Stranger... %GRAB THAT DISC!!
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiSmile' expression='0'>
+				- I believe in you!^- Jump with your legs!
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='GoodboiSmile' expression='0'>
+				- Oh my,% splendid!@ñ- Good girl!^- Hm,% somebody like you can pass :)^- Hope you have a safe walk overall. 
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='ClaireSmile' expression='0'>
+				- You are very polite!
+			</speech>
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='Goodboi' expression='0'>
+				- Of course, I'm a very good boi, young lady.
+			</speech>
+			
+			<speech voice='narrator' character='goodboi' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* G.B. Scottñ* ?? AT ?? DF^* The hallway inspector.^* His fur is fluffy! 
+			</speech>
+			<speech voice='narrator' character='goodboi' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* To spare someone,^ you first need them NOT want to FIGHT first!
+			</speech>
+			
+			<speech voice='narrator' character='goodboi' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* The Canine Judge spares you!
+			</speech>
+			
+			<speech voice='goodboi' character='goodboi' dx='32' dy='-128' balloon='center' face='Goodboi' expression='0'>
+				- Y-you're not a good girl!^- I-%I'll...^- The canine society will hear from me!
+			</speech>
+		</dialog>
+		<dialog id='chess_battle'>
+			<speech voice='narrator' character='chess1' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* ???ñ* ?? AT ?? DFñ* Is a fan of ROOKs.^* Rooks can move horizontally or vertically!
+			</speech>
+			<speech voice='narrator' character='chess2' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* ???ñ* ?? AT ?? DFñ* Is a fan of KNIGHTs.^* Knights can move in an L shape!^* Two squares in one direction, and one in another!
+			</speech>
+			<speech voice='narrator' character='chess3' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* ???ñ* ?? AT ?? DFñ* Is a fan of PAWNS.^* Pawns can step forward.^* I think it's just that...
+			</speech>
+			
+			<speech voice='narrator' character='chess3' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* Eh, they look like they WANT to fight...^* Try making them NOT want that first!
+			</speech>
+		</dialog>
+		<dialog id='chessclub'>
+			<speech voice='chess1' character='chess1' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- No, no, YOU listen to what I'm saying.^- I can move across the WHOLE board!^- Rooks RULE!
+			</speech>
+			<speech voice='chess2' character='chess2' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- So what!^- You can't jump trough pieces.^- You can get stopped by your own allies!^- Knights are way better, cooler and harder to predict.
+			</speech>
+			<speech voice='chess3' character='chess3' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Well, I think¨
+			</speech>
+			<speech voice='chess1' character='chess1' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Shut up PAWN!
+			</speech>
+			<speech voice='chess3' character='chess3' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- You underestimate the power of the pawn!!!^- The pawn has a dream, a goal in life!^- But no, all you want is immediate power.^- Pawns are a display of the biggest virtue of chess:^- Strategy and patience!
+			</speech>
+			<speech voice='chess2' character='chess2' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- yada yada yada^- just accept your failure.
+			</speech>
+			<speech voice='chess1' character='chess1' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Hm... we're getting nowhere...^- Oh, I know a way to settle this.^- We need someone ELSE to decide for us.^- Someone unbiased.
+			</speech>
+			<speech voice='chess3' character='chess3' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Yea, that sounds reasonable.
+			</speech>
+			<speech voice='chess2' character='chess2' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- You see, except for your piece preferences,^ you guys are very reasonable C:
+			</speech>
+			<speech voice='chess3' character='chess3' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Agreed.
+			</speech>
+			<speech voice='chess2' character='chess2' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Too bad we don't have friends...^- If only someone miraculously appeared...
+			</speech>
+			
+			<speech voice='chess2' character='chess2' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Oh, look at that.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- ªUm¬^- Hi?
+			</speech>
+			<speech voice='chess2' character='chess2' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Ok, let's do it like this...^- Whoever manages to defeat her first wins.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- D-%does it have to be a fight...^- I mean, I don't think fights are the best way to¨
+			</speech>
+			<speech voice='chess3' character='chess3' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- What,% haha.^- The battle box even has a checkerboard pattern.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- the what¨
+			</speech>
+		</dialog>
+		
+		<dialog id='extra'>
+			<speech voice='chess2' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Fight?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='32' balloon='top' face='Claire' expression='0'>
+				- mmm...^- no?
+			</speech>
+			<speech voice='chess2' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Understandable,ñ- have a great day.
+			</speech>
+		</dialog>
+		
+		<dialog id='key'>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='ClaireSmile' expression='0'>
+				- ªoh :D¬^- It's my Memoria Clavem...
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* "Memoria Clavem,"%ñ SPELL.^* Enter and leave the twisted plane trough a memory anchor:^ an object or place that holds emotional value.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='ClaireSmile' expression='0'>
+				- yes...%ñ- Yes!^- Now I just need to find some COLOURed object.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- And find Andy, also, can't forget that.
+			</speech>
+		</dialog>
+		<dialog id='nemo'>
+			<speech voice='nemo' relative='no' dx='320' dy='320' balloon='center' face='NemoDown' expression='0'>
+				- %.%.%.
+			</speech>
+			<speech voice='claire' relative='no' dx='320' dy='320' balloon='center' face='Claire' expression='0'>
+				- ª...hi.
+			</speech>
+			
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoDown' expression='0'>
+				- ªyou... are...
+			</speech>
+			<speech voice='claire' relative='no' dx='330' dy='320' balloon='center' face='Claire' expression='0'>
+				- ªI'm% not% one of them.
+			</speech>
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoDown' expression='0'>
+				- ªoh...
+			</speech>
+			
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoDown' expression='0'>
+				- ªyou should%n't bother.^- you%.%.%. can% stay, but.^- you better% find a way to% leave...
+			</speech>
+			<speech voice='claire' relative='no' dx='330' dy='320' balloon='center' face='Claire' expression='0'>
+				- ªI'm% not% going to leave you here.
+			</speech>
+			
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoDown' expression='0'>
+				- ¬ªyou should.
+			</speech>
+			<speech voice='claire' relative='no' dx='330' dy='320' balloon='center' face='Claire' expression='0'>
+				- ªIt's,% okay I don¨
+			</speech>
+			
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoDown' expression='0'>
+				- ¬I'll just be añ burden.^- And even if I do get out I'll...
+			</speech>
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoCry' expression='0'>
+				- ¬I'll still be% me....
+			</speech>
+			
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoCry' expression='0'>
+				- No...^- Just...^- .%.%.^- I-%ñ- I% can't even% talk to% peo%ple.^- I can't do anything...^- I don't know what happened with the school...^- With everyone^- ...^- You shouldn't have come...^- Nobody really needs me;% I'm worthless.^- Just%.%.%. %just leave me here.^- Go save yourself.
+			</speech>
+			<speech voice='claire' relative='no' dx='330' dy='320' balloon='center' face='Claire' expression='0'>
+				- ª...
+			</speech>
+			
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoWorried' expression='0'>
+				- ¬Oh no.
+			</speech>
+			<speech voice='claire' relative='no' dx='330' dy='320' balloon='center' face='Claire' expression='0'>
+				- ªIt's% okay if you don't... but...
+			</speech>
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoWorried' expression='0'>
+				- No.. no.. it's happening again...^- You have to ªleave.¬^- No one has to see% this.
+			</speech>
+			<speech voice='claire' relative='no' dx='330' dy='320' balloon='center' face='Claire' expression='0'>
+				- ª...what... are you...
+			</speech>
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoNah' expression='0'>
+				- Nah, it's just a% panic attack.^- Those happen all% the-% 
+			</speech>
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoPsychosis' expression='0'>
+				- ...^- ...you... have... to....
+			</speech>
+			
+			<speech voice='nemo' relative='no' dx='310' dy='320' balloon='center' face='NemoPsychosis' expression='0'>
+				- I'm sorry.
+			</speech>
+		</dialog>
+		<dialog id='darwin_battle'>
+			<speech voice='narrator' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* ???ñ* ?? AT ?? DFñ* Likes to fight.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* You chose to talk!ñ%* But,% as always, you couldn't.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* You cry silently.%ñ* The oponent doesn't notice.^* No one ever does.
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Hint: Try not to get hit!
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- You remember how fights work, right?^- Attack me when you feel like it!
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Whoa! You are really good at dodging.
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- With some practice you can even join the dodgeball team!
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- YEP! That's how I like it!
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- There you go! You win!^- How does that make you feel?
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Welp, looks like I win!^- I hope that you are okay.^- Anyways, I SPARE you, now.
+			</speech>
+			
+			
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Eh... You can... SPARE me now!^- You know how it works right?^- It's a simple ACTion.^- It may not be kicking and punching,% but^- Mercy is as powerful as fighting!
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- ...please...um...
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Does that... make you feel better?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- ...
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='ClaireDown' expression='0'>
+				- I'm... sorry...
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='ClaireSmile' expression='0'>
+				- Um...%ñ- I... spare... you...
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- c:
+			</speech>
+			
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Now, if you don't mind...^- I'll take a nap.^- Cya!
+			</speech>
+			
+		</dialog>
+		<dialog id='schooldungeon'>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- OH, someone!
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- HM?
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- HM!^- Oh, look at that!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- Huh... Hey! Um...
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Wha?^- Ya seem shook, mate.^- Oh, I get it!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- ...you... do?
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Ye!ñ- You look a bit down, don't ya?^- What's wrong?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- Wha...^- Everything!%ñ- It's all... messed up...^- ...^- Are you...^- You... %can't see what's wrong?
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Whaaaat? Of course I can!^- I have a classmate in need of a mood boost!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- ...
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Eyy, it's time to get sweaty!^- Yea! Know what always makes me better?
+			</speech>
+			<speech voice='darwin' character='fighter' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- ªA GOOD'N'OLD FIGHT!!!¬
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- ...^- Uh... what...^- This...^- It's all fine, nothing is wrong!
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* You press the light switch.^* Somewhere in this place, a light is turned on!
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* A light switch.^* I wonder what light it controls.
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Oooooooooo!^- GASP!%ñ- Look at that!^- Howzit goin', Claire, my best boss!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='32' balloon='top' face='Claire' expression='0'>
+				- Uhhhhhhhhhhhhhhhhhhhhhhhh^- Do you know me?
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- O' course I do!%ñ- You created me, Claire.^- Don't you remember me?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='32' balloon='top' face='Claire' expression='0'>
+				- ...
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- I'm eXing-Ho, your-^OH! You don't remember!^- That's my cue!^- Hm... um...^- So, you probably don't remember anything.^- You created me to remind you of something!^- Something about the event that fragmented the world!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='32' balloon='top' face='Claire' expression='0'>
+				- Really? What?
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- I% have% no% idea, actually.^- I don't remember.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='32' balloon='top' face='Claire' expression='0'>
+				- ...%oh.
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Um... you gotta remember something to leave.^- I think it was a code???^- A four digit code, that's for sure.^- It must be somewhere...^- Hm...%ñ- I'll be sleeping...^- I'll be sleeping in the meantime, good luck, boss.^- Come talk to me when you DO find it.
+			</speech>
+			<speech voice='' character='claire' dx='0' dy='32' balloon='top' face='Claire' expression='0'>
+				- (What the heck is happening here...)
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Found the code?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='32' balloon='top' face='Claire' expression='0'>
+				- no.
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- %.%.%.%.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* It's a post for a strange RPG you don't%- oh!^* It's deltarune!^* It's a 16 years old game, but still good!^* Weird... it's almost like this place makes you^remember stuff...
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Meh... it's just you.^- Hmpf... can't even sleep these days.^- About the code... hm...^- It's first digit and the last are the same.^- And the third digit is greater than the second.^- That's it, now leave me alone.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='32' balloon='top' face='Claire' expression='0'>
+				- First equal to last, third greater than second.^- Got it.
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- The sum of the first three digits is 6.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='32' balloon='top' face='Claire' expression='0'>
+				- Oh, very to the point.
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Yes.
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Yo wassup.^- Check this rad fact, bro:^- The sum of the first and the last digit is 2.^- I dunno what that means, tbh.^- Wish ya luck on ya journey, bro.^- Gotta save the world, can't give up now, you know wha'I mean?^- You're ma hero, you know that.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='32' balloon='top' face='Claire' expression='0'>
+				- T-thank you?
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- So humble, like always.^- That's ma bro boss, Claire.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* It's fast asleep.^* Those questiolings really like taking a nap.^* You can't judge them.%ñ* Naps are the best.
+			</speech>
+			
+			<speech voice='nemo' character='nemo' dx='0' dy='64' balloon='top' face='NemoCry' expression='0'>
+				- Please...^- D-%don't ap-%proach me...^- Please...% please...^- T-%they look so% lost...
+			</speech>
+			<speech voice='nemo' character='nemo' dx='0' dy='64' balloon='top' face='NemoCry' expression='0'>
+				- I...^- I don't% want to get stuck in my mind.^- It's% dangerous... in there...^- Please...% please...
+			</speech>
+			<speech voice='narrator' character='claire' dx='-64' dy='-128' balloon='no_person' face='none' expression='0'>
+				* Maybe%, if you get out,% you can find him and help him.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* He seems lonely.%ññ* Heh.^* This is a feeling you understand very well.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Hm...%ñ- Hm...%ñ- Hm...^- Nah... that's not it.^- Try to remember more.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='32' balloon='top' face='Claire' expression='0'>
+				- damn.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Hm...%ñ- Hm...%ñ- Hm...^- Oooooooooo!%ññ- That's it!^- 1 2 3 1 !%ñ- That's the code!^- Well, let's see what it does.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='32' balloon='top' face='ClaireSmile' expression='0'>
+				- Yay!
+			</speech>
+			
+			
+			<speech voice='claire' character='claire' dx='-128' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Oh, um...^- You can leave now.^- I don't think there are any memories left here.^- Have fun on the outside world, Claire!
+			</speech>
+			
+			<!--48-->
+			
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoShocked' expression='0'>
+				- Wha- what the heck dude.
+			</speech>
+			<speech voice='claire' character='claire' dx='-64' dy='-64' balloon='center' face='Claire' expression='0'>
+				- what-, I don't know either.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoShocked' expression='0'>
+				- Did you just IGNORE THE DOOR???
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-64' dy='-64' balloon='center' face='Claire' expression='0'>
+				- What??^- I came from this corridor...
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoSurprised' expression='0'>
+				- uh..... not again, please
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-64' dy='-64' balloon='center' face='ClaireUnsure' expression='0'>
+				- I'm not crazy.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoSurprised' expression='0'>
+				- No one said that, bro.^- Maybe..% you're just seeing something that I can't.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoExcited' expression='0'>
+				- Maybe,% whatever that is,% it's your quirk!^- Ooo...% It might even come in handy...
+			</speech>
+			<speech voice='' character='claire' dx='-64' dy='-64' balloon='center' face='ClaireUnsure' expression='0'>
+				- ...%ñ- (quirk?)
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoSurprised' expression='0'>
+				- Oh,% talking about handy...
+			</speech>
+			<speech voice='claire' character='claire' dx='-64' dy='-64' balloon='center' face='Claire' expression='0'>
+				- Oh.%.%.% I think I lost him.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoCant' expression='0'>
+				ª- how?
+			</speech>
+			<speech voice='claire' character='claire' dx='-64' dy='-64' balloon='center' face='ClaireDown' expression='0'>
+				- I'm% not sure.^- I think I% took a shortcut?...
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='Bruno' expression='0'>
+				- Ah, k.^- Oh,% I know how to settle this.^- Come here and I'll show you!
+			</speech>
+			
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoFrisk' expression='0'>
+				- I was trying to decrypt the files, but...^- There's some sort of code I need...^- It's four digits, I know one of them must be '3'...^- Anyways...
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='Bruno' expression='0'>
+				- Can you stand on the middle of the room, please?
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='Claire' expression='0'>
+				- What are you going to do to me?
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='Bruno' expression='0'>
+				- I'm gonna CHECK you.
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='Claire' expression='0'>
+				- With the computer?
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoExcited' expression='0'>
+				- Yes.^- I'ma compare the frequencies of your aura against your^ kuro's harmonics.^- Then I'll isolate each parameter based on the amplitudes and then^ build your file.
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='Claire' expression='0'>
+				- Uhhhh...
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='Bruno' expression='0'>
+				- I'm... gonna check you.
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='ClaireSmile' expression='0'>
+				- Oh, alright!
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoFrisk' expression='0'>
+				- ...
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='Claire' expression='0'>
+				- what?
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoFrisk' expression='0'>
+				- I said in the MIDDLE,% bro.
+			</speech>
+			<!--74-->
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoExcited' expression='0'>
+				- Just one more second aaaaaand...^- Yay :D
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='ClaireSmile' expression='0'>
+				- Yay!
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='Bruno' expression='0'>
+				- Your aura is incredibly thin.^- It makes sense, you are very quiet.^- 01 ATK,% 01 DEF,%ñ10 STA and% oh!^- 5 'Inventory' slots!
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='ClaireSmile' expression='0'>
+				- 5 what?%¨
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='Bruno' expression='0'>
+				- I can see your soul is very connected to spacetime^ and abstract distortions.
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='Claire' expression='0'>
+				- Is it?
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoExcited' expression='0'>
+				- Theoretically, you'd be able to enter^ hidden spaces no one else could.^- Store some itens, or even enter the space of a soul!^- Whoa... for someone so physically weak,^ your quirk really compensates.
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='Claire' expression='0'>
+				- I don't know...
+			</speech>
+			
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='Bruno' expression='0'>
+				- What's taking Andy so long?^- I'd think he'd already be back by now...
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='ClaireDown' expression='0'>
+				- ..oh.. what if he's looking for me...
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='Claire' expression='0'>
+				- I'll go after him.
+			</speech>
+			
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoSurprised' expression='0'>
+				- What, no, haven't you seen how many monsters^ were outside.^- AND now you're alone, too.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='Claire' expression='0'>
+				- And so is him.
+			</speech>
+			
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoWorried' expression='0'>
+				- I'm going% with you% then!
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='Claire' expression='0'>
+				- No.%ñ- I'll go find him trough the spacetime^distortion% place% thing.^- Also, you're obviously scared.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoWorried' expression='0'>
+				- I'm not% scared!^- It's just that...^- Have you seen black dudes in horror movies?
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='ClaireSmile' expression='0'>
+				- I don't think the monsters care about that.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='Claire' expression='0'>
+				- You stay here. I'll be back quickly.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoWorried' expression='0'>
+				- Alright.^- Please take care, Claire.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='ClaireSmile' expression='0'>
+				- Are you having fun with the computer?
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoExcited' expression='0'>
+				- Yes.^- Are you having fun walking between^ the folds of space and time?
+			</speech>
+			<speech voice='claire' character='claire' dx='-128' dy='-64' balloon='center' face='ClaireSmile' expression='0'>
+				- Yes.%ñ- I'm a detective.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='64' balloon='top' face='BrunoExcited' expression='0'>
+				- I love being an ExH.
+			</speech>
+			
+			<speech voice='narrator' character='bruno' dx='0' dy='128' balloon='no_person' face='none' expression='0'>
+				* Bruno.^* ?? AT ?? DF^* You're not very good at CHECKing.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='ClaireSmile' expression='0'>
+				- Andy!
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='AndyWorried' expression='0'>
+				- Claire!^- Where, how and why did you go!
+			</speech>
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='Claire' expression='0'>
+				- I have no idea, are you okay?
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='AndyWorried' expression='0'>
+				- Yes...^- When you disappeared, that gigantic monster just^ turned away...^- What if it's looking for you?
+			</speech>
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='Claire' expression='0'>
+				- Oh.
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='Andy' expression='0'>
+				- Anyways, how did you get there...
+			</speech>
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='Claire' expression='0'>
+				- Apparently, I can bend spacetime.
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='Andy' expression='0'>
+				- oh.
+			</speech>
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='ClaireSmile' expression='0'>
+				- And I have 5 inventory slots.
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='AndyExcited' expression='0'>
+				- OH.^- So you ARE an ExH!
+			</speech>
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='ClaireSmile' expression='0'>
+				- ...whatever that is.
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='AndyChibi' expression='0'>
+				- Imagine what we could do with it!^- Girl, you can be the best Field no cap.^- We could even have an anime series!
+			</speech>
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='Claire' expression='0'>
+				- Now I'm stuck.
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='AndyChibi' expression='0'>
+				- With your ST bending and my water powers we could-
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='AndyChibi2' expression='0'>
+				- wait what.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='Claire' expression='0'>
+				- I have to find a way to leave...^- Don't worry, it seems safe here.
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='Andy' expression='0'>
+				- Really? Did you not find any...
+			</speech>
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='Claire' expression='0'>
+				- I found one... but he was just nice.
+			</speech>
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='Claire' expression='0'>
+				- I found one... I...^- He didn't seem like a monster at all...
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='Claire' expression='0'>
+				- Oh, yes, I can leave using my Memoria Clavem.
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='Andy' expression='0'>
+				- Is it a spell?
+			</speech>
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='ClaireSmile' expression='0'>
+				- Yes, great name, huh!^- I can leave this place trough some object^ that is coloured.^- They didn't get affected because they have some^ importance idk.
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='Andy' expression='0'>
+				- Oh wow, you remembered all of that?
+			</speech>
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='ClaireSmile' expression='0'>
+				- Yes.
+			</speech>
+			
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='Andy' expression='0'>
+				- Ok, I'll meet up with Bruno.^- I'll meet you at the front of the school.
+			</speech>
+			<speech voice='claire' character='claire' dx='-32' dy='-128' balloon='center' face='Claire' expression='0'>
+				- Right.
+			</speech>
+			<speech voice='andy' character='andy' dx='32' dy='-128' balloon='center' face='Andy' expression='0'>
+				- But I'll keep looking at you until you disappear to make sure you are safe.
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* A memory anchor!^* Hm...% Better find Andy before leaving!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='center' face='Claire' expression='0'>
+				- What a weird feeling...^- This place isª...¬% strangely comfortable...^- ...^- Time to leave.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* A red locker.^* This coloured object amongst all the other blue ones.^* It's...% odd.
+			</speech>
+			
+			<!--128-->
+			<speech voice='narrator' character='claire' dx='32' dy='32' balloon='no_person' face='none' expression='0'>
+				* You reach for the glowing light...
+			</speech>
+			<speech voice='elliott' character='claire' dx='32' dy='-128' balloon='bottom' face='Spri' expression='0'>
+				- AYE MATE!^- So long no see, bud!^- Yea, it's me!%ñ- Spri the Sprite!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='center' face='Claire' expression='0'>
+				- Uh...
+			</speech>
+			<speech voice='elliott' character='claire' dx='32' dy='-128' balloon='bottom' face='Spri' expression='0'>
+				- Huh... that expression...^- Were you expecting SOMETHING ELSE?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='center' face='Claire' expression='0'>
+				- Hm... I.
+			</speech>
+			<speech voice='elliott' character='claire' dx='32' dy='-128' balloon='bottom' face='Spri' expression='0'>
+				- Eh, no one ever wants to talk to me...
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='center' face='Claire' expression='0'>
+				- Do you know anything about a code?
+			</speech>
+			<speech voice='elliott' character='claire' dx='32' dy='-128' balloon='bottom' face='Spri' expression='0'>
+				- Maybe I do. Hm..........^- I DO remember, but... I dunno...^- I dunno if I should tell you.^- Maybe if you're REALLY stuck I can think about it but...^- I'm still a little bit sad and lonely.
+			</speech>
+			<speech voice='narrator' character='claire' dx='32' dy='32' balloon='no_person' face='none' expression='0'>
+				* Talking to a glowing light inside a twisted place.^* It fills you with% confusion.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='center' face='Claire' expression='0'>
+				- I'm stuck.
+			</speech>
+			<speech voice='elliott' character='claire' dx='32' dy='-128' balloon='bottom' face='Spri' expression='0'>
+				- 1 2 3 1 !
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='center' face='Claire' expression='0'>
+				- what?
+			</speech>
+			<speech voice='elliott' character='claire' dx='32' dy='-128' balloon='bottom' face='Spri' expression='0'>
+				- what?
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='32' dy='32' balloon='no_person' face='none' expression='0'>
+				* Talking to a glowing light inside a twisted place.^* It fills you with% confusion.
+			</speech>
+			<!--142-->
+			
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* An entrance to the twisted plane.^* You better look for the EXIT now, though.
+			</speech>
+		</dialog>
+		
+		<dialog id='memoria'>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* Reaching for friendship,% you found loneliness...
+			</speech>
+			<speech voice='elliott' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Well, %That settles it!^- Your daughter now officially studies here in the^ national academy for extra-humans!^- She seems very quiet, huh...%ñ- Hm...^- She'll be partying with her classmates in no time!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- A floating jigsaw puzzle...^- What is this...^- ...^- It feels...% familiar.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* Reaching for compassion,% you found violence...
+			</speech>
+			<speech voice='rodrick' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Heh heh heh.%ñ- Why don't you give up already?^- Can't you see you're being-%ñ- Ah, Claire...^- You may say I'm cruel,% but you know it's the truth.^- You aren't like them.^- You're garbage%, like me.^- You'll soon understand how it works.^- In this world, you have to care about yourself.^- 'cause no one else will.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- ...%^- Familiar...^- This place... is oddly familiar.^- Have I been here before... 
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* Reaching for an advice,% you found%.%.%. %something, I guess???
+			</speech>
+			<speech voice='bruno' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Bruh%ñ- If you want to talk to people, just do it.^- Don't make a big deal out of it.^- We aren't monsters, and so aren't you.^- It's normal to be shy, you just gotta try.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- Bruno, can you hear this?%ñ- It's your voice!
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='16' balloon='top' face='BrunoFrisk' expression='0'>
+				- uhhhhhh...^- No...????
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* Reaching for an exit,% you found your prison.
+			</speech>
+			<speech voice='nemo' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- I...% don't want to do this...^- I don't% want to% come.^- I know% I can't just% not come,% I...^- I just wish I could stop existing all of a sudden.^- That'd be easier.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- ...whose...% voice is that...^- I am% so% very% confused.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* Oh%, this one is not a sad memory :D
+			</speech>
+			<speech voice='andy' character='claire' dx='-32' dy='-128' balloon='no_person' face='none' expression='0'>
+				- Oh, nice!^- It looks like I'm gonna have a new partner.^- So tell me, Claire, what's your unique power?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- ...
+			</speech>
+			<speech voice='andy' character='claire' dx='-32' dy='-128' balloon='no_person' face='none' expression='0'>
+				- You're... an extra-human, right?^- Oh...% you're not very talkative, are you?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- I'm...% a bit nervous...
+			</speech>
+			<speech voice='andy' character='claire' dx='-32' dy='-128' balloon='no_person' face='none' expression='0'>
+				- It's okay, you don't need to-
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- I'm...^- I can...% walk trough dimensions.
+			</speech>
+			<speech voice='andy' character='claire' dx='-32' dy='-128' balloon='no_person' face='none' expression='0'>
+				- oh!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- ...and enter and leave the metaspace of a soul.
+			</speech>
+			<speech voice='andy' character='claire' dx='-32' dy='-128' balloon='no_person' face='none' expression='0'>
+				- OH.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- ...and make bubbles out of memories...
+			</speech>
+			<speech voice='andy' character='claire' dx='-32' dy='-128' balloon='no_person' face='none' expression='0'>
+				- WHAT THE HECK^- CLAIRE, YOU'RE A FREAKING GOD.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				- oh...
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- oh...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-128' balloon='bottom' face='Andy' expression='0'>
+				- oh?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='ClaireSmile' expression='0'>
+				- yes, "oh".
+			</speech>
+			
+			
+		</dialog>
+		
+		
+		<dialog id='clio_intro_once'>
+			<speech voice='narrator'>
+				%.%.%.
+			</speech>
+			<speech voice='narrator'>
+				ªShapeless,% formless.^You see%.%.%.^To exist in this world,% you'll need% something.^hm%.%.%.^You'll need a vessel of some sort.
+			</speech>
+			<speech voice='narrator'>
+				ªSo% I am preparing yours.^It will% take some time.^ªhmm%.%.%.¬^With that out of the way...
+			</speech>
+			<speech voice='narrator'>
+				ªYou are probably coming for this world...%ñto play.^You see this world as a %'game.'^However,% this world is as real as yours.^Even if it is% 'created',%ñbecause so is yours.^So,% keep that in mind,ñ'player.'
+			</speech>
+			<speech voice='narrator'>
+				ªYour actions will affect other people.^Your choices and the thoughts of your vessel will become one.^So, please...%ñplease,% player.^Try to make good choices,% okay?^After all,%ñthis is my world.^Take good care of it.
+			</speech>
+			<speech voice='narrator'>
+				ªhm...?^Oh, yeah,% the game.^My bad, hm...^Connecting to the vessel really takes someñtime.
+			</speech>
+			<speech voice='narrator'>
+				This is getting awkward,%ñisn't it%.%.%.^h%m%.%.%.^ªWhy did the dog cross the park?^...^To bark!^:D^%.%.%.^Ok,% there you go.
+			</speech>
+		</dialog>
+		<dialog id='clio_intro_twice'>
+			<speech voice='narrator'>
+				Welcome back.^Let's get right to the point this time.^Hm...?%ñYour progress?^Don't worry.ñYou didn't lose it.^I saved it.^In fact,% whenever something% way too bad happens to you,%ñI'll give you a% little hand.^Hm?^Well, I could let you manage your save file,%ñbut...^We both know that's too much power for%ñsomeone like you.^So my only advice is...^ªDon't mess up.¬^:)^Have a great game,% friend.
+			</speech>
+			<speech voice='narrator'>
+				Welcome back.^As soon as the blue rectangleñfills the screen,^I'll let you go.^...^Loading the whole world here guarantees a smooth experience,% y'know?^Also,% that's how my engine works.^Anyways...%ñHave fun.
+			</speech>
+			<speech voice='narrator'>
+				Welcome back.^This is becoming casual, huh...^You know the drill.^Hm...^I hate loading,% don't you as well?^Anyways, have fun.
+			</speech>
+			<speech voice='narrator'>
+				Welcome back.^Can't you really finish the game in one trial?^Damn, you suck.^I wonder how good you'll be at the final fight.^Hm?^What fight?^Don't act innocent, buddy.
+			</speech>
+			<speech voice='narrator'>
+				Welcome back.^I can't think of any other ways to fill in this time.^Next time, a blank loading screen will be your punishment for being so bad at this game.
+			</speech>
+		</dialog>
+		<dialog id='demo'>
+			<speech voice='narrator' character='handmonster' dx='0' dy='128' balloon='no_person' face='none' expression='0'>
+				* NOAH, QPT 99 DEF 15@ñ* Gosta de pintar telas.^* Parece uma ameaça.¬
+			</speech>
+			<speech voice='elliott' character='handmonster' dx='0' dy='128' balloon='top' face='none' expression='0'>
+				- Ah, agora você quer conversar.^- Eu não tenho nada pra falar com você...¬
+			</speech>
+			<speech voice='narrator' character='handmonster' dx='0' dy='128' balloon='no_person' face='none' expression='0'>
+				* Você ignora Noah.^* ...^* Ele não parece ligar pra sua atenção.¬
+			</speech>
+		</dialog>
+		<dialog id='ep'>
+			<speech voice='bruno' character='bruno' dx='0' dy='-100' balloon='bottom' face='BrunoSigh' expression='0'>
+				ª- Finally...¬
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-40' balloon='top' face='BrunoFrisk' expression='0'>
+				- ªª...¬^- What am I gonna do.%.%.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-64' balloon='bottom' face='Claire' expression='0'>
+				ª- ...ugh...¬
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-16' balloon='top' face='BrunoShocked' expression='0'>
+				ª- Oh...^- You're... awake?¬
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-50' balloon='bottom' face='Claire' expression='0'>
+				ª- ...^- what.¬
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-40' balloon='top' face='BrunoSigh' expression='0'>
+				- Oh... thank god!¬
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-50' balloon='bottom' face='Claire' expression='0'>
+				- What happened...?^- I...^- ...^- Did I...¬
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-40' balloon='top' face='BrunoFrisk' expression='0'>
+				- Yea, bro, don't even try.¬
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-40' balloon='top' face='Bruno' expression='0'>
+				- I woke up outside... I found you unconscious...^- I brought you here inside because of the% things% outside.¬
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-50' balloon='bottom' face='Claire' expression='0'>
+				- why... are we at school at night...¬
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-128' balloon='bottom' face='BrunoFrisk' expression='0'>
+				- I don't know. But it's for the best.^- It ain't safe to go out there, 'cause of those% goo things.^- Oh, hm...% no need to hurry to get up,% k?@ñ- Take your time.¬
+			</speech>
+			
+			<!-- 12 -->
+			<speech voice='bruno' character='bruno' dx='0' dy='-128' balloon='bottom' face='Bruno' expression='0'>
+				- When I woke up, I was with this computer by my side...^- Weirdly, I don't remember ever seeing it before...^- It has a lot of files, but they all look like gibberish to me...^- They are encrypted under some cipher.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-128' balloon='bottom' face='Bruno' expression='0'>
+				- Look, I know we can't stay here forever... But...^- I also don't know what to do,% okay?
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-128' balloon='bottom' face='BrunoFrisk' expression='0'>
+				* He seems to be trying to understand it.^* He's as helpless as you...
+			</speech>
+			<!--15-->
+			
+			<speech voice='bruno' character='bruno' dx='0' dy='-128' balloon='bottom' face='Bruno' expression='0'>
+				- Me?^- Well... I'm Bruno, for all I know...^- ...^- Thinking about it, I remember most things until...^- Thursday morning?@ñ- Well...^- I think it was October 4th...?
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-128' balloon='bottom' face='BrunoFrisk' expression='0'>
+				- I didn't stop to look at them or anything.^- You'll be better off if we don't run into them.
+			</speech>
+			
+			<!--17-->
+			<speech voice='bruno' character='bruno' dx='0' dy='-128' balloon='bottom' face='BrunoShocked' expression='0'>
+				- a- wha-^- What was that sound?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- Huh, what do you mean...
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-128' balloon='bottom' face='BrunoShocked' expression='0'>
+				- I, um... wasn't looking.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- I closed the door.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-128' balloon='bottom' face='BrunoShocked' expression='0'>
+				- ...@ñ- But the door wasn't open.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>
+				- Well, it was open when I closed it.
+			</speech>
+			
+			<!--23-->
+			<speech voice='bruno' character='bruno' dx='0' dy='-64' balloon='no_person' face='none' expression='0'>
+				- Huff... huff...
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-64' balloon='no_person' face='none' expression='0'>
+				- Ok, I killed my curiosity.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-64' balloon='no_person' face='none' expression='0'>
+				- I didn't know they could open doors.^- And that there were so many!
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-64' balloon='no_person' face='none' expression='0'>
+				- So now we're going to stay on this dark room?
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-64' balloon='no_person' face='none' expression='0'>
+				- Any better idea?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-64' balloon='no_person' face='none' expression='0'>
+				- no.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-64' balloon='no_person' face='none' expression='0'>
+				- We'll have to keep safe from them...^- at least for now...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-64' balloon='no_person' face='none' expression='0'>
+				- 'ahem'.
+			</speech>
+			
+			<speech voice='bruno' character='bruno' dx='0' dy='-16' balloon='top' face='BrunoShocked' expression='0'>
+				- Wh-what! What the heck, %dude!
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndyMildMad' expression='0'>
+				- Please don't scream at me.^- If anyone should be screaming it's me.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-16' balloon='top' face='BrunoShocked' expression='0'>
+				- I'm tired of getting jumpscared.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndySerious' expression='0'>
+				- ...^- You were the ones who 'jumped' into the room.
+			</speech>
+			
+			<speech voice='bruno' character='bruno' dx='0' dy='0' balloon='top' face='Bruno' expression='0'>
+				- Oh, sorry. Excuse me then.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='0' balloon='top' face='Claire' expression='0'>
+				- ª...¬
+			</speech>
+			
+			<speech voice='bruno' character='bruno' dx='0' dy='-136' balloon='center' face='Bruno' expression='0'>
+				- Oh shit... what am I gonna do...^- My mom... I wish it's okay at home...^- If I get home late she's gonna be freaking pissed.^- And what the heck is goin' on, anyways!
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndySerious' expression='0'>
+				- Actually... 'getting home' must be the least of your worries.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-136' balloon='center' face='Bruno' expression='0'>
+				- w-%why do you say that...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndySerious' expression='0'>
+				- You see...%¨
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-136' balloon='center' face='Bruno' expression='0'>
+				- ...bruh...^- Do you think we're in a zombie apocalypse...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndySerious' expression='0'>
+				- um%¨
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-136' balloon='center' face='Bruno' expression='0'>
+				- Damn, I left my emergency apocalypse stuff at home...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndySerious' expression='0'>
+				- uh%¨
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='0' balloon='top' face='Claire' expression='0'>
+				- ...um...
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-136' balloon='center' face='Bruno' expression='0'>
+				- Oh, um... go ahead, Andy.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndySerious' expression='0'>
+				- ...%thanks.^- Instead of overreacting we should be doing...^ something else.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-136' balloon='center' face='Bruno' expression='0'>
+				- What could we do?!^- Have you seen outside? It's full of them!^- And... what are YOU even doing?
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndyMildMad' expression='0'>
+				- I'm% reading this book about Q-Spells.^- Checking for a protection or a communication one.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-136' balloon='center' face='Bruno' expression='0'>
+				- ...oh...%ñ- So you learned the protocol.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndyConfident' expression='0'>
+				- Heh, I guess...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='Andy' expression='0'>
+				- Tho I haven't found anything useful yet.^- ...^- And...%ñwho's that girl you brought with you.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-136' balloon='center' face='Bruno' expression='0'>
+				- I dunno,% ask her.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndyMildMad' expression='0'>
+				- Hey girl,%%ñ who are you?
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='0' dy='0' balloon='top' face='Claire' expression='0'>
+				- ...^- I'm...% Claire...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='Andy' expression='0'>
+				- Hi Claire, I'm Andy.^- Nice to meet you.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='0' dy='0' balloon='top' face='Claire' expression='0'>
+				- ...^- I'm...% not sure...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndyConfident' expression='0'>
+				- Hi not sure, I'm Andy.^- hehehehe...
+			</speech>
+			
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndyConfident' expression='0'>
+				- You...% are not into talking,% are you...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='AndyConfident' expression='0'>
+				- Anyways...
+			</speech>
+			
+			<speech voice='bruno' character='bruno' dx='-128' dy='136' balloon='center' face='Bruno' expression='0'>
+				- So, can you recall anything, Andy?
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='bottom' face='Andy' expression='0'>
+				- No.^- That's incredibly frustrating.
+			</speech>
+			
+			<speech voice='bruno' character='bruno' dx='-128' dy='136' balloon='center' face='Bruno' expression='0'>
+				- Ah yeah? How come you are so calm?
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='center' face='Andy' expression='0'>
+				- Well, I'm% calm... that's kind of my thing...
+			</speech>
+			
+			<speech voice='narrator'>
+				* ª(Their voices fade into the background.)^%%%* ("Why,"% you ask...)^%%* %.%.%.
+			</speech>
+			<speech voice='narrator'>
+				* ª(The last thing you needed now was an%ñ'apocalypse'.)^%%* (What is going to happen now...)^%%* (It doesn't really matter,%% does it?)^* (Whatever happened, it can't¨)
+			</speech>
+			
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='center' face='Andy' expression='0'>
+				- Hey, will you, huh?
+			</speech>
+			
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='center' face='Andy' expression='0'>
+				- I mean, we gotta go at some time,^ and now I don't hear anything.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='-128' dy='136' balloon='center' face='Bruno' expression='0'>
+				- Bro, I'm saying, let's just stay here.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='center' face='Andy' expression='0'>
+				- Forever?
+			</speech>
+			<speech voice='bruno' character='bruno' dx='-128' dy='136' balloon='center' face='Bruno' expression='0'>
+				- Uh...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='center' face='Andy' expression='0'>
+				- Well, I'll keep reading my book.^- At least it's entertaining.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='-128' dy='136' balloon='center' face='BrunoHuh' expression='0'>
+				- Yo, dude why are you sitting on the corner on the floor...?
+			</speech>
+			<speech voice='bruno' character='bruno' dx='-128' dy='136' balloon='center' face='BrunoHuh' expression='0'>
+				- Well, suit yourself.^- If you like the cold floor...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='center' face='AndyConfident' expression='0'>
+				- Huh, you feel like walking?^- Well,% if I'm not mistaken,% and I never am...^- There's a vending machine just outside this room.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-48' balloon='center' face='AndyAnime' expression='0'>
+				- We can go out and snatch some CHAAAPS.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='-128' dy='136' balloon='center' face='BrunoFrisk' expression='0'>
+				- ª...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-64' balloon='center' face='AndyConfident' expression='0'>
+				- Wanna come, Bru¨
+			</speech>
+			<speech voice='bruno' character='bruno' dx='-128' dy='136' balloon='center' face='BrunoShocked' expression='0'>
+				- no
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-64' balloon='center' face='AndyConfident' expression='0'>
+				- Well, will you come?
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-64' balloon='center' face='AndyConfident' expression='0'>
+				- OK, you know what, I'll be waiting outside.^- C'mon guys we're ExH!
+			</speech>
+			<speech voice='bruno' character='bruno' dx='-128' dy='96' balloon='center' face='BrunoFrisk' expression='0'>
+				- ªI'll lock the door if you leave.
+			</speech>
+		</dialog>
+		<dialog id='eq'>
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndySmile' expression='0'>
+				- Ok, we gotta very quick, ok?^- Anything that happens I'll protect you.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndySmile' expression='0'>
+				- uh,% you lead the way.
+			</speech>
+			<speech voice='andy' relative='no' dx='1000' dy='1700' balloon='center' face='AndyScared' expression='0'>
+				- oh toodles
+			</speech>
+			<speech voice='andy' relative='no' dx='1000' dy='1700' balloon='center' face='AndyHuh' expression='0'>
+				- let's...% walk very silently and pray they don't notice us.
+			</speech>
+			
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndySmile' expression='0'>
+				- Well,% let's keep going!
+			</speech>
+			
+			<speech voice='andy' character='andy' dx='0' dy='-64' balloon='bottom' face='Andy' expression='0'>
+				* Uhhh...^* I don't think that's% a good idea...^* Let's stick to the plan!
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-100' balloon='no_person' face='none' expression='0'>
+				* A better idea would be to...% leave.
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='-100' balloon='no_person' face='none' expression='0'>
+				* Eh..%ñ* I know you are curious, buddy...^* But you better meet with Andy and Bruno first.^* ...^* Hurry.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-100' balloon='no_person' face='none' expression='0'>
+				* Deep down inside your soul, something ressonates.^* A burning feeling won't let you leave someone behind.^* Heh...^* It tells you something about your nature.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='0' dy='-96' balloon='center' face='ClaireSmile' expression='0'>
+				- hi.
+			</speech>
+			<speech voice='bruno' character='bruno' dx='0' dy='-200' balloon='center' face='BrunoWorried' expression='0'>
+				- Save the hi(s) for later.^- Did you get the key?
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-100' balloon='no_person' face='none' expression='0'>
+				* (You TOSS him the key.)
+			</speech>
+			
+			<speech voice='andy' character='andy' dx='0' dy='-200' balloon='center' face='AndyConfident' expression='0'>
+				- ªWhat's the holdup?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-96' balloon='center' face='Claire' expression='0'>
+				- ªum...% I...% saw% someone.^- They were so...% lonely...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-200' balloon='bottom' face='AndyCond' expression='0'>
+				- ªLook, I know it's scary...^- The way those people are...^- But we'll get out and hopefully someone will come with an^ explanation.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-96' balloon='center' face='Claire' expression='0'>
+				- ªthey... weren't...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-200' balloon='bottom' face='AndyCondEC' expression='0'>
+				- ªLet's get going... okay?^- We'll be safe, I promise.
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-64' dy='96' balloon='center' face='Claire' expression='0'>
+				- ªno.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-200' balloon='bottom' face='Andy' expression='0'>
+				- ªwhat...
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-90' balloon='center' face='Claire' expression='0'>
+				- ªI can't...^- What if something happens to them.^- They have to get out, too!
+			</speech>
+			
+			<speech voice='andy' character='andy' dx='0' dy='64' balloon='center' face='Andy' expression='0'>
+				- ªhey
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-100' dy='96' balloon='center' face='Claire' expression='0'>
+				- ªNo, don't try to talk me out of this.^- I... don't know why... but...^- I have this... sensation.^- I don't understand, but...^- I have to go there.^- I can't leave him behind.
+			</speech>
+			<speech voice='claire' character='claire' dx='-100' dy='96' balloon='center' face='ClaireHero' expression='0'>
+				- ªI've got to do this.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='64' balloon='center' face='Andy' expression='0'>
+				- ª...^- I'll go with you th¨
+			</speech>
+			
+			<speech voice='claire' character='claire' dx='-100' dy='96' balloon='center' face='Claire' expression='0'>
+				- ªNo.^- Let me be irresponsible on my own.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='64' balloon='center' face='Andy' expression='0'>
+				- ...^- ªI'll wait here, then.^- Please take care...
+			</speech>
+		</dialog>
+
+		<dialog id='school'>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+			* The derivative ofñln(x) is 1/x.^* Of course,% you already know everything about^ differentiation.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+			* The door is locked.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+			* The 'locker' is 'locked'.^* I mean, what did you expect?
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+			* ...^* It doesn't seem much for conversation.^* Seems to be in a vegetative state.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-150' balloon='no_person' face='none' expression='0'>
+			* None of those posters seem to be particularly^ interesting.^* Especially in this situation.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* The window is slightly frozen.^* It seems to be raining outside.
+			</speech>
+			
+			<!--6-->
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* There are a lot of books, but...^* None of them seem particularly interesting.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* A poster of a man holding a stick.^* At least that's what it looks like.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* A poster for a strange RPG game.^* You recall playing it once but can't remember its name.^* ...^* "Story Below"?
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* You better not get out...^* Are you crazy or what.
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='64' balloon='no_person' face='none' expression='0'>
+				* A box.ñ* It's full of school supplies.^* I mean, probably?^* You can't see trough it,^ there's no way to be sure.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='64' balloon='no_person' face='none' expression='0'>
+				* A box placed here to block the door.^* It's not blue.^* Better leave it there.
+			</speech>
+			
+			<!--13-->
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+			* A vending machine.^* It's coloured!^* Maybe it means something?
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+			* A vending machine.^* You don't have any money, do you?
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+			* A vending machine.^* Want to buy something?
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+			* There you go!^* Press [I] to open your inventory!
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+			* The exit is not blocked now, but...^* Nevertheless, it seems to be LOCKED.^* Maybe you can find a KEY somewhere?
+			</speech>
+			
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndySmile' expression='0'>
+				- Yeah! There it is!
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndyHmmm' expression='0'>
+				- Um... do you... happen to have some money?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-100' balloon='bottom' face='Claire' expression='0'>
+				- no...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndyMildMad' expression='0'>
+				- I figured...^- We could steal some...
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-100' balloon='bottom' face='Claire' expression='0'>
+				- no!
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndyMildMad' expression='0'>
+				- If we ARE in an apocalypse,% it's better we do.^- Before someone else does,% isn't it?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-100' balloon='bottom' face='Claire' expression='0'>
+				- ...no...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndyMildMad' expression='0'>
+				- ...^- You're the boss.
+			</speech>
+			
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndyHmmm' expression='0'>
+				- The school roms are often closed when class ends.^- But there might be keys somewhere in this school.^- Let's check upstairs.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-150' balloon='bottom' face='AndySmile' expression='0'>
+				- Oh, look!^- The school talents show poster.^- I made this one!
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-150' balloon='no_person' face='none' expression='0'>
+			* None of those posters seem to be interesting, still.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndyConfident' expression='0'>
+				- I already told you why it's probably closed...^- But who know, keep checking.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndyHmmm' expression='0'>
+				- Nyeh... also locked.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndyHmmm' expression='0'>
+				- I'm pretty sure I'm right...% about% the doors.^- I'm often right,% but now I'm% very confident.^- Let's go upstairs.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-100' balloon='bottom' face='AndyMildMad' expression='0'>
+				- ...^- you should stop.
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* A plant.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* This is Mark, the loneliest plant.^* He lives alone on floor 2...
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-100' balloon='bottom' face='Plant' expression='0'>
+				- Hi.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-150' balloon='bottom' face='AndyMildMad' expression='0'>
+				- Now, this is open.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* "PRINCIPAL K. JOHNSONS"^* The door seems to be% not locked, huh?
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-150' balloon='bottom' face='Andy' expression='0'>
+				- Oh, it's closed, right?^- As this is an emergency, I think I can break in...^- With my MAN STRENGTH.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-100' balloon='bottom' face='Claire' expression='0'>
+				- ...no...ñ- It's not...^- ...but...^((Isn't that a bit weird))
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-150' balloon='bottom' face='Andy' expression='0'>
+				- What's up...^- Ah, don't worry, you got me with you.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-100' balloon='bottom' face='ClaireUnsure' expression='0'>
+				- ...
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-100' balloon='bottom' face='ClaireUnsure' expression='0'>
+				- Um... do I check... the... table?
+			</speech>
+			<speech voice='andy' character='claire' dx='-64' dy='95' balloon='no_person' face='none' expression='0'>
+				- Check the cabinets on the desk!^- Under the PC, or under the AC, idk.
+			</speech>
+			<speech voice='andy' character='claire' dx='-64' dy='95' balloon='no_person' face='none' expression='0'>
+				- Check the damn cabinets, girl.
+			</speech>
+			<speech voice='andy' character='claire' dx='-64' dy='95' balloon='no_person' face='none' expression='0'>
+				- ...are you kidding me...
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* The principal's table.^* You should check from inside.^* Maybe they store keys in there.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* Because the principal needs an AC and not students..
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* A very comfy chair.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* Checking the cabinets...^* There you go!^* (Key added to your inventory!)^* (Press 'I' to acess your inventory, btw.)
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='-128' balloon='no_person' face='none' expression='0'>
+				* You completed your mission.^* Stop looking at other people's stuff.
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-150' balloon='bottom' face='Andy' expression='0'>
+				- Actually, let's do the following..^- You go in quickly and get the keys and I'll guard the door.
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-100' balloon='bottom' face='ClaireUnsure' expression='0'>
+				- ...
+			</speech>
+			<speech voice='andy' character='andy' dx='0' dy='-150' balloon='bottom' face='AndyConfident' expression='0'>
+				- Be quick or the MonStErs WilL BiTe yOu.
+			</speech>
+			<speech voice='andy' character='claire' dx='-64' dy='96' balloon='no_person' face='none' expression='0'>
+				- So, did you get the keys?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-100' balloon='bottom' face='ClaireUnsure' expression='0'>
+				- ...%um...
+			</speech>
+			<speech voice='andy' character='claire' dx='-64' dy='96' balloon='no_person' face='none' expression='0'>
+				- So go get them, c'mon.
+			</speech>
+			<speech voice='andy' character='claire' dx='-64' dy='96' balloon='no_person' face='none' expression='0'>
+				- So, did you get the keys?
+			</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-100' balloon='bottom' face='ClaireUnsure' expression='0'>
+				- ...%yes.
+			</speech>
+			<speech voice='andy' character='claire' dx='-64' dy='96' balloon='no_person' face='none' expression='0'>
+				- Nice,% let's go to our well deserved freedom.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* "ART CLASSROOM"^* It is opened?^* Nah, not really.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* "AURA LAB"^* It seems to be locked.
+			</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>
+				* "EVALUATION LAB"^* It seems to be locked%, also.
+			</speech>
+		</dialog>
+
+		<dialog id='lab I'>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>Please do not touch the antennae. ~Dad.
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>Light Panel Display Test 134. Yay! It works!
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>Light Panel Display Test 135. To edit those panes, open Pane.tsch.
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>Light Panel Display Test 156: Multi-page display.^I can use thousands of pages.^Wow, How much information can I store in a single pane!^I might make a menu for this thing...^To quickly go trough pages.^Hm...^At this point I'm making a wall tablet...^It's only a monitor, though...^Ugh...@ I'm rambling again, aren't I?
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>Stop reading so close to the monitor, Claire.
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>* The door is locked.
+			</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>* It's Dad's computer!</speech>
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>* He spends a lot of time on it.</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='32' balloon='no_person' face='none' expression='0'>* You're not reading all of this again.
+			</speech>
+		</dialog>
+		
+		<dialog id='dad I'>
+			<speech voice='franklin' character='franklin' dx='-32' dy='256' balloon='top_left' face='FranklinChair' expression='0'>Mhmhm... Claire?^Why are you up... @
+It's early, dear...</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-96' balloon='bottom_left' face='Claire' expression='0'>I...@ I had that dream again,,,^with that woman voice...</speech>
+			<speech voice='franklin' character='franklin' dx='-32' dy='256' balloon='top_left' face='FranklinChair' expression='0'>Ah.. okay... that's great sweetie...</speech>
+			<speech voice='franklin' character='franklin' dx='-32' dy='256' balloon='top_left' face='FranklinChair' expression='0'>WGAH!</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-96' balloon='bottom_left' face='ClaireSmile' expression='0'>Get up daddy! @Don't be lazy!</speech>
+			<speech voice='franklin' character='franklin' dx='-32' dy='256' balloon='top_left' face='FranklinChair' expression='0'>Lazy? I stayed up all night!</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-96' balloon='bottom_left' face='Claire' expression='0'>You gotta be planning your schedule better, dad.^You have to take me for school.</speech>
+			<speech voice='franklin' character='franklin' dx='-32' dy='256' balloon='top_left' face='FranklinChair' expression='0'>Actually...@ let's do the following:^You're already sixteen, @you can go on your own.^I...@ believe in you...</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-96' balloon='bottom_left' face='Claire' expression='0'>...^...ok...</speech>
+			
+			<speech voice='narrator' character='claire' dx='0' dy='256' balloon='no_person' face='none' expression='0'>* Daddy works a lot. More than he should, even...</speech>
+		</dialog>
+	
+		<dialog id='void I'>
+			<speech character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>...mother...</speech>
+			<speech voice='claire' character='claire' dx='0' dy='-128' balloon='bottom' face='Claire' expression='0'>Do I really have to go?</speech>
+			<speech voice='arumena' character='' dx='0' dy='0' balloon='no_person' face='none' expression='0'>My child...</speech>
+			<speech voice='arumena' character='' dx='0' dy='0' balloon='no_person' face='none' expression='0'>While this opening is too thin for me...</speech>
+			<speech voice='arumena' character='' dx='0' dy='0' balloon='no_person' face='none' expression='0'>You can still go trough it.</speech>
+			<speech voice='arumena' character='' dx='0' dy='0' balloon='no_person' face='none' expression='0'>...</speech>
+			<speech voice='arumena' character='' dx='0' dy='0' balloon='no_person' face='none' expression='0'>My child...</speech>
+		</dialog>
+	</dialogs>
+</entries>

@@ -150,6 +150,7 @@ div.centred {
 
 aside {
   align-self: flex-start;
+  overflow-y: auto;
   min-width: 10rem;
   top: 10em;
   position: sticky;
@@ -315,7 +316,8 @@ a {
 pre,
 code {
   font-family: var(--font);
-  line-height: 1.2rem;
+  line-height: 1rem;
+  font-variant-ligatures: none;
 }
 
 pre {

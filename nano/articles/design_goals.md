@@ -12,12 +12,14 @@ let a = true
 let b = if a then 3 else 4
 
 let c = for i in 0..10 select i * 2
+
+let d = fn x -> if x < 2 then x else selffn(x-2) + selffn(x-1)
 ```
 
 nano is designed to be great to think in -- you may catch yourself prototyping things in nano before writing them in other languages.
 
 ```nano
-if clicked_login but not online then (
+if want_evens but not evens_ready then (
     ...
     let is_even = fn x -> x % 2 == 0
     let a = list::from_range(0..10)
@@ -26,7 +28,7 @@ if clicked_login but not online then (
     #                                 ^ reduces!
 
     let result = await some_function(view a)
-    #                                 ^ immutable reference
+    #                                 ^ Readonly indirection
 )
 ```
 
@@ -64,7 +66,7 @@ let a = [1, 2, 3]
 a[0] = 4
 # ^ Can't assign to a : [ int, int, int ] because it is immutable.
 
-# The variables themselves are not immutable.
+# But you CAN reassign variables.
 a = [3, 5, 6]
 
 # This might make you frown if you came from Rust,

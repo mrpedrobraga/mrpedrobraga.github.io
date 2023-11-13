@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--Information-->
+	<title>Inner Voices | mrpedrobraga</title>
+
+	<!--Metadata-->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Inner Voices The Videogame Website">
+	<meta property="og:site_name" content="from the beloved Pedro Braga...">
+	<meta property="og:url" content="https://mrpedrobraga.github.io/inner_voices">
+	<meta property="og:description" content="The beloved videogame about the difference amongst humans minds, now in website form!">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="../gallery/img/invo_castle.png">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="https://mrpedrobraga.github.io/inner_voices">
+	<meta name="twitter:description" content="The beloved videogame about the difference amongst humans minds.">
+	<meta name="twitter:title" content="Inner Voices The Videogame Website">
+	<meta name="twitter:image" content="_assets/icons/twitter-icon.svg">
+
+	<!--CSS Normalization-->
+	<link rel="stylesheet" type="text/less" href="../_styles/normalize.css"/>
+
+	<!--Styling-->
+	<link href="http://fonts.cdnfonts.com/css/cascadia-code" rel="stylesheet">
+	<link rel="stylesheet/less" type="text/css" href="invo.less"/>
+	<link rel="stylesheet/less" type="text/css" href="gallery.less" id="gallery-style"/>
+	<link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+
+	<!-- Preloads -->
+	<link rel="preload" as="image" href="../gallery/img/invo_starfall_plaza.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-0.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-1.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-2.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-3.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-4.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-5.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-6.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-7.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-8.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-9.png">
+	<link rel="preload" as="image" href="assets/logo/LOGO-en-10.png">
+
+	<!-- Scripts -->
+	<script src="gallery.js" type="text/javascript" defer></script>
+</head>
+<body class="dark" >
+	<style>
+		/* Make page background black while loading... */
+		html, body {
+			background-color: black;
+		}
+	</style>
+	<!--Extension: LESS; for better styling!!!-->
+	<script src="../_extensions/less.js" ></script>
+
+	<nav>
+		<input id="navbtn" type="checkbox" clas="pixel" value="Navigation">
+			
+		</input>
+		<ul class="pixel">
+			<li><a href="#">Home</a></li>
+			<li><a href="#section_about">About</a></li>
+			<li><a href="#section_gallery">Gallery</a></li>
+			<li><a href="#section_resources">Mental&nbsp;Health</a></li>
+			<li><a href="#section_support">Support&nbsp;Dev.</a></li>
+		</ul>
+	</nav>
+	
+	<!-- PAGE HEADER -->
+	<div class="title">
+		<!----<div class="bg" style="background-image: url('assets/img_cover.png'); background-position: 50% 60%;"></div><!---->
+		<!----><div class="bg" style="
+		background-image: url('./screenshots/mockup-watercolor-cover-nologo-export.png');
+		background-position: 50% 45%;"></div><!---->
+		<div class="bg" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%);"></div>
+		
+		<div id="logo">
+			<img src="assets/logo/LOGO-en-0.png"/>
+			<img src="assets/logo/LOGO-en-1.png"/>
+			<img src="assets/logo/LOGO-en-2.png"/>
+			<img src="assets/logo/LOGO-en-3.png"/>
+			<img src="assets/logo/LOGO-en-4.png"/>
+			<img src="assets/logo/LOGO-en-5.png"/>
+			<img src="assets/logo/LOGO-en-6.png" id="secret-letter" onclick="location.href = 'https://en.wikipedia.org/wiki/O'"/>
+			<img src="assets/logo/LOGO-en-7.png"/>
+			<img src="assets/logo/LOGO-en-8.png"/>
+			<img src="assets/logo/LOGO-en-9.png"/>
+			<img src="assets/logo/LOGO-en-10.png"/>
+
+			<style>
+				#secret-letter {
+					cursor: pointer;
+				}
+			</style>
+		</div>
+
+		<!-- CALLOUT BUTTONS -->
+
+		<br>
+		<!--div style="display:flex; translate: 0px -80px; gap:30px; flex-wrap: wrap;">
+			<a class="button pixel animate-in" onclick="alert('Not yet available.')" target="_blank">Try Demo</a>
+			<a class="button pixel animate-in" onclick="alert('Not yet available.')" target="_blank">Buy the Game</a>
+			<a class="button pixel animate-in" onclick="alert('Not yet available.')" target="_blank">Gift Shop</a>
+		</div-->
+		<div style="display:flex; translate: 0px -80px; gap:30px; flex-wrap: wrap;">
+			<a class="button pixel animate-in" onclick="alert('I said it\'s coming soon!!!')" target="_blank">Demo coming soon™.</a>
+		</div>
+
+		<div class="header_footer">
+			<a class="contact-icon twitter" rel="me" href="https://twitter.com/mrpedrobraga" target="_blank">
+				<img src="../_assets/icons/twitter-icon.svg" alt="Twitter">
+			</a>
+			<a class="contact-icon e-mail" rel="me" href="mailto:mrhenribraga@gmail.com">
+				<img src="../_assets/icons/email-icon.svg" alt="Electronic Mail">
+			</a>
+			<a class="contact-icon e-mail" rel="me" href="https://mrpedrobraga.itch.io/inner-voices-bft" target="_blank">
+				<img src="../_assets/icons/itchio.svg" alt="Itch">
+			</a>
+		</div>
+	</div>
+	
+	<section class="stagger">
+		<!-- DESCRIPTION -->
+		<article class="post animate-in" style="margin-bottom: 2rem;">
+			<p class="pixel text-center">
+				The beloved videogame about the <a href="#section_resources">difference<br>
+				amongst humans minds.</a>
+			</p>
+		</article>
+	
+		<!-- TRAILER -->
+		<article class="post animate-in text-center">
+			<!--video controls src="assets/trailer.mp4" id="trailer">Videos not supported on this platform.</video><!--a-->
+			<br>
+			<div id="trailer" class="pixel placeholder" style="cursor: pointer;" onclick="alert('Have some god damn patience, will ya!')">
+				<span>Trailer also coming soon.</span>
+			</div><!--a-->
+
+			<style>
+				#trailer {
+					background-color: #26282b;
+					width: 640px;
+					max-width: 80vw;
+					aspect-ratio: 16/9;
+
+					position: relative;
+					z-index: -1;
+
+					box-shadow: #101520 0px 0px 100px;
+				}
+				video {
+					margin-top: 32px;
+				}
+				#trailer.placeholder {
+					left: 50%; translate: -50%;
+					scale: 1.0;
+					transition: 0.2s ease-in-out;
+				}
+				#trailer.placeholder:hover {
+					scale: 1.02;
+				}
+
+				#trailer span {
+					position: relative;
+					top: 40%;
+					opacity: 30%;
+
+					user-select: none;
+				}
+			</style>
+		</article>
+	
+		<!-- ABOUT -->
+		<article class="post animate-in pixel flex text-center">
+			<h1 id="section_about">About</h1>
+			<p class="narrow">
+				Inner Voices is a psychological fantasy <important>RPG</important>, serialized like a TV show, with the finest <zclaire>pixel&nbsp;art&nbsp;graphics</zclaire>.<br><br>
+			</p>
+			<div class="quote">
+				<span>
+					Play as <zclaire>Claire</zclaire>, a young psychic girl, as she embarks on a journey to help others figure out the nebulous world of their minds...<br><br>
+					...and by that I mean diving into a new dimension, meeting strange characters, uncovering troubling memories and eating lots of greasy food!
+				</span>
+			</div>
+
+			<p>
+				The game will be released in <important>5</important> episodes<br>
+				tackling diverse themes of mental health and neurodivergence, with a commitment to faithfulness and respect,<br>but still being fun and silly.<br><br>
+			</p>
+
+		</article>
+		<div class="deco left mdown" style="z-index:1;"><img src="assets/deco_box.gif" width="256px"></div>
+
+		<!-- ACCESSIBILITY -->
+		<article class="post animate-in pixel text-center" style="z-index: 2;">
+			<h1 id="section_accessibility">A Game For <important>Everyone.</important></h1>
+			<p class="narrow">
+				As a game so diverse, with a main theme of looking at the world
+				through other perspectives, it was important to allow all those people to play...<br><br>
+
+				Hence, the game is built around accessibility.<br>
+				Sound controls, onomatopoeia, configurable battle system, optional progression cues & even play the whole game completely blind.<br>
+				There's no excuse not to check it out ;)
+			</p>
+			<p><br>
+				<evil>(The website is still in development regarding accessibility.)</evil>
+			</p>
+		</article>
+
+		<!-- CAST -->
+		<article class="post animate-in pixel">
+			<h1 id="section_cast" class="text-center">Meet the Cast!</h1>
+			<br><br>
+			
+			<div class="chara_card">
+				<div>
+					<div class="chara">
+						<img class="a" alt="A shy girl with a stripped shirt, long black hair with bangs obscuring her eyes." src="assets/ch_claire.png" />
+						<img class="b" src="assets/ch_claire_hover.png" />
+					</div>
+				</div>
+				
+				<div class="text"><p>
+					<h2>Claire</h2>
+					<img class="soul" src="assets/spr_soul_claire.png" alt="Claire's SOUL."/><br>
+					<span class="chara_desc">awkward, but well meaning hero.</span>
+					<hr>
+					<p>
+						The one wielder of the <important>Memoria&nbsp;Clavem</important>,
+						the key to other people's minds,
+						and to save the world.
+					</p>
+				</p></div>
+				<div class="deco right mdown"><img src="assets/deco_star2.gif" width="256px"></div>
+				
+			</div>
+			<div class="chara_card row-reverse">
+				<div>
+					<div class="chara">
+						<img class="a" alt="A red-headed boy with suspenders and an umbrella, face full of freckles." src="assets/ch_andy.png" />
+						<img class="b" src="assets/ch_andy_hover.png" />
+					</div>
+				</div>
+				
+				<div class="text"><p>
+					<h2>Andy</h2>
+					<img class="soul" src="assets/spr_soul_andy.png" alt="Andy's SOUL."/>
+					<br>
+					<span class="chara_desc">supportive friend, loves hugs.</span>
+					<hr>
+					<p>
+						Kind and loyal friend,
+						heals with thoughtful prayers.<br>
+						Shares a single brain cell with Claire.
+					</p>
+				</p></div>
+				
+			</div>
+			<div class="chara_card">
+				<div>
+					<div class="chara">
+						<img class="a" alt="A black dude with cylindrical hair looking at a handheld console with a motified expression." src="assets/ch_bruno.png" />
+						<img class="b" src="assets/ch_bruno_hover.png" />
+					</div>
+				</div>
+				
+				<div class="text"><p>
+					<h2>Bruno</h2>
+					<img class="soul" src="assets/spr_soul_bruno.png" alt="Bruno's SOUL."/>
+					<br>
+					<span class="chara_desc">supportive friend, hates hugs.</span>
+					<hr>
+					<p>
+						Just wants to have a normal week,
+						but has to keep getting
+						Andy and Claire out of trouble.
+				</p></div>
+				<div class="deco left mdown"><img src="assets/deco_box.gif" width="256px"></div>
+				
+			</div>
+			<div class="chara_card row-reverse">
+				<div>
+					<div class="chara">
+						<img class="a" alt="An older teen with tied dark brown hair with his hands on his pockets and an unimpressed expression." src="assets/ch_rodrick.png" />
+						<img class="b" src="assets/ch_rodrick_hover.png" />
+					</div>
+				</div>
+				
+				<div class="text"><p>
+					<h2>Rodrick</h2>
+					<img class="soul" src="assets/spr_soul_rodrick.png" alt="Rodrick's SOUL."/>
+					<br>
+					<span class="chara_desc">professional delinquent.</span>
+					<hr>
+					<p>
+						Leader of the punks, doesn't take
+						anyone's bullshit.<br>
+						He loves his friends
+						but hasn't learned to show it.
+					</p>
+				</p></div>
+				<div class="deco right mdown"><img src="assets/deco_star1.gif" width="256px"></div>
+				
+			</div>
+		</article>
+
+		<!-- GALLERY -->
+		<article class="post animate-in pixel text-center" style="margin-left: 0; margin-right: 0;">
+			<h1 id="section_gallery">Gallery</h1>
+			<p>
+				<div class="side-gallery">
+					<div class="gallery-btn prev" id="previous" onclick="prev_gallery_item()"></div>
+					<div class="gallery-container">
+					</div>
+					<div class="gallery-btn next" id="next" onclick="next_gallery_item()"></div>
+
+					<div class="gallery-vignette">
+						<div class="gallery-counter">
+						</div>
+					</div>
+				</div>
+				<div class="deco left mdown"><img src="assets/deco_star2.gif" width="256px"></div>
+				<div class="deco right mdown"><img src="assets/deco_star2.gif" width="256px"></div>
+			</p>
+		</article>
+
+		<!-- MODDING -->
+		<article class="post animate-in pixel text-center">
+			<h1 id="section_accessibility">Modding</important></h1>
+			<p class="narrow">
+				The game is built in <a href="https://godotengine.org/" target="_blank">Godot Engine</a> using <a href="https://github.com/mrpedrobraga/star-engine-core" target="_blank">Star Engine</a> as a framework.<br><br>
+
+				It notoriously supports resource packs (mods) to be loaded,
+				allowing you to replace or add new code, images, music, items, characters, battles, scenes, anything. They can, then, be packaged as <a href="https://docs.godotengine.org/en/stable/tutorials/export/exporting_pcks.html" target="_blank">.pck</a>s and distributed to be loaded onto a working copy of the game.<br><br>
+
+				To begin, follow <a onclick="alert('Not yet available.')">The Inner Voices modding guide</a>.
+			</p>
+		</article>
+
+		<!-- MENTAL HEALTH RESOURCES -->
+		<article class="post animate-in pixel text-center">
+			<h1 id="section_resources"><important>Mental&nbsp;Health Resources</important></h1>
+			
+			<p class="narrow">
+				<important>[0].</important> <a href="https://my.clevelandclinic.org/health/symptoms/23154-neurodivergent" target="_blank">"Neurodivergent?", what does that even mean?</a>
+			</p><br>
+			<div class="deco left mup"><img src="assets/deco_star1.gif" width="256px"></div>
+			<p class="narrow">
+				<important>[1].</important> <a href="http://actuallyautistic.wiki/wiki/Main_Page" target="_blank">The ActuallyAutistic Wiki</a>, a wiki made by autistics for autistics! (Non-auties are welcome, too.)
+			</p><br>
+			<p class="narrow">
+				<important>[2].</important>  <a href="https://www.thetrevorproject.org/" target="_blank">The Trevor Project</a>, an anonymous center for help, information and support for <span class="rainbow-text">LGBT youth</span>, available 24/7.
+			</p><br>
+			<p class="narrow">
+				<evil>[More coming soon.]</evil>
+			</p>
+			<div class="deco right mdown"><img src="assets/deco_box.gif" width="256px"></div>
+		</article>
+
+		<!-- SUPPORT DEVELOPMENT -->
+		<article class="post animate-in pixel text-center">
+			<h1 id="section_support">Support</h1>
+			<p class="narrow">
+				Want to support the development of the game?<br><br>
+
+				I don't accept donations, but there are things you can do:<br><br>
+			</p><p>
+				<br><important>[1]. Send good vibes:</important> <a href="https://twitter.com/mrpedrobraga" target="_blank">@mrpedrobraga</a>.<br>
+				Keeping @mrpedrobraga motivated is the key to success.<br><br>
+				From incidental feedback, to fan art, let's build a wholesome community in the name of <a href="#" target="_blank">INNER&nbsp;VOICES</a>.<br><br>
+
+				Don't feel pressured to engage. He's shy anyways.
+				<br><br>
+			</p><p>
+				<br><important>[2]. Buy the game when it comes out.</important>
+				Since the game will be released in episodes, each one will fund the next.<br><br>
+			</p><p>
+				<br><important>[3]. Acquire some trinkets at the gift shop.</important><br>
+				We have a gift shop (not yet) with wallpapers, poster designs, and more, so you can celebrate being an <a href="#" target="_blank">INNER&nbsp;VOICES</a> nerd (it's okay, I'm one, too).
+			</p>
+
+		</article>
+	</section>
+	
+	<style>
+		.stagger :nth-child(1) { animation-delay: .25s }
+		.stagger :nth-child(2) { animation-delay: .50s }
+		.stagger :nth-child(3) { animation-delay: .75s }
+		.stagger :nth-child(4) { animation-delay: 1s }
+		.stagger :nth-child(5) { animation-delay: 1.25s }
+	</style>
+
+	<section id="footer">
+		<p class="pixel text-center">
+			made with <evil>pure evil and spite</evil> by <important><a href="../">Pedro Braga</a></important>.
+		</p>
+	</section>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+let x = view "Hello world my dear"
+
+struct Token {
+    source: view<string>
+    name: TokenName
+}
+
+enum TokenName {
+    WHITESPACE
+    WORD
+}
+
+fn get_tokens(source: view<string>) -> (
+    let index = 0
+    let tokens = list<Token> []
+
+    loop (
+        if index >= source.size then break
+
+        let m = match source::slice(index) with (
+            r/(\s+)[\s\S]*/ => TokenName.WHITESPACE
+            r/(.*)[\s\S]*/ => TokenName.WORD
+        )
+
+        tokens::push(Token { type: m, location: m.groups[0] })
+    )
+)

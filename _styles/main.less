@@ -1,0 +1,228 @@
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  image-rendering: optimizeQuality;
+}
+
+@bg: #209494;
+@black: #232223;
+@white: #fdf9f3;
+@border-width: 2px;
+
+.syntax-red {
+  color: #f95567;
+}
+
+.syntax-blue {
+  color: #5dcce8;
+}
+
+.syntax-green {
+  color: #a2dc72;
+}
+
+.syntax-purple {
+  color: #b4a7d8;
+}
+
+.syntax-yellow {
+  color: #f9d866;
+}
+
+a {
+  color: #4679c7;
+
+  &:hover {
+    color: #f9d866;
+  }
+
+  &:active {
+    color: #f95567;
+  }
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("../_assets/fonts/Rubik-VariableFont_wght.ttf");
+}
+
+body {
+  background-color: @bg;
+  background-size: 25%;
+  z-index: -3;
+}
+
+@bg-tile-size: 28px;
+
+.bg-image {
+  background-image: url("../_assets/img/bbg_cheese_squares.png");
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-size: @bg-tile-size;
+  background-position: 0px 0;
+  top: 0;
+  z-index: -2;
+  image-rendering: pixelated;
+
+  animation: scroll-x;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+}
+
+@keyframes scroll-x {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: calc(@bg-tile-size * 2) @bg-tile-size;
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  h1 {
+    text-align: center;
+    vertical-align: middle;
+    color: #0f50b1;
+    font-size: 3em;
+    font-family: "Cascadia Code";
+    font-weight: normal;
+    text-decoration: none;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+}
+
+.whiteblob {
+  background-color: @white;
+  color: @black;
+  display: inline-block;
+  box-shadow: 10px 10px 0px #00000086;
+
+  border-top: @border-width solid #ffffff;
+  border-left: @border-width solid #cccccc;
+  border-right: @border-width solid #cccccc;
+  border-bottom: @border-width solid #a5a5a5;
+  flex-shrink: 1;
+}
+
+div.flow-h {
+  display: flex;
+  gap: 10px;
+  align-items: start;
+  justify-content: center;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: min(min-content, 100%);
+  max-width: calc(600px + 10px + 300px * 2);
+
+  @media only screen and (max-width: 1200px) {
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 100% - 40px;
+
+    aside:first-child {
+      visibility: hidden;
+    }
+  }
+}
+
+main {
+  .whiteblob();
+  font-family: Rubik;
+  padding-top: 1em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-bottom: 1em;
+  font-size: 10pt;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  h2 {
+    font-weight: 500;
+  }
+}
+
+aside {
+  .whiteblob();
+  min-width: 300px;
+  font-size: 10pt;
+  font-family: Rubik;
+  box-shadow: 5px 5px 0px #00000086;
+
+  .titlebar {
+    background-color: #4679c7;
+    color: @white;
+    padding: 4px;
+    height: 16px;
+    user-select: none;
+
+    .button {
+      height: 100%;
+      aspect-ratio: 1/1;
+      float: right;
+      background-color: #f95567;
+      margin: -4px;
+      padding: 4px;
+      text-align: center;
+      font-family: "Courier New", Courier, monospace;
+      line-height: 16px;
+      cursor: pointer;
+    }
+  }
+}
+
+.sticky {
+  position: sticky;
+  align-self: flex-start;
+}
+
+.terminal {
+  border-top: @border-width solid #a5a5a5;
+  border-left: @border-width solid #cccccc;
+  border-right: @border-width solid #cccccc;
+  border-bottom: @border-width solid #ffffff;
+  margin: 4px;
+  padding-top: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  background-color: @black;
+  color: @white;
+  font-family: "Cascadia Code";
+
+  a {
+    text-decoration: none;
+    .syntax-red();
+
+    &[href] {
+      .syntax-blue();
+
+      &:hover {
+        .syntax-green();
+        text-decoration: underline;
+      }
+
+      &:active {
+        .syntax-yellow();
+      }
+    }
+  }
+}
+
+pre {
+  font-family: "Cascadia Code";
+  font-weight: 400;
+}
