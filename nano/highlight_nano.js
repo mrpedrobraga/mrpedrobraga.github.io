@@ -74,15 +74,15 @@ hljs.registerLanguage("nano", function () {
     keywords: {
       $pattern: /[\w_]+/,
       keyword: `
-        if unless then elif elun else loop for while meanwhile until do select some every count across 
+        if unless then elif elun else loop for while meanwhile until do collect some every count across 
         when match default 
         primitive type variants flags slot view signal state struct trait object 
         print push_error warn write prompt exit err sleep 
-        in of xis is not and but or xor implies 
+        in of xis is not and but or xor 
         constraint implies
         typeof as keyof addrof 
         on buffer stack queue let alias with shared global import export from use has async
-        fn on
+        fn impl 
         return err continue break discard yield 
         test assert 
       `,

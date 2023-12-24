@@ -20,6 +20,8 @@ false
 # strings
 "Hello, world!"
 
+# empty value
+nothing
 ```
 
 There are many ways of creating values, so we'll learn about them as we go.

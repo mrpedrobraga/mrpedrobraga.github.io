@@ -47,3 +47,69 @@ let b_age = 20
 
 a_name
 ```
+
+nano has some great syntactic sugar regarding named-property structures and bindings:
+
+#### Member with same name as binding
+
+```nano
+let foo = 3
+let bar = 5
+
+let a = { foo, bar }
+# { foo: 3, bar: 5 }
+```
+
+#### Destructuring into local bindings
+
+```nano
+let a = { foo: 3, bar: 5 }
+
+let { foo, bar } = a
+
+print foo # 3
+print bar # 5
+
+# (Destructuring is a case of pattern matching, which you'll learn about later.)
+```
+
+#### Accessing while keeping structure
+
+```nano
+let a = {
+    name: "Claire"
+    age: 18
+    items: [
+        { name: "Cap", count: 5 }
+        { name: "Dice", count: 10 }
+        { name: "Glasses", count: 1 }
+    ]
+}
+
+a.name
+# "Claire"
+
+a.(name)
+# { name: "Claire" }
+
+a.(name, age)
+# { name: "Claire", age: 18 }
+
+a.items.0
+# { name: "Cap", count: 5 }
+
+a.items.(0)
+# [ { name: "Cap", count: 5 } ]
+
+a.items.(0, 2)
+# [ { name: "Cap", count: 5 }, { name: "Glasses", count: 1 } ]
+
+a.items.0.name
+# "Cap"
+
+a.items.*.name
+# [ "Cap", "Dice", "Glasses" ]
+
+a.items.(*).name
+# [ { name: "Cap" }, { name: "Dice" }, { name: "Glasses" } ]
+```
