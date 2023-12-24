@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="inverted" style="--dark:#1a1e27;">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
 
     <link rel="stylesheet" type="text/css" href="../main.css">
 </head>
+
 <body>
     <div class="reading-progress">
         <div class="reading-progress-indicator"></div>
@@ -25,7 +27,12 @@
         }
     </script>
     <div class="sidebar-burger" onclick="toggleNav()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
     </div>
     <header class="small">
         <h1>nano</h1>
@@ -36,33 +43,16 @@
             <h2>nano</h2>
             <ul>
                 <li><a href=".?article=overview">What is nano?</a></li>
-                <li><a href=".?article=design_goals">Design Goals</a></li>
-                <li><a href=".?article=code_samples">Code Samples</a></li>
-                <li><a href=".?article=best_practices">Best Practices</a></li>
 
-                <h3>Learn nano<br>Season One</h3>
-
-                <li><a href=".?article=introduction">Introduction</a></li>
-                <li><a href=".?article=syntax">Syntax</a></li>
-                <li><a href=".?article=primitives">Primitives</a></li>
-                <li><a href=".?article=operations">Operations</a></li>
-                <li><a href=".?article=variables">Variables</a></li>
-                <li><a href=".?article=custom_types">Custom Types</a></li>
-                <li><a href=".?article=more_type_magic">More Type Magic</a></li>
-                <li><a href=".?article=control_flow">Control Flow</a></li>
-                <li><a href=".?article=reference_types">Reference Types</a></li>
+                <h3>Season 1</h3>
+                <li><a href=".?article=foundation">Foundation</a></li>
+                <li><a href=".?article=data">Data</a></li>
+                <li><a href=".?article=expressions">Expressions</a></li>
+                <li><a href=".?article=bindings">Bindings</a></li>
                 <li><a href=".?article=functions">Functions</a></li>
-                <li><a href=".?article=importing">Importing</a></li>
-                <li><a href=".?article=errors">Errors</a></li>
-
-                <h3>Season Two</h3>
-
-                <li><a href=".?article=compilation_targets">Compilation<br>Targets</a></li>
-                <li><a href=".?article=testing">Testing</a></li>
-                <li><a href=".?article=asynchronicity">Asyncrhonicity</a></li>
-                <li><a href=".?article=unavailable">Constraints</a></li>
-                <li><a href=".?article=unavailable">Annotations</a></li>
-                <li><a href=".?article=unavailable">Macros<br>& Queries</a></li>
+                <li><a href=".?article=types">Types</a></li>
+                <li><a href=".?article=control-flow">Control Flow</a></li>
+                <li><a href=".?article=modules">Mosules</a></li>
             </ul>
         </aside>
         <main>
@@ -81,16 +71,16 @@
     <script>
         function changeArticle(path) {
             fetch("./articles/" + path + ".md")
-            .then(
-                (response) => response.text()
-            ).then(
-                (source) => {
-                    document.querySelector('.content').innerHTML =
-                    marked.parse(source);
-    
-                    hljs.highlightAll();
-                }
-            )
+                .then(
+                    (response) => response.text()
+                ).then(
+                    (source) => {
+                        document.querySelector('.content').innerHTML =
+                            marked.parse(source);
+
+                        hljs.highlightAll();
+                    }
+                )
         }
 
         const queryParamsString = window.location.search.substr(1);
@@ -105,4 +95,5 @@
         changeArticle(queryParams.article ?? "overview")
     </script>
 </body>
+
 </html>

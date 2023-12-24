@@ -1,48 +1,28 @@
-## What is nano?
+## The nano programming language
 
-nano is a compiled, strong-typed, multiparadigm programming language.
+### What is nano?
 
-It began as an art project, trying to design a language that is both fast and safe as well as clear and elegant-looking.
-
-Check out this tiny hello world program!
+nano is a programming language that aims to explore the essence of writing code, and how language features can empower or hinder a programmer's ability to write code effectively.
 
 ```nano
-print "Hello world!"
+# main.nn
+from standard import { print }
+
+@entry fn main -> print "Hello, world!"
 ```
 
-Another code sample, a theoretical implementation of an ordered map in nano:
+### But why though?
 
-```nano
-## Map struct that stores the entries.
-struct Map {
-	entries: list<[string, string]>
-}
+Turing-complete systems are exchangeable, and the world has had a lot of them. So why does the world need another programming language?
 
-## Simple struct for failure case of finding a string.
-struct KeyNotFoundError : Error { map: Map, key: string }
+It doesn't.
 
-fn store (self: Map, key: string, value: string) -> (
-	for [k, v] in self.entries do (
-		if key == k then (
-			v = value
-			return
-		)
-	)
+But I'm doing it anyways. This is my exploration into this topic, and I've learned so much since I started. I'm pretty proud of what I came up with. My choices (which were always going to be biased) revealed a lot about what I think of coding, and every new iteration of this project is how I gauge my computer science experience now.
 
-	entries::push [key, value]
-)
+### Can I learn nano?
 
-fn fetch (self: Map, key: string) -> (
-	for [k, v] in self.entries do (
-		if key == k then (
-			return v
-		)
-	)
+nano has a few concepts, which are designed to be consistent and powerful. It should take about a weekend to learn idiomatic nano if you have good previous computer science knowledge.
 
-	err KeyNotFoundError(self, string)
-)
-```
+### Does nano have a compiler?
 
-## Dive even deeper
-
-Continue [learning nano](./?article=introduction) or check some [code samples](./?article=code_samples).
+Not yet. See: [https://github.com/mrpedrobraga/nnc]().
