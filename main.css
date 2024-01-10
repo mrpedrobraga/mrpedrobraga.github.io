@@ -122,6 +122,7 @@ header.small {
   from {
     width: 0%;
   }
+
   to {
     width: 100%;
   }
@@ -174,6 +175,7 @@ footer {
 li a {
   text-decoration: none;
   color: var(--light);
+
   &:hover {
     color: var(--accent);
     text-decoration: underline;
@@ -184,7 +186,7 @@ li a {
   display: none;
   position: sticky;
   align-self: flex-start;
-  top: 0;
+  top: 0.5rem;
   left: 0;
   width: 2rem;
   height: 2rem;
@@ -268,8 +270,10 @@ div.content {
 }
 
 div.content:hover {
-  & > * {
-    opacity: 0.25;
+  &>* {
+    @media only screen and (min-width: 1000px) {
+      opacity: 0.25;
+    }
 
     &:hover {
       opacity: 1;
@@ -286,19 +290,19 @@ div.content:hover {
   from {
     opacity: 0%;
   }
+
   to {
     opacity: 100%;
   }
 }
 
-div {
-}
+div {}
 
 p {
   line-height: 1rem;
 }
 
-p + p {
+p+p {
   margin-block-start: 1em;
 }
 

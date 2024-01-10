@@ -74,21 +74,21 @@ hljs.registerLanguage("nano", function () {
     keywords: {
       $pattern: /[\w_]+/,
       keyword: `
-        if unless then elif elun else loop for while meanwhile until do collect some every count across 
-        when match default 
+        if unless then elif elun else loop for while meanwhile until do exists some every  
+        where match default 
         primitive type variants flags slot view signal state struct trait object 
         print push_error warn write prompt exit err sleep 
         in of xis is not and but or xor 
-        constraint implies
+        constraint infer 
         typeof as keyof addrof 
         on buffer stack queue let alias with shared global import export from use has async
         fn impl 
         return err continue break discard yield 
         test assert 
       `,
-      type: `byte bool bitfield uint int bvec2 bvec3 bvec4 uvec2 ivec2 uvec3 ivec3 uvec4 ivec4 float fvec2 fvec3 fvec4 obj 
+      type: `any unknown byte bool bitfield uint int bvec2 bvec3 bvec4 uvec2 ivec2 uvec3 ivec3 uvec4 ivec4 float fvec2 fvec3 fvec4 obj 
         string array list list_view list_state addr nothing 
-        i8 i16 i32 i64 f32 f64 u8 u16 u32 u64 option Expectation ErrorHandler ParseError 
+        i8 i16 i32 i64 f32 f64 u8 u16 u32 u64 option Expectation ParseError 
         `,
       literal: `false true yes no PI TAU self selffn super superfn`,
       punctuation: `( ) [ ] { } < >`,
