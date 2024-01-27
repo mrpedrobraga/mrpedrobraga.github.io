@@ -1,0 +1,265 @@
+ * {
+ 	margin: 0;
+ 	padding: 0;
+
+ 	box-sizing: border-box;
+ }
+
+ @font-face {
+ 	font-family: "Garamond";
+ 	src: url("./assets/EBGaramond.ttf");
+ }
+
+ /* SPACING & STRUCTURE */
+
+ body {
+ 	display: flex;
+ 	align-items: center;
+ 	justify-content: center;
+ }
+
+ div.page {
+ 	background-color: white;
+ 	width: 100%;
+ 	max-width: 800px;
+
+ 	box-sizing: border-box;
+
+ 	font-family: Garamond, 'Times New Roman', monospace;
+ 	font-size: 12pt;
+ }
+
+ pbr {
+ 	page-break-after: always;
+ }
+
+ a {
+ 	color: #000;
+ }
+
+ a:hover {
+ 	text-decoration: none;
+ }
+
+ div.spacer {
+ 	display: block;
+ 	height: 100px;
+ 	text-align: center;
+ }
+
+ td {
+ 	padding-left: 10px;
+ 	vertical-align: center;
+ }
+
+ td.full {
+ 	width: 300px;
+ }
+
+ td.a100 {
+ 	width: 100%;
+ }
+
+ /* SPECIAL ITEMS */
+
+ img#profile_picture {
+ 	display: block;
+ 	width: 3cm;
+ 	height: 3cm;
+ 	margin: auto;
+ 	border-radius: 50%;
+ }
+
+ #bio {
+ 	width: 100%;
+ 	text-align: center;
+ 	background-color: #f3f3f3;
+ }
+
+ .primary {
+ 	color: #084977;
+ }
+
+ .secondary {
+ 	color: rgb(78, 20, 124);
+ }
+
+ span.right {
+ 	float: right;
+ }
+
+ p.desc {
+ 	padding-left: 1cm;
+ }
+
+ div.center {
+ 	text-align: center;
+ }
+
+ div.post {
+ 	margin-left: 0.5cm;
+ 	padding-left: 0.5cm;
+ 	padding-bottom: 0.5cm;
+
+ 	border-left: 2px;
+ 	border-top: 0;
+ 	border-right: 0;
+ 	border-bottom: 0;
+ 	border-style: solid;
+ 	border-color: #ccc;
+ }
+
+ div.post.alt {
+ 	border-color: #888;
+ 	background-color: #f3f3f3;
+ }
+
+ .section_title {
+ 	display: block;
+ 	margin-top: 4px;
+ 	margin-bottom: 0px;
+ 	font-family: 'Courier';
+ }
+
+ div.radial {
+ 	box-sizing: border-box;
+ 	display: inline-block;
+ 	border-radius: 50%;
+ 	margin: 10px;
+ 	width: 60px;
+ 	height: 60px;
+
+ 	font-size: 16pt;
+ 	font-family: 'Cascadia Code', 'Courier', monospace;
+ }
+
+ div.radial.small {
+ 	width: 30px;
+ 	height: 30px;
+ 	font-size: 12pt;
+ }
+
+ div.label {
+ 	width: 40px;
+ 	height: 40px;
+ 	border-radius: 50%;
+ 	margin: auto;
+ 	margin-top: 50%;
+ 	translate: 0 -50%;
+
+ 	display: flex;
+ 	flex-direction: column;
+ 	align-items: center;
+
+ 	text-align: center;
+ 	line-height: 40px;
+ 	background-color: white;
+
+ 	white-space: nowrap;
+ 	overflow: visible;
+ }
+
+ .alt div.label {
+ 	background-color: #f3f3f3;
+ }
+
+ div.radial.small div.label {
+ 	width: 10px;
+ 	height: 10px;
+ 	line-height: 10px;
+ }
+
+ div.center table {
+ 	width: fit-content;
+ }
+
+ div.label.full {
+ 	font-weight: bold;
+ 	color: rgb(110, 75, 0);
+ }
+
+ div#hugger {
+ 	display: inline-block;
+ 	width: fit-content;
+ }
+
+ .no {
+ 	display: none !important;
+ }
+
+ .linear {
+ 	font-size: 16pt;
+ 	display: flex;
+ 	flex-direction: row;
+ 	columns: 2;
+ 	align-items: center;
+ }
+
+ div.bar {
+ 	display: inline-block;
+ 	width: 100%;
+ 	background-color: #ddd;
+ }
+
+ div.progress {
+ 	background-color: red;
+ 	height: 100%;
+ 	width: 50%;
+ 	color: white;
+ 	font-family: 'Cascadia Code';
+ }
+
+ .radial.novice {
+ 	--skill_progress: 20%;
+ 	--skill_color: rgb(100% 26.85% 34.14%);
+
+ 	background: conic-gradient(var(--skill_color) 0% var(--skill_progress), #ddd var(--skill_progress) 100%);
+ }
+
+ .radial.begginer {
+ 	--skill_progress: 40%;
+ 	--skill_color: rgb(100% 41.79% 82.59%);
+
+ 	background: conic-gradient(var(--skill_color) 0% var(--skill_progress), #ddd var(--skill_progress) 100%);
+ }
+
+ .radial.skillful {
+ 	--skill_progress: 65%;
+ 	--skill_color: rgb(77.05% 54.12% 100%);
+
+ 	background: conic-gradient(var(--skill_color) 0% var(--skill_progress), #ddd var(--skill_progress) 100%);
+ }
+
+ .radial.expert {
+ 	--skill_progress: 90%;
+ 	--skill_color: rgb(46.99% 64.08% 100%);
+
+ 	background: conic-gradient(var(--skill_color) 0% var(--skill_progress), #ddd var(--skill_progress) 100%);
+ }
+
+ .radial.master {
+ 	--skill_progress: 100%;
+ 	/*--skill_color: rgb(0% 69.19% 94.51%);*/
+ 	--skill_color: rgb(236, 193, 2);
+
+ 	background: var(--skill_color);
+ }
+
+ div.card {
+ 	display: inline-block;
+ 	padding: 10px;
+ 	margin: 4px;
+ 	width: 260px;
+ 	height: 100px;
+ 	box-shadow: #0001 10px 10px 10px;
+ 	background-color: #f3f3f3;
+
+ 	overflow: hidden;
+
+ 	text-align: left;
+ }
+
+ div.card.full {
+ 	width: 80%;
+ 	height: fit-content;
+ }
