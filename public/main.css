@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: "Lora";
+    font-size: 20px;
+
+    --bg: #eff1f5;
+    --bg2: #e6e9ef;
+    --separator: #bcc0cc;
+    --fg: #4c4f69;
+    --accent: #df8e1d;
+
+    background-color: var(--bg);
+    color: var(--fg);
+}
+
+@font-face {
+    font-family: "Lora";
+    src: url("./fonts/Lora.ttf");
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("./fonts/JetBrainsMono.woff2");
+}
+
+html {
+    display: flex;
+    flex-direction: row;
+    width: 100dvw;
+    height: 100dvh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    container-type: size;
+}
+
+header {
+    display: block;
+    padding-block: 0.25em;
+    padding-inline: 1em;
+    border-bottom: 2px solid var(--separator);
+}
+
+h1.small_title {
+    font-size: 32px;
+    font-family: "JetBrains Mono";
+    color: var(--accent);
+}
+
+div.flex_h {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-grow: 1;
+    height: 100%;
+    position: relative;
+    container-type: size;
+}
+
+aside#sidebar {
+    padding-inline: 1em;
+    padding-block: 1em;
+    width: 300px;
+}
+
+aside#sidebar {
+    list-style-position: inside;
+}
+
+@container (max-width: 1300px) {
+    aside#sidebar {
+        display: none;
+    }
+}
+
+div.flex_centered {
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: inherit;
+    justify-content: center;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1em;
+    gap: 1em;
+    max-width: 1000px;
+    padding-block-start: 1em;
+}
+
+code {
+    font-family: "JetBrains Mono";
+    font-size: 0.9em;
+}
+
+pre {
+    background-color: var(--bg2);
+    padding: 1em;
+    border-radius: 0.5em;
+    display: block;
+}
+
+div.spacer {
+    height: 40dvh;
+    flex-shrink: 0;
+}

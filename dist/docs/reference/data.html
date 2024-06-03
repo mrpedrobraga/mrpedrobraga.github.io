@@ -1,0 +1,161 @@
+<h2>Data</h2>
+<p>Sol is a programming language for assets. With it, you can create your assets in expressive and powerful ways. In the end, assets are just &quot;data&quot; your application reads, but while in <code>.sol</code> form, they are much more.</p>
+<p>If you want to create an asset, a <code>.sol</code> file is the first step. Every &quot;asset&quot; &quot;implements&quot; a &quot;model.&quot;</p>
+<h3>Models</h3>
+<p>A model is a contract that many assets will be beholden to. Imagine you are making a game, which contains several items definitions (a &quot;kind&quot; of item the player can have). Something like &quot;Iron Sword&quot; or &quot;Leather Boots.&quot;</p>
+<p>Each item definition should be well-formed and provide information of how the item will be displayed in game and what it does. A <code>model</code> describes that.</p>
+<pre><code class="language-sol">-- We have many items in the game,
+-- each kind of item is an ItemKind
+
+model ItemKind
+  label: text
+  durability: nat
+  icon: Image
+  on_use: Action(Character)
+end
+</code></pre>
+<p>A model contains several &quot;fields,&quot; each one with a name and a contract (we call those &quot;types&quot;). The first field is named &quot;label&quot; and is of type <code>text</code>.</p>
+<p>The second field is of type <code>Option(nat)</code>: <code>nat</code> is just a natural number (0, 1, 2, 3).</p>
+<p>Image is an image, another asset. You can refer to other assets, even if they are not written in <code>.sol</code> given that your backend has an extension to handle the file type. In this case you can imagine the &quot;image&quot; is a PNG file.</p>
+<p><code>Character</code> is another model on the same file. A model you created is a valid type!</p>
+<p>Lastly, <code>Action(Character)</code> is an <code>action</code> with a parameter of type. We'll see how to provide a value of this type soon.</p>
+<h3>Asset</h3>
+<p>A model can be implemented by an asset (on another <code>.sol</code> file) with the <code>impl</code> keyword.</p>
+<pre><code class="language-sol">using game.models.(Character, ItemKind)
+using game.sprites.icons.iron_sword
+
+impl ItemKind
+  label = &quot;Iron Sword&quot;
+  durability = 4
+  icon = iron_sword
+
+  action on_use(target: Character)
+    -- Give the weapon for the player to equip.
+    target.try_equip_weapon(weapon: self)
+  end
+end
+</code></pre>
+<blockquote>
+<p>Note that every <code>.sol</code> file <em>is</em> its own asset.
+Even files that only define models and don't implement anything count as assets. You can think of those as &quot;modules.&quot;</p>
+</blockquote>
+<blockquote>
+<p>Also, notice the <code>using</code> keyword.
+Files must <strong>explicitly</strong> refer to each other, letting you (and the sol toolchain) understand the relationships between files easily.</p>
+</blockquote>
+<p>Here we have provided data to be displayed in the inventory of the game. Now, our item definition can, itself, be used in another model.</p>
+<pre><code class="language-sol">-- A player might have, like, [3x Iron Sword] in their inventory.
+model ItemStack
+  field count: nat
+  field kind: ItemKind
+end
+</code></pre>
+<p>We also provided a value for the <code>on_use</code> field with a proper action. Inside of it we do some behaviour, but we're not going to get into that here.</p>
+<p>But, wait, we need to attack with the sword, too, right? We call <code>target.try_equip_weapon(weapon: self)</code> -- it would be great to have something that describes what it &quot;means&quot; to be equipped.</p>
+<p>That would be another model, which we could also implement for the same asset.</p>
+<pre><code class="language-sol">using game.models.(
+  Character,
+  ItemKind,
+  EquipmentKind,
+  EquipmentCategory
+)
+using game.sprites.icons.iron_sword
+
+impl ItemKind
+  label = &quot;Iron Sword&quot;
+  durability = 4
+  icon = iron_sword
+
+  action on_use(target: Character)
+    target.try_equip_weapon(weapon: self)
+  end
+end
+
+-- You can implement multiple models for the same asset.
+impl EquipmentKind
+  category = EquipmentCategory.WEAPON
+
+  action on_attack_with(actor: Character, target: Character, battle: Battle)
+    target.stats.apply_damage(10HP)
+  end
+end
+</code></pre>
+<blockquote>
+<p>Each <code>.sol</code> asset file might actually represent several assets (one for each <code>impl</code>) if your backend doesn't support the concept of models.</p>
+</blockquote>
+<h3>Groups</h3>
+<p>An asset might not itself implement models, but might contain things inside.</p>
+<p>One of those cases is functions, for computations:</p>
+<pre><code class="language-sol">-- We won't get in the detail about functions
+-- right now so enjoy this simple function.
+
+-- Returns the sum of two numbers.
+fn add(x: nat, y: nat): nat
+  return x + y
+end
+</code></pre>
+<p>And actions (which are almost identical to functions), which you can use to make scenes.</p>
+<pre><code class="language-sol">using game.interaction.Chest
+
+-- Open chest
+action open_chest(actor: Character, chest: Chest)
+  * You opened the chest.
+  * There was {chest.item.count}x {chest.item.kind.display_name} inside.
+  actor.inventory.give_stack(chest.item)
+  chest.opened = yes
+end
+</code></pre>
+<p>And also <code>def</code>s, which creates an asset implementing a model and puts it &quot;inside&quot; your asset, whatever that might mean.</p>
+<p>You can use this to make game layouts, for example.</p>
+<pre><code class="language-sol">-- my_room.sol
+using game.models.(Room, ItemStack, Npc)
+using game.items.iron_sword
+
+-- To avoid indentation, you can turn your whole file
+-- into the impl of some model.
+...impl Room
+
+name = &quot;Room 3&quot;
+
+def spawn : PlayerSpawn
+  position = vec2(10, 12)
+end
+
+def chest_1 : Chest
+  position = vec2(0, 0)
+  item = ItemStack(count: 1, kind: iron_sword)
+end
+
+def &quot;Martin&quot; : Npc
+  position = vec3(10, 16)
+end
+</code></pre>
+<p>Inside a <code>def</code> block, you have a new asset of that type. If allowed by the def block's type (it's also a layout), you can put <code>def</code> blocks inside <code>def</code> blocks.</p>
+<p>You can use them to make complex compositions.</p>
+<pre><code class="language-sol">using game.ui.(UIElement, VListContainer)
+...impl UIElement
+
+-- Here's an example with game UI.
+def &quot;Title Screen&quot; : VListContainer
+  def : Label
+    label = &quot;Game&quot;
+  end
+  def : Button
+    action on_press
+      go_to_scene(...)
+    end
+  end
+end
+</code></pre>
+<p>For you to be able to do <code>def</code>s, the model you're implementing must have a field named <code>@children</code>.</p>
+<pre><code class="language-sol">model UIElement
+  field @children : UIElement
+  -- (other fields hidden)
+end
+</code></pre>
+<pre><code class="language-sol">model Room
+  field @children : RoomElement
+  -- (other fields hidden)
+end
+</code></pre>
+<p>Since the fields are typed, you wouldn't be able to <code>def</code> a <code>RoomElement</code> inside a <code>UIElement</code> or vice-versa.</p>

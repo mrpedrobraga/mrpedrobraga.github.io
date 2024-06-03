@@ -1,0 +1,25 @@
+[package]
+name = "website-real2"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.7.5"
+markdown = "1.0.0-alpha.17"
+maud = { version = "0.26.0", features = ["axum"] }
+miette = { version = "7.2.0", features = ["fancy"] }
+notify = "6.1.1"
+pathdiff = "0.2.1"
+rayon = "1.10.0"
+thiserror = "1.0.61"
+tokio = { version = "1.38.0", features = ["full"] }
+tower = "0.4.13"
+tower-http = { version = "0.5.2", features = ["fs"] }
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3

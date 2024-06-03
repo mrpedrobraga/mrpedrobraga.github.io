@@ -1,0 +1,140 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "sol",
+  "scopeName": "source.sol",
+  "patterns": [
+    {
+      "include": "#all"
+    }
+  ],
+  "repository": {
+    "all": {
+      "patterns": [
+        {
+          "include": "#keyword"
+        },
+        {
+          "include": "#speaker"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#number"
+        },
+        {
+          "include": "#dialog"
+        },
+        {
+          "include": "#narration"
+        },
+        {
+          "include": "#choice"
+        },
+        {
+          "include": "#type"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#call"
+        },
+        {
+          "include": "#access"
+        }
+      ]
+    },
+    "symbol": {
+      "name": "keyword.operator",
+      "match": "\\+|\\-|\\*|\\/|\\(|\\)|\\;|\\,|\\>|\\<|\\=|\\!"
+    },
+    "logic": {
+      "name": "keyword",
+      "match": "and|but|despite|not|or|xor"
+    },
+    "keyword": {
+      "name": "keyword",
+      "match": "\\b(impl|end|model|scene|action|field|#todo|yes|no|true|false|maybe|let|set|slot|state|await|meanwhile|async|loop|while|until|if|then|else|unless|elif|elun|yield|log)\\b"
+    },
+    "type": {
+      "name": "meta.type.name",
+      "match": "\\b(truth|nat|real|fact|all|some|text|Character|Item|Action|Scene)\\b"
+    },
+    "speaker": {
+      "name": "entity.other.attribute-name",
+      "match": "\\[.*\\]"
+    },
+    "dialog": {
+      "name": "markup.raw",
+      "begin": "-",
+      "end": "\\n",
+      "patterns": [{ "include": "#interpolate" }]
+    },
+    "narration": {
+      "name": "markup.raw",
+      "begin": "\\*",
+      "end": "\\n",
+      "patterns": [{ "include": "#interpolate" }]
+    },
+    "comment": {
+      "name": "comment",
+      "begin": "#",
+      "end": "\\n"
+    },
+    "call": {
+      "match": "(\\w+)\\(",
+      "captures": {
+        "1": {
+          "name": "entity.name.function"
+        }
+      }
+    },
+    "access": {
+      "match": "\\.(\\w+)",
+      "captures": {
+        "1": {
+          "name": "variable.parameter"
+        }
+      }
+    },
+    "choice": {
+      "name": "constant.numeric",
+      "begin": "\\>",
+      "end": "\\n"
+    },
+    "number": {
+      "patterns": [
+        {
+          "include": "#float"
+        },
+        {
+          "include": "#int"
+        }
+      ]
+    },
+    "float": {
+      "name": "constant.numeric",
+      "match": "[0-9][0-9_]+(\\.[0-9_]+)?"
+    },
+    "int": {
+      "name": "constant.numeric",
+      "match": "([0-9][0-9_]*|0x[0-9_a-fA-F]+)"
+    },
+    "string": {
+      "name": "string",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [{ "include": "#interpolate" }]
+    },
+    "interpolate": {
+      "begin": "\\{",
+      "end": "\\}",
+      "patterns": [
+        {
+          "include": "#all"
+        }
+      ]
+    }
+  }
+}
