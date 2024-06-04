@@ -4,14 +4,14 @@ pub mod rebuild;
 use std::path::PathBuf;
 
 use axum::{extract::Path as RoutePath, routing::get, Router};
-use maud::{html, Markup, PreEscaped};
+use maud::Markup;
 use pages::{docs::docs_page, not_found_page};
 use rebuild::rebuild_markdown_directory_recursive;
 use tower_http::services::ServeDir;
 
 #[tokio::main]
 async fn main() -> miette::Result<()> {
-    let result = rebuild_dist()?;
+    let _ = rebuild_dist()?;
 
     let routes = Router::<()>::new()
         .route("/docs/*path", get(get_docs))

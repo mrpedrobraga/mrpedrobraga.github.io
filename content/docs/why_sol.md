@@ -1,0 +1,3 @@
+## Why Sol?
+
+Why not?

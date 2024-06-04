@@ -3,20 +3,17 @@
     padding: 0;
     border: none;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
-:root {
-    font-family: "Lora";
-    font-size: 20px;
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("./fonts/JetBrainsMono.woff2");
+}
 
-    --bg: #eff1f5;
-    --bg2: #e6e9ef;
-    --separator: #bcc0cc;
-    --fg: #4c4f69;
-    --accent: #df8e1d;
-
-    background-color: var(--bg);
-    color: var(--fg);
+@font-face {
+    font-family: "Nunito";
+    src: url("./fonts/Nunito.ttf");
 }
 
 @font-face {
@@ -24,9 +21,33 @@
     src: url("./fonts/Lora.ttf");
 }
 
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("./fonts/JetBrainsMono.woff2");
+:root {
+    font-family: "Nunito";
+    line-height: 1.4;
+
+    --bg: #fffdfc;
+    --bg2: #efedf0;
+    --bg3: #e6e9ef;
+    --separator: #ccd0da;
+    --fg: #4c4f59;
+    --accent: #df8e1d;
+
+    /* --bg: #232326;
+    --bg2: #1b1c1e;
+    --separator: #181825;
+    --fg: #c6cacc1;
+    --accent: #e0b464; */
+
+    background-color: var(--bg);
+    color: var(--fg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Lora";
 }
 
 html {
@@ -45,15 +66,14 @@ body {
 
 header {
     display: block;
-    padding-block: 0.25em;
-    padding-inline: 1em;
-    border-bottom: 2px solid var(--separator);
+    padding-block: 1.5em;
+    margin-block-end: 1em;
+    /* border-block-end: 1px solid var(--separator); */
+    z-index: 3;
 }
 
 h1.small_title {
-    font-size: 32px;
-    font-family: "JetBrains Mono";
-    color: var(--accent);
+    font-size: 30px;
 }
 
 div.flex_h {
@@ -68,16 +88,33 @@ div.flex_h {
 
 aside#sidebar {
     padding-inline: 1em;
-    padding-block: 1em;
-    width: 300px;
+    padding-block-start: 0em;
+    width: 250px;
+    background-color: var(--bg);
+    /* border-inline-end: 1px solid var(--separator); */
 }
 
-aside#sidebar {
-    list-style-position: inside;
+aside#sidebar.left {
+    text-align: end;
+}
+
+aside#sidebar ul {
+    list-style: none;
+    margin-block-end: 2em;
+}
+
+aside#sidebar :is(h4) {
+    font-size: 16px;
 }
 
 @container (max-width: 1300px) {
-    aside#sidebar {
+    aside#sidebar.left {
+        display: none;
+    }
+}
+
+@container (max-width: 1500px) {
+    aside#sidebar:not(.left) {
         display: none;
     }
 }
@@ -88,29 +125,71 @@ div.flex_centered {
     display: flex;
     flex-direction: inherit;
     justify-content: center;
-    overflow-y: scroll;
     height: 100%;
 }
 
 main {
+    background-color: var(--bg);
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    padding-inline: 1em;
+    padding-inline: 2em;
     gap: 1em;
-    max-width: 1000px;
+    width: min(100vw, 900px);
     padding-block-start: 1em;
+}
+
+main h2 {
+    font-size: 2.5rem;
+}
+
+main h3 {
+    font-size: 1.5rem;
+}
+
+main h4 {
+    font-size: 1.25rem;
+}
+
+main :is(h1, h2, h3, h4):not(:first-child) {
+    margin-block-start: 1em;
 }
 
 code {
     font-family: "JetBrains Mono";
     font-size: 0.9em;
+    display: inline;
+}
+
+code {
+    background-color: var(--bg2);
+    padding: 0.25em;
+    border-radius: 0.25em;
+    border: 1px solid var(--separator);
+    box-shadow: 0px 2px 4px var(--bg2);
+}
+
+blockquote {
+    padding-inline-start: 1em;
+    border-inline-start: 4px solid var(--separator);
+    padding-block: 1em;
+    background-color: color-mix(in lch, var(--bg2) 50%, var(--bg1));
 }
 
 pre {
+    display: block;
     background-color: var(--bg2);
     padding: 1em;
     border-radius: 0.5em;
-    display: block;
+    border: 1px solid var(--separator);
+    box-shadow: 0px 4px 5px var(--bg2);
+}
+
+pre code {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    border: none;
 }
 
 div.spacer {

@@ -5,16 +5,21 @@ edition = "2021"
 
 [dependencies]
 axum = "0.7.5"
-markdown = "1.0.0-alpha.17"
+lazy_static = "1.4.0"
 maud = { version = "0.26.0", features = ["axum"] }
 miette = { version = "7.2.0", features = ["fancy"] }
 notify = "6.1.1"
 pathdiff = "0.2.1"
+pulldown-cmark = "0.11.0"
 rayon = "1.10.0"
+syntastica = "0.4.1"
+syntastica-parsers = { version = "0.4.1", features = ["most"] }
+syntastica-themes = "0.4.1"
 thiserror = "1.0.61"
 tokio = { version = "1.38.0", features = ["full"] }
 tower = "0.4.13"
 tower-http = { version = "0.5.2", features = ["fs"] }
+tree-sitter-sol = "0.0.1"
 
 # Enable a small amount of optimization in debug mode
 [profile.dev]
