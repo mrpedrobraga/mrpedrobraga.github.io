@@ -42,6 +42,15 @@
     color: var(--fg);
 }
 
+a {
+    color: var(--accent);
+}
+
+::selection {
+    background-color: var(--accent);
+    color: var(--bg);
+}
+
 h1,
 h2,
 h3,
@@ -51,10 +60,7 @@ h5 {
 }
 
 html {
-    display: flex;
-    flex-direction: row;
     width: 100dvw;
-    height: 100dvh;
 }
 
 body {
@@ -62,6 +68,7 @@ body {
     flex-direction: column;
     flex-grow: 1;
     container-type: size;
+    align-items: center;
 }
 
 header {
@@ -130,7 +137,6 @@ div.flex_centered {
 
 main {
     background-color: var(--bg);
-    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     padding-inline: 2em;
@@ -200,6 +206,10 @@ p img {
     margin: auto;
     box-shadow: 0px 2px 4px var(--bg2);
     border-radius: 0.25em;
+    max-width: 500px;
+    image-rendering: crisp-edges;
+    break-inside: avoid;
+    page-break-inside: avoid;
 }
 
 iframe.yt-video {
