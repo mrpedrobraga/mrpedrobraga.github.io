@@ -14,7 +14,7 @@ version = "0.0.1"
 author = "You"
 ```
 
-Each one of these key-value pairs is called a "field" and contains some unchangeable data. In this case, the field `version` has a datum of type text and content `"0.0.1"`.
+Each one of these key-value pairs is called a "field" and contains some unchangeable data. In this case, the field `version` has a datum of type `Text` and content `"0.0.1"`.
 
 For this use case, a sol asset isn't that different from something written in TOML. But the fun hasn't begun yet.
 

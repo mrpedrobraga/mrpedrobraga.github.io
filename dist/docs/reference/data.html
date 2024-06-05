@@ -2,7 +2,7 @@
 <p>Every <code>.sol</code> file is an "asset."</p>
 <p>The first way you can use them is for standalone assets. These can contain arbitrary data in the form of key value pairs.</p>
 <pre><code><span style="color:rgb(156,160,176);font-style: italic;">--&nbsp;DIR&nbsp;TREE:</span><br><span style="color:rgb(156,160,176);font-style: italic;">--&nbsp;assets/</span><br><span style="color:rgb(156,160,176);font-style: italic;">--&nbsp;&nbsp;&nbsp;game_info.sol</span><br><br><span style="color:rgb(76,79,105);">name</span>&nbsp;<span style="color:rgb(4,165,229);">=</span>&nbsp;<span style="color:rgb(64,160,43);">"The&nbsp;Legend&nbsp;Of&nbsp;Brad"</span><br><span style="color:rgb(76,79,105);">version</span>&nbsp;<span style="color:rgb(4,165,229);">=</span>&nbsp;<span style="color:rgb(64,160,43);">"0.0.1"</span><br><span style="color:rgb(76,79,105);">author</span>&nbsp;<span style="color:rgb(4,165,229);">=</span>&nbsp;<span style="color:rgb(64,160,43);">"You"</span><br></code></pre>
-<p>Each one of these key-value pairs is called a "field" and contains some unchangeable data. In this case, the field <code>version</code> has a datum of type text and content <code>"0.0.1"</code>.</p>
+<p>Each one of these key-value pairs is called a "field" and contains some unchangeable data. In this case, the field <code>version</code> has a datum of type <code>Text</code> and content <code>"0.0.1"</code>.</p>
 <p>For this use case, a sol asset isn't that different from something written in TOML. But the fun hasn't begun yet.</p>
 <h3><code>using</code> other assets</h3>
 <p>You can statically refer to other assets in the sol workspace. This guarantees an asset reference is always valid.</p>

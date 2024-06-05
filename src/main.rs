@@ -8,6 +8,7 @@ use maud::Markup;
 use pages::{docs::docs_page, not_found_page};
 use rebuild::rebuild_markdown_directory_recursive;
 use tower_http::services::ServeDir;
+use tower_livereload::LiveReloadLayer;
 
 #[tokio::main]
 async fn main() -> miette::Result<()> {
@@ -15,6 +16,7 @@ async fn main() -> miette::Result<()> {
 
     let routes = Router::<()>::new()
         .route("/docs/*path", get(get_docs))
+        .layer(LiveReloadLayer::new())
         .nest_service("/public", ServeDir::new("public"));
     let listener = tokio::net::TcpListener::bind("127.0.0.1:4321")
         .await

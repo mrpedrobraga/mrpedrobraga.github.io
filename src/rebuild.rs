@@ -6,7 +6,7 @@ use std::{
     io::Write,
     path::PathBuf,
 };
-use syntastica::{language_set::LanguageSet, renderer::HtmlRenderer};
+use syntastica::{renderer::HtmlRenderer, ts_runtime::Language};
 use syntastica_parsers::{Lang, LanguageSetImpl};
 
 pub fn rebuild_markdown_directory_recursive(
@@ -80,7 +80,7 @@ impl<'a> Iterator for MarkdownEvents<'a> {
 
                 let output = syntastica::highlight(
                     code_buffer,
-                    Lang::Lua,
+                    get_language_by_tag(language_tag.as_ref()),
                     &mut LanguageSetImpl::new(),
                     &mut HtmlRenderer::new(),
                     syntastica_themes::catppuccin::latte(),
@@ -95,5 +95,12 @@ impl<'a> Iterator for MarkdownEvents<'a> {
             }
             _ => Some(next),
         }
+    }
+}
+
+fn get_language_by_tag(tag: &str) -> Lang {
+    match tag {
+        "json" => Lang::Json,
+        _ => Lang::Lua,
     }
 }
