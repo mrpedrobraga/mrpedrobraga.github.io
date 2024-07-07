@@ -948,6 +948,28 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8835116a5c179084a830efb3adc117ab007512b535bc1a21c991d3b32a6b44dd"
 
 [[package]]
+name = "pedrobraga-website"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "lazy_static",
+ "maud",
+ "miette",
+ "notify",
+ "pathdiff",
+ "pulldown-cmark",
+ "rayon",
+ "syntastica",
+ "syntastica-parsers",
+ "syntastica-themes",
+ "thiserror",
+ "tokio",
+ "tower",
+ "tower-http",
+ "tower-livereload",
+]
+
+[[package]]
 name = "percent-encoding"
 version = "2.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1995,28 +2017,6 @@ name = "wasm-bindgen-shared"
 version = "0.2.92"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "af190c94f2773fdb3729c55b007a722abb5384da03bc0986df4c289bf5567e96"
-
-[[package]]
-name = "website-real2"
-version = "0.1.0"
-dependencies = [
- "axum",
- "lazy_static",
- "maud",
- "miette",
- "notify",
- "pathdiff",
- "pulldown-cmark",
- "rayon",
- "syntastica",
- "syntastica-parsers",
- "syntastica-themes",
- "thiserror",
- "tokio",
- "tower",
- "tower-http",
- "tower-livereload",
-]
 
 [[package]]
 name = "winapi-util"

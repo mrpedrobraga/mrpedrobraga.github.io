@@ -6,7 +6,7 @@ use std::{
     io::Write,
     path::PathBuf,
 };
-use syntastica::{renderer::HtmlRenderer, ts_runtime::Language};
+use syntastica::renderer::HtmlRenderer;
 use syntastica_parsers::{Lang, LanguageSetImpl};
 
 pub fn rebuild_markdown_directory_recursive(
