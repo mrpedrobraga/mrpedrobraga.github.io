@@ -19,6 +19,7 @@ pub fn install_sol_module(router: Router) -> Router {
 pub async fn get_sol_homepage() -> Markup {
     return html! {
         head {
+            title { "guest@mrpedrobraga:~/sol" }
             link href="./public/reset.css" rel="stylesheet";
             link href="./public/main.css" rel="stylesheet";
         }
@@ -26,7 +27,10 @@ pub async fn get_sol_homepage() -> Markup {
             header {
                 div class="window terminal" {
                     div class="titlebar" {
-                        "profile.sol"
+                        span class="window_title" {"profile.sol"}
+                        div class="button" onclick="alert('you cant get rid of me')" { "🗕" }
+                        div class="button" onclick="alert('this is already big enough dude')" { "🗖" }
+                        div class="button" onclick="alert('just close the tab, what?')" { "✕" }
                     }
                     div id="profile" {
                         img src="./public/images/me.jpg" id="profile_picture";
