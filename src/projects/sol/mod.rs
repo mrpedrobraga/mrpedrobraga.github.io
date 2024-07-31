@@ -13,7 +13,7 @@ pub fn install_sol_module(router: Router) -> Router {
 
     router
         .route("/sol", get(get_sol_homepage))
-        .route("/sol/docs/*path", get(get_sol_docs))
+        .route("/sol/*path", get(get_sol_pages))
 }
 
 pub async fn get_sol_homepage() -> Markup {
@@ -47,7 +47,7 @@ pub async fn get_sol_homepage() -> Markup {
                     a class="dir" href=".." {
                         ".."
                     }
-                    a class="dir" href="./docs" {
+                    a class="dir" href="./sol/docs" {
                         "/docs"
                     }
                     a { "info.txt" }
@@ -74,12 +74,14 @@ pub async fn get_sol_homepage() -> Markup {
     };
 }
 
-pub async fn get_sol_docs(RoutePath(path): RoutePath<String>) -> Markup {
-    let docs_dir_path = std::path::Path::new("./dist/docs");
+pub async fn get_sol_pages(RoutePath(path): RoutePath<String>) -> Markup {
+    let docs_dir_path = std::path::Path::new("./dist/sol");
 
     let docs_path = PathBuf::from(docs_dir_path)
         .join(path)
         .with_extension("html");
+    dbg!(&docs_path);
+
     let content_html = std::fs::read_to_string(docs_path);
 
     content_html
@@ -88,10 +90,10 @@ pub async fn get_sol_docs(RoutePath(path): RoutePath<String>) -> Markup {
 }
 
 pub fn rebuild_sol_documentation() -> miette::Result<()> {
-    let content_dir_path = std::path::Path::new("./content/docs");
-    let target_dir_path = std::path::Path::new("./dist/docs");
+    let content_dir_path = std::path::Path::new("./content");
+    let target_dir_path = std::path::Path::new("./dist");
 
-    let dir = std::fs::read_dir(PathBuf::from("./content/docs"));
+    let dir = std::fs::read_dir(PathBuf::from("./content"));
     dir.unwrap().for_each(|entry| {
         dbg!(entry.unwrap());
     });
