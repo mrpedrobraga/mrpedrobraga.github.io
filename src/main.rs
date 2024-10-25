@@ -1,34 +1,22 @@
-pub mod pages;
-pub mod projects;
-pub mod rebuild;
-
-use axum::Router;
-use projects::{
-    me::install_main_module,
-    sol::{install_sol_module, rebuild_sol_documentation},
-    ui_composer::install_ui_composer_module,
+use api::api_routes;
+use rocket::{
+    fs::{relative, FileServer},
+    get, launch, routes,
 };
-use tower_http::services::ServeDir;
-//use tower_livereload::LiveReloadLayer;
+use rocket_dyn_templates::{context, Template};
 
-const SERVE_ADDR: &'static str = "0.0.0.0";
-const SERVE_PORT: &'static str = "8080";
+pub mod api;
 
-#[tokio::main]
-async fn main() -> miette::Result<()> {
-    let routes = Some(Router::<()>::new())
-        .map(install_main_module)
-        .map(install_sol_module)
-        .map(install_ui_composer_module)
-        .unwrap()
-        //.layer(LiveReloadLayer::new())
-        .nest_service("/public", ServeDir::new("public"));
+#[launch]
+fn rocket() -> _ {
+    rocket::build()
+        .mount("/public", FileServer::from(relative!("/public")))
+        .mount("/", routes![index])
+        .mount("/api", api_routes())
+        .attach(Template::fairing())
+}
 
-    //rebuild_sol_documentation().expect("Could not rebuild sol documentation.");
-
-    let listener = tokio::net::TcpListener::bind(format!("{SERVE_ADDR}:{SERVE_PORT}"))
-        .await
-        .unwrap();
-    axum::serve(listener, routes).await.unwrap();
-    Ok(())
+#[get("/")]
+fn index() -> Template {
+    Template::render("base", context! { title: "mrpedrobraga" })
 }

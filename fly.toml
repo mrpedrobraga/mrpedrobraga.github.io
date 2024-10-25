@@ -1,15 +1,12 @@
-# fly.toml app configuration file generated for mrpedrobraga-website on 2024-07-30T16:45:33-03:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
-app = 'mrpedrobraga-website'
-primary_region = 'gru'
+app = 'mrpedrobraga-web-site'
+primary_region = 'gig'
 
 [build]
 
 [env]
-PORT = '8080'
+PORT = '8000'
+ROCKET_ADDRESS = '0.0.0.0'
+ROCKET_PORT = '8000'
 
 [http_service]
 internal_port = 8080
@@ -23,9 +20,3 @@ processes = ['app']
 memory = '1gb'
 cpu_kind = 'shared'
 cpus = 1
-
-[[files]]
-guest_path = "/dist"
-
-[[files]]
-guest_path = "/public"

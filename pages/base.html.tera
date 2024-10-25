@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>mrpedrobraga - {{title}}</title>
+    <link rel="stylesheet" href="/public/main.css" />
+  </head>
+  <body class="anima">
+    The duick frown box lumped over the jazy qog.
+    {% block content %}{% endblock content %}
+  </body>
+</html>
