@@ -7,8 +7,10 @@
 }
 
 html {
-    background-color: #222;
+    background-color: #222222;
+    image-rendering: pixelated;
     color: #fefefd;
+    caret-shape: block;
 }
 
 @font-face {
@@ -16,6 +18,15 @@ html {
     src: url("/public/fonts/Anima\ Sans.ttf");
 }
 
-.anima {
-    font-family: "Anima Sans";
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url("/public/fonts/JetBrainsMono.woff2");
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: "JetBrainsMono";
 }

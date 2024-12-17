@@ -1,5 +1,10 @@
+# fly.toml app configuration file generated for mrpedrobraga-web-site on 2024-10-25T14:16:28-03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
 app = 'mrpedrobraga-web-site'
-primary_region = 'gig'
+primary_region = 'gru'
 
 [build]
 
@@ -9,7 +14,7 @@ ROCKET_ADDRESS = '0.0.0.0'
 ROCKET_PORT = '8000'
 
 [http_service]
-internal_port = 8080
+internal_port = 8000
 force_https = true
 auto_stop_machines = 'stop'
 auto_start_machines = true
