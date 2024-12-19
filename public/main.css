@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     border: none;
+    line-height: 2;
     box-sizing: border-box;
 }
 
@@ -24,9 +25,40 @@ html {
 }
 
 body {
+    flex-direction: column;
+    padding-inline: 1rem;
+    padding-block: 0.8rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100%;
     font-family: "JetBrainsMono";
+}
+
+h1 {
+    font-size: 1em;
+    font-weight: bolder;
+    margin-block-end: 1em;
+}
+
+h1::before {
+    content: "# ";
+}
+
+h2 {
+    font-size: 1em;
+    font-weight: normal;
+    font-style: italic;
+    margin-block-end: 1em;
+}
+
+p {
+    margin-block-end: 1em;
+}
+
+ul {
+    list-style-position: inside;
+    margin-block-end: 1em;
+}
+
+a {
+    color: #fefefd;
 }

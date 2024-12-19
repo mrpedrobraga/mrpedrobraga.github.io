@@ -12,6 +12,6 @@ rocket_dyn_templates = { version = "0.2.0", features = ["tera"] }
 [profile.dev]
 opt-level = 1
 
-# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+# Enable high optimizations for dependencies:
 [profile.dev.package."*"]
 opt-level = 3
