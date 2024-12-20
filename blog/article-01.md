@@ -14,9 +14,7 @@ As a Software Maker™ myself, so I have high interest in the _development_ side
 
 > My most recent public tool is [Distortionator](https://www.youtube.com/watch?v=0OEWLVnX30A), which lets artists in the [Mother Encore](https://motherencore.com/) team do battle backgrounds easily.
 
-I have been researching the world of GUI app development, comparing different ways of creating apps of their ecosystems.
-
-Each approach has its own strengths and weaknesses:
+I have been researching the world of GUI app development, comparing different ways of creating apps of their ecosystems. Each approach has its own strengths and weaknesses:
 
 Native tends to be most performant, but is not _nearly_ as expressive and rich in ecosystem as web is. The innovation and creativity that brews in web front end development is unparalleled. Native has not quite caught up to the concept of Functional components, reactivity and pleasant development environments.
 

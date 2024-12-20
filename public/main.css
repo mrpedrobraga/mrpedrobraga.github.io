@@ -3,20 +3,26 @@
     margin: 0;
     padding: 0;
     border: none;
-    line-height: 2;
+    line-height: 1.4;
     box-sizing: border-box;
 }
 
 html {
-    background-color: #222222;
+    font-size: 14pt;
     image-rendering: pixelated;
-    color: #fefefd;
+    background-color: #fefefd;
+    color: #222230;
     caret-shape: block;
 }
 
 @font-face {
-    font-family: "Anima Sans";
-    src: url("/public/fonts/Anima\ Sans.ttf");
+    font-family: "Nunito";
+    src: url("/public/fonts/Nunito.ttf");
+}
+
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("/public/fonts/PlusJakartaSans-Regular.ttf");
 }
 
 @font-face {
@@ -26,17 +32,35 @@ html {
 
 body {
     flex-direction: column;
-    padding-inline: 1rem;
-    padding-block: 0.8rem;
     display: flex;
-    height: 100%;
-    font-family: "JetBrainsMono";
+    align-items: center;
+    height: fit-content;
+    font-family: Nunito;
+    position: relative;
+}
+
+header {
+    padding-block: 0.8rem;
+    display: contents;
+}
+
+main {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-inline: 1rem;
+    padding-block-end: 50vh;
 }
 
 h1 {
-    font-size: 1em;
+    font-size: 2em;
     font-weight: bolder;
-    margin-block-end: 1em;
+    margin-block: 1em;
+    position: sticky;
+    top: 9px;
+    background-color: #fefefd;
+    width: min(800px, 100%);
 }
 
 h1::before {
@@ -44,21 +68,69 @@ h1::before {
 }
 
 h2 {
-    font-size: 1em;
-    font-weight: normal;
+    font-size: 1.5em;
+    font-weight: bold;
     font-style: italic;
-    margin-block-end: 1em;
-}
-
-p {
-    margin-block-end: 1em;
+    margin-block: 0.4em;
 }
 
 ul {
     list-style-position: inside;
-    margin-block-end: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    list-style-type: "- ";
+    padding-inline-start: 1em;
 }
 
 a {
-    color: #fefefd;
+    color: inherit;
+}
+
+code {
+    padding-inline: 1em;
+    font-family: "JetBrainsMono";
+    font-size: 0.8em;
+    background-color: #eee;
+    tab-size: 2em;
+}
+
+pre > code {
+    display: block;
+    border: 2px solid #eee;
+    padding: 1em;
+}
+
+blockquote {
+    padding-inline-start: 1em;
+    padding-block: 1em;
+    border-inline-start: 4px solid #cccccc;
+    background-color: #efefef;
+}
+
+#progress_box {
+    width: 100%;
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #eee;
+}
+
+#progress {
+    width: 0%;
+    height: 0.5rem;
+    background-color: #ddd;
+    animation-name: progress;
+    animation-timeline: scroll();
+}
+
+@keyframes progress {
+    from: {
+        width: 0%;
+    }
+
+    to: {
+        width: 100%;
+    }
 }

@@ -19,4 +19,5 @@ WORKDIR /app
 COPY --from=builder /app/target/release/pedrobraga-website /usr/local/bin
 COPY --from=planner /app/templates /app/templates
 COPY --from=planner /app/public /app/public
+COPY --from=planner /app/blog /app/blog
 ENTRYPOINT ["/usr/local/bin/pedrobraga-website"]
