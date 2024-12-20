@@ -3,6 +3,7 @@ date: 2024-12-17
 tags:
   - graphics
   - ui-composer
+title: A Manifesto for Better UI
 ---
 I _love_ software.
 

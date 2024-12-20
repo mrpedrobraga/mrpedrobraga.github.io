@@ -61,6 +61,7 @@ h1 {
     top: 9px;
     background-color: #fefefd;
     width: min(800px, 100%);
+    padding-inline: 1rem;
 }
 
 h1::before {
@@ -85,6 +86,28 @@ ul {
 
 a {
     color: inherit;
+}
+
+button,
+input[type="button"] {
+    background-color: #ddd;
+    padding-inline: 1rem;
+    padding-block: 0.8rem;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+button:hover,
+input[type="button"]:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+button[disabled],
+input[type="button"][disabled] {
+    cursor: unset;
+    background-color: #ddd;
 }
 
 code {

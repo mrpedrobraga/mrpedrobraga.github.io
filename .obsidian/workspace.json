@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "70cc45fc974f36b1",
+        "id": "c656e8bc1154d21f",
         "type": "tabs",
         "children": [
           {
-            "id": "b4ad325e6d6250da",
+            "id": "d9de7431413ce678",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/article-01.md",
+                "file": "blog/article-02.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "article-01"
+              "title": "article-02"
             }
           }
         ]
@@ -163,14 +163,26 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "b4ad325e6d6250da",
+  "active": "d9de7431413ce678",
   "lastOpenFiles": [
     "blog/article-01.md",
+    "blog/article-02.md",
+    "target/debug/deps/pedrobraga_website-20120d88615f4a4c",
+    "target/debug/incremental/pedrobraga_website-1roob7v7aol26/s-h2wjmx3e18-0ae8wue-am55ht7fhb65houzycuub5r0n/work-products.bin",
+    "target/debug/incremental/pedrobraga_website-1roob7v7aol26/s-h2wjmx3e18-0ae8wue-am55ht7fhb65houzycuub5r0n/thin-lto-past-keys.bin",
+    "target/debug/incremental/pedrobraga_website-1roob7v7aol26/s-h2wjmx3e18-0ae8wue-am55ht7fhb65houzycuub5r0n/query-cache.bin",
+    "target/debug/incremental/pedrobraga_website-1roob7v7aol26/s-h2wjmx3e18-0ae8wue-am55ht7fhb65houzycuub5r0n/f3z6y1tzjml8jkgpxfigxpni9.pre-lto.bc",
+    "target/debug/incremental/pedrobraga_website-1roob7v7aol26/s-h2wjmx3e18-0ae8wue-am55ht7fhb65houzycuub5r0n/f3z6y1tzjml8jkgpxfigxpni9.o",
+    "target/debug/incremental/pedrobraga_website-1roob7v7aol26/s-h2wjmx3e18-0ae8wue-am55ht7fhb65houzycuub5r0n/f2ac6gh3zs4bedryiwihhtuae.pre-lto.bc",
+    "target/debug/incremental/pedrobraga_website-1roob7v7aol26/s-h2wjmx3e18-0ae8wue-am55ht7fhb65houzycuub5r0n/f2ac6gh3zs4bedryiwihhtuae.o",
+    "target/debug/incremental/pedrobraga_website-1roob7v7aol26/s-h2wjmx3e18-0ae8wue-am55ht7fhb65houzycuub5r0n/ez2m0339z1vy92bxgz0ao5ncx.pre-lto.bc",
+    "target/debug/incremental/pedrobraga_website-1roob7v7aol26/s-h2wjmx3e18-0ae8wue-am55ht7fhb65houzycuub5r0n/ez2m0339z1vy92bxgz0ao5ncx.o",
+    "blog/assets/8by8img.png",
+    "blog/Tldraw 2024-12-20 11.45AM.md",
     "blog/UI Composer - A Manifesto for Better Interfaces.md",
     "blog/UI Composer Goals.md",
     "public/images/spr_bg_poolwave.png",
     "Tldraw 2024-12-18 5.27PM.md",
-    "2024-12-17.md",
-    "blog"
+    "2024-12-17.md"
   ]
 }
