@@ -148,6 +148,18 @@ blockquote {
     animation-timeline: scroll();
 }
 
+.window {
+    margin-inline: auto;
+    display: block;
+    border-top: 32px solid #aaa;
+    border-right: 8px solid #aaa;
+    border-bottom: 8px solid #aaa;
+    border-left: 8px solid #aaa;
+    width: 400px;
+    height: 300px;
+    box-shadow: 8px 8px 8px #eee;
+}
+
 @keyframes progress {
     from: {
         width: 0%;

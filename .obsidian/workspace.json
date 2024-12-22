@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "c656e8bc1154d21f",
+        "id": "88817ea3182631eb",
         "type": "tabs",
         "children": [
           {
-            "id": "d9de7431413ce678",
+            "id": "7dd4e79d27f485eb",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7f978e3efdc46f43",
@@ -163,10 +164,10 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "d9de7431413ce678",
+  "active": "7dd4e79d27f485eb",
   "lastOpenFiles": [
-    "blog/article-01.md",
     "blog/article-02.md",
+    "blog/article-01.md",
     "target/debug/deps/pedrobraga_website-20120d88615f4a4c",
     "target/debug/incremental/pedrobraga_website-1roob7v7aol26/s-h2wjmx3e18-0ae8wue-am55ht7fhb65houzycuub5r0n/work-products.bin",
     "target/debug/incremental/pedrobraga_website-1roob7v7aol26/s-h2wjmx3e18-0ae8wue-am55ht7fhb65houzycuub5r0n/thin-lto-past-keys.bin",
