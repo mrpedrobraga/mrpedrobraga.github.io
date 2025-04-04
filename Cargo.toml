@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 comrak = "0.32.0"
+latex2mathml = "0.2.3"
 rocket = { version = "0.5.1", features = ["json"] }
 rocket_dyn_templates = { version = "0.2.0", features = ["handlebars"] }
 serde = "1.0.216"

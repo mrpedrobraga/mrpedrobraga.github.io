@@ -4,6 +4,7 @@ tags:
   - graphics
   - ui-composer
 title: A Manifesto for Better UI
+description: A pitch of a new UI library!
 ---
 I _love_ software.
 

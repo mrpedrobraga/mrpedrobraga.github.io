@@ -1,9 +1,10 @@
 ---
-date: 0001-01-01
+date: 2024-12-28
 tags:
   - graphics
   - ui-composer
 title: An Interactive Collage
+description: An overview of what UIComposer does as a GUI library.
 ---
 To explain how we can make UI from scratch, we have to learn the basics.
 
@@ -79,7 +80,7 @@ As the user of the library, you can compose "Interaction Primitives." For exampl
 
 ```typescript
 // UI Composer is a Rust library
-// but I will be using typescript for educational purposes.
+// but I will be using Typescript for educational purposes.
 
 const buttonArea = new Rect(0.0, 0.0, 100.0, 20.0);
 const tap = new Tap (buttonArea, () => alert('Howdy partner!'));
@@ -102,14 +103,14 @@ Pay attention to how to add the `tap` to the window, you pass it _as a value_, i
 This is important. It's what allows you to create "Components" in this manner:
 
 ```typescript
-// This is a component! It's just a function that returns ui!
-function Button(area, callback) {
+// This is a component! It's just a function that returns UI!
+function Button(rect, callback) {
 	return new Tap(rect, callback)
 }
 
 App.run(
 	Button (
-		new Rect(0.0, 0.0, 100.0, 20.0), // area
+		new Rect(0.0, 0.0, 100.0, 20.0), // rect
 		() => alert("Howdy partner!")    // callback
 	),
 )
@@ -165,7 +166,7 @@ class Tap implements UI {
 
 	handleUIEvent(event: UIEvent) {
 		if (event.type instanceof MouseButtonEvent && event.isPressed) {
-			if (buttonArea.includesPoint(event.position)) {
+			if (this.rect.includesPoint(event.position)) {
 				self.action.call();
 			}
 		}
@@ -183,7 +184,7 @@ Here are the button's visuals. A gray rectangle and text saying "Clickety click 
 <button disabled>Clickety click me!</button>
 
 > Let me guess the steps...
-> 
+>
 > Render a gray rectangle... then just draw text on top.
 
 "Just draw text" would make a graphics developer foam at the mouth...
@@ -218,9 +219,7 @@ _Patience..._
 Drawing something like, say, a gray rectangle, would just be a matter of addressing each pixel one by one and changing its value.
 
 ```typescript
-// Something like this
-
-let screen: MemoryBuffer = ...;
+let image: MemoryBuffer = ...;
 let rect = Rectangle { x: 0, y: 0, width: 100, height: 20 };
 
 for y in (rect.y..(rect.y + rect.height)) {
@@ -238,7 +237,7 @@ But if we want to draw an app in 60 FPS, we have short of sixteen milliseconds t
 
 The flaw of the CPU is that it executes instructions one after the other. And that is a shame, because the code to paint one pixel is independent from the code to paint other pixels.
 
-> What if we use multi-threading? Like, with a quad-core processor. 
+> What if we use multi-threading? Like, with a quad-core processor.
 
 Then you get to be four times faster.
 
@@ -368,12 +367,12 @@ Really, we will get there!
 The important part is that you can create components by aggregating primitives.
 
 ```typescript
-function Button (rect, text, action): UI (
+function Button (rect, text, action): UI {
 	return [
 		rect.with_color(Color.GRAY),
 		new Tap(rect, action),
 	]
-)
+}
 
 // Then, to use it:
 
@@ -441,7 +440,7 @@ Consider the case of having a button making an element appear or disappear.
 	</script>
 </blockquote>
 
-You need to not only create the elements, but weave them together in how their states alter their visuals. 
+You need to not only create the elements, but weave them together in how their states alter their visuals.
 
 ```typescript
 //Pseudo-code
@@ -557,7 +556,7 @@ Here is how we make the UI know what reacts to what.
 function ShowAndHide(): UI {
 	const rect = ...;
 	const isVisibleState = new Editable(false);
-	//          ^? Editable<bool>                
+	//          ^? Editable<bool>
 
 	return isVisibleState.map((isVisible) => [
 		Button(
@@ -575,7 +574,7 @@ function ShowAndHide(): UI {
 Haha.
 
 > Let's see... you changed `isVisible` to `isVisibleState` which is now of type `Editable<bool>`... whatever that is.
-> 
+>
 > And you wrapped the UI part inside `isVisibleState.map(...)`.
 
 Yep, `Editable`, is a monad that adds reactivity to a value.
@@ -654,8 +653,8 @@ let label = stringSignal.map( string => Text( string ) )
 And it would re-render _only_ the UI the signal resolved with, not the whole screen.
 
 > !!!
-> 
-> So this allows you to tell exactly what part of the UI changed. 
+>
+> So this allows you to tell exactly what part of the UI changed.
 
 Yes.
 
@@ -665,7 +664,7 @@ Yes.
 function ShowAndHide(): UI {
 	const rect = ...;
 	const isVisibleState = new Editable(false);
-	//          ^? Editable<bool>                
+	//          ^? Editable<bool>
 
 	return isVisibleState.map((isVisible) => [
 		Button(
@@ -734,12 +733,12 @@ A function.
 Yep! That's called a _Higher Order Function_, and is very common in functional programming.
 
 ```typescript
-function Button(action): (rect: Rect) => UI (
+function Button(action): (rect: Rect) => UI {
 	return (rect) => [
 		rect.with_color(Color.GRAY),
 		new Tap(rect, action),
 	]
-)
+}
 ```
 
 > WOAH.
@@ -747,12 +746,12 @@ function Button(action): (rect: Rect) => UI (
 In the library, actually, the inner closure can receive more than just `rect` from is parents, for example: theme (light or dark mode), gaps, locale, layout direction, user handedness...
 
 ```typescript
-function Button(action): (hx: ParentHints) => UI (
+function Button(action): (hx: ParentHints) => UI {
 	return (hx: ParentHints) => [
 		hx.rect.with_color(Color.GRAY),
 		new Tap(hx.rect, action),
 	]
-)
+}
 ```
 
 When you call `Button(...)`, what you are passing as a parameter to `App.run` is that inner closure. Every time the window resizes itself, it calls the closure to get new UI.
@@ -911,7 +910,7 @@ Finally, let's replicate the "ShowAndHide" example with all that we learned.
 function ShowAndHide(): LayoutItem {
 	const rect = ...;
 	const isVisibleState = new Editable(false);
-	
+
 	return isVisibleState.map((isVisible) => Row(
 		Button(
 			() => isVisibleState.set(!isVisible),
