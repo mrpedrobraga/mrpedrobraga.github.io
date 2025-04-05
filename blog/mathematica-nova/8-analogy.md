@@ -33,7 +33,7 @@ And operators represent ways to combine propositions.
 
 | Operators    | Phrase Connectors |
 | ------------ | ----------------- |
-| $\neg$       | not               |
+| $\lnot$       | not               |
 | $\land$      | and / but         |
 | $\lor$       | or                |
 | $\implies$   | if-then / implies |

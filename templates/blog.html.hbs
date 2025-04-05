@@ -1,29 +1,37 @@
 <html>
-    <head>
-        <title>mrpedrobraga.com</title>
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="mrpedrobraga - {{title}}">
-        <meta property="og:url" content="https://mrpedrobraga.com/blog/{{filename}}">
-        <meta property="og:image" content="">
-        <meta property="og:description" content="{{description}}">
 
-        <link rel="stylesheet" href="/public/main.css" />
-        <link rel="stylesheet" href="/public/atom-one-light.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/rust.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
-    </head>
-    <body>
-        <div id="progress_box"><div id="progress"></div></div>
-        <header>
-            <h1>{{ title }}</h1>
-            <div class="metadata">
-                <span class="translucid">Published on {{date}}</span>
-            </div>
-        </header>
-        <main>
-            {{{ content }}}
-        </main>
-        <script>hljs.highlightAll();</script>
-    </body>
+<head>
+    <title>mrpedrobraga.com</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="mrpedrobraga - {{title}}">
+    <meta property="og:url" content="https://mrpedrobraga.com/blog/{{filename}}">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="{{description}}">
+
+    <link rel="stylesheet" href="/public/main.css" />
+    <link rel="stylesheet" href="/public/atom-one-light.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/rust.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+</head>
+
+<body>
+    <div id="progress_box">
+        <div id="progress"></div>
+    </div>
+    <header>
+        <h1>{{ title }}</h1>
+        <div class="metadata">
+            <span class="translucid">Published on {{date}}</span>
+        </div>
+    </header>
+    <main>
+        {{{ content }}}
+    </main>
+    <script>hljs.highlightAll();</script>
+    <footer>
+        Made with code by Pedro Braga
+    </footer>
+</body>
+
 </html>

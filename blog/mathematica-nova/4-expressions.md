@@ -3,7 +3,7 @@ date: 2025-01-01
 tags:
   - logic
   - algebra
-title: Mathematica Nova - Introduction
+title: M. Nova Chapter 04 — Expressions
 description: ...
 ---
 Expressions are structures that relate values together. If names are words, expressions use words to form phrases.
@@ -61,21 +61,23 @@ We can define an evaluation table for $Id$ that relates groups of parameters to 
 | ---------- | ---------- |
 | $(▽)$      | $▽$        |
 | $(▲)$      | $▲$        |
+
 With this table, I can ask you to evaluate the following expression:
 
 $$Id(▲)$$
 The resulting value is ||obviously $▲$, duh...||
 
-Alright, we're having fun. With a new value: $\neg$, and the table:
+Alright, we're having fun. With a new value: $\lnot$, and the table:
 
 | Parameters | Evaluation |
 | ---------- | ---------- |
 | $(▽)$      | $▲$        |
 | $(▲)$      | $▽$        |
+
 You should be able to evaluate this expression:
-$$\neg(▽)$$
+$$\lnot(▽)$$
 You should _not_ be able to evaluate this expression, though:
-$$\neg(a)$$
+$$\lnot(a)$$
 That is because there is no row in our table that tells us how to handle this case. This fine — the expression simply becomes unbounded: just like a variable, it's perceived as not having a defined value, or being able to have any value.
 
 Here's the last example for this chapter. Considering a value $\land$ and the table:
@@ -86,11 +88,12 @@ Here's the last example for this chapter. Considering a value $\land$ and the ta
 | $(▽, ▲)$   | $▽$        |
 | $(▲, ▽)$   | $▽$        |
 | $(▲, ▲)$   | $▲$        |
-Can you evaluate this expression?
-$$\land(\neg(▽), ▲)$$
-Alright, okay, this is a special case. The table for $\land$ in question doesn't contain an answer for this pair of parameters $(\neg(▽), ▲)$, right?
 
-But this expression does have a value — it evaluates to ▲. That is because the evaluation tables, which correlates parameters to expressions, don't care about _structure_: they care about values. The value of the first parameter $\neg(▽)$ is $▲$... and thus the biggest expression is equivalent to the last row.
+Can you evaluate this expression?
+$$\land(\lnot(▽), ▲)$$
+Alright, okay, this is a special case. The table for $\land$ in question doesn't contain an answer for this pair of parameters $(\lnot(▽), ▲)$, right?
+
+But this expression does have a value — it evaluates to ▲. That is because the evaluation tables, which correlates parameters to expressions, don't care about _structure_: they care about values. The value of the first parameter $\lnot(▽)$ is $▲$... and thus the biggest expression is equivalent to the last row.
 
 At this point your head will probably be spinning a little bit. "Am I supposed to keep in mind what expressions evaluate to what??? What about big complex expressions???"
 

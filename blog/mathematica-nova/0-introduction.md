@@ -3,7 +3,7 @@ date: 2025-01-01
 tags:
   - logic
   - algebra
-title: Mathematica Nova - Introduction
+title: Mathematica Nova
 description: ...
 ---
 Growing up as an autistic boy in a world full of idioms, sayings, and implicit requirements, I always found solace in the rigorous, grounded world of mathematics. Which is why I always found it bizarre that most people see mathematics as some kind of arcane practice, that could only be understood by wizards.

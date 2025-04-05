@@ -3,7 +3,7 @@ date: 2025-01-01
 tags:
   - logic
   - algebra
-title: Mathematica Nova - Introduction
+title: M. Nova Chapter 01 — Values
 description: ...
 ---
 The first foundational concept in mathematics is the Value.

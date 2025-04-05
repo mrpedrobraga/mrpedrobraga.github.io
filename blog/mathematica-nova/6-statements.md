@@ -3,7 +3,7 @@ date: 2025-01-01
 tags:
   - logic
   - algebra
-title: Mathematica Nova - Introduction
+title: M. Nova Chapter 06 — Statements
 description: ...
 ---
 The concept of a statement is similar to that of an expression.
@@ -16,31 +16,32 @@ To affirm an expression is to say it evaluates to $▲$.
 
 > Why $▲$ and not $▽$? Well, just because! I could have chosen $▽$ if I wanted. I do have to pick some value, so I will pick $▲$.
 
-We can affirm the expression $\neg▽$ like this:
+We can affirm the expression $\lnot▽$ like this:
 
-$$\neg▽.$$
+$$\lnot▽.$$
 
-Meanwhile can _not_ affirm the expression $\neg▲$, after all, it does not evaluate to $▲$.
+Meanwhile can _not_ affirm the expression $\lnot▲$, after all, it does not evaluate to $▲$.
 
 Meaning these are all examples of valid affirmations:
 
 $$
 \begin{equation}
 	\begin{cases}
-		\neg▽\\
+		\lnot▽\\
 		▲\\
-		\neg\neg\neg▽
+		\lnot\lnot\lnot▽
 	\end{cases}
 \end{equation}
 $$
+
 And these are not:
 
 $$
 \begin{equation}
 	\begin{cases}
-		\neg▲\\
+		\lnot▲\\
 		▽\\
-		\neg\neg\neg\neg\neg\neg▽
+		\lnot\lnot\lnot\lnot\lnot\lnot▽
 	\end{cases}
 \end{equation}
 $$
@@ -85,13 +86,13 @@ When evaluating, we start from the parts of an expression and discover an outer 
 
 Consider this next affirmation:
 
-$$\neg b.$$
+$$\lnot b.$$
 
 What value does this affirmation constrain the variable $b$ to hold?
 
 ...
 
-That is right, $b$ is _forced_ to evaluate to $▽$, since '$\neg▽$' is the only valid affirmation you can form out of $\neg b.$
+That is right, $b$ is _forced_ to evaluate to $▽$, since '$\lnot▽$' is the only valid affirmation you can form out of $\lnot b.$
 
 Let us try statements involving binary operations!
 
@@ -116,6 +117,7 @@ We can observe all the possible evaluations of $a \land b$ in a table. The first
 | $▽$ | $▲$ | $▽$         |
 | $▲$ | $▽$ | $▽$         |
 | $▲$ | $▲$ | $▲$         |
+
 By affirming that expression...
 
 $$a \land b.$$
@@ -159,18 +161,18 @@ Now, check this out. On two of the valid cases, $b$ holds $▲$, and $a$ holds e
 
 We can constrain $b$ to $▽$ by affirming this:
 
-$$\neg b.$$
+$$\lnot b.$$
 
-| $a$ | $b$ | $\neg b$ |
+| $a$ | $b$ | $\lnot b$ |
 | --- | --- | -------- |
 | $▽$ | $▽$ | $▲$      |
 | $▽$ | $▲$ | $▽$      |
 | $▲$ | $▽$ | $▲$      |
 | $▲$ | $▲$ | $▽$      |
 
-We can merge both affirmations ($a \lor b$ with $\neg b$) into a single one ($a \lor b) \land (\neg b)$ and keeping count of which rows are valid cases, and which aren't.
+We can merge both affirmations ($a \lor b$ with $\lnot b$) into a single one ($a \lor b) \land (\lnot b)$ and keeping count of which rows are valid cases, and which aren't.
 
-| $a$ | $b$ | $(a \lor b) \land \neg b$ | $\therefore$ |
+| $a$ | $b$ | $(a \lor b) \land \lnot b$ | $\therefore$ |
 | --- | --- | ------------------------- | ------------ |
 | $▽$ | $▽$ | $▽$                       | ❌            |
 | $▽$ | $▲$ | $▽$                       | ❌            |
@@ -179,7 +181,7 @@ We can merge both affirmations ($a \lor b$ with $\neg b$) into a single one ($a 
 
 Following, though, we will represent each part of the conjunction $\land$ as its own unique column. Valid cases are then rows that do not have any $▽$ (which is effective applying the $\land$ operator):
 
-| $a$ | $b$ | $a \lor b$ | $\neg b$ | $\therefore$ |
+| $a$ | $b$ | $a \lor b$ | $\lnot b$ | $\therefore$ |
 | --- | --- | ---------- | -------- | ------------ |
 | $▽$ | $▽$ | $▽$        | $▲$      | ❌            |
 | $▽$ | $▲$ | $▲$        | $▽$      | ❌            |
@@ -188,7 +190,7 @@ Following, though, we will represent each part of the conjunction $\land$ as its
 
 For simplicity, we can just _omit_ the rows of the table following a $▽$ in a stencil column, "blocking" that case from continuing: which is why I call these "stencil columns"!
 
-| $a$ | $b$ | $a \lor b$ | $\neg b$ | $\therefore$ |
+| $a$ | $b$ | $a \lor b$ | $\lnot b$ | $\therefore$ |
 | --- | --- | ---------- | -------- | ------------ |
 | $▽$ | $▽$ | $▽$        |          |              |
 | $▽$ | $▲$ | $▲$        | $▽$      |              |
@@ -203,7 +205,7 @@ $$
 \begin{equation}
 	\begin{cases}
 	a \lor b\\
-	\neg b
+	\lnot b
 	\end{cases}
 \end{equation}
 $$
@@ -230,20 +232,22 @@ $$
 
 Some affirmations evaluate to $▲$ no matter the values of the variables inside it, and therefore make no constraints on them.
 
-| $a$ | $b$ | $a \lor \neg a$ | $\therefore$ |
+| $a$ | $b$ | $a \lor \lnot a$ | $\therefore$ |
 | --- | --- | --------------- | ------------ |
 | $▽$ | $▽$ | $▲$             | ✅            |
 | $▽$ | $▲$ | $▲$             | ✅            |
 | $▲$ | $▽$ | $▲$             | ✅            |
 | $▲$ | $▲$ | $▲$             | ✅            |
+
 These statements are called "tautologies."
 
 Other affirmations (or combination of affirmations) never evaluate to $▲$ no matter the values of the variables inside it, leaving no remaining valid cases to consider.
 
-| $a$ | $b$ | $a \land \neg a$ | $\therefore$ |
+| $a$ | $b$ | $a \land \lnot a$ | $\therefore$ |
 | --- | --- | ---------------- | ------------ |
-| $▽$ | $▽$ | $▽$              |              |
-| $▽$ | $▲$ | $▽$              |              |
-| $▲$ | $▽$ | $▽$              |              |
-| $▲$ | $▲$ | $▽$              |              |
+| $▽$ | $▽$ | $▽$              | ❌            |
+| $▽$ | $▲$ | $▽$              | ❌            |
+| $▲$ | $▽$ | $▽$              | ❌           |
+| $▲$ | $▲$ | $▽$              | ❌            |
+
 These statements are called "contradictions."

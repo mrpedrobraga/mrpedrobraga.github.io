@@ -3,7 +3,7 @@ date: 2025-01-01
 tags:
   - logic
   - algebra
-title: Mathematica Nova - Introduction
+title: M. Nova Chapter 07 — Questions
 description: ...
 ---
 
@@ -28,16 +28,18 @@ For example, $a \land b$ applies sufficient constraints such that in all remaini
 | $▽$ | $▲$ | $▽$         |                 |
 | $▲$ | $▽$ | $▽$         |                 |
 | $▲$ | $▲$ | $▲$         | $▲$             |
+
 Appending a question after affirmations is how we represent the idea of "Do these statements imply this other statement?"
 
-On the previous section I showed how $(a \lor b) \land \neg b$ implies $a$. Here is how we might "question" if it really does imply $a$.
+On the previous section I showed how $(a \lor b) \land \lnot b$ implies $a$. Here is how we might "question" if it really does imply $a$.
 
-| $a$ | $b$ | $a \lor b$ | $\neg b$ | $\therefore a?$ |
+| $a$ | $b$ | $a \lor b$ | $\lnot b$ | $\therefore a?$ |
 | :-: | :-: | :--------: | :------: | :-------------: |
 | $▽$ | $▽$ |    $▽$     |          |                 |
 | $▽$ | $▲$ |    $▲$     |   $▽$    |                 |
 | $▲$ | $▽$ |    $▲$     |   $▲$    |       $▲$       |
 | $▲$ | $▲$ |    $▲$     |   $▽$    |                 |
+
 And in the one resulting case, you can see that $a$ does evaluate to $▲$. Meaning that yes!
 
 Let us see how this looks like for the previous section's exercise, too, regarding Hypothetical Syllogism, and ask ourselves: "Does $(a \implies b) \land a$ imply $b$?"
@@ -48,6 +50,7 @@ Let us see how this looks like for the previous section's exercise, too, regardi
 | $▽$ | $▲$ |      $▲$       | $▽$ |                 |
 | $▲$ | $▽$ |      $▽$       |     |                 |
 | $▲$ | $▲$ |      $▲$       | $▲$ |       $▲$       |
+
 And we see that it does!
 
 Here is a case of a failed proof.
@@ -58,11 +61,12 @@ Here is a case of a failed proof.
 | $▽$ | $▲$ |      $▲$       | $▲$ |       $▽$       |
 | $▲$ | $▽$ |      $▽$       |     |                 |
 | $▲$ | $▲$ |      $▲$       | $▲$ |       $▲$       |
+
 The question column has both $▲$ and $▽$, meaning that the expression can not be definitely constrained.
 
 Tautologies can not help in proofs, since they perform no constraining.
 
-| $a$ | $b$ | $a \lor \neg a$ | $\therefore b?$ |
+| $a$ | $b$ | $a \lor \lnot a$ | $\therefore b?$ |
 | :-: | :-: | :-------------: | :-------------: |
 | $▽$ | $▽$ |       $▲$       |       $▽$       |
 | $▽$ | $▲$ |       $▲$       |       $▲$       |
@@ -71,7 +75,7 @@ Tautologies can not help in proofs, since they perform no constraining.
 
 Contradictions can not help in proofs, since they completely eliminate all possible cases.
 
-| $a$ | $b$ | $(a \implies b) \land (a \implies \neg b)$ | $\therefore b?$ |
+| $a$ | $b$ | $(a \implies b) \land (a \implies \lnot b)$ | $\therefore b?$ |
 | :-: | :-: | :----------------------------------------: | :-------------: |
 | $▽$ | $▽$ |                    $▽$                     |       $▽$       |
 | $▽$ | $▲$ |                    $▽$                     |       $▲$       |
@@ -80,7 +84,7 @@ Contradictions can not help in proofs, since they completely eliminate all possi
 
 When used in question forms, however, tautologies can be proved without any affirmations.
 
-| $a$ | $b$ | $\therefore a \lor \neg a?$ |
+| $a$ | $b$ | $\therefore a \lor \lnot a?$ |
 | :-: | :-: | :-------------------------: |
 | $▽$ | $▽$ |             $▲$             |
 | $▽$ | $▲$ |             $▲$             |
@@ -89,7 +93,7 @@ When used in question forms, however, tautologies can be proved without any affi
 
 Contradictions can _never_ be proved, no matter how many affirmations.
 
-| $a$ | $b$ | $\therefore \neg a \impliedby a?$ |
+| $a$ | $b$ | $\therefore \lnot a \impliedby a?$ |
 | :-: | :-: | :-------------------------------: |
 | $▽$ | $▽$ |                $▽$                |
 | $▽$ | $▲$ |                $▽$                |

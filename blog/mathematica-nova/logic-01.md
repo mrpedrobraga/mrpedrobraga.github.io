@@ -78,34 +78,35 @@ Expressions, like lexical bindings, have a "value," also. The value of an expres
 
 The inquiry of the value of an expression is called "evaluation."
 
-More complex expressions can be made by combining values into elaborate structures. Consider the new value $\neg$, for example.
+More complex expressions can be made by combining values into elaborate structures. Consider the new value $\lnot$, for example.
 
-$$\neg$$
+$$\lnot$$
 
-One way we can create _structure_ is by "applying" expressions to each other. The expression $\neg$ can be _applied_ to $▽$.
+One way we can create _structure_ is by "applying" expressions to each other. The expression $\lnot$ can be _applied_ to $▽$.
 
 ```mermaid
 graph LR;
     A[¬]-->B[▽];
 ```
 
-The expression birthed from an application is called an operation. $\neg$ is the operator, and the value we applied it to, in this case $▽$, is the operand.
+The expression birthed from an application is called an operation. $\lnot$ is the operator, and the value we applied it to, in this case $▽$, is the operand.
 
 For simplicity, we represent the application on a single line, by writing the operator and the operand side by side.
-$$\neg▽$$
+$$\lnot▽$$
 
 Now you may ask "What is the value of this expression?"
 
-Since we created $\neg$, we get to decide what value the operation evaluates to in terms of its operand. For now, let only consider $▽$ and $▲$ as possible operands.
+Since we created $\lnot$, we get to decide what value the operation evaluates to in terms of its operand. For now, let only consider $▽$ and $▲$ as possible operands.
 
 Hmm... I know!
 
-I will define that $\neg▽$ will evaluate to $▲$. And $\neg▲$ will evaluate to $▽$. That makes for a nice "swapping operator," right? Let us see that organised on a nice table.
+I will define that $\lnot▽$ will evaluate to $▲$. And $\lnot▲$ will evaluate to $▽$. That makes for a nice "swapping operator," right? Let us see that organised on a nice table.
 
 | Expression | Evaluates to |
 | ---------- | ------------ |
-| $\neg▽$    | $▲$          |
-| $\neg▲$    | $▽$          |
+| $\lnot▽$    | $▲$          |
+| $\lnot▲$    | $▽$          |
+
 I could, of course, had chosen a different behaviour for our operator. If you are curious about all the different ways we could decide how an operator evaluates...
 
 Consider an operator $M$ that can be applied to $▽$ and $▲$ and evaluate to either $▽$ or $▲$.
@@ -114,6 +115,7 @@ Consider an operator $M$ that can be applied to $▽$ and $▲$ and evaluate to 
 | ---- | ------------ |
 | $M▽$ | $▽$ or $▲$   |
 | $M▲$ | $▽$ or $▲$   |
+
 For the application of $M$ on $▽$ we can define one of two possible results. For the application on $▲$ we can define one of two possible results. You can actually count all the possibilities! There are only _four_ possible operator tables.
 
 | Op  | Value |
@@ -137,7 +139,7 @@ For the application of $M$ on $▽$ we can define one of two possible results. F
 | $▲$ | $▲$   |
 
 > [!tip]
-> You can see that our definition of $\neg$ is the second table from this list.
+> You can see that our definition of $\lnot$ is the second table from this list.
 
 We can also create operators that take two operands! The syntax for this is having your operator and the operands inside parentheses, separated by commas.
 $$M(▽, ▲)$$
@@ -159,6 +161,7 @@ The important part is that we can also define what a binary operator evaluates t
 | $(▽, ▲)$ | $▲$ or $▽$ |
 | $(▲, ▽)$ | $▲$ or $▽$ |
 | $(▲, ▲)$ | $▲$ or $▽$ |
+
 There are, in total, sixteen different binary operators. Since an operator is determined by four choices of values (for each combination of inputs), we can represent them as quadruples of values for each combination of input, following the order from the table above $((▽, ▽), (▽, ▲), (▲, ▽), (▲, ▲))$.
 
 The sixteen operators are:
@@ -186,7 +189,7 @@ As we will see nearing the episode's end, some of these operators are particular
 #### Rules of Rewriting
 
 
-Consider the expression $\neg\neg▽$...
+Consider the expression $\lnot\lnot▽$...
 
 (Please think of this structure:)
 ```mermaid
@@ -195,15 +198,15 @@ graph LR;
   B-->C[▽]
 ```
 
-It is rather complex, composing of an application of $\neg$ to $\neg▽$, which we do not know how to evaluate. However, we can rewrite the inner $\neg▽$ as $▲$, resulting in a new expression...
+It is rather complex, composing of an application of $\lnot$ to $\lnot▽$, which we do not know how to evaluate. However, we can rewrite the inner $\lnot▽$ as $▲$, resulting in a new expression...
 
-$$\neg▲$$
+$$\lnot▲$$
 
 ...which we do know how to evaluate.
 
-Because the value of a $\neg$ operation depends only on its input value, and the values of $\neg▽$ and $▲$ are the same, the values of $\neg\neg▽$ and its rewritten form $\neg▲$ are the same too! This is good, because we did not know how to evaluate the first expression, but we do know how to evaluate the second. Since these two expressions evaluate to the same value, evaluating one is evaluating both.
+Because the value of a $\lnot$ operation depends only on its input value, and the values of $\lnot▽$ and $▲$ are the same, the values of $\lnot\lnot▽$ and its rewritten form $\lnot▲$ are the same too! This is good, because we did not know how to evaluate the first expression, but we do know how to evaluate the second. Since these two expressions evaluate to the same value, evaluating one is evaluating both.
 
-$\neg▲$ evaluates to ▽. And so $\neg\neg▽$ evaluates to ▲.
+$\lnot▲$ evaluates to ▽. And so $\lnot\lnot▽$ evaluates to ▲.
 
 But, by far the most powerful aspect of rewriting is that you can perform it *without knowing the exact value the expression evaluates to*.
 
@@ -211,9 +214,9 @@ For example, consider this operation with an unknown operator $M$:
 
 $$M▽$$
 
-You do not know what the evaluation rules for $M$, so you do not know the value of $M▽$, correct? But since $▽$ has the same value as $\neg▲$, you can rewrite the operation like this:
+You do not know what the evaluation rules for $M$, so you do not know the value of $M▽$, correct? But since $▽$ has the same value as $\lnot▲$, you can rewrite the operation like this:
 
-$$M\neg▲$$
+$$M\lnot▲$$
 
 You _still_ do not know what value this expression evaluates to, but it is the same value that the previous one did.
 
@@ -225,7 +228,7 @@ By looking up in the table (remember $\land$ is operator 8) we see that this exp
 
 If we have a binary operation containing a variable...
 
-$$a \land \neg a$$
+$$a \land \lnot a$$
 ### Statements
 The concept of a statement is similar to that of an expression.
 
@@ -237,20 +240,20 @@ To affirm an expression is to say it evaluates to $▲$.
 
 > Why $▲$ and not $▽$? Well, just because! I could have chosen $▽$ if I wanted. I do have to pick some value, so I will pick $▲$.
 
-We can affirm the expression $\neg▽$ like this:
+We can affirm the expression $\lnot▽$ like this:
 
-$$\neg▽.$$
+$$\lnot▽.$$
 
-Meanwhile can _not_ affirm the expression $\neg▲$, after all, it does not evaluate to $▲$.
+Meanwhile can _not_ affirm the expression $\lnot▲$, after all, it does not evaluate to $▲$.
 
 Meaning these are all examples of valid affirmations:
 
 $$
 \begin{equation}
 	\begin{cases}
-		\neg▽\\
+		\lnot▽\\
 		▲\\
-		\neg\neg\neg▽
+		\lnot\lnot\lnot▽
 	\end{cases}
 \end{equation}
 $$
@@ -259,9 +262,9 @@ And these are not:
 $$
 \begin{equation}
 	\begin{cases}
-		\neg▲\\
+		\lnot▲\\
 		▽\\
-		\neg\neg\neg\neg\neg\neg▽
+		\lnot\lnot\lnot\lnot\lnot\lnot▽
 	\end{cases}
 \end{equation}
 $$
@@ -306,13 +309,13 @@ When evaluating, we start from the parts of an expression and discover an outer 
 
 Consider this next affirmation:
 
-$$\neg b.$$
+$$\lnot b.$$
 
 What value does this affirmation constrain the variable $b$ to hold?
 
 ...
 
-That is right, $b$ is _forced_ to evaluate to $▽$, since '$\neg▽$' is the only valid affirmation you can form out of $\neg b.$
+That is right, $b$ is _forced_ to evaluate to $▽$, since '$\lnot▽$' is the only valid affirmation you can form out of $\lnot b.$
 
 Let us try statements involving binary operations!
 
@@ -380,18 +383,18 @@ Now, check this out. On two of the valid cases, $b$ holds $▲$, and $a$ holds e
 
 We can constrain $b$ to $▽$ by affirming this:
 
-$$\neg b.$$
+$$\lnot b.$$
 
-| $a$ | $b$ | $\neg b$ |
+| $a$ | $b$ | $\lnot b$ |
 | --- | --- | -------- |
 | $▽$ | $▽$ | $▲$      |
 | $▽$ | $▲$ | $▽$      |
 | $▲$ | $▽$ | $▲$      |
 | $▲$ | $▲$ | $▽$      |
 
-We can merge both affirmations ($a \lor b$ with $\neg b$) into a single one ($a \lor b) \land (\neg b)$ and keeping count of which rows are valid cases, and which aren't.
+We can merge both affirmations ($a \lor b$ with $\lnot b$) into a single one ($a \lor b) \land (\lnot b)$ and keeping count of which rows are valid cases, and which aren't.
 
-| $a$ | $b$ | $(a \lor b) \land \neg b$ | $\therefore$ |
+| $a$ | $b$ | $(a \lor b) \land \lnot b$ | $\therefore$ |
 | --- | --- | ------------------------- | ------------ |
 | $▽$ | $▽$ | $▽$                       | ❌            |
 | $▽$ | $▲$ | $▽$                       | ❌            |
@@ -400,7 +403,7 @@ We can merge both affirmations ($a \lor b$ with $\neg b$) into a single one ($a 
 
 Following, though, we will represent each part of the conjunction $\land$ as its own unique column. Valid cases are then rows that do not have any $▽$ (which is effective applying the $\land$ operator):
 
-| $a$ | $b$ | $a \lor b$ | $\neg b$ | $\therefore$ |
+| $a$ | $b$ | $a \lor b$ | $\lnot b$ | $\therefore$ |
 | --- | --- | ---------- | -------- | ------------ |
 | $▽$ | $▽$ | $▽$        | $▲$      | ❌            |
 | $▽$ | $▲$ | $▲$        | $▽$      | ❌            |
@@ -409,7 +412,7 @@ Following, though, we will represent each part of the conjunction $\land$ as its
 
 For simplicity, we can just _omit_ the rows of the table following a $▽$ in a stencil column, "blocking" that case from continuing: which is why I call these "stencil columns"!
 
-| $a$ | $b$ | $a \lor b$ | $\neg b$ | $\therefore$ |
+| $a$ | $b$ | $a \lor b$ | $\lnot b$ | $\therefore$ |
 | --- | --- | ---------- | -------- | ------------ |
 | $▽$ | $▽$ | $▽$        |          |              |
 | $▽$ | $▲$ | $▲$        | $▽$      |              |
@@ -424,7 +427,7 @@ $$
 \begin{equation}
 	\begin{cases}
 	a \lor b\\
-	\neg b
+	\lnot b
 	\end{cases}
 \end{equation}
 $$
@@ -451,7 +454,7 @@ $$
 
 Some affirmations evaluate to $▲$ no matter the values of the variables inside it, and therefore make no constraints on them.
 
-| $a$ | $b$ | $a \lor \neg a$ | $\therefore$ |
+| $a$ | $b$ | $a \lor \lnot a$ | $\therefore$ |
 | --- | --- | --------------- | ------------ |
 | $▽$ | $▽$ | $▲$             | ✅            |
 | $▽$ | $▲$ | $▲$             | ✅            |
@@ -461,7 +464,7 @@ These statements are called "tautologies."
 
 Other affirmations (or combination of affirmations) never evaluate to $▲$ no matter the values of the variables inside it, leaving no remaining valid cases to consider.
 
-| $a$ | $b$ | $a \land \neg a$ | $\therefore$ |
+| $a$ | $b$ | $a \land \lnot a$ | $\therefore$ |
 | --- | --- | ---------------- | ------------ |
 | $▽$ | $▽$ | $▽$              |              |
 | $▽$ | $▲$ | $▽$              |              |
@@ -492,9 +495,9 @@ For example, $a \land b$ applies sufficient constraints such that in all remaini
 | $▲$ | $▲$ | $▲$         | $▲$             |
 Appending a question after affirmations is how we represent the idea of "Do these statements imply this other statement?"
 
-On the previous section I showed how $(a \lor b) \land \neg b$ implies $a$. Here is how we might "question" if it really does imply $a$.
+On the previous section I showed how $(a \lor b) \land \lnot b$ implies $a$. Here is how we might "question" if it really does imply $a$.
 
-| $a$ | $b$ | $a \lor b$ | $\neg b$ | $\therefore a?$ |
+| $a$ | $b$ | $a \lor b$ | $\lnot b$ | $\therefore a?$ |
 | :-: | :-: | :--------: | :------: | :-------------: |
 | $▽$ | $▽$ |    $▽$     |          |                 |
 | $▽$ | $▲$ |    $▲$     |   $▽$    |                 |
@@ -524,7 +527,7 @@ The question column has both $▲$ and $▽$, meaning that the expression can no
 
 Tautologies can not help in proofs, since they perform no constraining.
 
-| $a$ | $b$ | $a \lor \neg a$ | $\therefore b?$ |
+| $a$ | $b$ | $a \lor \lnot a$ | $\therefore b?$ |
 | :-: | :-: | :-------------: | :-------------: |
 | $▽$ | $▽$ |       $▲$       |       $▽$       |
 | $▽$ | $▲$ |       $▲$       |       $▲$       |
@@ -533,7 +536,7 @@ Tautologies can not help in proofs, since they perform no constraining.
 
 Contradictions can not help in proofs, since they completely eliminate all possible cases.
 
-| $a$ | $b$ | $(a \implies b) \land (a \implies \neg b)$ | $\therefore b?$ |
+| $a$ | $b$ | $(a \implies b) \land (a \implies \lnot b)$ | $\therefore b?$ |
 | :-: | :-: | :----------------------------------------: | :-------------: |
 | $▽$ | $▽$ |                    $▽$                     |       $▽$       |
 | $▽$ | $▲$ |                    $▽$                     |       $▲$       |
@@ -542,7 +545,7 @@ Contradictions can not help in proofs, since they completely eliminate all possi
 
 When used in question forms, however, tautologies can be proved without any affirmations.
 
-| $a$ | $b$ | $\therefore a \lor \neg a?$ |
+| $a$ | $b$ | $\therefore a \lor \lnot a?$ |
 | :-: | :-: | :-------------------------: |
 | $▽$ | $▽$ |             $▲$             |
 | $▽$ | $▲$ |             $▲$             |
@@ -551,7 +554,7 @@ When used in question forms, however, tautologies can be proved without any affi
 
 Contradictions can _never_ be proved, no matter how many affirmations.
 
-| $a$ | $b$ | $\therefore \neg a \impliedby a?$ |
+| $a$ | $b$ | $\therefore \lnot a \impliedby a?$ |
 | :-: | :-: | :-------------------------------: |
 | $▽$ | $▽$ |                $▽$                |
 | $▽$ | $▲$ |                $▽$                |
@@ -586,7 +589,7 @@ And operators represent ways to combine propositions.
 
 | Operators    | Phrase Connectors |
 | ------------ | ----------------- |
-| $\neg$       | not               |
+| $\lnot$       | not               |
 | $\land$      | and / but         |
 | $\lor$       | or                |
 | $\implies$   | if-then / implies |

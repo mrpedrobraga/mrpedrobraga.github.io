@@ -3,7 +3,7 @@ date: 2025-01-01
 tags:
   - logic
   - algebra
-title: Mathematica Nova - Introduction
+title: M. Nova Chapter 02 — Names
 description: ...
 ---
 So, a value is, at its core, an idea one can think of, and ideas can not be directly shared.
@@ -43,5 +43,5 @@ Our lexical binding has three parts:
 
 It's important to stress that at this point, you should not have any difficulties — make sure you really did absorb these concepts before we move forward.
 
-> [!TLDR]
+> [!note]
 > There are "Values", which are ideas. A value in isolation has no parts and does nothing. You can tie "Names" to Values in order to represent them for the purpose of conversation. This tie is called "Lexical Binding."

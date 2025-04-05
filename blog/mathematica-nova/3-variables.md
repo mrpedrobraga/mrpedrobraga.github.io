@@ -3,7 +3,7 @@ date: 2025-01-01
 tags:
   - logic
   - algebra
-title: Mathematica Nova - Introduction
+title: M. Nova Chapter 03 — Variables
 description: ...
 ---
 It's possible to have a name that is not bound to any particular value. This unbound name is called a "variable," in the sense that it "varies": if we have a name $a$, we can enumerate which values it might refer to.
@@ -14,6 +14,7 @@ For now, let's only consider ▽ and ▲[^1].
 | --- |
 | ▽   |
 | ▲   |
+
 The opposite of a variable (a bound name) is called a "constant."
 
 > [!TIP] Variable (noun)

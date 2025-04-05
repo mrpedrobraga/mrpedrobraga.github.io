@@ -82,8 +82,8 @@ The API is inspired by *functional programming*. State synchronisation (reactivi
 
 It is also very easy to install, and has one of the best official package managers, `cargo`.
 
-```
-// Rust being very easy to install:
+```bash
+# Rust being very easy to install:
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
@@ -95,7 +95,7 @@ You do not pay a performance fee for organisation (the way you do with an interp
 ## Considerations
 As of the moment, UI Composer is still experimental. Graphics development is hard!
 
-I have much to research about myriad topics: order-independent transparency, deferred anti-aliasing, multi-threading, hot-reloading, texture allocation, repainting, embedded systems, over-the-network reactivity and so much more.
+There's a lot of research ahead about myriad topics: order-independent transparency, deferred anti-aliasing, multi-threading, hot-reloading, texture allocation, repainting, embedded systems, over-the-network reactivity and so much more.
 
 I have so much to talk about!
 

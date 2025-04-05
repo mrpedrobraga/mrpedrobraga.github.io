@@ -47,7 +47,7 @@ Now here is the same button, without its visuals but with its interactivity.
 
 Try clicking on it!
 
-> Oh, yeah! It worked!
+> Huh! It worked!
 
 If _you_ were to implement this behaviour from scratch, you would follow these steps:
 - Register a listener for events the Operating System receives;
@@ -201,14 +201,14 @@ Yes!
 
 Pixels are easily modifiable by changing some memory sitting somewhere. They are layed down in the one-dimensional memory left to right, then top to bottom, the same way letters flow in a paragraph of text.
 
-<blockquote style="display:flex;flex-direction:row;gap:1em;">
+<blockquote class="showcase" style="display:flex;flex-direction:row;gap:1em;">
 <style>
 	img {
 		image-rendering:pixelated;
 		min-width: 64px;
 	}
 </style>
-<img src="./assets/8by8img.png"/>
+<img src="https://mrpedrobraga.com/blog/assets/8by8img.png"/>
 	<div>[ Red, Yellow, Cyan, Green, Pink, Purple, Blue, Navy, Dark Gray, Light Gray, Darkish Light Gray, Lime, Pink, ... ]</div>
 </blockquote>
 
@@ -304,7 +304,7 @@ Well-
 
 Very perceptive. The first good thing is, you don't have to send new geometry for _every_ rectangle. They all have the same geometry.
 
-One of my favourite things GPUs can do is _Instanced Drawing_, where you specify a geometry once and draw it like, a million times by just saying:
+One of my favourite things GPUs can do is _Instanced Drawing_, where you specify a geometry once and draw it _like, a million times_ by just saying:
 
 ```typescript
 vkCmdDrawIndexed(like, a million times);
@@ -425,7 +425,7 @@ If you have a button in a [**retained** mode](https://en.wikipedia.org/wiki/Reta
 
 Consider the case of having a button making an element appear or disappear.
 
-<blockquote style="display:flex; gap:1em;">
+<blockquote class="showcase" style="display:flex; gap:1em;">
 	<input id="btn" type="button" value="Show"/>
 	<div id="element" style="visibility:hidden;">Hello there!</div>
 	<script>
