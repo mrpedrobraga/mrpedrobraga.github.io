@@ -1,0 +1,68 @@
+.fountain { 
+    display: block;
+    padding-block-start: 0.5rem;
+    padding-inline: 2rem;
+    padding-block-end: 2rem;
+    border-radius: 4px;
+    overflow: scroll;
+    tab-size: 1em;
+    background-color: #faf6f6;
+    border: 1px solid rgb(192, 189, 187);
+    box-shadow: 2px 2px 2px #e7e2e2;
+    max-width: calc(48rem + 2rem);
+    margin-inline: auto;
+}
+
+.fountain .scene {
+    font-weight: bolder;
+    margin-block: 1rem;
+    color: #88412c;
+}
+
+.fountain .speaker {
+    margin-block-start: 1em;
+    margin-inline-start: calc(10em + 8em);
+    color: #3d2c88;
+}
+
+.fountain .dialogue {
+    margin-inline-start: 10em;
+    color: #195466;
+}
+
+.fountain .parenthetical {
+    margin-inline-start: calc(10em + 4em);
+    font-style: italic;
+    color: #6ba9b4;
+}
+
+.fountain .dialogue + :not(.dialogue):not(.parenthetical),
+.fountain .parenthetical + :not(.dialogue):not(.parenthetical) {
+    margin-block-start: 1em;
+}
+
+.fountain .dual-dialogue {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-inline: auto;
+    width: fit-content;
+
+    & .dialogue {
+        margin-inline-start: 0;
+        min-width: 16em;
+    }
+
+    & .speaker {
+        margin-inline-start: 6em;
+    }
+
+    &.parenthetical {
+        margin-inline-start: 3em;
+    }
+}
+
+.fountain .transition {
+    text-align: end;
+}

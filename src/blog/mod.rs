@@ -64,7 +64,8 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
     let root = comrak::parse_document(&arena, raw_markdown.as_str(), options);
     
     let mut blog_metadata = BlogFrontmatter::default();
-    let mut aoi = vec![];
+    let mut math_nodes = vec![];
+    let mut fountain_nodes = vec![];
 
     for node in root.descendants() {
         // Find the blog's metadata.
@@ -78,12 +79,19 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
 
         // Store nodes of interest for parsing LaTeX into MathXML.
         if let comrak::nodes::NodeValue::Math(_) = node.data.borrow().value {
-            aoi.push(node);
+            math_nodes.push(node);
+        }
+
+        // Store nodes of interest for parsing fountain scripts
+        if let comrak::nodes::NodeValue::CodeBlock(ref c) = node.data.borrow().value {
+            if c.info == "fountain" {
+                fountain_nodes.push(node);
+            }
         }
     }
 
     // Transform LaTeX into MathXML.
-    for node in aoi {
+    for node in math_nodes {
         if let comrak::nodes::NodeValue::Math(ref latex) = node.data.borrow().value {
             let display_style = if latex.display_math {
                 latex2mathml::DisplayStyle::Block
@@ -96,6 +104,30 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
                 comrak::nodes::NodeValue::HtmlBlock(comrak::nodes::NodeHtmlBlock {
                     block_type: 0,
                     literal: mathml,
+                }),
+                comrak::nodes::LineColumn::from(node.data.borrow().sourcepos.start.clone()),
+            )));
+            let new_node = arena.alloc(new_node);
+            node.insert_after(new_node);
+            node.detach();
+        }
+    }
+
+    // Transform Fountain into HTML.
+    for node in fountain_nodes {
+        if let comrak::nodes::NodeValue::CodeBlock(ref code) = node.data.borrow().value {
+            let script = fountain::parse_document::<()>(code.literal.as_str());
+            let html = script
+                .map(|document| {
+                    let mut html = document.1.as_html();
+                    html.insert_str(4, " class=\"fountain\"");
+                    html
+                })
+                .unwrap_or("[Invalid Fountain]".to_string());
+            let new_node = comrak::arena_tree::Node::new(RefCell::new(Ast::new(
+                comrak::nodes::NodeValue::HtmlBlock(comrak::nodes::NodeHtmlBlock {
+                    block_type: 0,
+                    literal: html,
                 }),
                 comrak::nodes::LineColumn::from(node.data.borrow().sourcepos.start.clone()),
             )));
