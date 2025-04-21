@@ -1,24 +1,70 @@
-<html>
+<!DOCTYPE html>
+<html style="background-color:#eeeae1;">
 
 <head>
-    <title>mrpedrobraga.com</title>
+    <title>you@mrpedrobraga.com {{gimmick_path}}</title>
     <meta property="og:type" content="website">
-    <meta property="og:title" content="mrpedrobraga - Home">
-    <meta property="og:url" content="https://mrpedrobraga.com">
+    <meta property="og:title" content="mrpedrobraga.com — {{title}}">
+    <meta property="og:url" content="https://mrpedrobraga.com{{path}}">
     <meta property="og:image" content="">
     <meta property="og:description" content="Pedro Braga — Software Engineer, Game Developer, total nerd!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="/public/main.css" />
+    <link rel="preload" as="image" href="/public/images/main-page-graphic-center-dark.png">
+    <link rel="preload" as="image" href="/public/images/main-page-graphic-center-light.png">
+    <link rel="preload" as="image" href="/public/images/main-page-graphic-L-dark.png">
+    <link rel="preload" as="image" href="/public/images/main-page-graphic-L-light.png">
+    <link rel="preload" as="image" href="/public/images/main-page-graphic-R-dark.png">
+    <link rel="preload" as="image" href="/public/images/main-page-graphic-R-light.png">
+    <link rel="preload" as="image" href="/public/images/logo-dark.png">
+    <link rel="preload" as="image" href="/public/images/logo-light.png">
+    <link rel="preload" as="image" href="/public/images/window-dark.png">
+    <link rel="preload" as="image" href="/public/images/window-light.png">
+    <link rel="preload" as="image" href="/public/images/theme-switch-dark.png">
+    <link rel="preload" as="image" href="/public/images/theme-switch-light.png">
+
     <link rel="stylesheet" href="/public/main.css" />
 </head>
 
-<body>
+<body class="light-mode">
     <header class="hero">
+        <div class="main-logo"></div>
     </header>
+    <div class="graphic-l"></div>
+    <div class="graphic-r"></div>
     <main>
-        <p>Greetings!</p>
-        <p>I'm Pedro, a Software Engineer based on Brazil.</p>
+        <div class="floating window"
+            style="position: absolute; width: 16rem; height: 16rem; top: 2rem; left: calc(100% + 1rem);">
+            <div class="content">
+                See also: <a href="https://benichi.neocities.org" target="_blank">this other guy</a>!
+            </div>
+        </div>
+        <nav>
+            <style>
+                nav>ul>li:nth-child({{ nav_index}}) a {
+                    color: var(--color-primary-fg);
+                }
+            </style>
+            <div class="options">
+                <button class="menu-toggle"
+                    onclick="document.querySelector('#menu').classList.toggle('mobile-hidden')"></button>
+                <button class="theme-switcher"
+                    onclick="document.body.classList.toggle('light-mode'); document.body.classList.toggle('dark-mode')"></button>
+            </div>
+            <ul id="menu" class="mobile-hidden">
+                <li><a href="/">Home</a></li>
+                <li><a href="/software">Tools & Software</a></li>
+                <li><a href="/videogames">Games</a></li>
+                <li><a href="/art">Art</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+        </nav>
+        <p>
+            {{{content}}}
+        </p>
     </main>
     <footer>
-        Made with code by Pedro Braga
+        <span>Made with <em>HTML</em>.</span>
     </footer>
 </body>
 

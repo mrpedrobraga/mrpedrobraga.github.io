@@ -10,7 +10,7 @@ So, a value is, at its core, an idea one can think of, and ideas can not be dire
 
 Now, if I ask you "think of an animal," and I ask you to tell me which one you thought of, what will you do? Most likely you will use _language_ to elicit the idea you thought of to me. "Elephant."
 
-In maths, we can do the same, by using _names_. A name can be a letter, a word or a little drawing. For the value I made on the previous chapter (yeah, that one), I'll give the name "$▽$". 
+In maths, we can do the same, by using _names_. A name can be a letter, a word or a little drawing. For the value I made on the previous chapter (yeah, that one), I'll give the name "$▽$".
 
 So, our first new value is $▽$.
 

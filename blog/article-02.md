@@ -711,7 +711,7 @@ App.run(
 The UI you pass to `App.run` is layed out into a "container," and when you put a Button on it, it makes the button fill the whole window.
 
 <div class="window">
-	<input type="button" value="Button" onclick="alert('Hello there!')" style="width:100%; height: 100%; background-color: #ddd;"/>
+	<input type="button" value="Button" onclick="alert('Hello there!')" style="width:100%; height: 100%;"/>
 </div>
 
 > Wait... like you said, there's no "Button" element created...
@@ -771,7 +771,7 @@ App.run(
 ```
 
 <div class="window" style="display: flex; align-items: center; justify-content: center;">
-	<input type="button" value="Button" onclick="alert('Hello there!')" style="background-color:#ddd;"/>
+	<input type="button" value="Button" onclick="alert('Hello there!')"/>
 </div>
 
 > How does the window know that it now needs to centre the button?
@@ -822,8 +822,8 @@ Because of `ParentHints`, it is aware of the current layout direction, and can l
 > Interesting!
 
 <div class="window" style="display: flex;">
-	<input type="button" value="Button" onclick="alert('Hello there!')" style="background-color:#ddd; height: 100%;"/>
-	<input type="button" value="Button" onclick="alert('Hello there!')" style="background-color:#ddd; height: 100%;"/>
+	<input type="button" value="Button" onclick="alert('Hello there!')" style=" height: 100%;"/>
+	<input type="button" value="Button" onclick="alert('Hello there!')" style=" height: 100%;"/>
 </div>
 
 > Wait! How does the `Row` know to put one button besides the other? It would need to know the size that the first button occupies... but the `Button(...)` call only returns a function.
@@ -933,7 +933,7 @@ function Button(action): LayoutItem (
 ```
 
 <div class="window" style="display: flex;">
-	<input type="button" value="Button" onclick="this.parentElement.querySelector('span').classList.toggle('hidden')" style="background-color:#ddd; height: 100%;"/>
+	<input type="button" value="Button" onclick="this.parentElement.querySelector('span').classList.toggle('hidden')" style=" height: 100%;"/>
 	<span class="hidden" style="user-select: none;">Hello there!</span>
 	<style>.hidden { display: none; }</style>
 </div>

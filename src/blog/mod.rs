@@ -5,8 +5,6 @@ use rocket::{fs::{relative, FileServer}, get, routes, Build, Rocket};
 use rocket_dyn_templates::{context, Template};
 use serde::{Deserialize, Serialize};
 
-use crate::not_found;
-
 pub fn mount_routes(ro: Rocket<Build>) -> Rocket<Build> {
     ro.mount("/blog", routes![base, blog])
     .mount("/blog/assets", FileServer::from(relative!("blog/assets")))
@@ -14,7 +12,16 @@ pub fn mount_routes(ro: Rocket<Build>) -> Rocket<Build> {
 
 #[get("/")]
 fn base() -> Template {
-    Template::render("blog-base", context! {})
+    Template::render(
+        "base",
+        context! {
+            title: "Blog",
+            gimmick_path: "~/blog",
+            path: "/blog",
+            nav_index: 5,
+            content: crate::render_markdown_file(PathBuf::from("./blog/blog.md")).expect("Failed to get file etc")
+        }
+    )
 }
 
 #[derive(Serialize, Deserialize, Default)]
@@ -42,7 +49,7 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
             .with_extension("md")
             .as_path()
         )
-            .map_err(|_| rocket::response::status::NotFound(not_found()))?;
+            .map_err(|_| rocket::response::status::NotFound("Not found".into()))?;
 
     // Parse it indo markdown.
     let arena = comrak::Arena::new();

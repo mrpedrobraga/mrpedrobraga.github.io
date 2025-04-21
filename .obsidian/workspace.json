@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/mathematica-nova/logic-01.md",
+                "file": "blog/article-01.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "logic-01"
+              "title": "article-01"
             }
           }
         ]
@@ -168,9 +168,18 @@
   },
   "active": "17e104455a6ff06d",
   "lastOpenFiles": [
+    "blog/mathematica-nova/logic-01.md",
+    "blog/mathematica-nova/5-rules-of-rewriting.md",
+    "blog/mathematica-nova/6-statements.md",
+    "blog/mathematica-nova/1-values.md",
+    "blog/mathematica-nova/2-names.md",
+    "blog/mathematica-nova/3-variables.md",
+    "blog/mathematica-nova/7-questions.md",
+    "blog/mathematica-nova/4-expressions.md",
+    "blog/screenplays/fountain.md",
+    "blog/assets/FiraMath-Regular.otf",
     "blog/mathematica-nova/6. Statements.md",
     "blog/mathematica-nova/5. Rules of Rewriting.md",
-    "blog/mathematica-nova/logic-01.md",
     "blog/mathematica-nova/4. Expressions.md",
     "blog/mathematica-nova/3. Variables.md",
     "blog/mathematica-nova/8. Analogy.md",
@@ -189,7 +198,6 @@
     "target/debug/incremental/pedrobraga_website-2a8ohnvblcgn8/s-h3ftv7hp1y-0bg530e-2zic3qc3kgu8s2ssj76ox3q45/f56sll2ryc8af0nanan02qe7x.o",
     "target/debug/incremental/pedrobraga_website-2a8ohnvblcgn8/s-h3ftv7hp1y-0bg530e-2zic3qc3kgu8s2ssj76ox3q45/f4rsm8dscnl179hygxf59gn13.pre-lto.bc",
     "target/debug/incremental/pedrobraga_website-2a8ohnvblcgn8/s-h3ftv7hp1y-0bg530e-2zic3qc3kgu8s2ssj76ox3q45/f4rsm8dscnl179hygxf59gn13.o",
-    "target/debug/incremental/pedrobraga_website-2a8ohnvblcgn8/s-h3ftv7hp1y-0bg530e-2zic3qc3kgu8s2ssj76ox3q45/f2k96stpun4a0ilje5dfeh09a.pre-lto.bc",
     "blog/article-02.md",
     "blog/article-01.md",
     "blog/assets/8by8img.png",

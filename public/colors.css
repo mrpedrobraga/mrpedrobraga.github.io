@@ -1,0 +1,38 @@
+.light-mode {
+    --color-background: #eeeae1;
+    --color-background2: #e4d8c9;
+    --color-separator: #beb399;
+    --color-foreground: #41383c;
+
+    --color-link: #5083d8;
+    --color-burple: #8796fa;
+    --color-purple: #b073ed;
+    --color-pink: #f266b3;
+    --color-crimson: #ee5863;
+    --color-turquoise: #55bebe;
+    --color-shadow: #41383e;
+    --color-header-bg: var(--color-pink);
+    --color-game-bg: var(--color-turquoise);
+
+    --color-primary-fg: #3db1b1;
+    --color-secondary-fg: #e153a1;
+}
+
+.dark-mode {
+    --color-background: #2c292c;
+    --color-background2: #63595e;
+    --color-separator: #41383e;
+    --color-foreground: #eeeae1;
+
+    --color-link: #7199dc;
+    --color-burple: #8796fa;
+    --color-pink: #f266b3;
+    --color-crimson: #f4616b;
+    --color-turquoise: #55bebe;
+    --color-shadow: #000000;
+    --color-header-bg: #000000;
+    --color-game-bg: #000000;
+
+    --color-primary-fg: #6bc7c7;
+    --color-secondary-fg: #a588dc;
+}

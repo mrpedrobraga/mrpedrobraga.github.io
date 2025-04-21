@@ -1,4 +1,7 @@
 {
   "cssTheme": "",
-  "theme": "moonstone"
+  "theme": "moonstone",
+  "enabledCssSnippets": [
+    "math-font"
+  ]
 }

@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Fira Math";
+  src: url("../../blog/assets/FiraMath-Regular.otf");
+}
+
+mjx-math .TEX-I {
+  font-family: 'Fira Math' !important;
+}
