@@ -8,6 +8,7 @@ comrak = "0.38.0"
 fountain = "0.1.12"
 latex2mathml = "0.2.3"
 nom = "8.0.0"
+rand = "0.9.1"
 rocket = { version = "0.5.1", features = ["json"] }
 rocket_dyn_templates = { version = "0.2.0", features = ["handlebars"] }
 serde = "1.0.216"

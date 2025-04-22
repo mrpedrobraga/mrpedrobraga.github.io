@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html style="background-color:#130c0d; height: 100%;">
+
+<head>
+    <title>Inner Voices</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Inner Voices — {{title}}">
+    <meta property="og:url" content="https://mrpedrobraga.com/inner-voices{{path}}">
+    <meta property="og:image" content="https://mrpedrobraga.com/public/images/favicon.png">
+    <meta property="og:description" content="A charming RPG about the differences between human minds.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="/public/inner-voices/ui.css" />
+    <link rel="preload" as="image" href="/public/inner-voices/images/main-logo.png">
+    <link rel="preload" as="image" href="/public/inner-voices/images/ui-box.png">
+    <link rel="preload" as="image" href="/public/inner-voices/images/ui-dialogue-box.png">
+    <link rel="stylesheet" href="/public/inner-voices/ui.css">
+</head>
+
+<body>
+    <header>
+        <div class="main-logo">
+
+        </div>
+        <nav class="box">
+            <style>
+                nav>ul>li:nth-child({{ nav_index}}) a {
+                    color: var(--color-fg-muted);
+                }
+            </style>
+            <ul>
+                <li>
+                    <div class="option">
+                        <div class="icon"></div>
+                        <a href="/inner-voices">Home</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="option">
+                        <div class="icon"></div>
+                        <a href="/inner-voices/soundtrack">Soundtrack</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="option">
+                        <div class="icon"></div>
+                        <a href="/inner-voices/shop">Shop</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="option">
+                        <div class="icon"></div>
+                        <a href="/inner-voices/resources">Resources</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="option">
+                        <div class="icon"></div>
+                        <a href="/inner-voices/press-kit">Press Kit</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="box">
+        <span class="nothing-here">
+            * Nothing here yet.
+        </span>
+        {{!-- <h2>PITCH</h2>
+        <span class="pitch">
+            TVs bleeding static, men in suits,<br>
+            children vanishing without a trace...<br><br>
+
+            Over the quiet town of New Horizon,<br>
+            an ancient power looms ever close.<br><br>
+
+            Then, somewhere in the woods...<br>
+            lies the biggest mystery yet:<br><br>
+
+            The realm of dreams and nightmares and sorrows<br>
+            waiting to be discovered.
+        </span>
+        <h2>CAST</h2>
+        <span>Meet the heroes!</span> --}}
+    </main>
+    <footer><span>by Pedro Braga</span></footer>
+</body>
+
+</html>
