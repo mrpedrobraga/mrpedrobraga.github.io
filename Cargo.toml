@@ -6,6 +6,7 @@ edition = "2021"
 [dependencies]
 comrak = "0.38.0"
 fountain = "0.1.12"
+itertools = "0.14.0"
 latex2mathml = "0.2.3"
 nom = "8.0.0"
 rand = "0.9.1"

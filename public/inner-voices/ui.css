@@ -61,7 +61,28 @@ header {
     background-size: contain;
     height: 4rem;
     width: 100%;
-    margin-block: 6rem;
+    margin-block-start: 6rem;
+    margin-block-end: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.watch-trailer {
+    margin-block-end: 4rem;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    color: inherit;
+    font-family: 'Links Awakening';
+    font-size: inherit;
+    color: var(--color-secondary);
+}
+
+.watch-trailer:hover {
+    cursor: pointer;
+    color: var(--color-primary);
 }
 
 header nav {
@@ -86,6 +107,18 @@ main {
     align-items: stretch;
 }
 
+::selection {
+    color: var(--color-bg);
+    background-color: var(--color-fg);
+}
+
+audio {
+    margin-inline: auto;
+    margin-block: 0.5rem;
+    margin-block-start: 0rem;
+    height: 2rem;
+}
+
 footer {
     color: var(--color-fg-muted);
     display: inline-flex;
@@ -98,26 +131,29 @@ footer a {
     text-decoration: none;
 }
 
-footer a:hover {
+footer a:hover, footer a:focus {
     color: var(--color-primary);
     text-decoration: underline;
     text-decoration-thickness: calc(1px * var(--pixel-sizing));
 }
 
+footer a:active {
+    color: var(--color-secondary);
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
     font-size: inherit;
-    margin-block-start: 1rem;
-    margin-block-end: 0.5rem;
-
-    &:nth-child(1) {
-        margin-block-start: 0;
-    }
+    margin: inherit;
 }
 
 h2 {
     text-align: center;
     color: var(--color-primary);
+    &::selection {
+        color: var(--color-bg);
+        background-color: var(--color-primary);
+    }
 }
 
 h2::before {
@@ -178,8 +214,17 @@ h2::after {
     color: inherit;
 }
 
-.option:hover {
+.option:hover, .option:has(:focus) {
     color: var(--color-primary);
+}
+
+.option:has(:active) {
+    color: var(--color-secondary);
+}
+
+*:focus-visible {
+    outline: calc(1px * var(--pixel-sizing)) solid var(--color-secondary);
+    outline-offset: calc(1px * var(--pixel-sizing));
 }
 
 .option .icon {
@@ -192,7 +237,7 @@ h2::after {
     background-image: url('/public/inner-voices/images/icon-soul.png');
 }
 
-.option:hover .icon {
+.option:hover .icon, .option:has(:focus) .icon {
     visibility: visible;
 }
 

@@ -1,3 +1,4 @@
+pub mod quiz;
 use rand::seq::IndexedRandom;
 use rocket::{catch, catchers, get, routes, Build, Rocket};
 use rocket_dyn_templates::{context, Template};

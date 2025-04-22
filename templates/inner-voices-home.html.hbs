@@ -9,7 +9,7 @@
     <meta property="og:image" content="https://mrpedrobraga.com/public/images/favicon.png">
     <meta property="og:description" content="A charming RPG about the differences between human minds.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preload" href="/public/inner-voices/ui.css" />
+    <link rel="preload" as="stylesheet" href="/public/inner-voices/ui.css" />
     <link rel="preload" as="image" href="/public/inner-voices/images/main-logo.png">
     <link rel="preload" as="image" href="/public/inner-voices/images/ui-box.png">
     <link rel="preload" as="image" href="/public/inner-voices/images/ui-dialogue-box.png">
@@ -19,11 +19,11 @@
 <body>
     <header>
         <div class="main-logo">
-
         </div>
+        <button class="watch-trailer" style="visibility:hidden;">Watch Trailer</button>
         <nav class="box">
             <style>
-                nav>ul>li:nth-child({{ nav_index}}) a {
+                nav>ul>li:nth-child({{nav_index}}) {
                     color: var(--color-fg-muted);
                 }
             </style>
@@ -66,6 +66,9 @@
             * Nothing here yet.
         </span>
         {{!-- <h2>PITCH</h2>
+        <audio controls>
+            <source src="/public/inner-voices/audio/mus_shrine_of_reflection.mp3" type="audio/mp3">
+        </audio>
         <span class="pitch">
             TVs bleeding static, men in suits,<br>
             children vanishing without a trace...<br><br>
@@ -78,9 +81,7 @@
 
             The realm of dreams and nightmares and sorrows<br>
             waiting to be discovered.
-        </span>
-        <h2>CAST</h2>
-        <span>Meet the heroes!</span> --}}
+        </span> --}}
     </main>
     <footer><span>by <a href="/videogames">Pedro Braga</a></span></footer>
 </body>

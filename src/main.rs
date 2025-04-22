@@ -1,7 +1,5 @@
 use std::path::PathBuf;
-
 use api::{api_catchers, api_routes};
-
 use rocket::{
     catch, catchers, fs::{relative, FileServer}, get, launch, routes
 };
