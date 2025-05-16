@@ -4,8 +4,8 @@
 }
 
 @font-face {
-    font-family: 'Links Awakening';
-    src: url('/public/fonts/TLOZ-Links-Awakening.ttf');
+    font-family: 'Anima Italics';
+    src: url('/public/fonts/Anima\ Italics.ttf');
 }
 
 @font-face {
@@ -75,7 +75,7 @@ header {
     outline: none;
     background-color: inherit;
     color: inherit;
-    font-family: 'Links Awakening';
+    font-family: 'Anima Italics';
     font-size: inherit;
     color: var(--color-secondary);
 }
@@ -164,6 +164,11 @@ h2::before {
 h2::after {
     content: "-";
     margin-inline-start: 0.5rem;
+}
+
+em {
+  font-style: normal;
+  font-family: 'Anima Italics';
 }
 
 .pitch {

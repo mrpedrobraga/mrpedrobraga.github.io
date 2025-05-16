@@ -6,8 +6,8 @@
 }
 
 @font-face {
-    font-family: 'Links Awakening';
-    src: url('/public/fonts/TLOZ-Links-Awakening.ttf');
+    font-family: 'Anima Italics';
+    src: url('/public/fonts/Anima\ Italics.ttf');
 }
 
 @font-face {
@@ -332,6 +332,7 @@ em {
     color: var(--color-crimson);
     font-style: normal;
     font-weight: inherit;
+    font-family: 'Anima\ Italics';
 }
 
 strong {
