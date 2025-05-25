@@ -162,3 +162,14 @@ def s as SaveData
     story_point: ActTwo.BeforeDungeon { keys: 3 }
 end
 ```
+
+Here are some challenges for nerds:
+- Vector graphics, like SVGs;
+- Sound effects, like the outputs of jsfxr;
+- Color palettes and Themes;
+- Shader materials;
+- Shaders;
+
+## Dependencies & Extensions
+
+Sol can depend on other Sol libraries using a system alike Rust's crates.
