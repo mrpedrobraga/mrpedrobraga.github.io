@@ -208,7 +208,7 @@ Pixels are easily modifiable by changing some memory sitting somewhere. They are
 		min-width: 64px;
 	}
 </style>
-<img src="https://mrpedrobraga.com/blog/assets/8by8img.png"/>
+<img src="/blog/assets/8by8img.png"/>
 	<div>[ Red, Yellow, Cyan, Green, Pink, Purple, Blue, Navy, Dark Gray, Light Gray, Darkish Light Gray, Lime, Pink, ... ]</div>
 </blockquote>
 

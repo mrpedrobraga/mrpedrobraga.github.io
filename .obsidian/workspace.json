@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/article-01.md",
+                "file": "pages/software/pstudio/index.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "article-01"
+              "title": "index"
             }
           }
         ]
@@ -162,12 +162,29 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "tldraw:Create new tldrawing": false,
-      "publish:Publish changes...": false
+      "publish:Publish changes...": false,
+      "tldraw:Create new tldrawing": false
     }
   },
   "active": "17e104455a6ff06d",
   "lastOpenFiles": [
+    "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-aowikd83xudszd075qezjhr1y/work-products.bin",
+    "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-aowikd83xudszd075qezjhr1y/query-cache.bin",
+    "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-aowikd83xudszd075qezjhr1y/dep-graph.bin",
+    "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-aowikd83xudszd075qezjhr1y",
+    "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-a9y38wpgwg82rnb6vuqin2wzr/work-products.bin",
+    "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-a9y38wpgwg82rnb6vuqin2wzr/query-cache.bin",
+    "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-a9y38wpgwg82rnb6vuqin2wzr/dep-graph.bin",
+    "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-a9y38wpgwg82rnb6vuqin2wzr",
+    "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-working/dep-graph.part.bin",
+    "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-working/dep-graph.part.bin",
+    "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-working/work-products.bin",
+    "pages/software/overtone/index.md",
+    "pages/software/pstudio/index.md",
+    "pages/software/sol/index.md",
+    "pages/software/ui-composer/index.md",
+    "pages/software/index.md",
+    "blog/article-01.md",
     "blog/mathematica-nova/logic-01.md",
     "blog/mathematica-nova/5-rules-of-rewriting.md",
     "blog/mathematica-nova/6-statements.md",
@@ -177,7 +194,6 @@
     "blog/mathematica-nova/7-questions.md",
     "blog/mathematica-nova/4-expressions.md",
     "blog/screenplays/fountain.md",
-    "blog/assets/FiraMath-Regular.otf",
     "blog/mathematica-nova/6. Statements.md",
     "blog/mathematica-nova/5. Rules of Rewriting.md",
     "blog/mathematica-nova/4. Expressions.md",
@@ -188,24 +204,9 @@
     "blog/mathematica-nova/1. Values.md",
     "blog/mathematica-nova/0. Introduction.md",
     "Pasted image 20250330163659.png",
-    "blog/mathematica-nova",
     "Pasted image 20250107031006.png",
-    "target/debug/deps/pedrobraga_website-69a0f1938752111f",
-    "target/debug/incremental/pedrobraga_website-2a8ohnvblcgn8/s-h3ftv7hp1y-0bg530e-2zic3qc3kgu8s2ssj76ox3q45/work-products.bin",
-    "target/debug/incremental/pedrobraga_website-2a8ohnvblcgn8/s-h3ftv7hp1y-0bg530e-2zic3qc3kgu8s2ssj76ox3q45/thin-lto-past-keys.bin",
-    "target/debug/incremental/pedrobraga_website-2a8ohnvblcgn8/s-h3ftv7hp1y-0bg530e-2zic3qc3kgu8s2ssj76ox3q45/query-cache.bin",
-    "target/debug/incremental/pedrobraga_website-2a8ohnvblcgn8/s-h3ftv7hp1y-0bg530e-2zic3qc3kgu8s2ssj76ox3q45/f56sll2ryc8af0nanan02qe7x.pre-lto.bc",
-    "target/debug/incremental/pedrobraga_website-2a8ohnvblcgn8/s-h3ftv7hp1y-0bg530e-2zic3qc3kgu8s2ssj76ox3q45/f56sll2ryc8af0nanan02qe7x.o",
-    "target/debug/incremental/pedrobraga_website-2a8ohnvblcgn8/s-h3ftv7hp1y-0bg530e-2zic3qc3kgu8s2ssj76ox3q45/f4rsm8dscnl179hygxf59gn13.pre-lto.bc",
-    "target/debug/incremental/pedrobraga_website-2a8ohnvblcgn8/s-h3ftv7hp1y-0bg530e-2zic3qc3kgu8s2ssj76ox3q45/f4rsm8dscnl179hygxf59gn13.o",
     "blog/article-02.md",
-    "blog/article-01.md",
     "blog/assets/8by8img.png",
-    "blog/Tldraw 2024-12-20 11.45AM.md",
-    "blog/UI Composer - A Manifesto for Better Interfaces.md",
-    "blog/UI Composer Goals.md",
-    "public/images/spr_bg_poolwave.png",
-    "Tldraw 2024-12-18 5.27PM.md",
-    "2024-12-17.md"
+    "public/images/spr_bg_poolwave.png"
   ]
 }

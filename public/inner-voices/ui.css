@@ -1,11 +1,11 @@
 @font-face {
-    font-family: 'Anima Sans';
-    src: url('/public/fonts/Anima\ Sans.ttf');
+    font-family: 'Anima Sans Regular';
+    src: url('/public/fonts/Anima\ Sans\ Regular.ttf');
 }
 
 @font-face {
-    font-family: 'Anima Italics';
-    src: url('/public/fonts/Anima\ Italics.ttf');
+    font-family: 'Anima Sans Italics';
+    src: url('/public/fonts/Anima\ Sans\ Italics.ttf');
 }
 
 @font-face {
@@ -31,7 +31,7 @@
     --color-secondary: #3cd8b3;
 
     color: var(--color-fg);
-    font-family: 'Anima Sans';
+    font-family: 'Anima Sans Regular';
     line-height: 1.2;
 }
 
@@ -75,7 +75,7 @@ header {
     outline: none;
     background-color: inherit;
     color: inherit;
-    font-family: 'Anima Italics';
+    font-family: 'Anima Sans Italics';
     font-size: inherit;
     color: var(--color-secondary);
 }
@@ -168,7 +168,7 @@ h2::after {
 
 em {
   font-style: normal;
-  font-family: 'Anima Italics';
+  font-family: 'Anima Sans Italics';
 }
 
 .pitch {

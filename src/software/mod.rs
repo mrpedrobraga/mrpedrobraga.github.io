@@ -1,58 +1,56 @@
-use std::{
-    cell::RefCell,
-    path::{Path, PathBuf},
+use std::path::PathBuf;
+use {
+    crate::render_markdown_simple,
+    rocket::{get, routes, Build, Rocket},
 };
-
-use comrak::nodes::Ast;
-use rocket::{
-    fs::{relative, FileServer},
-    get, routes, Build, Rocket,
+use {
+    comrak::nodes::Ast,
+    rocket_dyn_templates::{context, Template},
+    std::cell::RefCell,
 };
-use rocket_dyn_templates::{context, Template};
-use serde::{Deserialize, Serialize};
+use {
+    rocket::response::status::NotFound,
+    serde::{Deserialize, Serialize},
+};
 
 pub fn mount_routes(ro: Rocket<Build>) -> Rocket<Build> {
-    ro.mount("/blog", routes![base, blog])
-        .mount("/blog/assets", FileServer::from(relative!("blog/assets")))
+    ro.mount("/software", routes![software, home])
 }
 
 #[get("/")]
-fn base() -> Template {
+fn home() -> Template {
     Template::render(
         "base",
         context! {
-            title: "Blog",
-            gimmick_path: "~/blog",
-            path: "/blog",
-            nav_index: 5,
-            content: crate::render_markdown_simple(PathBuf::from("./blog/blog.md")).expect("Failed to get file etc")
+            title: "Tools & Software",
+            gimmick_path: "~/software",
+            path: "/software",
+            nav_index: 2,
+            content: render_markdown_simple(PathBuf::from("./pages/software/index.html")).expect("Failed to get file etc")
         },
     )
 }
 
-#[derive(Serialize, Deserialize, Default)]
-struct BlogFrontmatter {
+#[derive(Debug, Serialize, Deserialize, Default)]
+struct SoftwareFrontmatter {
     title: String,
-    date: String,
     description: String,
     tags: Vec<String>,
 }
 
-#[get("/<article..>")]
-fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound<String>> {
-    dbg!(Path::new("./blog")
-        .join(article.clone())
-        .with_extension("md")
-        .as_path());
+#[get("/<software>")]
+fn software(software: &str) -> Template {
+    let path = PathBuf::from("./pages/software/")
+        .join(software)
+        .join("index.md");
 
+    render_software_page(path).expect("Failed rendering markdown file!")
+}
+
+fn render_software_page(path: PathBuf) -> Result<Template, NotFound<String>> {
     // Retrive the raw text.
-    let raw_markdown = std::fs::read_to_string(
-        Path::new("./blog")
-            .join(article.clone())
-            .with_extension("md")
-            .as_path(),
-    )
-    .map_err(|_| rocket::response::status::NotFound("Not found".into()))?;
+    let raw_markdown = std::fs::read_to_string(path.as_path())
+        .map_err(|_| rocket::response::status::NotFound("Not found.".to_owned()))?;
 
     // Parse it indo markdown.
     let arena = comrak::Arena::new();
@@ -64,16 +62,18 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
             .table(true)
             .spoiler(true)
             .footnotes(true)
+            .tasklist(true)
             .alerts(true)
+            .strikethrough(true)
             .build(),
         parse: comrak::ParseOptions::builder()
-            .default_info_string("rust".into())
+            .default_info_string("rust".to_owned())
             .build(),
         render: comrak::RenderOptions::builder().unsafe_(true).build(),
     };
     let root = comrak::parse_document(&arena, raw_markdown.as_str(), options);
 
-    let mut blog_metadata = BlogFrontmatter::default();
+    let mut software_metadata = SoftwareFrontmatter::default();
     let mut math_nodes = vec![];
     let mut fountain_nodes = vec![];
 
@@ -81,10 +81,15 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
         // Find the blog's metadata.
         if let comrak::nodes::NodeValue::FrontMatter(ref front_matter) = node.data.borrow().value {
             let yaml = front_matter.replace("---", "");
-            println!("Frontmatter YAML: {}", yaml);
-            let front_matter: BlogFrontmatter =
-                serde_yaml::from_str(yaml.as_str()).expect("Failed to parse the frontmatter!");
-            blog_metadata = front_matter;
+            let front_matter: Result<SoftwareFrontmatter, _> = serde_yaml::from_str(yaml.as_str());
+            match front_matter {
+                Ok(front_matter) => {
+                    software_metadata = front_matter;
+                }
+                Err(err) => {
+                    dbg!(err.to_string());
+                }
+            }
         }
 
         // Store nodes of interest for parsing LaTeX into MathXML.
@@ -115,7 +120,7 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
                     block_type: 0,
                     literal: mathml,
                 }),
-                comrak::nodes::LineColumn::from(node.data.borrow().sourcepos.start.clone()),
+                node.data.borrow().sourcepos.start,
             )));
             let new_node = arena.alloc(new_node);
             node.insert_after(new_node);
@@ -139,7 +144,7 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
                     block_type: 0,
                     literal: html,
                 }),
-                comrak::nodes::LineColumn::from(node.data.borrow().sourcepos.start.clone()),
+                node.data.borrow().sourcepos.start,
             )));
             let new_node = arena.alloc(new_node);
             node.insert_after(new_node);
@@ -149,17 +154,17 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
 
     // Render the Markdown into HTML.
     let mut raw_html = vec![];
-    comrak::format_html(&root, &options, &mut raw_html).expect("Error whilst formatting HTML.");
+    comrak::format_html(root, options, &mut raw_html).expect("Error whilst formatting HTML.");
     let raw_html = String::from_utf8(raw_html).expect("Error parsing comrak HTML as UTF-8.");
 
     // Render the blog template with the inserted content.
     Ok(Template::render(
-        "blog",
+        "software",
         context! {
-            title: blog_metadata.title,
-            description: blog_metadata.description,
-            date: blog_metadata.date,
-            filename: article,
+            title: software_metadata.title,
+            description: software_metadata.description,
+            filename: path,
+            tags: software_metadata.tags,
             content: raw_html
         },
     ))

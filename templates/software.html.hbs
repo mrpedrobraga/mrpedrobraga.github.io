@@ -1,0 +1,42 @@
+<html class="dark-mode">
+
+<head>
+    <title>mrpedrobraga.com</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="mrpedrobraga - {{title}}">
+    <meta property="og:url" content="https://mrpedrobraga.com/software/{{filename}}">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="{{description}}">
+
+    <link rel="stylesheet" href="/public/software.css" />
+    <link rel="stylesheet" href="/public/atom-one-dark.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/rust.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+</head>
+
+<body>
+    <div id="progress_box">
+        <div id="progress"></div>
+    </div>
+    <header>
+        <a href="/software" id="go_back">← Return to /software</a>
+        <div class="title">
+            <h1>{{title}}</h1>
+            <div class="tags">
+                {{#each tags}}
+                <div class="tag" id="tag_{{this}}">#{{this}}</div>
+                {{/each}}
+            </div>
+        </div>
+    </header>
+    <main>
+        {{{ content }}}
+    </main>
+    <script>hljs.highlightAll();</script>
+    <footer>
+        Made with code by Pedro Braga
+    </footer>
+</body>
+
+</html>

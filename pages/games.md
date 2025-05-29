@@ -1,4 +1,4 @@
-*Coming soon to the website*
+*This page is a work in progress. In the mean time, enjoy these tables.*
 
 I make games!
 
@@ -9,7 +9,7 @@ I make games!
 
 ...you may also know me from:
 
-| Games                                                 | Description                         |
+| Games                                                        | Description                         |
 | ------------------------------------------------------------ | ----------------------------------- |
 | [DREAMTONE](https://dreamtonegame.com) by benichi            | Programmer                          |
 | [Dreamed Away](https://dreamedaway.com) by Nicolas Petton    | Game Designer, Programmer, Composer |
