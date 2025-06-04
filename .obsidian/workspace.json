@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pages/software/pstudio/index.md",
+                "file": "pages/software/ui-composer/index.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
               "title": "index"
@@ -168,6 +168,7 @@
   },
   "active": "17e104455a6ff06d",
   "lastOpenFiles": [
+    "pages/software/pstudio/index.md",
     "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-aowikd83xudszd075qezjhr1y/work-products.bin",
     "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-aowikd83xudszd075qezjhr1y/query-cache.bin",
     "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-aowikd83xudszd075qezjhr1y/dep-graph.bin",
@@ -178,9 +179,7 @@
     "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-a9y38wpgwg82rnb6vuqin2wzr",
     "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-working/dep-graph.part.bin",
     "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-working/dep-graph.part.bin",
-    "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-working/work-products.bin",
     "pages/software/overtone/index.md",
-    "pages/software/pstudio/index.md",
     "pages/software/sol/index.md",
     "pages/software/ui-composer/index.md",
     "pages/software/index.md",

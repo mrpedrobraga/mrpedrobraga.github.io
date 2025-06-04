@@ -18,8 +18,12 @@
 }
 
 html {
-    font-family: serif;
+    font-family: 'JetBrainsMono';
     font-size: 1.1rem;
+
+}
+
+body {
     background-color: var(--color-background);
     color: var(--color-foreground);
 }
