@@ -7,9 +7,10 @@
     <meta property="og:title" content="Inner Voices — {{title}}">
     <meta property="og:url" content="https://mrpedrobraga.com/inner-voices{{path}}">
     <meta property="og:image" content="https://mrpedrobraga.com/public/inner-voices/images/opengraph-image.png">
-    <meta property="og:description" content="A charming psychological fantasy RPG about the differences between human minds.">
+    <meta property="og:description"
+        content="A charming psychological fantasy RPG about the differences between human minds.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preload" as="stylesheet" href="/public/inner-voices/ui.css" />
+    <link rel="preload" as="style" href="/public/inner-voices/ui.css" />
     <link rel="preload" as="image" href="/public/inner-voices/images/main-logo.png">
     <link rel="preload" as="image" href="/public/inner-voices/images/ui-box.png">
     <link rel="preload" as="image" href="/public/inner-voices/images/ui-dialogue-box.png">
@@ -23,7 +24,12 @@
         <button class="watch-trailer" style="visibility:hidden;">Watch Trailer</button>
         <nav class="box">
             <style>
-                nav>ul>li:nth-child({{nav_index}}) {
+                nav>ul>li:nth-child({
+                        {
+                        nav_index
+                    }
+
+                }) {
                     color: var(--color-primary);
                 }
             </style>
@@ -62,9 +68,7 @@
         </nav>
     </header>
     <main class="box">
-        <span class="nothing-here">
-            * Nothing here yet.
-        </span>
+        {{{content}}}
         {{!-- <h2>PITCH</h2>
         <audio controls>
             <source src="/public/inner-voices/audio/mus_shrine_of_reflection.mp3" type="audio/mp3">

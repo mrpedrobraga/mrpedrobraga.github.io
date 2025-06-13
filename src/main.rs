@@ -102,7 +102,7 @@ fn render_markdown_simple(
 
     // Render the Markdown into HTML.
     let mut raw_html = vec![];
-    comrak::format_html(&markdown_tree, &options, &mut raw_html)
+    comrak::format_html(markdown_tree, options, &mut raw_html)
         .expect("Error whilst formatting HTML.");
     let raw_html = String::from_utf8(raw_html).expect("Error parsing comrak HTML as UTF-8.");
 

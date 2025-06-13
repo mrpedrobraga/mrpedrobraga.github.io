@@ -13,7 +13,8 @@
     src: url('/public/fonts/Determination\ Sans.otf');
 }
 
-*, :root {
+*,
+:root {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,7 +24,7 @@
     --pixel-sizing: 3;
     font-size: calc(8px * var(--pixel-sizing));
     image-rendering: pixelated;
-    
+
     --color-bg: #130c0d;
     --color-fg: #f8f8f8;
     --color-fg-muted: #685656;
@@ -131,7 +132,8 @@ footer a {
     text-decoration: none;
 }
 
-footer a:hover, footer a:focus {
+footer a:hover,
+footer a:focus {
     color: var(--color-primary);
     text-decoration: underline;
     text-decoration-thickness: calc(1px * var(--pixel-sizing));
@@ -141,7 +143,12 @@ footer a:active {
     color: var(--color-secondary);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: normal;
     font-size: inherit;
     margin: inherit;
@@ -150,6 +157,7 @@ h1, h2, h3, h4, h5, h6 {
 h2 {
     text-align: center;
     color: var(--color-primary);
+
     &::selection {
         color: var(--color-bg);
         background-color: var(--color-primary);
@@ -166,9 +174,23 @@ h2::after {
     margin-inline-start: 0.5rem;
 }
 
+ul {
+    list-style-position: inside;
+    list-style-type: "* ";
+}
+
 em {
-  font-style: normal;
-  font-family: 'Anima Sans Italics';
+    font-style: normal;
+    font-family: 'Anima Sans Italics';
+}
+
+hr.short {
+    padding-block-start: 10rem;
+}
+
+hr {
+    border: none;
+    padding-block-start: 20rem;
 }
 
 .pitch {
@@ -191,7 +213,8 @@ em {
     border-image-source: url('/public/inner-voices/images/ui-dialogue-box.png');
     border-image-slice: 4 4 4 4 fill;
     border-image-width: 0.5rem;
-    padding: 0.75rem;
+    padding-block: 0.75rem;
+    padding-inline: 1rem;
     width: 30rem;
     height: 5rem;
 
@@ -199,11 +222,13 @@ em {
     flex-direction: column;
 }
 
-.dialogue-box > span {
+.dialogue-box>span {
     flex-grow: 1;
+    flex-shrink: 1;
+    overflow: hidden;
 }
 
-.dialogue-box > .option {
+.dialogue-box>.option {
     align-self: center;
 }
 
@@ -219,7 +244,8 @@ em {
     color: inherit;
 }
 
-.option:hover, .option:has(:focus) {
+.option:hover,
+.option:has(:focus) {
     color: var(--color-primary);
 }
 
@@ -242,7 +268,8 @@ em {
     background-image: url('/public/inner-voices/images/icon-soul.png');
 }
 
-.option:hover .icon, .option:has(:focus) .icon {
+.option:hover .icon,
+.option:has(:focus) .icon {
     visibility: visible;
 }
 
