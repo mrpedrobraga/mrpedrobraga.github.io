@@ -4,22 +4,44 @@
     "type": "split",
     "children": [
       {
-        "id": "3ea2b79e5ae388f3",
+        "id": "dee9129188f6584b",
         "type": "tabs",
         "children": [
           {
-            "id": "17e104455a6ff06d",
+            "id": "e55cc51be20c2cef",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pages/software/ui-composer/index.md",
+                "file": "blog/Algebraic Types.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "index"
-            }
+              "title": "Algebraic Types"
+            },
+            "group": "1d68b42119d23b9c"
+          }
+        ]
+      },
+      {
+        "id": "f5324233b6cba8e4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "406d1bdf4a740028",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "blog/Algebraic Types.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Algebraic Types"
+            },
+            "group": "1d68b42119d23b9c"
           }
         ]
       }
@@ -156,6 +178,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -166,8 +189,10 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "17e104455a6ff06d",
+  "active": "e55cc51be20c2cef",
   "lastOpenFiles": [
+    "blog/Algebraic Types.md",
+    "pages/software/ui-composer/index.md",
     "pages/software/pstudio/index.md",
     "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-aowikd83xudszd075qezjhr1y/work-products.bin",
     "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-aowikd83xudszd075qezjhr1y/query-cache.bin",
@@ -181,7 +206,6 @@
     "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-working/dep-graph.part.bin",
     "pages/software/overtone/index.md",
     "pages/software/sol/index.md",
-    "pages/software/ui-composer/index.md",
     "pages/software/index.md",
     "blog/article-01.md",
     "blog/mathematica-nova/logic-01.md",

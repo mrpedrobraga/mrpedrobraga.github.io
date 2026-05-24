@@ -1,7 +1,5 @@
 {
-  "cssTheme": "",
+  "cssTheme": "Typomagical",
   "theme": "moonstone",
-  "enabledCssSnippets": [
-    "math-font"
-  ]
+  "enabledCssSnippets": []
 }
