@@ -23,5 +23,5 @@ pub struct NotFoundError(());
 
 #[catch(404)]
 pub fn not_found(_req: &Request) -> Result<(), NotFoundError> {
-    return Err(NotFoundError(()));
+    Err(NotFoundError(()))
 }

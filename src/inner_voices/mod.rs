@@ -13,7 +13,7 @@ pub fn mount_routes(ro: Rocket<Build>) -> Rocket<Build> {
 
 #[get("/")]
 fn home() -> Template {
-    let content = render_markdown_simple(PathBuf::from("./pages/inner-voices/home.md"))
+    let content = render_markdown_simple(PathBuf::from("./content/pages/inner-voices/home.md"))
         .expect("Failed to get file...");
 
     Template::render(
@@ -29,7 +29,7 @@ fn home() -> Template {
 
 #[get("/soundtrack")]
 fn soundtrack() -> Template {
-    let content = render_markdown_simple(PathBuf::from("./pages/inner-voices/soundtrack.md"))
+    let content = render_markdown_simple(PathBuf::from("./content/pages/inner-voices/soundtrack.md"))
         .expect("Failed to get file...");
 
     Template::render(
@@ -45,7 +45,7 @@ fn soundtrack() -> Template {
 
 #[get("/shop")]
 fn shop() -> Template {
-    let content = render_markdown_simple(PathBuf::from("./pages/inner-voices/shop.md"))
+    let content = render_markdown_simple(PathBuf::from("./content/pages/inner-voices/shop.md"))
         .expect("Failed to get file...");
 
     Template::render(
@@ -61,7 +61,7 @@ fn shop() -> Template {
 
 #[get("/resources")]
 fn resources() -> Template {
-    let content = render_markdown_simple(PathBuf::from("./pages/inner-voices/resources.md"))
+    let content = render_markdown_simple(PathBuf::from("./content/pages/inner-voices/resources.md"))
         .expect("Failed to get file...");
 
     Template::render(
@@ -77,7 +77,7 @@ fn resources() -> Template {
 
 #[get("/press-kit")]
 fn press_kit() -> Template {
-    let content = render_markdown_simple(PathBuf::from("./pages/inner-voices/press-kit.md"))
+    let content = render_markdown_simple(PathBuf::from("./content/pages/inner-voices/press-kit.md"))
         .expect("Failed to get file...");
 
     Template::render(

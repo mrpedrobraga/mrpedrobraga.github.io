@@ -26,7 +26,7 @@ fn home() -> Template {
             gimmick_path: "~/software",
             path: "/software",
             nav_index: 2,
-            content: render_markdown_simple(PathBuf::from("./pages/software/index.html")).expect("Failed to get file etc")
+            content: render_markdown_simple(PathBuf::from("./content/pages/software/index.html")).expect("Failed to get file etc")
         },
     )
 }
@@ -40,7 +40,7 @@ struct SoftwareFrontmatter {
 
 #[get("/<software>")]
 fn software(software: &str) -> Template {
-    let path = PathBuf::from("./pages/software/")
+    let path = PathBuf::from("./content/pages/software/")
         .join(software)
         .join("index.md");
 

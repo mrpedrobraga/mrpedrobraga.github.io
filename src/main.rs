@@ -16,22 +16,15 @@ pub mod software;
 #[launch]
 fn rocket() -> _ {
     let mut rocket_app = rocket::build()
-        // Mounting the home!
         .mount("/", routes![index, videogames, art])
         .register("/", catchers![not_found])
         .mount("/public", FileServer::from(relative!("public")))
-        // Mounting the API!
         .mount("/api", api_routes())
         .register("/api", api_catchers())
-        // Attach the template fairing
         .attach(Template::fairing());
 
     rocket_app = software::mount_routes(rocket_app);
-
-    // Mounting the Inner Voices subpage.
     rocket_app = inner_voices::mount_routes(rocket_app);
-
-    // Mounting the blog subpage.
     rocket_app = blog::mount_routes(rocket_app);
 
     rocket_app
@@ -46,7 +39,7 @@ fn index() -> Template {
             gimmick_path: "~",
             path: "/",
             nav_index: 1,
-            content: render_markdown_simple(PathBuf::from("./pages/home.md")).expect("Failed to get file etc")
+            content: render_markdown_simple(PathBuf::from("./content/pages/home.md")).expect("Failed to get file etc")
         },
     )
 }
@@ -60,7 +53,7 @@ fn videogames() -> Template {
             gimmick_path: "~/videogames",
             path: "/videogames",
             nav_index: 3,
-            content: render_markdown_simple(PathBuf::from("./pages/games.md")).expect("Failed to get file etc")
+            content: render_markdown_simple(PathBuf::from("./content/pages/games.md")).expect("Failed to get file etc")
         },
     )
 }
@@ -74,7 +67,7 @@ fn art() -> Template {
             gimmick_path: "~/art",
             path: "/art",
             nav_index: 4,
-            content: render_markdown_simple(PathBuf::from("./pages/art.md")).expect("Failed to get file etc")
+            content: render_markdown_simple(PathBuf::from("./content/pages/art.md")).expect("Failed to get file etc")
         },
     )
 }

@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 pub fn mount_routes(ro: Rocket<Build>) -> Rocket<Build> {
     ro.mount("/blog", routes![base, blog])
-        .mount("/blog/assets", FileServer::from(relative!("blog/assets")))
+        .mount("/blog/assets", FileServer::from(relative!("content/blog/assets")))
 }
 
 #[get("/")]
@@ -25,7 +25,7 @@ fn base() -> Template {
             gimmick_path: "~/blog",
             path: "/blog",
             nav_index: 5,
-            content: crate::render_markdown_simple(PathBuf::from("./blog/blog.md")).expect("Failed to get file etc")
+            content: crate::render_markdown_simple(PathBuf::from("./content/blog/blog.md")).expect("Failed to get file etc")
         },
     )
 }
@@ -115,7 +115,7 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
                     block_type: 0,
                     literal: mathml,
                 }),
-                comrak::nodes::LineColumn::from(node.data.borrow().sourcepos.start.clone()),
+                node.data.borrow().sourcepos.start,
             )));
             let new_node = arena.alloc(new_node);
             node.insert_after(new_node);
@@ -139,7 +139,7 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
                     block_type: 0,
                     literal: html,
                 }),
-                comrak::nodes::LineColumn::from(node.data.borrow().sourcepos.start.clone()),
+                node.data.borrow().sourcepos.start
             )));
             let new_node = arena.alloc(new_node);
             node.insert_after(new_node);
@@ -149,7 +149,7 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
 
     // Render the Markdown into HTML.
     let mut raw_html = vec![];
-    comrak::format_html(&root, &options, &mut raw_html).expect("Error whilst formatting HTML.");
+    comrak::format_html(root, options, &mut raw_html).expect("Error whilst formatting HTML.");
     let raw_html = String::from_utf8(raw_html).expect("Error parsing comrak HTML as UTF-8.");
 
     // Render the blog template with the inserted content.
