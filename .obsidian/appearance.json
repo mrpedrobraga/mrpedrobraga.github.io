@@ -1,5 +1,6 @@
 {
-  "cssTheme": "Typomagical",
-  "theme": "moonstone",
-  "enabledCssSnippets": []
+  "cssTheme": "Minimal",
+  "theme": "obsidian",
+  "enabledCssSnippets": [],
+  "accentColor": "#c5af5e"
 }

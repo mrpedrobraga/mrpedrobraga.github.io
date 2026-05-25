@@ -1,4 +1,9 @@
-use rocket::{catch, catchers, get, routes, Request, Responder};
+use rocket::{catch, catchers, get, routes, Build, Request, Responder, Rocket};
+
+pub fn mount_routes(ro: Rocket<Build>) -> Rocket<Build> {
+    ro.mount("/api", api_routes())
+        .register("/api", api_catchers())
+}
 
 pub fn api_routes() -> Vec<rocket::Route> {
     routes![root]

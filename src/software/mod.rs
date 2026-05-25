@@ -1,6 +1,5 @@
 use std::path::PathBuf;
 use {
-    crate::render_markdown_simple,
     rocket::{get, routes, Build, Rocket},
 };
 use {
@@ -14,22 +13,9 @@ use {
 };
 
 pub fn mount_routes(ro: Rocket<Build>) -> Rocket<Build> {
-    ro.mount("/software", routes![software, home])
+    ro.mount("/software", routes![software])
 }
 
-#[get("/")]
-fn home() -> Template {
-    Template::render(
-        "base",
-        context! {
-            title: "Tools & Software",
-            gimmick_path: "~/software",
-            path: "/software",
-            nav_index: 2,
-            content: render_markdown_simple(PathBuf::from("./content/pages/software/index.html")).expect("Failed to get file etc")
-        },
-    )
-}
 
 #[derive(Debug, Serialize, Deserialize, Default)]
 struct SoftwareFrontmatter {

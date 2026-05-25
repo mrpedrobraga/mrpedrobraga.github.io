@@ -1,0 +1,18 @@
+{
+  "extensions": [
+    "rust",
+    "toml",
+    "sol",
+    "aio"
+  ],
+  "folding": true,
+  "lineNumbers": true,
+  "wordWrap": true,
+  "minimap": true,
+  "semanticValidation": true,
+  "syntaxValidation": true,
+  "themeColor": "AUTO",
+  "fontSize": 14,
+  "fontFamily": "'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace",
+  "fontLigatures": true
+}

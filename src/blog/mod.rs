@@ -17,17 +17,8 @@ pub fn mount_routes(ro: Rocket<Build>) -> Rocket<Build> {
 }
 
 #[get("/")]
-fn base() -> Template {
-    Template::render(
-        "base",
-        context! {
-            title: "Blog",
-            gimmick_path: "~/blog",
-            path: "/blog",
-            nav_index: 5,
-            content: crate::render_markdown_simple(PathBuf::from("./content/blog/blog.md")).expect("Failed to get file etc")
-        },
-    )
+fn base() -> &'static str {
+    "In development."
 }
 
 #[derive(Serialize, Deserialize, Default)]

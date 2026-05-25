@@ -1,3 +1,0 @@
-*Coming soon to the website*
-
-Art and stuff... I have great plans for this page...

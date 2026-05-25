@@ -6,5 +6,7 @@
     "margin": "0",
     "downscalePercent": 100
   },
-  "vimMode": false
+  "vimMode": false,
+  "attachmentFolderPath": "./assets",
+  "showUnsupportedFiles": true
 }

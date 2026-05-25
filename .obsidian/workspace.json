@@ -4,44 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "dee9129188f6584b",
+        "id": "f8b8ae63fa487f28",
         "type": "tabs",
         "children": [
           {
-            "id": "e55cc51be20c2cef",
+            "id": "20895793b648612e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/Algebraic Types.md",
-                "mode": "source",
-                "source": true
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Algebraic Types"
-            },
-            "group": "1d68b42119d23b9c"
-          }
-        ]
-      },
-      {
-        "id": "f5324233b6cba8e4",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "406d1bdf4a740028",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/Algebraic Types.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Algebraic Types"
-            },
-            "group": "1d68b42119d23b9c"
+              "title": "New tab"
+            }
           }
         ]
       }
@@ -178,6 +152,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "vscode-editor:Create Code File": false,
       "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
@@ -186,11 +161,27 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "publish:Publish changes...": false,
-      "tldraw:Create new tldrawing": false
+      "tldraw:Create new tldrawing": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "e55cc51be20c2cef",
+  "active": "20895793b648612e",
   "lastOpenFiles": [
+    "content/pages/index.md",
+    "content/pages/projects/novel/index.md",
+    "content/pages/projects/overtone/index.md",
+    "content/pages/projects/ui-composer/index.md",
+    "content/pages/projects/sol/index.md",
+    "content/pages/projects/partitune/index.md",
+    "content/pages/projects/building-blocks/index.md",
+    "content/pages/projects/aio/index.md",
+    "Cargo.toml",
+    "Rocket.toml",
+    "fly.toml",
+    "content/pages/inner-voices/home.md",
+    "content/pages/_templates/project.md",
+    "content/pages/projects/Untitled",
+    "content/pages/_templates",
     "blog/Algebraic Types.md",
     "pages/software/ui-composer/index.md",
     "pages/software/pstudio/index.md",
@@ -199,11 +190,6 @@
     "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-aowikd83xudszd075qezjhr1y/dep-graph.bin",
     "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-aowikd83xudszd075qezjhr1y",
     "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-a9y38wpgwg82rnb6vuqin2wzr/work-products.bin",
-    "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-a9y38wpgwg82rnb6vuqin2wzr/query-cache.bin",
-    "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-a9y38wpgwg82rnb6vuqin2wzr/dep-graph.bin",
-    "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-a9y38wpgwg82rnb6vuqin2wzr",
-    "target/debug/incremental/pedrobraga_website-06u5isjtizkn7/s-h7t2r9ch6f-1yvl62x-working/dep-graph.part.bin",
-    "target/debug/incremental/pedrobraga_website-0o47wj56pknnv/s-h7t2r9ch6w-0rhibhe-working/dep-graph.part.bin",
     "pages/software/overtone/index.md",
     "pages/software/sol/index.md",
     "pages/software/index.md",
@@ -217,18 +203,8 @@
     "blog/mathematica-nova/7-questions.md",
     "blog/mathematica-nova/4-expressions.md",
     "blog/screenplays/fountain.md",
-    "blog/mathematica-nova/6. Statements.md",
-    "blog/mathematica-nova/5. Rules of Rewriting.md",
-    "blog/mathematica-nova/4. Expressions.md",
-    "blog/mathematica-nova/3. Variables.md",
-    "blog/mathematica-nova/8. Analogy.md",
-    "blog/mathematica-nova/7. Questions.md",
-    "blog/mathematica-nova/2. Names.md",
-    "blog/mathematica-nova/1. Values.md",
-    "blog/mathematica-nova/0. Introduction.md",
     "Pasted image 20250330163659.png",
     "Pasted image 20250107031006.png",
-    "blog/article-02.md",
     "blog/assets/8by8img.png",
     "public/images/spr_bg_poolwave.png"
   ]
