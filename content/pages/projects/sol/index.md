@@ -8,13 +8,9 @@ tags:
   - game-development
 status: To Do
 ---
-## Here Comes The Sol
-
-Sol is a programming language (and a toolchain) for defining game assets with code!
-
 ```sol
 -- iron_sword.sol
-using game::ItemKind;
+using base::ItemKind;
 
 name = "Iron Sword"
 durability = 5

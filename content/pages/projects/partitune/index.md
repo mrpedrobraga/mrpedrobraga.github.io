@@ -6,37 +6,37 @@ tags:
   - music
 status: To Do
 ---
-# Writing music down!
+Partitune is a syntax for rigorously writing down music in text files. The syntax is very reminiscent of sheet music, so it should be easy to follow along.
 
-Partitune is a syntax for rigorously writing down music in text files.
+Here's an example of a song.
 
 ```partitune
 Title: "My Song"
 Composer: "Pedro Braga"
 
-TREBLE C 4/4:
-||:
-2/4 +f T"Swing"  C4, E4,  G4;
-1/4             ..., D4, ...;
+TREBLE C 4/4:                   // Clef, Key Signature, Time signature
+||:                             // start of song (and also measure)
+T"Swing"                        // Staff text
+2/4 +f           C4, E4,  G4;   // "Chords" with a duration, modifier, then the notes.
+1/4             ..., D4, ...;   // "..." will continue the previous note from the same voice.
 1/8              C4, F4,  A4;
 1/8             ..., G4,  B4;
-|
+|                               // bar lines separate measures
 2/4              C4, E4,  G4;
-1/4 +tr         ..., F4, ...;
+1/4 +tr         ..., F4, ...;   // <- modifiers follow same name as convention (this is tremolo)
 1/4              C4, D4,  A4;
-:||
+:||                             // end of song
 
-BASS C 4/4:
+BASS C 4/4:                     // new staff, for the bass part
 ||:
 2/4 +f C3;
-2/4  --- ; 
+2/4    --;                      // -- is a rest!
 |
 4/4    C3
 :||
 ```
 
-## Parser
-
+### Format
 Here is the entirety of the parser's grammar.
 
 ```pest

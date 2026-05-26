@@ -1,9 +1,17 @@
 {
   "extensions": [
-    "rust",
     "toml",
     "sol",
-    "aio"
+    "aio",
+    "rs",
+    "html",
+    "hbs",
+    "js",
+    "ts",
+    "jsx",
+    "tsx",
+    "justfile",
+    "css"
   ],
   "folding": true,
   "lineNumbers": true,

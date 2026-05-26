@@ -12,8 +12,9 @@ use rocket_dyn_templates::{context, Template};
 use serde::{Deserialize, Serialize};
 
 pub fn mount_routes(ro: Rocket<Build>) -> Rocket<Build> {
-    ro.mount("/blog", routes![base, blog])
-        .mount("/blog/assets", FileServer::from(relative!("content/blog/assets")))
+    // ro.mount("/blog", routes![base, blog])
+    //     .mount("/blog/assets", FileServer::from(relative!("content/blog/assets")))
+    ro
 }
 
 #[get("/")]
@@ -130,7 +131,7 @@ fn blog(article: PathBuf) -> Result<Template, rocket::response::status::NotFound
                     block_type: 0,
                     literal: html,
                 }),
-                node.data.borrow().sourcepos.start
+                node.data.borrow().sourcepos.start,
             )));
             let new_node = arena.alloc(new_node);
             node.insert_after(new_node);
