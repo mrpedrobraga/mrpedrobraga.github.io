@@ -1,61 +1,66 @@
+use plait::{Html, ToHtml};
 use rocket::{
-    catch, catchers, fs::{FileServer, relative}, get, launch, routes
+    catch, catchers,
+    fs::{relative, FileServer},
+    get, launch, routes,
 };
-use rocket_dyn_templates::{Template};
+use std::path::PathBuf;
 
 pub mod api;
-pub mod blog;
 pub mod inner_voices;
+pub mod markdown;
 
-pub mod software;
+pub mod projects;
 
 #[launch]
 fn rocket() -> _ {
     let mut rocket_app = rocket::build()
-    .mount("/public", FileServer::from(relative!("public")))
+        .mount("/public", FileServer::from(relative!("public")))
         .register("/", catchers![not_found])
         .mount("/", routes![index])
-        .attach(Template::fairing());
+        .mount("/projects", routes![projects::projects])
+        .mount("/project", routes![projects::project]);
 
-        rocket_app = api::mount_routes(rocket_app);
-    rocket_app = software::mount_routes(rocket_app);
+    rocket_app = api::mount_routes(rocket_app);
     rocket_app = inner_voices::mount_routes(rocket_app);
-    rocket_app = blog::mount_routes(rocket_app);
 
     rocket_app
 }
 
 #[get("/")]
-fn index() -> &'static str {
-    "Hello There"
+fn index() -> Html {
+    let rendered_file_res =
+        markdown::render_from_path_full::<()>(PathBuf::from("./content/pages/index.md"));
+    let Ok(rendered_file) = rendered_file_res else {
+        return not_found();
+    };
+
+    plait::html! {
+        #doctype
+        html {
+            head {
+                title { "Index" }
+                link (rel: "stylesheet", href: "/public/styles/main.css");
+            }
+            body {
+                header {
+                    nav {
+                        "Navigation goes here..."
+                    }
+                }
+                main {
+                    #(rendered_file.html_content)
+                }
+            }
+        }
+    }
+    .to_html()
 }
 
 #[catch(404)]
-fn not_found() -> &'static str {
-    "Page not found."
+fn not_found() -> Html {
+    plait::html! {
+        "Not found"
+    }
+    .to_html()
 }
-
-// fn render_markdown_simple(
-//     path: PathBuf,
-// ) -> Result<String, rocket::response::status::NotFound<String>> {
-//     // Retrive the raw text.
-//     let raw_markdown = std::fs::read_to_string(path.as_path())
-//         .map_err(|_| rocket::response::status::NotFound("Not found.".into()))?;
-
-//     // Parse it indo markdown.
-//     let arena = comrak::Arena::new();
-//     let options = &comrak::Options {
-//         extension: comrak::ExtensionOptions::builder().table(true).build(),
-//         parse: comrak::ParseOptions::builder().build(),
-//         render: comrak::RenderOptions::builder().unsafe_(true).build(),
-//     };
-//     let markdown_tree = comrak::parse_document(&arena, raw_markdown.as_str(), options);
-
-//     // Render the Markdown into HTML.
-//     let mut raw_html = vec![];
-//     comrak::format_html(markdown_tree, options, &mut raw_html)
-//         .expect("Error whilst formatting HTML.");
-//     let raw_html = String::from_utf8(raw_html).expect("Error parsing comrak HTML as UTF-8.");
-
-//     Ok(raw_html)
-// }

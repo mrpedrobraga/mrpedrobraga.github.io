@@ -1,0 +1,19 @@
+:root {
+    --bg-color: #1c1c1a;
+    --fg-color: #eee9e0;
+    --fg-accent: #55aa88;
+
+    --tag-bg-color: #1d3638;
+    --inline-code-bg-color: #292926;
+    --block-code-bg-color: #2a2a28;
+}
+
+/* :root {
+    --bg-color: #f2f0e0;
+    --fg-color: #292621;
+    --fg-accent: #af225a;
+
+    --tag-bg-color: #d7dfa4;
+    --inline-code-bg-color: #f1d4cb;
+    --block-code-bg-color: #efd8cd;
+} */

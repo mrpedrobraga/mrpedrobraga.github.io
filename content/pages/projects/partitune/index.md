@@ -1,6 +1,6 @@
 ---
 title: Partitune
-description: Voxel-based game engine.
+description: A semantic, human-readable music exchange format.
 tags:
   - dsl
   - music

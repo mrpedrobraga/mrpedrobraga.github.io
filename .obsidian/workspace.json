@@ -4,24 +4,53 @@
     "type": "split",
     "children": [
       {
-        "id": "f8b8ae63fa487f28",
+        "id": "8c1d41bf18ef35a7",
         "type": "tabs",
         "children": [
           {
-            "id": "20895793b648612e",
+            "id": "82224b5f253cc17a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/pages/projects/partitune/index.md",
+                "file": "content/pages/projects/proj/index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          },
+          {
+            "id": "77d640e3820f0790",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/pages/projects/ui-composer/index.md",
                 "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          },
+          {
+            "id": "c77ecea773ed4fdf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/pages/projects/sol/index.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "index"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -170,29 +199,44 @@
       "termy:Open terminal": false
     }
   },
-  "active": "20895793b648612e",
+  "active": "77d640e3820f0790",
   "lastOpenFiles": [
-    "target/debug/incremental/pedrobraga_website-1j4j2cb4zdfwv/s-hivnwffnlj-0not8ae-0y1zfzn195q81d6hhohavwfge/work-products.bin",
-    "target/debug/incremental/pedrobraga_website-1j4j2cb4zdfwv/s-hivnwffnlj-0not8ae-0y1zfzn195q81d6hhohavwfge/thin-lto-past-keys.bin",
-    "target/debug/incremental/pedrobraga_website-1j4j2cb4zdfwv/s-hivnwffnlj-0not8ae-0y1zfzn195q81d6hhohavwfge/query-cache.bin",
-    "target/debug/incremental/pedrobraga_website-1j4j2cb4zdfwv/s-hivnwffnlj-0not8ae-0y1zfzn195q81d6hhohavwfge/f2di8g6w7vpffuh22ivn38kpp.pre-lto.bc",
-    "target/debug/incremental/pedrobraga_website-1j4j2cb4zdfwv/s-hivnwffnlj-0not8ae-0y1zfzn195q81d6hhohavwfge/f2di8g6w7vpffuh22ivn38kpp.o",
-    "target/debug/incremental/pedrobraga_website-1j4j2cb4zdfwv/s-hivnwffnlj-0not8ae-0y1zfzn195q81d6hhohavwfge/ezgdov3pctp5puyb6pgiqhph3.pre-lto.bc",
-    "target/debug/incremental/pedrobraga_website-1j4j2cb4zdfwv/s-hivnwffnlj-0not8ae-0y1zfzn195q81d6hhohavwfge/ezgdov3pctp5puyb6pgiqhph3.o",
-    "target/debug/incremental/pedrobraga_website-1j4j2cb4zdfwv/s-hivnwffnlj-0not8ae-0y1zfzn195q81d6hhohavwfge/ezdxaf5xaq2prn5kxzu62n0md.pre-lto.bc",
-    "target/debug/incremental/pedrobraga_website-1j4j2cb4zdfwv/s-hivnwffnlj-0not8ae-0y1zfzn195q81d6hhohavwfge/ezdxaf5xaq2prn5kxzu62n0md.o",
-    "target/debug/incremental/pedrobraga_website-1j4j2cb4zdfwv/s-hivnwffnlj-0not8ae-0y1zfzn195q81d6hhohavwfge/ev7v0l3r7n7ekrjca9u8euv3p.pre-lto.bc",
-    "target/debug/incremental/pedrobraga_website-1j4j2cb4zdfwv/s-hivnwffnlj-0not8ae-0y1zfzn195q81d6hhohavwfge/ev7v0l3r7n7ekrjca9u8euv3p.o",
-    "content/pages/projects/sol/index.md",
-    "content/pages/projects/partitune/index.md",
+    "content/pages/projects/music-std/index.md",
     "content/pages/projects/overtone/index.md",
-    "content/pages/projects/novel/index.md",
-    "content/pages/projects/building-blocks/index.md",
-    "content/pages/projects/aio/index.md",
+    "content/pages/projects/lullaby-ui/index.md",
+    "content/pages/projects/music-std",
+    "public/images/projects/lullaby-ui-showcase-2.png",
+    "public/images/projects/Unconfirmed 764530.crdownload",
+    "public/images/projects/lullaby-ui-showcase-1.png",
+    "public/images/projects/Unconfirmed 890037.crdownload",
     "content/pages/projects/ui-composer/index.md",
+    "content/pages/projects/lullaby-ui",
     "content/pages/index.md",
-    "content/pages/inner-voices/home.md",
+    "content/pages/projects/sol/index.md",
+    "target/debug/deps/pedrobraga_website-9613d7dcb3e21994",
+    "target/debug/incremental/pedrobraga_website-2io6m1420a5rx/s-hiyyaanpvj-1v88oq3-0iu0s7vu69a1yhusqv6xjlus6/work-products.bin",
+    "target/debug/incremental/pedrobraga_website-2io6m1420a5rx/s-hiyyaanpvj-1v88oq3-0iu0s7vu69a1yhusqv6xjlus6/thin-lto-past-keys.bin",
+    "target/debug/incremental/pedrobraga_website-2io6m1420a5rx/s-hiyyaanpvj-1v88oq3-0iu0s7vu69a1yhusqv6xjlus6/query-cache.bin",
+    "target/debug/incremental/pedrobraga_website-2io6m1420a5rx/s-hiyyaanpvj-1v88oq3-0iu0s7vu69a1yhusqv6xjlus6/f4n94hwc7lyqjc8jkfx87uajx.pre-lto.bc",
+    "target/debug/incremental/pedrobraga_website-2io6m1420a5rx/s-hiyyaanpvj-1v88oq3-0iu0s7vu69a1yhusqv6xjlus6/f4n94hwc7lyqjc8jkfx87uajx.o",
+    "content/pages/projects/aio/index.md",
+    "content/pages/projects/kino/index.md",
+    "content/pages/projects/cables/index.md",
+    "content/pages/projects/dreamed-away/index.md",
+    "content/pages/projects/building-blocks/index.md",
+    "content/pages/projects/proj/index.md",
+    "content/pages/projects/distortionator/index.md",
+    "content/pages/projects/partitune/index.md",
+    "content/pages/projects/inner-voices/index.md",
+    "content/pages/projects/dreamtone/index.md",
     "content/pages/_templates/project.md",
+    "public/images/projects/building-blocks-banner.png",
+    "public/images/projects/Screenshot From 2026-05-17 02-36-43.png",
+    "content/pages/projects/building-blocks/assets/Screenshot From 2026-05-15 16-32-58.png",
+    "public/images/projects/building-blocks-reflection-test.png",
+    "public/images/projects/Screenshot From 2026-05-15 16-32-58.png",
+    "public/images/Screenshot From 2026-05-15 16-32-58.png",
+    "content/pages/inner-voices/home.md",
     "blog/Algebraic Types.md",
     "pages/software/ui-composer/index.md",
     "pages/software/pstudio/index.md",
@@ -201,16 +245,7 @@
     "pages/software/index.md",
     "blog/article-01.md",
     "blog/mathematica-nova/logic-01.md",
-    "blog/mathematica-nova/5-rules-of-rewriting.md",
-    "blog/mathematica-nova/6-statements.md",
-    "blog/mathematica-nova/1-values.md",
-    "blog/mathematica-nova/2-names.md",
-    "blog/mathematica-nova/3-variables.md",
-    "blog/mathematica-nova/7-questions.md",
-    "blog/mathematica-nova/4-expressions.md",
     "Pasted image 20250330163659.png",
-    "Pasted image 20250107031006.png",
-    "blog/assets/8by8img.png",
-    "public/images/spr_bg_poolwave.png"
+    "Pasted image 20250107031006.png"
   ]
 }

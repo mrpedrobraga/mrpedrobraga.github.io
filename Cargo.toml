@@ -5,14 +5,14 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-comrak = "0.38.0"
+comrak = "0.52.0"
 fountain = "0.1.12"
 itertools = "0.14.0"
 latex2mathml = "0.2.3"
 nom = "8.0.0"
-rand = "0.9.1"
+plait = { version = "0.8.1", features = ["rocket"] }
+rand = "0.10.1"
 rocket = { version = "0.5.1", features = ["json"] }
-rocket_dyn_templates = { version = "0.2.0", features = ["handlebars"] }
 serde = "1.0.216"
 serde_yaml = "0.9.34"
 

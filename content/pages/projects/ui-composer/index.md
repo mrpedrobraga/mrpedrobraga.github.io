@@ -1,6 +1,6 @@
 ---
 title: UI Composer
-description: A pitch of a new UI library!
+description: A native UI rendering engine built on principles of composition and reactivity.
 tags:
   - graphics
   - ui-composer

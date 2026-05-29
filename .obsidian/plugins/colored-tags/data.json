@@ -12,12 +12,17 @@
   "knownTags": {
     "assets": 1,
     "compiler": 2,
+    "cozy": 10,
     "dsl": 3,
     "game-development": 4,
     "graphics": 5,
+    "horror": 11,
+    "library": 14,
     "music": 6,
     "software": 7,
+    "tool": 13,
     "ui-composer": 8,
+    "videogame": 12,
     "writing": 9
   },
   "tagColors": {},
