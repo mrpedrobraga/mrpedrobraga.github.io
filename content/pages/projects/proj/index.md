@@ -1,5 +1,5 @@
 ---
-title: proj
+title: proj (0.0.0)
 description: A library for creating modern package managers, inspired by `cargo`.
 tags:
   - software

@@ -1,5 +1,5 @@
 ---
-title: Partitune
+title: Partitune (1.0.0)
 description: A semantic, human-readable music exchange format.
 tags:
   - dsl

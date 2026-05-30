@@ -1,5 +1,5 @@
 ---
-title: Building Blocks
+title: Building Blocks (0.0.0)
 description: A fully data-driven sandbox game, where you can make worlds to hang out with friends!
 tags:
   - software

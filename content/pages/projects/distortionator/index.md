@@ -1,5 +1,5 @@
 ---
-title: Distortionator
+title: Distortionator (2.0.0)
 description: A very niche battle-background editor for Godot-based, MOTHER-like games.
 tags:
   - software

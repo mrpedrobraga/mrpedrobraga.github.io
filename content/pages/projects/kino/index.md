@@ -1,5 +1,5 @@
 ---
-title: kino
+title: kino (0.1.0)
 description: Markup language for writing complex, rich scripts for movies, tv shows or interactive media.
 tags:
   - software

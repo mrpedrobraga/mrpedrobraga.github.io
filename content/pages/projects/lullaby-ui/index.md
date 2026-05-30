@@ -1,5 +1,5 @@
 ---
-title: Lullaby UI
+title: Lullaby UI (0.0.0)
 description: A component library for UI composer, with a premium feel.
 tags:
   - graphics

@@ -1,5 +1,5 @@
 ---
-title: The MUS Standards
+title: The MUS Standards (0.0.1)
 description: A collection of standards for interchange of semantic music data.
 tags:
   - software

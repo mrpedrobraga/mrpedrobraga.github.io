@@ -1,5 +1,5 @@
 ---
-title: aio
+title: aio (0.0.0)
 description: Constraints-based programming language with a focus on expressiveness and correctness.
 tags:
   - software

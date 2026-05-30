@@ -1,5 +1,5 @@
 ---
-title: DREAMTONE
+title: DREAMTONE (Demo out)
 description: DREAMTONE is a traditional RPG, set in a whimsical pastiche of the American 1980s!
 tags:
   - videogame

@@ -1,5 +1,5 @@
 ---
-title: cables
+title: cables (0.1.0)
 description: A DAG compiler library for Rust.
 tags:
   - software

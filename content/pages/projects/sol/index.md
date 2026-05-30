@@ -1,5 +1,5 @@
 ---
-title: sol
+title: sol (0.0.1)
 description: Programming language and toolchain for creating game assets.
 tags:
   - software

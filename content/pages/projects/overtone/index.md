@@ -1,5 +1,5 @@
 ---
-title: Overtone
+title: Overtone (0.0.0)
 description: A music (and more) composition app with a powerful modular architecture.
 tags:
   - software

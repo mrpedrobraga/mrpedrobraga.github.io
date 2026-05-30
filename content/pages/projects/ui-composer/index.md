@@ -1,5 +1,5 @@
 ---
-title: UI Composer
+title: ui-composer (0.0.1)
 description: A native UI rendering engine built on principles of composition and reactivity.
 tags:
   - graphics
