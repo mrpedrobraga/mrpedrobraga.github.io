@@ -5,6 +5,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+clap = { version = "4.6.1", features = ["derive"] }
 comrak = "0.52.0"
 fountain = "0.1.12"
 itertools = "0.14.0"

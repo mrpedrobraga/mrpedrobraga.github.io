@@ -1,13 +1,13 @@
 pub mod quiz;
-use rocket::{Build, Rocket};
 use rand::seq::IndexedRandom;
+use rocket::{Build, Rocket};
 
 pub fn mount_routes(ro: Rocket<Build>) -> Rocket<Build> {
-    ro/*.mount(
-        "/inner-voices",
-        routes![home, soundtrack, shop, resources, press_kit],
-    )
-    .register("/inner-voices", catchers![not_found])*/
+    ro /*.mount(
+           "/inner-voices",
+           routes![home, soundtrack, shop, resources, press_kit],
+       )
+       .register("/inner-voices", catchers![not_found])*/
 }
 
 // #[get("/")]

@@ -1,66 +1,54 @@
-use plait::{Html, ToHtml};
-use rocket::{
-    catch, catchers,
-    fs::{relative, FileServer},
-    get, launch, routes,
-};
 use std::path::PathBuf;
 
+use clap::Parser;
+use rocket::{
+    catchers,
+    fs::{relative, FileServer},
+    launch, routes,
+};
+
 pub mod api;
+pub mod home;
 pub mod inner_voices;
 pub mod markdown;
 
 pub mod projects;
 
-#[launch]
-fn rocket() -> _ {
-    let mut rocket_app = rocket::build()
-        .mount("/public", FileServer::from(relative!("public")))
-        .register("/", catchers![not_found])
-        .mount("/", routes![index])
-        .mount("/projects", routes![projects::projects])
-        .mount("/project", routes![projects::project]);
+#[allow(clippy::result_large_err)]
+#[rocket::main]
+async fn main() -> Result<(), rocket::error::Error> {
+    let args = CliArgs::parse();
 
-    rocket_app = api::mount_routes(rocket_app);
-    rocket_app = inner_voices::mount_routes(rocket_app);
+    match args {
+        CliArgs::Build => {
+            println!("Building...");
 
-    rocket_app
-}
+            let dist_directory = PathBuf::from("./dist");
+            std::fs::create_dir(dist_directory.as_path()).unwrap();
 
-#[get("/")]
-fn index() -> Html {
-    let rendered_file_res =
-        markdown::render_from_path_full::<()>(PathBuf::from("./content/pages/index.md"));
-    let Ok(rendered_file) = rendered_file_res else {
-        return not_found();
-    };
+            Ok(())
+        }
+        CliArgs::Serve => {
+            println!("Serving from /dist directory...");
 
-    plait::html! {
-        #doctype
-        html {
-            head {
-                title { "Index" }
-                link (rel: "stylesheet", href: "/public/styles/main.css");
-            }
-            body {
-                header {
-                    nav {
-                        "Navigation goes here..."
-                    }
-                }
-                main {
-                    #(rendered_file.html_content)
-                }
-            }
+            let mut rocket_app = rocket::build()
+                .mount("/public", FileServer::from(relative!("public")))
+                .register("/", catchers![home::not_found])
+                .mount("/", routes![home::home])
+                .mount("/projects", routes![projects::projects])
+                .mount("/project", routes![projects::project]);
+
+            rocket_app = api::mount_routes(rocket_app);
+            rocket_app = inner_voices::mount_routes(rocket_app);
+            rocket_app.launch().await?;
+
+            Ok(())
         }
     }
-    .to_html()
 }
 
-#[catch(404)]
-fn not_found() -> Html {
-    plait::html! {
-        "Not found"
-    }
-    .to_html()
+#[derive(clap::Parser)]
+enum CliArgs {
+    Build,
+    Serve,
 }

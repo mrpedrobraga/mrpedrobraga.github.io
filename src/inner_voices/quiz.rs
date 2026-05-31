@@ -1,7 +1,10 @@
 pub trait CategoryQuiz: Copy + Eq + std::hash::Hash + Ord {
-    fn evaluate(answers: &[Self]) -> Option<Self> where Self:Sized {
+    fn evaluate(answers: &[Self]) -> Option<Self>
+    where
+        Self: Sized,
+    {
         use itertools::Itertools;
-        
+
         answers
             .iter()
             .copied() // Convert &Self to Self for grouping

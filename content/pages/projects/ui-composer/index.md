@@ -67,26 +67,21 @@ struct PersonForm {
 // Editor
 fn PersonFormEditor(person_form: PersonForm, send_fx: impl Effect) -> impl UI {
 	// notice how instead of using CSS we *compose* layout by using newtypes.
-	center(
-		WithSize( Extent2::new(300.0, 300.0),
-			flex! [
-				[ _ ] Label("Log in!"),
-				[ _ ] Row![ Label("Name"), TextEdit(form.name) ],
-				[1.0] ( // <- `flex-grow: 1;`
-					Column![
-						Label("Tell us about yourself"),
-						TextEdit(form.description)
-					]
-				),
-				[ _ ] Button(Label("Send"), send_fx),
-				// Notice how instead of passing a &str,
-				// we pass an item: `Label`. This is so we could
-				// make a button containing anything else we desire.
-				//
-				// Good design is in the little things, isn't it?
+
+	ui! {
+		center with_size(Size2::new(300.0, 300.0)) flex [
+			item Label(("Log in!"))
+			item row [
+				Label(("Name"))
+				TextEdit((form.name))
 			]
-		)
-	)
+			item {grow: 1.0} column [
+				Label(("Tell us about yourself"))
+				TextEdit((form.description))
+			]
+			item (( Button(Label("Send"), send_fx) ))
+		]
+	}
 }
 ```
 

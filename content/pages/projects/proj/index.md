@@ -42,7 +42,7 @@ trait ProjectManifest {
 
 Also, these tools are provided for the CLI, but can also be accessed through code or via an LS.
 
-```bash
+```sh
 # -- Project manifest --
 proj new [<template>]
 proj info

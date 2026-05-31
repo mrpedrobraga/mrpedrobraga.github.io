@@ -1,6 +1,5 @@
 use crate::{
-    markdown::{self, get_frontmatter, FromFrontmatter},
-    not_found,
+    markdown::{self, FromFrontmatter, get_frontmatter, syntax_highlighting::syntax_highlighting_for_html},
 };
 use plait::{Html, ToHtml as _};
 use rocket::get;
@@ -61,7 +60,7 @@ pub fn projects() -> Html {
         #doctype
         html {
             head {
-                title {"Projects"}
+                title { "Projects" }
                 link (rel: "stylesheet", href: "/public/styles/main.css");
             }
             body {
@@ -95,18 +94,19 @@ pub fn project(project_name: String) -> Html {
         markdown::render_from_path_full::<ProjectFrontmatter>(PathBuf::from(url));
 
     let Ok(rendered_file) = rendered_file_res else {
-        return not_found();
+        return crate::home::not_found();
     };
 
     let banner_url = rendered_file.frontmatter.banner_url.unwrap_or("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a989815-8731-4b08-8124-db03acb4ada8/di7xmh0-8c21639f-8b54-4c3b-bed0-b50b6fbc8d8b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8xYTk4OTgxNS04NzMxLTRiMDgtODEyNC1kYjAzYWNiNGFkYTgvZGk3eG1oMC04YzIxNjM5Zi04YjU0LTRjM2ItYmVkMC1iNTBiNmZiYzhkOGIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OWTlOXrVlOcGk3DkNyh2X5etCjhDxJ98O53I6vGzMpU".to_owned());
 
+    let plain_title = rendered_file.frontmatter.title.clone();
     let title = plait::html! {
         if let Some(link) = rendered_file.frontmatter.link.as_ref() {
             a(href: link, target: "_blank") {
-                (rendered_file.frontmatter.title)
+                (plain_title.as_str())
             }
         } else {
-            (rendered_file.frontmatter.title)
+            (plain_title.as_str())
         }
     };
 
@@ -123,8 +123,10 @@ pub fn project(project_name: String) -> Html {
         #doctype
         html {
             head {
-                title { (&title) }
+                title { (format!("mrpedrobraga | {}", &rendered_file.frontmatter.title)) }
                 link (rel: "stylesheet", href: "/public/styles/main.css");
+
+                (syntax_highlighting_for_html())
             }
             body {
                 header {

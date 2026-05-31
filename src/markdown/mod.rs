@@ -1,5 +1,7 @@
-use std::{fmt::Debug, path::PathBuf};
 use serde::Deserialize;
+use std::{fmt::Debug, path::PathBuf};
+
+pub mod syntax_highlighting;
 
 pub struct RenderedFile<T> {
     pub frontmatter: T,
@@ -153,14 +155,16 @@ pub fn render_markdown_full<Frontmatter: FromFrontmatter>(
         }
     }
     let mut raw_html = String::new();
-    comrak::format_html(root, options, &mut raw_html).expect("Error whilst formatting HTML.");
-    Ok(RenderedFile { frontmatter, html_content: raw_html })
+    comrak::format_html(root, options, &mut raw_html)
+        .expect("Error whilst formatting HTML.");
+    Ok(RenderedFile {
+        frontmatter,
+        html_content: raw_html,
+    })
 }
 
-pub fn get_frontmatter<Frontmatter: FromFrontmatter>(
-    raw_markdown: &str,
-) -> Option<Frontmatter> {
-let arena = comrak::Arena::new();
+pub fn get_frontmatter<Frontmatter: FromFrontmatter>(raw_markdown: &str) -> Option<Frontmatter> {
+    let arena = comrak::Arena::new();
     let options = &comrak::Options {
         extension: comrak::options::Extension::builder()
             .front_matter_delimiter(String::from("---"))
@@ -174,7 +178,7 @@ let arena = comrak::Arena::new();
         if let comrak::nodes::NodeValue::FrontMatter(ref front_matter) = node.data.borrow().value {
             let yaml = front_matter.replace("---", "");
             frontmatter.try_patch_from_str(yaml.as_str());
-            return Some(frontmatter)
+            return Some(frontmatter);
         }
     }
 
