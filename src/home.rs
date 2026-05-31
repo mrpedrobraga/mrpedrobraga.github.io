@@ -1,20 +1,20 @@
+use crate::markdown::{self, RenderedFile};
 use plait::{Html, ToHtml};
-use rocket::{
-    catch,
-    fs,
-    get,
-};
+use rocket::{catch, fs::NamedFile, get};
 use std::path::PathBuf;
 
-use crate::markdown;
-
 #[get("/")]
-pub fn home() -> Html {
+pub async fn home() -> NamedFile {
+    NamedFile::open("./dist/index.html").await.unwrap()
+}
+
+pub fn home_html() -> Html {
     let rendered_file_res =
         markdown::render_from_path_full::<()>(PathBuf::from("./content/pages/index.md"));
-    let Ok(rendered_file) = rendered_file_res else {
-        return not_found();
-    };
+    let rendered_file = rendered_file_res.unwrap_or(RenderedFile {
+        frontmatter: (),
+        html_content: "Content not found...".to_owned(),
+    });
 
     plait::html! {
         #doctype

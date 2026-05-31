@@ -17,8 +17,7 @@ RUN cargo build --release --bin pedrobraga-website
 FROM debian:bookworm-slim AS runtime
 WORKDIR /app
 COPY --from=builder /app/target/release/pedrobraga-website /usr/local/bin
-COPY --from=planner /app/templates /app/templates
 COPY --from=planner /app/public /app/public
-COPY --from=planner /app/blog /app/blog
-COPY --from=planner /app/pages /app/pages
+COPY --from=planner /app/content/ /app/content
 ENTRYPOINT ["/usr/local/bin/pedrobraga-website"]
+CMD ["prod"]

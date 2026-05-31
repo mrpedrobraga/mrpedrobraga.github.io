@@ -27,6 +27,10 @@ impl FromFrontmatter for ProjectFrontmatter {
 
 #[get("/")]
 pub fn projects() -> Html {
+    projects_html()
+}
+
+pub fn projects_html() -> Html {
     // TODO: Precompute this...
     let mut project_list = std::fs::read_dir("./content/pages/projects")
         .unwrap()
@@ -89,6 +93,10 @@ pub fn projects() -> Html {
 
 #[get("/<project_name>")]
 pub fn project(project_name: String) -> Html {
+    project_html(project_name)
+}
+
+pub fn project_html(project_name: String) -> Html {
     let url = format!("./content/pages/projects/{project_name}/index.md");
     let rendered_file_res =
         markdown::render_from_path_full::<ProjectFrontmatter>(PathBuf::from(url));
