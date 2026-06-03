@@ -28,7 +28,7 @@
               "type": "markdown",
               "state": {
                 "file": "content/pages/projects/ui-composer/index.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
@@ -201,9 +201,9 @@
   },
   "active": "77d640e3820f0790",
   "lastOpenFiles": [
+    "content/pages/projects/sol/index.md",
     "content/pages/projects/proj/index.md",
     "content/pages/projects/partitune/index.md",
-    "content/pages/projects/sol/index.md",
     "content/pages/projects/overtone/index.md",
     "content/pages/projects/music-std/index.md",
     "content/pages/projects/lullaby-ui/index.md",
