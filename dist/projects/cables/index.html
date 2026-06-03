@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><title>mrpedrobraga | cables (0.1.0)</title><link rel="stylesheet" href="/public/styles/main.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/rust.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ini.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/sh.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/glsl.min.js"></script><script>hljs.highlightAll();</script></head><body><header><nav><span class="notice">This is a temporary page, as the website is being rebuilt.
+I appreciate the understanding.</span><ul><a href="/"><li>Home</li></a><a href="/projects"><li>Projects</li></a></ul></nav><div class="banner" style="background-image: url(&#39;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a989815-8731-4b08-8124-db03acb4ada8/di7xmh0-8c21639f-8b54-4c3b-bed0-b50b6fbc8d8b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8xYTk4OTgxNS04NzMxLTRiMDgtODEyNC1kYjAzYWNiNGFkYTgvZGk3eG1oMC04YzIxNjM5Zi04YjU0LTRjM2ItYmVkMC1iNTBiNmZiYzhkOGIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OWTlOXrVlOcGk3DkNyh2X5etCjhDxJ98O53I6vGzMpU&#39;)"></div><div class="page-info"><h1><a href="https://github.com/mrpedrobraga/overtone/tree/main/crates/cables-core" target="_blank">cables (0.1.0)</a></h1><p>A DAG compiler library for Rust.</p><div class="tags"><div class="tags"><div class="tag">software</div><div class="tag">library</div></div></div></div></header><main class="compact"><center><a href="https://github.com/mrpedrobraga/overtone/tree/main/crates/cables-core"><img src="https://img.shields.io/badge/github-repo-blue?logo=github"></a></center>
+<p>This is a tool that will only make sense if you're a developer.</p>
+<p>Cables is library for creating directed acyclic graphs that will be executed thousands of times a second.
+It's inspired by Blender's geometry nodes in which nodes may have multiple input and output sockets.</p>
+<p>I created this implementation of <code>Graph</code> to be used for real-time audio processing. At 44100Hz, a standard
+sample rate for audio, an entire graph like this needs to run under 22 microseconds.</p>
+<p>Even though this graph was designed for audio, you can use it for anything else.
+High sample rate never hertz. Hurts. Whatever.</p>
+<pre><code class="language-rust">fn main() {
+    let mut graph = Graph::new();
+    
+    let a = graph.insert(Num::new(40.0));
+    let b = graph.insert(Num::new(60.0));
+    let ab = graph.insert(Sum);
+    
+    graph.connect(a, 0, ab, 0);
+    graph.connect(b, 0, ab, 1);
+   
+    // Compile the graph into an efficient pipeline.
+    // Compiling the graph, traversing it, checking the types
+    // is slow (in the order of microseconds).
+    //
+    // You need to call this every time the graph changes.
+    let pipeline = graph.compile();
+    
+    // Running a compiled graph
+    // is fast (in the order of nanoseconds).
+    let result = pipeline.run();
+}
+</code></pre>
+<p>You <em>will</em> need to create your own nodes. This library doesn't come with any.</p>
+<p>Nodes are effectively just functions with a lot of reflection. <a href="https://github.com/mrpedrobraga/overtone/tree/main/crates/cables-macro"><code>cables-macro</code></a> can make creating these nodes easier, since they involve using <code>unsafe</code>.</p>
+<pre><code class="language-rust">struct Num(pub f32);
+
+#[node_impl(fields(num = 0))]
+impl Node for Num {
+    fn process(out: &amp;mut f32) {
+        *out = num
+    }
+}
+
+struct Sum;
+
+#[node_impl]
+impl Node for Sum {
+    fn process(&amp;self, a: &amp;f32, b: &amp;f32, out: &amp;mut f32) {
+        *out = *a + *b;
+    }
+}
+</code></pre>
+<p>Under the hood, a node has a &quot;compile&quot; function that takes an iterator of byte pointers, transmutes those pointers into references, then returns a closure that captures those references. The result is a packed array of closures in topological order—it can be executed from top to bottom with a simple for loop!</p>
+<p>Take a look at <a href="https://github.com/mrpedrobraga/overtone/blob/main/crates/cables-core/src/graph.rs">the file responsible for this</a>, you'll find that <code>GraphPipeline::from_graph</code> is very complex, but <code>GraphPipeline::run</code> is exactly the code below. It doesn't get faster than this without a compiler to machine code.</p>
+<pre><code class="language-rust">pub fn run(&amp;mut self) {
+	for vertex in self.vertices.iter_mut() {
+		vertex()
+	}
+}
+</code></pre>
+</main><footer><span>Made with <em>HTML</em> by Pedro Braga</span></footer></body></html>

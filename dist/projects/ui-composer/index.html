@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>mrpedrobraga | ui-composer (0.0.1)</title><link rel="stylesheet" href="/public/styles/main.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/rust.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ini.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/sh.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/glsl.min.js"></script><script>hljs.highlightAll();</script></head><body><header><nav><span class="notice">This is a temporary page, as the website is being rebuilt.
+I appreciate the understanding.</span><ul><a href="/"><li>Home</li></a><a href="/projects"><li>Projects</li></a></ul></nav><div class="banner" style="background-image: url(&#39;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a989815-8731-4b08-8124-db03acb4ada8/di7xmh0-8c21639f-8b54-4c3b-bed0-b50b6fbc8d8b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8xYTk4OTgxNS04NzMxLTRiMDgtODEyNC1kYjAzYWNiNGFkYTgvZGk3eG1oMC04YzIxNjM5Zi04YjU0LTRjM2ItYmVkMC1iNTBiNmZiYzhkOGIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OWTlOXrVlOcGk3DkNyh2X5etCjhDxJ98O53I6vGzMpU&#39;)"></div><div class="page-info"><h1>ui-composer (0.0.1)</h1><p>A native UI rendering engine built on principles of composition and reactivity.</p><div class="tags"><div class="tags"><div class="tag">graphics</div><div class="tag">ui-composer</div></div></div></div></header><main class="compact"><p>UI composer is a fast, modern native UI Rendering library. It combines the speed and simplicity of retained-mode native UI libraries (Qt, GTK), the amazing developer experience of web libraries (React, Vue) and the simplicity of immediate mode libraries (ImGUI).</p>
+<blockquote>
+<p>As of now, UI Composer is in an early <em>&quot;research stage&quot;</em> and should not be used for anything critical. I really do welcome experimentation and discussion, though!</p>
+</blockquote>
+<p>The library is written in Rust.</p>
+<h2>Getting Started</h2>
+<p>Add <code>ui-composer</code> as a git dependency from <a href="https://github.com/mrpedrobraga/ui-composer">here</a>. <del>In the future, you'll be able to <code>cargo add ui-composer</code>.</del></p>
+<pre><code class="language-rust">use ui_composer::prelude::*;
+use lullaby_ui::prelude::*;
+
+fn main() {
+	UIComposer::run(window(Label(&quot;Hello, World!&quot;)))
+}
+</code></pre>
+<p>And you're ready to ship!</p>
+<h2>API Design</h2>
+<p>Where this library shines is on its API design. Instead of having an extensive library of features powered by hacky magic, UI Composer only has a handful of concepts packaged into quanta of functionality each which focuses on doing a single thing well. Apps are creating by <em>composing</em> (eh?) these primitives together.</p>
+<p>There are three types of components to be precise: <em>State</em>, <em>Input</em> and <em>Output</em>.</p>
+<pre><code class="language-rust">use ui_composer::prelude::*;
+use ui_composer::lullaby_ui::prelude::{Label, Button};
+
+fn main() {  
+	// State
+    let text_state = Mutable::new(&quot;&quot;);  
+
+	let app = row(
+		// Input - Modifies state...
+		Button(
+			Label(&quot;Click me!&quot;),
+			text_state.effect(|_| &quot;Thank you!&quot;)
+		),
+		// Output - Visualizes state, possibly reactively!
+		text_state()
+			.signal()
+			.map(|text| Label(text)),
+	);
+
+    UIComposer::run(window(app));
+}
+</code></pre>
+<p>This means that sometimes you'll miss the granularity that dozens of <em>React Hooks</em> give you, and the library has a steeper learning curve. But as a result, after you learn <code>ui-composer</code>, the code is simple to read <em>reason about</em>. In the example above it's clear what gets re-rendered when <code>text_state</code> changes (only the <code>Label</code>, and not the <code>Button</code>, since that's what inside <code>.map</code>).</p>
+<p>The library does come with a lot of tasty features for convenience and ergonomics as well as a &quot;standard library&quot; of components for each platform it supports.</p>
+<pre><code class="language-rust">// Data
+struct PersonForm {
+	name: Mutable&lt;String&gt;,
+	description: Mutable&lt;String&gt;,
+}
+
+// Editor
+fn PersonFormEditor(person_form: PersonForm, send_fx: impl Effect) -&gt; impl UI {
+	// notice how instead of using CSS we *compose* layout by using newtypes.
+
+	ui! {
+		center with_size(Size2::new(300.0, 300.0)) flex [
+			item Label((&quot;Log in!&quot;))
+			item row [
+				Label((&quot;Name&quot;))
+				TextEdit((form.name))
+			]
+			item {grow: 1.0} column [
+				Label((&quot;Tell us about yourself&quot;))
+				TextEdit((form.description))
+			]
+			item (( Button(Label(&quot;Send&quot;), send_fx) ))
+		]
+	}
+}
+</code></pre>
+<p>But they all desugar to things you can write yourself. There's no built-in &quot;widgets&quot; you have to use... I invite you to read the source code of <code>Button</code> to see for yourself that it simply desugars to a handful of primitives.</p>
+<h2>Features</h2>
+<ul>
+<li><input type="checkbox" checked="" disabled="" /> Fast;
+<ul>
+<li><input type="checkbox" checked="" disabled="" /> GPU Accelerated;</li>
+<li><input type="checkbox" checked="" disabled="" /> Small binary sizes;</li>
+<li><input type="checkbox" checked="" disabled="" /> Modular design with Cargo features for conditional compilation;</li>
+</ul>
+</li>
+<li><input type="checkbox" disabled="" /> Standard library of common components and data-structures, inspired by <a href="https://ui.shadcn.com/">shadcn/ui</a>;
+<ul>
+<li><input type="checkbox" checked="" disabled="" /> <code>Button</code>, <code>Label</code>, <code>Switch</code>, <code>TextEdit</code>, <code>ColorEdit</code>, <code>CalendarView</code> and common basic components like these.</li>
+<li><input type="checkbox" disabled="" /> <code>Toast</code>, <code>Sonner</code>, <code>CommandPalette</code> and rich components like these.</li>
+<li><input type="checkbox" checked="" disabled="" /> <code>Center</code>, <code>Row</code>, <code>Flex</code>, <code>FlexWrap</code>, <code>Grid</code>, <code>Masonry</code> and many other containers!</li>
+<li><input type="checkbox" disabled="" /> <code>Symphony UI</code> and <code>Lullaby UI</code> as two beautiful styling toolkits.</li>
+</ul>
+</li>
+<li><input type="checkbox" checked="" disabled="" /> Create your own components using primitives.</li>
+<li><input type="checkbox" checked="" disabled="" /> First class support for 3D rendering (that lives <em>in</em> the layout context);</li>
+<li><input type="checkbox" disabled="" /> First class custom shaders support;</li>
+<li><input type="checkbox" checked="" disabled="" /> First-class <code>Animator</code> API inspired by <code>std::iter::Iterator</code>, <a href="https://motioncanvas.io/">Motion Canvas</a> and the <a href="https://developer.chrome.com/docs/web-platform/view-transitions">View Transition API</a> and can animate literally any <code>State</code>;</li>
+<li><input type="checkbox" disabled="" /> Attention to detail and polish;
+<ul>
+<li><input type="checkbox" checked="" disabled="" /> Full Unicode support courtesy of <code>cosmic-text</code>.</li>
+<li><input type="checkbox" checked="" disabled="" /> Gradient Debanding;</li>
+<li><input type="checkbox" disabled="" /> Support for squircles as border radii;</li>
+</ul>
+</li>
+<li><input type="checkbox" disabled="" /> Focus on Accessibility;
+<ul>
+<li><input type="checkbox" disabled="" /> Support for screen-readers and navigation using <a href="https://github.com/AccessKit/accesskit">accesskit</a>;</li>
+<li><input type="checkbox" checked="" disabled="" /> Semantic layouting that responds to locale;</li>
+</ul>
+</li>
+<li><input type="checkbox" disabled="" /> Composition over configuration. — &quot;Widgets&quot;, &quot;DOM&quot;, &quot;Objects&quot; are a non-concept in this library.</li>
+<li><input type="checkbox" disabled="" /> Cross-Platform — it's not &quot;write once, run anywhere&quot;, but it's &quot;learn once, apply anywhere&quot;;
+<ul>
+<li><input type="checkbox" checked="" disabled="" /> Desktop — Windows, Linux, Mac OS;</li>
+<li><input type="checkbox" disabled="" /> Mobile — Android, iOS;</li>
+<li><input type="checkbox" disabled="" /> WASM — Web;</li>
+<li><input type="checkbox" disabled="" /> Embedded (<code>no-std</code>) — think Raspberry PI, micro-controllers, the GameBoy Advance;</li>
+<li><input type="checkbox" disabled="" /> TUI — terminals, using <a href="https://github.com/crossterm-rs/crossterm">crossterm</a>;</li>
+</ul>
+</li>
+</ul>
+<h2>Implementation Details</h2>
+<ul>
+<li>Signals from the marvellous <code>futures-signals</code> crate;</li>
+<li><code>cosmic-text</code> for rendering text in most platforms;</li>
+<li><code>winit</code> and <code>wgpu</code> for targeting modern desktops with GPU acceleration;</li>
+<li><code>winit</code> and <code>pixels</code> for targeting desktops without GPU acceleration;</li>
+<li><code>crossterm</code> for drawing to the terminal;</li>
+</ul>
+<h2>Contributing</h2>
+<p>I don't accept code contributions <em>yet</em>, but discussions are welcome. Reach me at <a href="https://bsky.app/profile/mrpedrobraga.com">Bluesky</a> or send an email to <a href="mailto:mrhenribraga@gmail.com">my email</a>;</p>
+</main><footer><span>Made with <em>HTML</em> by Pedro Braga</span></footer></body></html>

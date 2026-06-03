@@ -1,0 +1,103 @@
+<!DOCTYPE html><html><head><title>mrpedrobraga | sol (0.0.1)</title><link rel="stylesheet" href="/public/styles/main.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/rust.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ini.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/sh.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/glsl.min.js"></script><script>hljs.highlightAll();</script></head><body><header><nav><span class="notice">This is a temporary page, as the website is being rebuilt.
+I appreciate the understanding.</span><ul><a href="/"><li>Home</li></a><a href="/projects"><li>Projects</li></a></ul></nav><div class="banner" style="background-image: url(&#39;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a989815-8731-4b08-8124-db03acb4ada8/di7xmh0-8c21639f-8b54-4c3b-bed0-b50b6fbc8d8b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8xYTk4OTgxNS04NzMxLTRiMDgtODEyNC1kYjAzYWNiNGFkYTgvZGk3eG1oMC04YzIxNjM5Zi04YjU0LTRjM2ItYmVkMC1iNTBiNmZiYzhkOGIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OWTlOXrVlOcGk3DkNyh2X5etCjhDxJ98O53I6vGzMpU&#39;)"></div><div class="page-info"><h1>sol (0.0.1)</h1><p>Programming language and toolchain for creating game assets.</p><div class="tags"><div class="tags"><div class="tag">software</div><div class="tag">assets</div><div class="tag">compiler</div><div class="tag">game-development</div></div></div></div></header><main class="compact"><center><a href="https://github.com/mrpedrobraga/sol"><img src="https://img.shields.io/badge/github-repo-blue?logo=github"></a></center>
+<p>A programming language for custom apps/game content.</p>
+<div class="markdown-alert markdown-alert-warning">
+<p class="markdown-alert-title">Warning</p>
+<p>Sol is in early development and should not be used for real projects yet.
+Feel free to become part of the conversation, though, and help me determine
+its future :-)</p>
+</div>
+<p>Sol is an implementation-agnostic format for creating arbitrary game data. Think items, enemies, rooms, etc.</p>
+<p>By defining your assets in SOL, you can use them in Rust, C, Godot, Unity, etc. SOL files are plain text files, so they can be version-controlled with git, and manually authored if necessary.</p>
+<h2>Features</h2>
+<blockquote>
+<p>A check means it is already implemented.</p>
+</blockquote>
+<ul>
+<li><input type="checkbox" checked="" disabled="" /> Just text: Can be checked into version control easily;</li>
+<li><input type="checkbox" checked="" disabled="" /> Engine agnostic: Your assets will not be 'Godot' assets or 'Unity' assets, but <em>your</em> assets, wherever you take them;</li>
+<li><input type="checkbox" checked="" disabled="" /> Incredibly fast iteration cycles;</li>
+<li><input type="checkbox" checked="" disabled="" /> Easy but powerful dialogues, in a syntax so simple, you'll probably use it for sketching the roughs even;</li>
+</ul>
+<pre><code class="language-js">[Jude smiling]
+- Hello, {PLAYER_NAME}!
+- It is dangerous to go alone... take this!
+
+Inventory.acquire_item(kind: IronSword, amount: 1)
+</code></pre>
+<ul>
+<li><input type="checkbox" checked="" disabled="" /> Type safe — create your own models and enforce asset correctness;</li>
+</ul>
+<pre><code class="language-js">model Item
+  field name : text
+  field unbreakable : truth
+  field icon : Image
+  if not unbreakable then
+    field durability : nat
+  end
+end
+</code></pre>
+<ul>
+<li><input type="checkbox" disabled="" /> Dependency management with <code>sol add &lt;dependency_uri&gt;</code>, to quickly install asset packs or frameworks into your project;</li>
+<li><input type="checkbox" disabled="" /> Interoperability with external resources (.png, .gltf, .aseprite) through the usage of <code>extensions</code>;</li>
+<li><input type="checkbox" checked="" disabled="" /> Possibility of integration with engines;</li>
+<li><input type="checkbox" disabled="" /> Easy refactoring and versioning using <code>sol migrate</code>;</li>
+</ul>
+<h2>Syntax (for nerds)</h2>
+<p>Each <code>.sol</code> file is a &quot;module.&quot; This module is populated with &quot;fields&quot;:</p>
+<pre><code class="language-lua">-- weapons/iron_sword.sol
+@model Item
+
+-- Dependencies on other modules!
+using Icons
+
+-- Static (Constant) fields
+display_name = &quot;Iron Sword&quot;
+durability = 4
+icon = Icons.iron_sword
+
+-- Fields can be procedures!
+action on_use(target: Character)
+    target.try_equip_weapon(weapon: self)
+end
+</code></pre>
+<p>Sol files can be used to specify not just &quot;resources&quot; like items, but also scenes.</p>
+<pre><code class="language-lua">using Chars.(Juniper, Milo)
+
+--todo Add portraits to those dialogues;
+scene main_scene
+  [Juniper]
+  - Jude, could you please move a little?
+
+  [Milo]
+  - nah
+
+  [Juniper]
+  - Imma hit you in the head with a pan.
+
+  [Milo]
+  - *moves*
+
+  Milo.move(by: [1, 0])
+end
+</code></pre>
+<p>...or levels layouts.</p>
+<pre><code class="language-lua">@model Room
+
+def player_spawn as Marker
+  position = [-10, -3]
+  facing = DOWN
+end
+
+def chest1 as Chest
+  position = [0, 0]
+end
+</code></pre>
+<h2>Installing</h2>
+<p>You can compile from source as a rust project, or install from crates.io via cargo.</p>
+<pre><code class="language-bash">cargo install sol-lang
+</code></pre>
+<p>Integration with engines, such as Godot, are not yet available. Sol LSP is being worked on, as well as a <a href="https://zed.dev">Zed</a> extension.</p>
+<h2>Contributing</h2>
+<p>Not yet available.</p>
+</main><footer><span>Made with <em>HTML</em> by Pedro Braga</span></footer></body></html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html><html><head><title>mrpedrobraga | kino (0.1.0)</title><link rel="stylesheet" href="/public/styles/main.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/rust.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ini.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/sh.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/glsl.min.js"></script><script>hljs.highlightAll();</script></head><body><header><nav><span class="notice">This is a temporary page, as the website is being rebuilt.
+I appreciate the understanding.</span><ul><a href="/"><li>Home</li></a><a href="/projects"><li>Projects</li></a></ul></nav><div class="banner" style="background-image: url(&#39;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a989815-8731-4b08-8124-db03acb4ada8/di7xmh0-8c21639f-8b54-4c3b-bed0-b50b6fbc8d8b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8xYTk4OTgxNS04NzMxLTRiMDgtODEyNC1kYjAzYWNiNGFkYTgvZGk3eG1oMC04YzIxNjM5Zi04YjU0LTRjM2ItYmVkMC1iNTBiNmZiYzhkOGIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OWTlOXrVlOcGk3DkNyh2X5etCjhDxJ98O53I6vGzMpU&#39;)"></div><div class="page-info"><h1>kino (0.1.0)</h1><p>Markup language for writing complex, rich scripts for movies, tv shows or interactive media.</p><div class="tags"><div class="tags"><div class="tag">software</div><div class="tag">compiler</div><div class="tag">dsl</div><div class="tag">writing</div></div></div></div></header><main class="compact"><center><a href="https://github.com/mrpedrobraga/obsidian-kino"><img src="https://img.shields.io/badge/github-repo-blue?logo=github"></a></center>
+<p>Kino is a language for writing movie and videogame scripts,
+built for the digital era.</p>
+<p>With <code>kino</code>, you can write scripts in a rich syntax
+that can be understood by humans and computers,
+thus supporting database-like introspection features.
+It's highly inspired by <code>fountain</code>, <code>markdown</code> and <code>sol</code>.</p>
+<p>You can edit your scripts in a &quot;Live-Preview&quot;-like environment,
+authoring beautiful and semantics-rich document.</p>
+<p><code>kino</code> is still a very early WIP, but it can already do a lot.</p>
+<h2>Syntax &amp; Features</h2>
+<p>Each file starts with a metadata section. This gives the file more information that can be used by the visualisation tools...</p>
+<pre><code class="language-kino">Title: MY MOVIE SCRIPT
+Subtitle: The best ever
+Author: Pedro Braga
+</code></pre>
+<p>After that, time to write your scenes. Scenes are sections of a file demarked by two pairs of equal signs (<code>====</code>).</p>
+<pre><code class="language-kino">====
+</code></pre>
+<p>You may give scenes names...</p>
+<pre><code class="language-kino">== Scene 01 ==
+</code></pre>
+<p>As well as metadata...</p>
+<pre><code class="language-kino">== Scene 01 ==
+Where: [Hiere Forest]
+When: 12:00
+Music: [OST Hiere Forest]
+</code></pre>
+<p>The properties here are truly arbitrary, you can add whatever you want, but visualisation tools might be expecting certain kinds of properties. My <a href="https://github.com/mrpedrobraga/obsidian-kino/">Obsidian Plugin</a> can understand these properties:</p>
+<ul>
+<li><code>Where</code>;</li>
+<li><code>When</code>;</li>
+<li><code>Characters</code>;</li>
+<li><code>Tags</code>;</li>
+<li><code>Board</code>;</li>
+<li><code>Author</code>;</li>
+</ul>
+<blockquote>
+<p>Where, When, Music, Characters, Tags, Board, Author</p>
+</blockquote>
+<p>Inside a scene (after a scene header) you can write action lines
+simply by typing your paragraph.</p>
+<pre><code class="language-kino">The early sun rises in the distance. Birds chirp quietly.
+</code></pre>
+<p>You can write additional notes preceding your paragraph by //.
+These paragraphs will be ignored by certain processes.</p>
+<pre><code class="language-kino">The early sun rises in the distance. Birds chirp quietly.
+// Make sure to draw the sun rising from the east.
+</code></pre>
+<p>For style and emphasis, you can use formatting.</p>
+<pre><code class="language-kino">The fog looks **ominous** but not _too_ scary, moreso lonely.
+</code></pre>
+<p>With square brackets you can add rich references, also known
+as wikilinks, which are references that can be followed through
+or hovered over in editing software. You can refer to &quot;things&quot;
+(to be explained later) by their name, id, path;
+or to files or websites.</p>
+<pre><code class="language-kino">At the bed, [Maple] and [Casper] are sleeping.
+</code></pre>
+<p>Rich references are REALLY powerful.
+You can use them to be clear about characters, locations,
+items, other scripts (and specific scenes within them)
+and other concepts that might be ambiguous. Software
+that uses kino is aware of what files connect to each other
+and can help with navigation or make all sorts of visualisations.</p>
+<p>You can write dialogues by declaring a new current speaker,
+and following it with dialogue lines.</p>
+<p>A lone reference to a character in a line declares a new speaker.
+After that, you may use dashes (-) to add lines or parentheticals.</p>
+<pre><code class="language-kino">[Soren]
+- (yawns)
+- What a beautiful day today...
+- (looking at Akiko)
+- When do you wanna get up?
+
+Akiko rolls to look at his eyes, with a sleepy smile.
+
+[Akiko]
+- How dare you ask me that
+</code></pre>
+<p>You can add tagged directives using <code>@</code>.
+They are pretty like action lines,
+but they contain a tag that they can be filtered by.</p>
+<pre><code class="language-kino">@TRANS: FADE OUT.
+@CHYRON: November 17.
+@CAMERA: Orbit slowly around subject.
+@SFX: Loud train horn.
+@TODO: Write this scene better.
+</code></pre>
+<h4>Some Nice Features</h4>
+<ul>
+<li>You can use wikilinks everywhere in the text.</li>
+<li>Dialogue speakers are implicitly Wikilinks!
+<ul>
+<li>You can use <code>[Characters/FileName|My Character]</code> to link to a file while having a different display name. Wikilink syntax is same as anywhere else in Obsidian.</li>
+</ul>
+</li>
+<li>Using wikilinks in @BGM directives makes a clickable link... Clicking that link will play the BGM in a bottom panel in the writing view, so you can get in the mood, ooo!</li>
+</ul>
+<h3>Upcoming</h3>
+<div class="markdown-alert markdown-alert-warning">
+<p class="markdown-alert-title">Warning</p>
+<p>This plugin is still in its early version, these features haven't been formalised yet.</p>
+</div>
+<h4>Visualisations</h4>
+<p>I'm still wondering how to implement this in obsidian,
+but the idea is to have something that feels a lot like Bases
+for your scenes.</p>
+<ul>
+<li><input type="checkbox" disabled="" /> Plotlines;
+<ul>
+<li><input type="checkbox" disabled="" /> Map;</li>
+<li><input type="checkbox" disabled="" /> Matrix;</li>
+</ul>
+</li>
+<li><input type="checkbox" disabled="" /> <strong>Hierarchical Outline with Search and Filter</strong>. Some of these are actually implemented but commented out, as I'll split some of the convoluted functionality into a new plugin.
+<ul>
+<li><input type="checkbox" disabled="" /> Filter by content, plotline or arbitrary metadata;</li>
+<li><input type="checkbox" disabled="" /> Sort by reading order or chronological order;
+<ul>
+<li><input type="checkbox" disabled="" /> Customizable/fictional calendar;</li>
+</ul>
+</li>
+<li><input type="checkbox" disabled="" /> State tracking: asking &quot;what is X at this point in the story?&quot;;</li>
+<li><input type="checkbox" disabled="" /> Seeing all the SFX, BGM, TRANS, portraits, animations, locations, etc that need to be produced in one single place.</li>
+</ul>
+</li>
+</ul>
+<h4>Interactivity</h4>
+<p>Lastly, you can write some special directives using
+the at sign (%).</p>
+<p>Usually scenes are considered to transition to the next
+scene written below them. But in an interactive medium,
+a scene might lead to many other scenes.</p>
+<p>You can specify that with the <code>CONT</code> directive.</p>
+<pre><code class="language-kino">Eventually, the two of them get up.
+
+// Look yourself in the mirror.
+%CONT Scene 02
+
+// Getting out of the door.
+%CONT Scene 03
+</code></pre>
+<p>Or <code>IF</code> to add quick variations.</p>
+<pre><code class="language-kino">%IF the player opens the chest {
+    A ball of light falls from the sky,
+    bestowing you with an item.
+}
+</code></pre>
+</main><footer><span>Made with <em>HTML</em> by Pedro Braga</span></footer></body></html>

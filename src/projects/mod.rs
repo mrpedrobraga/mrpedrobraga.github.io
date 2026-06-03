@@ -1,5 +1,5 @@
 use crate::{
-    markdown::{self, FromFrontmatter, get_frontmatter, syntax_highlighting::syntax_highlighting_for_html},
+    home::nav, markdown::{self, FromFrontmatter, get_frontmatter, syntax_highlighting::syntax_highlighting_for_html}
 };
 use plait::{Html, ToHtml as _};
 use rocket::get;
@@ -26,11 +26,11 @@ impl FromFrontmatter for ProjectFrontmatter {
 }
 
 #[get("/")]
-pub fn projects() -> Html {
-    projects_html()
+pub fn project_list() -> Html {
+    project_list_html()
 }
 
-pub fn projects_html() -> Html {
+pub fn project_list_html() -> Html {
     // TODO: Precompute this...
     let mut project_list = std::fs::read_dir("./content/pages/projects")
         .unwrap()
@@ -49,7 +49,7 @@ pub fn projects_html() -> Html {
     let directories = plait::html! {
         for (dir_name, project) in project_list.iter() {
             div (class: "project-list-entry") {
-                h2 { a(href: format!("/project/{dir_name}")) { (project.title) } }
+                h2 { a(href: format!("/projects/{dir_name}")) { (project.title) } }
                 span { (project.description) }
                 div (class: "tags") {
                     for tag in project.tags.iter() {
@@ -69,11 +69,7 @@ pub fn projects_html() -> Html {
             }
             body {
                 header {
-                    nav {
-                        div (class: "inner") {
-                            "Nav goes here"
-                        }
-                    }
+                    #(nav())
                 }
                 main {
                     div (class: "project-listing") {
@@ -92,11 +88,11 @@ pub fn projects_html() -> Html {
 }
 
 #[get("/<project_name>")]
-pub fn project(project_name: String) -> Html {
-    project_html(project_name)
+pub fn project_page(project_name: String) -> Html {
+    project_page_html(project_name)
 }
 
-pub fn project_html(project_name: String) -> Html {
+pub fn project_page_html(project_name: String) -> Html {
     let url = format!("./content/pages/projects/{project_name}/index.md");
     let rendered_file_res =
         markdown::render_from_path_full::<ProjectFrontmatter>(PathBuf::from(url));
@@ -138,11 +134,7 @@ pub fn project_html(project_name: String) -> Html {
             }
             body {
                 header {
-                    nav {
-                        div (class: "inner") {
-                            "Navigation goes here..."
-                        }
-                    }
+                    #(nav())
                     div (class: "banner", style: format!("background-image: url('{banner_url}')")) {
 
                     }

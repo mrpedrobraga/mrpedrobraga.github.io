@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><title>mrpedrobraga | proj (0.0.0)</title><link rel="stylesheet" href="/public/styles/main.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/rust.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ini.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/sh.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/glsl.min.js"></script><script>hljs.highlightAll();</script></head><body><header><nav><span class="notice">This is a temporary page, as the website is being rebuilt.
+I appreciate the understanding.</span><ul><a href="/"><li>Home</li></a><a href="/projects"><li>Projects</li></a></ul></nav><div class="banner" style="background-image: url(&#39;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a989815-8731-4b08-8124-db03acb4ada8/di7xmh0-8c21639f-8b54-4c3b-bed0-b50b6fbc8d8b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8xYTk4OTgxNS04NzMxLTRiMDgtODEyNC1kYjAzYWNiNGFkYTgvZGk3eG1oMC04YzIxNjM5Zi04YjU0LTRjM2ItYmVkMC1iNTBiNmZiYzhkOGIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OWTlOXrVlOcGk3DkNyh2X5etCjhDxJ98O53I6vGzMpU&#39;)"></div><div class="page-info"><h1>proj (0.0.0)</h1><p>A library for creating modern package managers, inspired by `cargo`.</p><div class="tags"><div class="tags"><div class="tag">software</div><div class="tag">library</div></div></div></div></header><main class="compact"><p>This is a tool that will only make sense if you're a developer.</p>
+<p>While working on my projects, I realised that a lot of them required some sense of creating and managing a project represented by a directory on disk. So I created this library, and now I don't have to recreate this functionality from scratch every time.</p>
+<p><code>proj</code> is a Rust library that declares several traits that you can implement for your own types to create a package manager. It handles three things:</p>
+<ul>
+<li>Project Manifestation — identification of a project on a directory, usually given a manifest (like <code>package.json</code> or <code>Cargo.toml</code>);</li>
+<li>Project structure — finding out which modules exist, their hierarchy, and dependencies between modules;</li>
+<li>Project Tools — general purpose tools for interacting with projects via code, the CLI or a language server for project creation, refactoring, linting, packaging, and more;</li>
+</ul>
+<h3>Using this Library</h3>
+<p>Implement the library's traits for your own struct. There is an example of a package manager for a toy language in the git repository.</p>
+<pre><code class="language-rust">/*
+   The traits kinda look like this.
+   In typical Rust fashion, you implement the required items,
+   and get access to the given items.
+*/
+
+trait ProjectManager {
+	type Manifester: ProjectManifest;
+	// ...
+}
+
+trait ProjectManifest {
+	type Manifest: Serialize + Deserialize;
+	fn new(directory_path: &amp;Path, info: Manifest) -&gt; proj::Result&lt;()&gt;;
+	fn info(directory_path: &amp;Path) -&gt; proj::Result&lt;Self::Manifest&gt;;
+	// ...
+}
+</code></pre>
+<h3>Project Tools</h3>
+<p><code>proj</code> does not provide any binaries for general purpose use, so imagine that instead of &quot;proj,&quot; it's the name of your package manager:</p>
+<p>Also, these tools are provided for the CLI, but can also be accessed through code or via an LS.</p>
+<pre><code class="language-sh"># -- Project manifest --
+proj new [&lt;template&gt;]
+proj info
+proj build
+proj run
+proj dev-serve  # Starts development server (LSP)
+proj package    # Bundles this project in an easy to share package (with all external resources and dependencies.)
+
+# -- Tasks, for user defined routines --
+proj task run &lt;task&gt;
+
+# -- Dependency management, for module organization --
+proj deps add &lt;dependency&gt;
+proj deps remove &lt;dependency&gt;
+proj deps list [--graph]
+proj deps clean
+proj deps upgrade [...&lt;dependency&gt;]
+
+# -- Development and refactoring --
+proj mod new &lt;relative_path&gt; [--simulate]
+proj mod where &lt;path&gt;
+proj mod move &lt;original_path&gt; &lt;new_path&gt; [--simulate]
+proj lint check
+proj lint apply [--simulate]
+proj style apply
+</code></pre>
+</main><footer><span>Made with <em>HTML</em> by Pedro Braga</span></footer></body></html>

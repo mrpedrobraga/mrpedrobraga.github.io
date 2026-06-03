@@ -1,0 +1,229 @@
+<!DOCTYPE html><html><head><title>mrpedrobraga | The MUS Standards (0.0.1)</title><link rel="stylesheet" href="/public/styles/main.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/rust.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ini.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/sh.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/glsl.min.js"></script><script>hljs.highlightAll();</script></head><body><header><nav><span class="notice">This is a temporary page, as the website is being rebuilt.
+I appreciate the understanding.</span><ul><a href="/"><li>Home</li></a><a href="/projects"><li>Projects</li></a></ul></nav><div class="banner" style="background-image: url(&#39;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a989815-8731-4b08-8124-db03acb4ada8/di7xmh0-8c21639f-8b54-4c3b-bed0-b50b6fbc8d8b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8xYTk4OTgxNS04NzMxLTRiMDgtODEyNC1kYjAzYWNiNGFkYTgvZGk3eG1oMC04YzIxNjM5Zi04YjU0LTRjM2ItYmVkMC1iNTBiNmZiYzhkOGIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OWTlOXrVlOcGk3DkNyh2X5etCjhDxJ98O53I6vGzMpU&#39;)"></div><div class="page-info"><h1>The MUS Standards (0.0.1)</h1><p>A collection of standards for interchange of semantic music data.</p><div class="tags"><div class="tags"><div class="tag">software</div><div class="tag">library</div><div class="tag">music</div></div></div></div></header><main class="compact"><p>The two most important formats in this project are MUSi (Musical Instrument) and MUSx (Musical Excerpt), both which go hand in hand.</p>
+<p>This library was developed for <a href="/project/overtone">Overtone</a> but may be used for any purposes!</p>
+<h3>MUSi (Musical Instrument)</h3>
+<p>A simple sample library, similar to SoundFont, that can generate audio from music
+using a format for arbitrary semantic music exchange (MUSx).</p>
+<p>Each instruments carries:</p>
+<ul>
+<li>Samples, each annotated with parameters;</li>
+<li>A Sampling Scheme, which describes how to fulfil the request to play some note;</li>
+</ul>
+<h3>The MUSx (Musical Excerpt) format</h3>
+<p>An excerpt of musical data that will be played by a MUSi (Musical Instrument) or another MUS-compliant plugin.</p>
+<p>This format contains a bunch of notes in a sorted buffer, such that they can be seeked efficiently using binary search.</p>
+<p>Each note has eight inherent parameters:</p>
+<ul>
+<li><code>start</code>;
+<ul>
+<li>the time offset for this note from the beginning of the song;</li>
+</ul>
+</li>
+<li><code>duration</code>;
+<ul>
+<li>how long the note will last for;</li>
+</ul>
+</li>
+<li><code>voice</code>;
+<ul>
+<li>the voice that plays this note, for instruments with multiple voices;</li>
+</ul>
+</li>
+<li><code>intensity</code>;
+<ul>
+<li>the intensity with which the note is played (a.k.a. velocity);</li>
+</ul>
+</li>
+<li><code>pitch</code>;
+<ul>
+<li>the pitch of the note;</li>
+</ul>
+</li>
+<li><code>kind</code>;
+<ul>
+<li>the &quot;kind&quot; of the note, for instruments with many emitters (like percussion) or articulations (like strings);</li>
+</ul>
+</li>
+<li><code>sample_variant</code>;
+<ul>
+<li>the sample variant, which can be used to add variation to a song;</li>
+</ul>
+</li>
+<li><code>extra</code>;
+<ul>
+<li>an extra parameter that you can use for whatever;</li>
+</ul>
+</li>
+</ul>
+<p>It additionally contains &quot;notation&quot; — time-bound and note-bound markers, each which add additional information to be interpreted by the MUSi. These markers are also arbitrary. They may look something like this:</p>
+<p><code>std::staccato</code>, <code>std::chord_stagger</code>, <code>std::artificial_harmonics</code>.</p>
+<h4>Playback</h4>
+<p>When you play a song in Overtone, the play head scans the notes from left to right and emits note events in real time. This is how MUSi plays excerpts, and also how it works if you're recording an excerpt using a MIDI controller.</p>
+<p>But the instruments don't need to react &quot;in real time&quot; to events, since they do get a view into the currently-playing excerpt and are able to <em>look ahead into the future</em>.</p>
+<p>This might be useful for certain instruments — the ability to generate sounds for blocks of music instead of in a  note-by-note basis.</p>
+<h3>Standard Markers</h3>
+<p>For the benefit of the community, here is a relation of standard markers your instruments should follow. This doesn't mean every instrument should do something for <em>every</em> marker, but if you're making an instrument that provides any of these functionalities, you should consider using one of these names to tag it.</p>
+<p>This is the standard used by Overtone plugins made by me!</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4>A short aside on naming convention</h4>
+<p>The names included were chosen to be as general and applicable as possible, while still remaining understandable. Unlike a program like <em>MuseScore Studio</em>, which has a focus on the aesthetics of notation (and thus has many redundant ways of notating the same concept), we prioritise high interchangeability instead of specificity.</p>
+<p>Then, it's up to the GUI that's editing a <code>.musx</code> file to render the notation appropriately according to the user choice and the current instrument. For example, a classical composer might prefer to read <code>pitch_slide</code> as &quot;<strong>Portamento</strong>&quot;, while an EDM composer might prefer &quot;<strong>Slide</strong>&quot;.</p>
+<p>Lastly, it's convention to &quot;namespace&quot; strings to the standard that defined them, such that you know exactly what piece of technical information someone is refering to. So, if a marker here is called <code>vibrato</code> it'll be referred to as <code>std:vibrato</code>, as opposed to some third party's marker that would be called <code>thirdparty:vibrato</code> and could potentially work differently;</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3>Note markers</h3>
+<p>Markers that modify or add effects to a single note or a set of notes.</p>
+<div class="markdown-alert markdown-alert-tip">
+<p class="markdown-alert-title">Tip</p>
+<p>All markers that affect &quot;a single note&quot; can be applied to multiple notes at once, but some markers only make sense when applied to several notes, like legato.</p>
+</div>
+<h4>Articulations</h4>
+<ul>
+<li><code>accent</code> for heighted accent on an note;
+<ul>
+<li><strong>(a.k.a. Marcato)</strong>;</li>
+</ul>
+</li>
+<li><code>legato</code> for notes that are played together;
+<ul>
+<li><strong>(a.k.a. Legato)</strong>;</li>
+</ul>
+</li>
+<li><code>staccato</code> for notes that are not held for their full time;
+<ul>
+<li><strong>(a.k.a. Staccato)</strong>;</li>
+</ul>
+</li>
+<li><code>vibrato</code> for quickly sliding a note up and down;
+<ul>
+<li><strong>(a.k.a. Vibrato)</strong>;</li>
+</ul>
+</li>
+<li><code>tremolo</code> for quickly sliding a note's volume up and down;
+<ul>
+<li><strong>(a.k.a. Tremolo)</strong>;</li>
+</ul>
+</li>
+<li><code>harmonics</code> for natural and artificial harmonics;
+<ul>
+<li><strong>(a.k.a. harmonics)</strong>;</li>
+</ul>
+</li>
+<li><code>method</code> for changing the tool and overall method used to emit sound;
+<ul>
+<li>Has a single <code>String</code> parameter, which can be:
+<ul>
+<li><code>&quot;default&quot;</code>, for the default method of the MUSi;</li>
+<li><code>&quot;plucking&quot;</code>, useful for string instruments;
+<ul>
+<li><strong>(Plucked, pizz.)</strong>;</li>
+</ul>
+</li>
+<li><code>&quot;pick&quot;</code>, useful for the guitar family;
+<ul>
+<li><strong>(Picked)</strong>;</li>
+</ul>
+</li>
+<li><code>&quot;bow&quot;</code>, useful for the violin family;
+<ul>
+<li><strong>(Arco)</strong>;</li>
+</ul>
+</li>
+<li><code>&quot;soft_mallet&quot;</code>, useful for percussion;</li>
+<li><code>&quot;hard_mallet&quot;</code>, useful for percussion;</li>
+<li>Or something else;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Pitch</h4>
+<ul>
+<li><code>pitch_shift</code> for shifting the pitch of a selected section by some amount;
+<ul>
+<li><strong>(a.k.a. ♯, ♭, 8va. Alta &amp; Bassa, etc.)</strong>;</li>
+</ul>
+</li>
+<li><code>pitch_slide ( Mode )</code> for gradually shifting pitch between two selected notes;
+<ul>
+<li><strong>(Glissando)</strong>;</li>
+<li><code>continuous</code> <strong>(portamento)</strong>;</li>
+<li><code>stepped</code> <strong>(glissando, chromatic)</strong>;</li>
+<li><code>diatonic</code> <strong>(glissando, in key)</strong>;</li>
+<li><code>discrete</code> <strong>(hammer on &amp; pull off)</strong>;</li>
+</ul>
+</li>
+<li><code>sustain</code> for allowing notes to vibrate after they are released;
+<ul>
+<li><strong>(a.k.a. Ped., let ring, laissez vibrez)</strong></li>
+</ul>
+</li>
+</ul>
+<h4>Dynamics</h4>
+<ul>
+<li><code>intensity</code> for setting the intensity with which a note is triggered.</li>
+</ul>
+<h4>Ornaments</h4>
+<ul>
+<li><code>chord_derive</code> for deriving a chord from a single note. Useful for sketching harmony non-destructively;</li>
+<li><code>chord_stagger</code> for arpeggiating/strumming a chord;
+<ul>
+<li><strong>(a.k.a. Arpeggio, Strum)</strong>;</li>
+</ul>
+</li>
+<li><code>trill</code> for quickly arpeggiating a note up and down;
+<ul>
+<li><strong>(a.k.a. Trill)</strong>;</li>
+</ul>
+</li>
+<li><code>lyrics</code> for adding lyrics to a certain note;</li>
+</ul>
+<h3>Voice markers</h3>
+<p>Markers that affect the song itself, at least for a specific voice.</p>
+<ul>
+<li><code>time_resubdivide ( Int )</code> for subdividing a stretch of time in a new amount of parts;
+<ul>
+<li><strong>(a.k.a. tuplets)</strong>;</li>
+</ul>
+</li>
+</ul>
+<h3>Timeline markers</h3>
+<p>Markers that are affect or are bound to the timeline.</p>
+<p>These markers <em>are</em> seen by MUSI during playback, but most instruments aren't supposed to react to the tempo anyways. Instead, these are to be interpreted and played back by the MUSI's host.</p>
+<h4>Location</h4>
+<ul>
+<li><code>marker</code> a simple marker that simply marks a place or range in the song.</li>
+</ul>
+<h4>Song pace</h4>
+<ul>
+<li><code>tempo_define</code>, for defining a new pace for the song, in units (beats) per second;</li>
+<li><code>tempo_slide</code> for accelerating or decelerating the tempo;
+<ul>
+<li><strong>(accel., rit., etc.)</strong>;</li>
+</ul>
+</li>
+<li><code>tempo_divide</code>, for setting a new scheme for dividing the flowing tempo (what's called a 'time signature');</li>
+<li><code>tempo_feel</code>, for defining a new tempo style;
+<ul>
+<li>Has a single parameter, which can be:
+<ul>
+<li><code>&quot;straight&quot;</code> for <strong>Straight</strong> tempo;</li>
+<li><code>&quot;swing&quot;</code> for <strong>Swing</strong> tempo;</li>
+<li>Or something else;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>repeat</code> for repeating an area of the song some amount of times;</li>
+<li><code>conditional_jump</code> for jumping to some specific marker given an input condition. This one is advanced and might be used for repeats or dynamic, interactive music;</li>
+</ul>
+</main><footer><span>Made with <em>HTML</em> by Pedro Braga</span></footer></body></html>

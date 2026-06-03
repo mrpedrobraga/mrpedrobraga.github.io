@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><title>mrpedrobraga | Partitune (1.0.0)</title><link rel="stylesheet" href="/public/styles/main.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/rust.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ini.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/sh.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/glsl.min.js"></script><script>hljs.highlightAll();</script></head><body><header><nav><span class="notice">This is a temporary page, as the website is being rebuilt.
+I appreciate the understanding.</span><ul><a href="/"><li>Home</li></a><a href="/projects"><li>Projects</li></a></ul></nav><div class="banner" style="background-image: url(&#39;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a989815-8731-4b08-8124-db03acb4ada8/di7xmh0-8c21639f-8b54-4c3b-bed0-b50b6fbc8d8b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8xYTk4OTgxNS04NzMxLTRiMDgtODEyNC1kYjAzYWNiNGFkYTgvZGk3eG1oMC04YzIxNjM5Zi04YjU0LTRjM2ItYmVkMC1iNTBiNmZiYzhkOGIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OWTlOXrVlOcGk3DkNyh2X5etCjhDxJ98O53I6vGzMpU&#39;)"></div><div class="page-info"><h1>Partitune (1.0.0)</h1><p>A semantic, human-readable music exchange format.</p><div class="tags"><div class="tags"><div class="tag">dsl</div><div class="tag">music</div></div></div></div></header><main class="compact"><p>Partitune is a syntax for rigorously writing down music in text files. The syntax is very reminiscent of sheet music, so it should be easy to follow along.</p>
+<p>Here's an example of a song.</p>
+<pre><code class="language-partitune">Title: &quot;My Song&quot;
+Composer: &quot;Pedro Braga&quot;
+
+TREBLE C 4/4:                   // Clef, Key Signature, Time signature
+||:                             // start of song (and also measure)
+T&quot;Swing&quot;                        // Staff text
+2/4 +f           C4, E4,  G4;   // &quot;Chords&quot; with a duration, modifier, then the notes.
+1/4             ..., D4, ...;   // &quot;...&quot; will continue the previous note from the same voice.
+1/8              C4, F4,  A4;
+1/8             ..., G4,  B4;
+|                               // bar lines separate measures
+2/4              C4, E4,  G4;
+1/4 +tr         ..., F4, ...;   // &lt;- modifiers follow same name as convention (this is tremolo)
+1/4              C4, D4,  A4;
+:||                             // end of song
+
+BASS C 4/4:                     // new staff, for the bass part
+||:
+2/4 +f C3;
+2/4    --;                      // -- is a rest!
+|
+4/4    C3
+:||
+</code></pre>
+<h3>Format</h3>
+<p>Here is the entirety of the parser's grammar.</p>
+<pre><code class="language-pest">DOCUMENT = { SONG_INFO* ~ STAVES }
+SONG_INFO = { (&quot;Title&quot; | &quot;Subtitle&quot; | &quot;Composer&quot;) ~ &quot;:&quot; ~ string }
+STAVES = { STAFF+ }
+
+STAFF = { STAFF_HEADER ~ &quot;:&quot; ~ BARS ~ END_STAFF }
+STAFF_HEADER = { CLEF ~ FULL_NOTE ~ BEAT_LENGTH }
+FULL_NOTE = @{ NOTE_LETTER ~ ACCIDENTAL? }
+NOTE_LETTER = { &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; | &quot;F&quot; | &quot;G&quot; }
+ACCIDENTAL = { &quot;##&quot; | &quot;bb&quot; | &quot;#&quot; | &quot;b&quot; }
+CLEF = { &quot;TREBLE&quot; | &quot;BASS&quot; }
+BARS = { MEASURE_SEPARATOR? ~ BAR ~ (MEASURE_SEPARATOR ~ BAR)* }
+
+MEASURE_SEPARATOR = @{ &quot;||:&quot; | &quot;:||&quot; | &quot;:|||:&quot; | &quot;|&quot; }
+END_STAFF = @{ &quot;||&quot; | &quot;:||&quot; }
+
+BAR = { FRAGMENT ~ (&quot;;&quot; ~ FRAGMENT)* ~ &quot;;&quot;? }
+FRAGMENT = { BEAT_LENGTH ~ (FRAGMENT_MODIFIER | TEXT)* ~ VOICE_FRAGMENT ~ (&quot;,&quot; ~ VOICE_FRAGMENT)* ~ &quot;,&quot;? }
+FRAGMENT_MODIFIER = { MODIFIER_MODE ~ FRAGMENT_MODIFIER_NAME }
+FRAGMENT_MODIFIER_NAME = { &quot;tr&quot; | &quot;f&quot; | &quot;ff&quot; | &quot;fff&quot; | &quot;p&quot; | &quot;pp&quot; | &quot;ppp&quot; }
+VOICE_FRAGMENT = { ((PRECISE_NOTE | REST) ~ VOICE_FRAGMENT_MODIFIER* | CONTINUE) }
+PRECISE_NOTE = @{ NOTE_LETTER ~ NUMBER }
+VOICE_FRAGMENT_MODIFIER = { MODIFIER_MODE ~ VOICE_FRAGMENT_MODIFIER_NAME }
+VOICE_FRAGMENT_MODIFIER_NAME = { ACCIDENTAL | &quot;tie&quot; | &quot;.&quot; }
+BEAT_LENGTH = { NUMBER ~ &quot;/&quot; ~ NUMBER }
+REST = { &quot;---&quot; }
+CONTINUE = { &quot;...&quot; }
+
+MODIFIER_MODE = { &quot;+&quot; | &quot;-&quot; | &quot;&amp;&quot; }
+
+TEXT = @{ (&quot;Ly&quot; | &quot;Ch&quot; | &quot;Sys&quot; | &quot;T&quot;) ~ string }
+
+string = ${ &quot;\&quot;&quot; ~ inner ~ &quot;\&quot;&quot; }
+inner = @{ char* }
+char = {
+    !(&quot;\&quot;&quot; | &quot;\\&quot;) ~ ANY
+    | &quot;\\&quot; ~ (&quot;\&quot;&quot; | &quot;\\&quot; | &quot;/&quot; | &quot;b&quot; | &quot;f&quot; | &quot;n&quot; | &quot;r&quot; | &quot;t&quot;)
+    | &quot;\\&quot; ~ (&quot;u&quot; ~ ASCII_HEX_DIGIT{4})
+}
+
+NUMBER = @{ ASCII_DIGIT+ }
+WHITESPACE = _{ &quot; &quot; | NEWLINE }
+</code></pre>
+</main><footer><span>Made with <em>HTML</em> by Pedro Braga</span></footer></body></html>

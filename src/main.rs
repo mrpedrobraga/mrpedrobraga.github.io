@@ -7,7 +7,7 @@ use rocket::{
     routes,
 };
 
-use self::projects::project_html;
+use self::projects::project_page_html;
 
 pub mod api;
 pub mod home;
@@ -26,13 +26,14 @@ async fn main() -> Result<(), rocket::error::Error> {
             build_website().await;
             Ok(())
         }
-        CliArgs::Serve => {
-            serve_website().await?;
+        CliArgs::Dev => {
+            build_website().await;
+            serve_website(false).await?;
             Ok(())
         }
         CliArgs::Prod => {
-            build_website().await;
-            serve_website().await?;
+            //build_website().await;
+            serve_website(true).await?;
             Ok(())
         }
     }
@@ -41,21 +42,23 @@ async fn main() -> Result<(), rocket::error::Error> {
 #[derive(clap::Parser)]
 enum CliArgs {
     Build,
-    Serve,
+    Dev,
     Prod,
 }
 
 async fn build_website() {
     let dist_directory = PathBuf::from("./dist");
 
+    let _ = std::fs::create_dir(&dist_directory);
     std::fs::write(
         dist_directory.join("index.html"),
         home::home_html().to_string(),
     )
     .unwrap();
+    let _ = std::fs::create_dir(dist_directory.join("projects"));
     std::fs::write(
         dist_directory.join("projects/index.html"),
-        projects::projects_html().to_string(),
+        projects::project_list_html().to_string(),
     )
     .unwrap();
 
@@ -66,7 +69,7 @@ async fn build_website() {
         let e_name = entry.file_name();
         let e_name = e_name.to_str().unwrap();
 
-        let html = project_html(e_name.to_owned());
+        let html = project_page_html(e_name.to_owned());
 
         let _ = std::fs::create_dir(dist_directory.join(format!("projects/{e_name}/")));
         std::fs::write(
@@ -77,13 +80,22 @@ async fn build_website() {
     }
 }
 
+pub struct WebsiteContext {
+    pub dist_dir: PathBuf
+}
+
 #[allow(clippy::result_large_err)]
-async fn serve_website() -> Result<(), rocket::Error> {
+async fn serve_website(prod: bool) -> Result<(), rocket::Error> {
+    let dist_dir = PathBuf::from(if prod { "/app/dist" } else { "./dist" });
+    let dd2 = dist_dir.clone();
+    let public_dir = PathBuf::from(if prod { "/app/public" } else { "./public" });
+
     let mut rocket_app = rocket::build()
-        .mount("/public", FileServer::from(relative!("public")))
+        .manage(WebsiteContext { dist_dir })
+        .mount("/public", FileServer::from(public_dir))
         .register("/", catchers![home::not_found])
         .mount("/", routes![home::home])
-        .mount("/projects", FileServer::from(relative!("dist/projects")));
+        .mount("/projects", FileServer::from(dd2.join("projects")));
     // .mount("/md-projects", routes![projects::projects])
     // .mount("/md-project", routes![projects::project]);
 

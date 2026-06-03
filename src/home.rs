@@ -1,14 +1,31 @@
-use crate::markdown::{self, RenderedFile};
+use crate::{WebsiteContext, markdown::{self, RenderedFile}};
 use plait::{Html, ToHtml};
-use rocket::{catch, fs::NamedFile, get};
+use rocket::{State, catch, fs::NamedFile, get};
 use std::path::PathBuf;
 
 #[get("/")]
-pub async fn home() -> NamedFile {
-    NamedFile::open("./dist/index.html").await.unwrap()
+pub async fn home(cx: &State<WebsiteContext>) -> NamedFile {
+    NamedFile::open(cx.dist_dir.join("index.html")).await.unwrap()
+}
+
+pub fn nav() -> Html {
+    plait::html! {
+        nav {
+            span(class: "notice") {
+                "This is a temporary page, as the website is being rebuilt.\nI appreciate the understanding."
+            }
+            ul {
+                a(href: "/") { li { "Home" } }
+                a(href: "/projects") { li { "Projects" } }
+                // a(href: "/gallery") { li { "Gallery" } }
+            }
+        }
+    }.to_html()
 }
 
 pub fn home_html() -> Html {
+    let _nav = nav();
+
     let rendered_file_res =
         markdown::render_from_path_full::<()>(PathBuf::from("./content/pages/index.md"));
     let rendered_file = rendered_file_res.unwrap_or(RenderedFile {
@@ -31,12 +48,15 @@ pub fn home_html() -> Html {
             }
             body {
                 header {
-                    nav {
-                        "Navigation goes here..."
-                    }
+                    #(_nav)
                 }
                 main(class: "compact") {
                     #(rendered_file.html_content)
+                }
+                footer {
+                    span {
+                        "Made with " em { "HTML" } " by Pedro Braga"
+                    }
                 }
             }
         }

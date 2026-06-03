@@ -1,0 +1,62 @@
+<!DOCTYPE html><html><head><title>mrpedrobraga | Overtone (0.0.0)</title><link rel="stylesheet" href="/public/styles/main.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/rust.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ini.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/sh.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/glsl.min.js"></script><script>hljs.highlightAll();</script></head><body><header><nav><span class="notice">This is a temporary page, as the website is being rebuilt.
+I appreciate the understanding.</span><ul><a href="/"><li>Home</li></a><a href="/projects"><li>Projects</li></a></ul></nav><div class="banner" style="background-image: url(&#39;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a989815-8731-4b08-8124-db03acb4ada8/di7xmh0-8c21639f-8b54-4c3b-bed0-b50b6fbc8d8b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8xYTk4OTgxNS04NzMxLTRiMDgtODEyNC1kYjAzYWNiNGFkYTgvZGk3eG1oMC04YzIxNjM5Zi04YjU0LTRjM2ItYmVkMC1iNTBiNmZiYzhkOGIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OWTlOXrVlOcGk3DkNyh2X5etCjhDxJ98O53I6vGzMpU&#39;)"></div><div class="page-info"><h1>Overtone (0.0.0)</h1><p>A music (and more) composition app with a powerful modular architecture.</p><div class="tags"><div class="tags"><div class="tag">software</div><div class="tag">music</div></div></div></div></header><main class="compact"><center><a href="https://github.com/mrpedrobraga/overtone"><img src="https://img.shields.io/badge/github-repo-blue?logo=github"></a></center>
+<p>A music (and more) composition app with a powerful modular architecture.</p>
+<blockquote>
+<p>🚧 This project is in development and can not be used for... anything yet.</p>
+</blockquote>
+<h2>Goals</h2>
+<ul>
+<li>Cross-platform — run on PC, Mac, mobile, web, maybe even embedded;</li>
+<li>Lightweight — this program should be performant and have a low memory footprint, leaving enough RAM for your audio endeavours;
+<ul>
+<li>Lazy-loaded — while editing a song, only the resources in use are loaded, saving memory;</li>
+</ul>
+</li>
+<li>Stable — using memory safe patterns, thorough error definitions, and concurrency for long-lived tasks, this program shouldn't be freezing or crashing on you;
+<ul>
+<li>I particularly care about good dynamic error messages and popups for the user;</li>
+</ul>
+</li>
+<li>Modular — it's easy to create new renderers, exporters, previewers, etc. Overtone is like a &quot;host&quot; for the many plugins that interconnect;
+<ul>
+<li>Projects can have &quot;dependencies&quot; on plugins and external resources;</li>
+</ul>
+</li>
+<li>Text-based — you can use VCS to keep track of changes in your compositions, as well as inspect the contents of your songs. This way, you truly OWN your project, you can interact with your song even without Overtone;</li>
+</ul>
+<h2>Features</h2>
+<p>This library comes with a binary, too, a CLI tool for editing your project directly on disk, courtesy of <a href="/project/proj">proj</a>.</p>
+<p><code>music-std</code>, the builtin plugin, comes with its own features, too.</p>
+<ul>
+<li>Music concepts;
+<ul>
+<li>External audio samples;</li>
+<li>Piano roll for keyboard-like instruments;</li>
+<li>Guitar roll for string instruments;</li>
+<li>Arbitrary musical markings for the song and for notes (list below non-exhaustive);
+<ul>
+<li>Dynamics (pp, p, f, ff);</li>
+<li>Ornaments (portamento, trill, acciacatura);</li>
+<li>Articulations (pizzicato, harmonics, sul tasto);</li>
+<li>Tempo markings (swing, time signatures, fermata);</li>
+<li>Lyrics;</li>
+</ul>
+</li>
+<li>Non-destructive, graph-based effect composition (like Blender's geometry nodes and modifiers);
+<ul>
+<li>Audio effects for manipulating audio;</li>
+<li>Note effects for manipulating/generating note data;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Music playback;
+<ul>
+<li><input type="checkbox" disabled="" /> <code>SFLT</code>, a SoundFont player that supports <code>SF2</code>, courtesy of <a href="https://github.com/estroBiologist/">ash taylor</a>;</li>
+<li><input type="checkbox" disabled="" /> <code>Timbre</code>, a player for overtone's own sample library;</li>
+<li><input type="checkbox" disabled="" /> <code>Vibrando</code>, a VST player;</li>
+<li><input type="checkbox" checked="" disabled="" /> Unique <code>music-std</code> plugins;</li>
+</ul>
+</li>
+</ul>
+</main><footer><span>Made with <em>HTML</em> by Pedro Braga</span></footer></body></html>
